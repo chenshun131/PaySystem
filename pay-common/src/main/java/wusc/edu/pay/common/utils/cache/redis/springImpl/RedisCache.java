@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 
 import wusc.edu.pay.common.utils.cache.redis.RedisUtils;
 
+import java.util.concurrent.Callable;
+
 
 /**
  * 
@@ -48,6 +50,16 @@ public class RedisCache implements Cache {
 	}
 
 	@Override
+	public <T> T get(Object key, Class<T> type) {
+		return null;
+	}
+
+	@Override
+	public <T> T get(Object key, Callable<T> valueLoader) {
+		return null;
+	}
+
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -60,6 +72,11 @@ public class RedisCache implements Cache {
 	/**添加缓存*/
 	public void put(Object arg0, Object arg1) {
 		cache.save(arg0, arg1,20000);
+	}
+
+	@Override
+	public ValueWrapper putIfAbsent(Object key, Object value) {
+		return null;
 	}
 
 	public RedisCache() {

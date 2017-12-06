@@ -115,8 +115,8 @@
         <!-- ========================================================== -->
 
         <!-- frameworks -->
-        <org.springframework.version>3.2.4.RELEASE</org.springframework.version>
-        <org.apache.struts.version>2.3.15.1</org.apache.struts.version>
+        <org.springframework.version>5.0.2.RELEASE</org.springframework.version>
+        <org.apache.struts.version>2.5.14.1</org.apache.struts.version>
     </properties>
 
     <dependencies>
@@ -124,7 +124,8 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.12</version>
+            <scope>test</scope>
         </dependency>
         <!-- Test Dependency End -->
     </dependencies>
@@ -135,7 +136,7 @@
             <dependency>
                 <groupId>antlr</groupId>
                 <artifactId>antlr</artifactId>
-                <version>2.7.6</version>
+                <version>2.7.7</version>
             </dependency>
             <dependency>
                 <groupId>aopalliance</groupId>
@@ -145,7 +146,7 @@
             <dependency>
                 <groupId>org.aspectj</groupId>
                 <artifactId>aspectjweaver</artifactId>
-                <version>1.7.3</version>
+                <version>1.8.13</version>
             </dependency>
             <!-- <dependency> -->
             <!-- <groupId>cglib</groupId> -->
@@ -155,7 +156,7 @@
             <dependency>
                 <groupId>cglib</groupId>
                 <artifactId>cglib</artifactId>
-                <version>2.2.2</version>
+                <version>3.2.5</version>
             </dependency>
 
             <dependency>
@@ -167,7 +168,7 @@
             <dependency>
                 <groupId>net.sf.json-lib</groupId>
                 <artifactId>json-lib</artifactId>
-                <version>2.3</version>
+                <version>2.4</version>
                 <classifier>jdk15</classifier>
                 <scope>compile</scope>
             </dependency>
@@ -184,7 +185,7 @@
             <dependency>
                 <groupId>ognl</groupId>
                 <artifactId>ognl</artifactId>
-                <version>3.0.6</version>
+                <version>3.2.4</version>
             </dependency>
             <dependency>
                 <groupId>oro</groupId>
@@ -194,37 +195,37 @@
             <dependency>
                 <groupId>commons-net</groupId>
                 <artifactId>commons-net</artifactId>
-                <version>3.2</version>
+                <version>3.6</version>
             </dependency>
             <dependency>
                 <groupId>commons-beanutils</groupId>
                 <artifactId>commons-beanutils</artifactId>
-                <version>1.8.0</version>
+                <version>1.9.3</version>
             </dependency>
             <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
-                <version>1.8</version>
+                <version>1.11</version>
             </dependency>
             <dependency>
                 <groupId>commons-collections</groupId>
                 <artifactId>commons-collections</artifactId>
-                <version>3.2</version>
+                <version>3.2.2</version>
             </dependency>
             <dependency>
                 <groupId>commons-digester</groupId>
                 <artifactId>commons-digester</artifactId>
-                <version>2.0</version>
+                <version>2.1</version>
             </dependency>
             <dependency>
                 <groupId>commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
-                <version>1.3.1</version>
+                <version>1.3.3</version>
             </dependency>
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
-                <version>2.0.1</version>
+                <version>2.6</version>
             </dependency>
             <dependency>
                 <groupId>commons-lang</groupId>
@@ -234,22 +235,22 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>3.1</version>
+                <version>3.7</version>
             </dependency>
             <dependency>
                 <groupId>commons-logging</groupId>
                 <artifactId>commons-logging</artifactId>
-                <version>1.1.3</version>
+                <version>1.2</version>
             </dependency>
             <dependency>
                 <groupId>commons-validator</groupId>
                 <artifactId>commons-validator</artifactId>
-                <version>1.1.4</version>
+                <version>1.6</version>
             </dependency>
             <dependency>
                 <groupId>commons-cli</groupId>
                 <artifactId>commons-cli</artifactId>
-                <version>1.2</version>
+                <version>1.4</version>
             </dependency>
             <dependency>
                 <groupId>dom4j</groupId>
@@ -284,12 +285,12 @@
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>1.7.5</version>
+                <version>1.7.25</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>
-                <version>1.7.5</version>
+                <version>1.7.25</version>
             </dependency>
             <dependency>
                 <groupId>net.sourceforge.jexcelapi</groupId>
@@ -312,31 +313,55 @@
                 <version>1.1.3</version>
             </dependency>
             <dependency>
+                <groupId>jaxen</groupId>
+                <artifactId>jaxen</artifactId>
+                <version>1.1.6</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ibm.icu</groupId>
+                <artifactId>icu4j</artifactId>
+                <version>60.1</version>
+            </dependency>
+            <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>dubbo</artifactId>
-                <version>2.5.3</version>
+                <version>2.5.7</version>
             </dependency>
             <dependency>
                 <groupId>redis.clients</groupId>
                 <artifactId>jedis</artifactId>
-                <version>2.4.2</version>
+                <version>2.9.0</version>
             </dependency>
             <!-- Common Dependency End -->
+
+            <!-- sftp begin -->
+            <dependency>
+                <groupId>com.jcraft</groupId>
+                <artifactId>jsch</artifactId>
+                <version>0.1.54</version>
+            </dependency>
+            <!-- sftp end -->
 
             <!-- Zookeeper 用于分布式服务管理 -->
             <dependency>
                 <groupId>org.apache.zookeeper</groupId>
                 <artifactId>zookeeper</artifactId>
-                <version>3.4.5</version>
+                <version>3.4.11</version>
             </dependency>
 
             <dependency>
                 <groupId>com.101tec</groupId>
                 <artifactId>zkclient</artifactId>
-                <version>0.3</version>
+                <version>0.10</version>
             </dependency>
             <!-- Zookeeper 用于分布式服务管理 end -->
 
+            <!-- dubbo 需要的jar end -->
+            <dependency>
+                <groupId>com.squareup.okhttp</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>2.7.5</version>
+            </dependency>
 
             <!-- Spring Dependency Begin -->
             <dependency>
@@ -382,7 +407,7 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-instrument-tomcat</artifactId>
-                <version>${org.springframework.version}</version>
+                <version>4.3.13.RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -407,7 +432,7 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-struts</artifactId>
-                <version>${org.springframework.version}</version>
+                <version>3.2.18.RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -433,7 +458,7 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc-portlet</artifactId>
-                <version>${org.springframework.version}</version>
+                <version>4.3.13.RELEASE</version>
             </dependency>
             <!-- Spring Dependency End -->
 
@@ -441,12 +466,12 @@
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
-                <version>3.2.2</version>
+                <version>3.4.5</version>
             </dependency>
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
-                <version>1.2.0</version>
+                <version>1.3.1</version>
             </dependency>
             <!-- MyBatis Dependency End -->
 
@@ -482,7 +507,7 @@
             <dependency>
                 <groupId>org.apache.struts.xwork</groupId>
                 <artifactId>xwork-core</artifactId>
-                <version>${org.apache.struts.version}</version>
+                <version>2.3.34</version>
             </dependency>
             <!-- Struts2 Dependency End -->
 
@@ -495,12 +520,12 @@
             <dependency>
                 <groupId>org.apache.tomcat</groupId>
                 <artifactId>servlet-api</artifactId>
-                <version>6.0.37</version>
+                <version>6.0.53</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.tomcat</groupId>
                 <artifactId>jsp-api</artifactId>
-                <version>6.0.37</version>
+                <version>6.0.53</version>
             </dependency>
             <dependency>
                 <groupId>org.freemarker</groupId>
@@ -510,37 +535,47 @@
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
-                <version>0.2.23</version>
+                <version>1.1.6</version>
+            </dependency>
+            <dependency>
+                <groupId>xalan</groupId>
+                <artifactId>xalan</artifactId>
+                <version>2.7.2</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
-                <version>1.1.41</version>
+                <version>1.2.41</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
-                <version>4.3.3</version>
+                <version>4.5.4</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-httpclient</groupId>
+                <artifactId>commons-httpclient</artifactId>
+                <version>3.1</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.netty</groupId>
                 <artifactId>netty</artifactId>
-                <version>3.2.5.Final</version>
+                <version>3.2.10.Final</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.activemq</groupId>
                 <artifactId>activemq-all</artifactId>
-                <version>5.8.0</version>
+                <version>5.15.2</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.activemq</groupId>
                 <artifactId>activemq-pool</artifactId>
-                <version>5.8.0</version>
+                <version>5.15.2</version>
             </dependency>
             <dependency>
                 <groupId>org.jsoup</groupId>
                 <artifactId>jsoup</artifactId>
-                <version>1.7.3</version>
+                <version>1.11.2</version>
             </dependency>
             <!--<dependency>-->
             <!--<groupId>org.csource</groupId>-->
@@ -558,15 +593,14 @@
             <dependency>
                 <groupId>org.jpos</groupId>
                 <artifactId>jpos</artifactId>
-                <version>1.9.8</version>
+                <version>2.1.1</version>
             </dependency>
             <dependency>
                 <groupId>org.osgi</groupId>
                 <artifactId>org.osgi.core</artifactId>
-                <version>4.3.1</version>
+                <version>6.0.0</version>
             </dependency>
             <!-- JPOS End -->
-
         </dependencies>
     </dependencyManagement>
 
@@ -575,7 +609,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.7</version>
+                <version>2.8.2</version>
                 <configuration>
                     <uniqueVersion>false</uniqueVersion>
                 </configuration>
@@ -583,12 +617,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-eclipse-plugin</artifactId>
-                <version>2.8</version>
+                <version>2.10</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>3.7.0</version>
                 <configuration>
                     <failOnError>true</failOnError>
                     <verbose>true</verbose>
@@ -602,7 +636,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.2.1</version>
+                <version>3.0.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
