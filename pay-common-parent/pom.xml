@@ -293,6 +293,11 @@
                 <version>1.7.25</version>
             </dependency>
             <dependency>
+                <groupId>com.belerweb</groupId>
+                <artifactId>pinyin4j</artifactId>
+                <version>2.5.1</version>
+            </dependency>
+            <dependency>
                 <groupId>net.sourceforge.jexcelapi</groupId>
                 <artifactId>jxl</artifactId>
                 <version>2.6.12</version>
@@ -355,6 +360,12 @@
                 <version>0.10</version>
             </dependency>
             <!-- Zookeeper 用于分布式服务管理 end -->
+
+            <dependency>
+                <groupId>net.sourceforge.groboutils</groupId>
+                <artifactId>groboutils-core</artifactId>
+                <version>5</version>
+            </dependency>
 
             <!-- dubbo 需要的jar end -->
             <dependency>
@@ -512,11 +523,11 @@
             <!-- Struts2 Dependency End -->
 
             <!-- Others Begin -->
-            <!--<dependency>-->
-            <!--<groupId>com.google.code.kaptcha</groupId>-->
-            <!--<artifactId>kaptcha</artifactId>-->
-            <!--<version>2.3</version>-->
-            <!--</dependency>-->
+            <dependency>
+                <groupId>com.github.penggle</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>2.3.2</version>
+            </dependency>
             <dependency>
                 <groupId>org.apache.tomcat</groupId>
                 <artifactId>servlet-api</artifactId>
@@ -573,6 +584,11 @@
                 <version>5.15.2</version>
             </dependency>
             <dependency>
+                <groupId>org.csource</groupId>
+                <artifactId>fastdfs-client-java</artifactId>
+                <version>1.27</version>
+            </dependency>
+            <dependency>
                 <groupId>org.jsoup</groupId>
                 <artifactId>jsoup</artifactId>
                 <version>1.11.2</version>
@@ -601,6 +617,40 @@
                 <version>6.0.0</version>
             </dependency>
             <!-- JPOS End -->
+
+            <!--drools -->
+            <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-core</artifactId>
+                <version>7.4.1.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-compiler</artifactId>
+                <version>7.4.1.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-spring</artifactId>
+                <version>5.6.0.Final</version>
+            </dependency>
+            <!--drools -->
+
+            <dependency>
+                <groupId>xml-security</groupId>
+                <artifactId>xmlsec</artifactId>
+                <version>1.3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>1.4.7</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity</artifactId>
+                <version>1.7</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
