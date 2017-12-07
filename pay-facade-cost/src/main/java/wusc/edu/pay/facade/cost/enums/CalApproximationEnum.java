@@ -78,10 +78,10 @@ public enum CalApproximationEnum {
 	public static List toList() {
 		CalApproximationEnum[] ary = CalApproximationEnum.values();
 		List list = new ArrayList();
-		for (int i = 0; i < ary.length; i++) {
-			Map<String, String> map = new HashMap<String, String>();
-			map.put("value", String.valueOf(ary[i].getValue()));
-			map.put("desc", ary[i].getDesc());
+		for (CalApproximationEnum anAry : ary) {
+			Map<String, String> map = new HashMap<>();
+			map.put("value", String.valueOf(anAry.getValue()));
+			map.put("desc", anAry.getDesc());
 			list.add(map);
 		}
 		return list;

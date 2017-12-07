@@ -7,21 +7,22 @@ import org.springframework.stereotype.Component;
 
 /**
  * 描述:获取spring上下文
+ *
  * @author Hill
- * 
  */
-@Lazy(value=false)
+@Lazy(value = false)
 @Component
-public class ApplicationContextAware implements
-		org.springframework.context.ApplicationContextAware {
-	private static ApplicationContext ctx;
-	
-	public void setApplicationContext(ApplicationContext applicationContext)
-			throws BeansException {
-		ApplicationContextAware.ctx = applicationContext;
-	}
-	
-	public static ApplicationContext getApplicationContext(){
-		return ctx;
-	}
+public class ApplicationContextAware implements org.springframework.context.ApplicationContextAware {
+
+    private static ApplicationContext ctx;
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        ApplicationContextAware.ctx = applicationContext;
+    }
+
+    public static ApplicationContext getApplicationContext() {
+        return ctx;
+    }
+
 }

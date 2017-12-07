@@ -9,14 +9,10 @@ package wusc.edu.pay.common.constant;
  */
 public class LinkType {
 
-	/**
-	 * 商户
-	 */
+	/**商户*/
 	public static final int B2C = 1;
 	
-	/**
-	 * 银行
-	 */
+	/**银行*/
 	public static final int B2B = 2;
 	
 }

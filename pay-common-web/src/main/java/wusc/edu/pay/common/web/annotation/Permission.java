@@ -13,7 +13,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME) //声明注解的保留期限
 @Target(ElementType.METHOD) // 声明可以使用该注解的目标类型为在方法中使用
 public @interface Permission {
-	/** 权限值 */
-	String value(); // 注解成员
-	
+
+    /** 权限值 */
+    String value(); // 注解成员
+
 }

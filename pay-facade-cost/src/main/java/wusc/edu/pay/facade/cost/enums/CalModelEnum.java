@@ -62,10 +62,10 @@ public enum CalModelEnum {
 	public static List toList() {
 		CalModelEnum[] ary = CalModelEnum.values();
 		List list = new ArrayList();
-		for (int i = 0; i < ary.length; i++) {
+		for (CalModelEnum anAry : ary) {
 			Map<String, String> map = new HashMap<String, String>();
-			map.put("value", String.valueOf(ary[i].getValue()));
-			map.put("desc", ary[i].getDesc());
+			map.put("value", String.valueOf(anAry.getValue()));
+			map.put("desc", anAry.getDesc());
 			list.add(map);
 		}
 		return list;

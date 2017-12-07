@@ -102,7 +102,8 @@ public class RemitBizException extends BizException {
 	 * @param args
 	 * @return
 	 */
-	public RemitBizException newInstance(String msgFormat, Object... args) {
+	@Override
+    public RemitBizException newInstance(String msgFormat, Object... args) {
 		return new RemitBizException(this.code, msgFormat, args);
 	}
 

@@ -85,9 +85,9 @@ public enum TradePaymentTypeEnum {
 	public static TradePaymentTypeEnum getEnum(int value) {
 		TradePaymentTypeEnum resultEnum = null;
 		TradePaymentTypeEnum[] enumAry = TradePaymentTypeEnum.values();
-		for (int i = 0; i < enumAry.length; i++) {
-			if (enumAry[i].getValue() == value) {
-				resultEnum = enumAry[i];
+		for (TradePaymentTypeEnum anEnumAry : enumAry) {
+			if (anEnumAry.getValue() == value) {
+				resultEnum = anEnumAry;
 				break;
 			}
 		}

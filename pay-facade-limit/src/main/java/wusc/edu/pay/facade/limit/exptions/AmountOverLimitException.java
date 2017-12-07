@@ -64,10 +64,12 @@ public class AmountOverLimitException extends BizException {
 		super();
 	}
 
-	public String getMsg() {
+	@Override
+    public String getMsg() {
 		return msg;
 	}
 
+	@Override
 	public int getCode() {
 		return code;
 	}

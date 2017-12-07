@@ -49,23 +49,22 @@ public enum ArticleTypeEnum {
 	public static ArticleTypeEnum getEnum(int value) {
 		ArticleTypeEnum resultEnum = null;
 		ArticleTypeEnum[] enumAry = ArticleTypeEnum.values();
-		for (int i = 0; i < enumAry.length; i++) {
-			if (enumAry[i].getValue() == value) {
-				resultEnum = enumAry[i];
+		for (ArticleTypeEnum anEnumAry : enumAry) {
+			if (anEnumAry.getValue() == value) {
+				resultEnum = anEnumAry;
 				break;
 			}
 		}
 		return resultEnum;
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static List toList() {
 		ArticleTypeEnum[] ary = ArticleTypeEnum.values();
 		List list = new ArrayList();
-		for (int i = 0; i < ary.length; i++) {
-			Map<String, String> map = new HashMap<String, String>();
-			map.put("value", String.valueOf(ary[i].getValue()));
-			map.put("desc", ary[i].getDesc());
+		for (ArticleTypeEnum anAry : ary) {
+			Map<String, String> map = new HashMap<>();
+			map.put("value", String.valueOf(anAry.getValue()));
+			map.put("desc", anAry.getDesc());
 			list.add(map);
 		}
 		return list;
@@ -73,12 +72,12 @@ public enum ArticleTypeEnum {
 	
 	public static Map<String, Map<String, Object>> toMap() {
 		ArticleTypeEnum[] ary = ArticleTypeEnum.values();
-		Map<String, Map<String, Object>> enumMap = new HashMap<String, Map<String, Object>>();
-		for (int num = 0; num < ary.length; num++) {
-			Map<String, Object> map = new HashMap<String, Object>();
-			String key = String.valueOf(getEnum(ary[num].getValue()));
-			map.put("value", String.valueOf(ary[num].getValue()));
-			map.put("desc", ary[num].getDesc());
+		Map<String, Map<String, Object>> enumMap = new HashMap<>();
+		for (ArticleTypeEnum anAry : ary) {
+			Map<String, Object> map = new HashMap<>();
+			String key = String.valueOf(getEnum(anAry.getValue()));
+			map.put("value", String.valueOf(anAry.getValue()));
+			map.put("desc", anAry.getDesc());
 			enumMap.put(key, map);
 		}
 		return enumMap;
@@ -91,12 +90,13 @@ public enum ArticleTypeEnum {
 	 */
 	public static String getJsonStr() {
 		ArticleTypeEnum[] enums = ArticleTypeEnum.values();
-		StringBuffer jsonStr = new StringBuffer("[");
+		StringBuilder jsonStr = new StringBuilder("[");
 		for (ArticleTypeEnum senum : enums) {
 			if (!"[".equals(jsonStr.toString())) {
 				jsonStr.append(",");
 			}
-			jsonStr.append("{id:'").append(senum.toString()).append("',desc:'").append(senum.getDesc()).append("',value:'").append(senum.getValue()).append("'}");
+			jsonStr.append("{id:'").append(senum.toString()).append("',desc:'").append(senum.getDesc())
+					.append("',value:'").append(senum.getValue()).append("'}");
 		}
 		jsonStr.append("]");
 		return jsonStr.toString();

@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * 结算日汇总记录状态
- * 
+ *
  * @author huqian
  * @date 2014-01-07
  * @version 1.0
@@ -54,29 +54,28 @@ public enum SettDailyCollectStatusEnum {
 	public static SettDailyCollectStatusEnum getEnum(int value) {
 		SettDailyCollectStatusEnum resultEnum = null;
 		SettDailyCollectStatusEnum[] enumAry = SettDailyCollectStatusEnum.values();
-		for (int i = 0; i < enumAry.length; i++) {
-			if (enumAry[i].getValue() == value) {
-				resultEnum = enumAry[i];
-				break;
-			}
-		}
+        for (SettDailyCollectStatusEnum anEnumAry : enumAry) {
+            if (anEnumAry.getValue() == value) {
+                resultEnum = anEnumAry;
+                break;
+            }
+        }
 		return resultEnum;
 	}
 
 	public static Map<String, Map<String, Object>> toMap() {
 		SettDailyCollectStatusEnum[] ary = SettDailyCollectStatusEnum.values();
-		Map<String, Map<String, Object>> enumMap = new HashMap<String, Map<String, Object>>();
-		for (int num = 0; num < ary.length; num++) {
-			Map<String, Object> map = new HashMap<String, Object>();
-			String key = String.valueOf(getEnum(ary[num].getValue()));
-			map.put("value", String.valueOf(ary[num].getValue()));
-			map.put("desc", ary[num].getDesc());
-			enumMap.put(key, map);
-		}
+		Map<String, Map<String, Object>> enumMap = new HashMap<>();
+        for (SettDailyCollectStatusEnum anAry : ary) {
+            Map<String, Object> map = new HashMap<>();
+            String key = String.valueOf(getEnum(anAry.getValue()));
+            map.put("value", String.valueOf(anAry.getValue()));
+            map.put("desc", anAry.getDesc());
+            enumMap.put(key, map);
+        }
 		return enumMap;
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static List toList() {
 		SettDailyCollectStatusEnum[] ary = SettDailyCollectStatusEnum.values();
 		List list = new ArrayList();

@@ -89,10 +89,12 @@ public class SwitchLimitException extends BizException {
 		super();
 	}
 
-	public String getMsg() {
+	@Override
+    public String getMsg() {
 		return msg;
 	}
 
+	@Override
 	public int getCode() {
 		return code;
 	}
@@ -104,6 +106,7 @@ public class SwitchLimitException extends BizException {
 	 * @param args
 	 * @return
 	 */
+	@Override
 	public SwitchLimitException newInstance(String msgFormat, Object... args) {
 		return new SwitchLimitException(this.code, msgFormat, args);
 	}

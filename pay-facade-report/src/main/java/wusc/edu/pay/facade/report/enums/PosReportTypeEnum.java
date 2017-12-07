@@ -93,11 +93,11 @@ public enum PosReportTypeEnum {
 	public static Map<String, Map<String, Object>> toMap() {
 		PosReportTypeEnum[] ary = PosReportTypeEnum.values();
 		Map<String, Map<String, Object>> enumMap = new HashMap<String, Map<String, Object>>();
-		for (int num = 0; num < ary.length; num++) {
+		for (PosReportTypeEnum anAry : ary) {
 			Map<String, Object> map = new HashMap<String, Object>();
-			String key = String.valueOf(getEnum(ary[num].getValue()));
-			map.put("value", String.valueOf(ary[num].getValue()));
-			map.put("desc", ary[num].getDesc());
+			String key = String.valueOf(getEnum(anAry.getValue()));
+			map.put("value", String.valueOf(anAry.getValue()));
+			map.put("desc", anAry.getDesc());
 			enumMap.put(key, map);
 		}
 		return enumMap;

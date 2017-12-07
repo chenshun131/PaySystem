@@ -102,7 +102,8 @@ public class AccountBizException extends BizException {
 	 * @param args
 	 * @return
 	 */
-	public AccountBizException newInstance(String msgFormat, Object... args) {
+	@Override
+    public AccountBizException newInstance(String msgFormat, Object... args) {
 		return new AccountBizException(this.code, msgFormat, args);
 	}
 
