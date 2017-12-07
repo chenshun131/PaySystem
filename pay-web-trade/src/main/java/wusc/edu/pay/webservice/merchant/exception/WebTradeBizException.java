@@ -196,7 +196,8 @@ public class WebTradeBizException extends BizException {
 
 	String msg = "";
 
-	public String getMsg() {
+	@Override
+    public String getMsg() {
 		return msg;
 	}
 
@@ -216,6 +217,7 @@ public class WebTradeBizException extends BizException {
 	 * @param args
 	 * @return
 	 */
+	@Override
 	public WebTradeBizException newInstance(String msgFormat, Object... args) {
 		return new WebTradeBizException(this.code, msgFormat, args);
 	}

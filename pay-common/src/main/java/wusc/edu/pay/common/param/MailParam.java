@@ -1,62 +1,64 @@
 package wusc.edu.pay.common.param;
 
 /**
- * 
  * @描述: 邮件参数封装类.
- * @作者: LiLiqiong,WuShuicheng.
+ * @作者: LiLiqiong, WuShuicheng.
  * @创建: 2014-6-4,下午4:03:48
  * @版本: V1.0
- *
  */
 public class MailParam {
 
-	/** 发件人 **/
-	private String from;
-	/** 收件人 **/
-	private String to;
-	/** 主题 **/
-	private String subject;
-	/** 邮件内容 **/
-	private String content;
+    /** 发件人 **/
+    private String from;
 
-	public MailParam() {
-	}
+    /** 收件人 **/
+    private String to;
 
-	public MailParam(String to, String subject, String content) {
-		this.to = to;
-		this.subject = subject;
-		this.content = content;
-	}
+    /** 主题 **/
+    private String subject;
 
-	public String getFrom() {
-		return from;
-	}
+    /** 邮件内容 **/
+    private String content;
 
-	public void setFrom(String from) {
-		this.from = from;
-	}
+    public MailParam() {
+    }
 
-	public String getTo() {
-		return to;
-	}
+    public MailParam(String to, String subject, String content) {
+        this.to = to;
+        this.subject = subject;
+        this.content = content;
+    }
 
-	public void setTo(String to) {
-		this.to = to;
-	}
+    public String getFrom() {
+        return from;
+    }
 
-	public String getSubject() {
-		return subject;
-	}
+    public void setFrom(String from) {
+        this.from = from;
+    }
 
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
+    public String getTo() {
+        return to;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public void setTo(String to) {
+        this.to = to;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
 }

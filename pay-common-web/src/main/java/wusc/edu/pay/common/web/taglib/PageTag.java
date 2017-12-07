@@ -1,156 +1,173 @@
 package wusc.edu.pay.common.web.taglib;
 
-import java.io.IOException;
+import wusc.edu.pay.common.page.PageBean;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
-
-import wusc.edu.pay.common.page.PageBean;
 
 
 /**
  * ClassName: PageTag <br/>
  * Function: 分页标签<br/>
  * date: 2013-11-13 上午12:05:36 <br/>
- * 
+ *
  * @author laich
  */
 public class PageTag extends TagSupport {
 
-	private PageBean pageBean;
-	private String url; // URL
-	private Integer currentPage;// 当前页数
-	private String parameter; // 传入参数
+    private static final long serialVersionUID = 6273144997314042815L;
 
-	public int doEndTag() throws JspException {
-		try {
-			this.pageContext.getOut().write(getTextString());
-		} catch (IOException e) {
-			throw new JspException();
-		} catch (Exception e) {
-			throw new JspException();
-		}
-		return 6;
-	}
+    private PageBean pageBean;
 
-	public int doStartTag() throws JspException {
-		return 1;
-	}
+    /**  URL */
+    private String url;
 
-	private String getTextString() throws Exception {
-		if (pageBean == null) {
-			return "";
-		}
-		Integer maxPage;
-		if (currentPage == null) {
-			pageBean.setCurrentPage(1);
-		}
-		// 获取最大页数
-		if (pageBean.getTotalCount() == 0) {
-			maxPage = 0;
-		} else if (pageBean.getTotalCount() % pageBean.getNumPerPage() > 0) {
-			maxPage = pageBean.getTotalCount() / pageBean.getNumPerPage() + 1;
-		} else {
-			maxPage = pageBean.getTotalCount() / pageBean.getNumPerPage();
-		}
-		StringBuffer str = new StringBuffer();
-		// 打印分页
+    /** 当前页数 */
+    private Integer currentPage;
 
-		str.append("当前是第" + pageBean.getCurrentPage() + "页，总共有" + maxPage + "页  ");
-		if (pageBean.getCurrentPage() > 1) {
-			str.append("<a href='" + url + "?pageNum=1" + parameter + "'>首页</a>  ");
-			str.append("<a href='" + url + "?pageNum=" + (pageBean.getCurrentPage() - 1) + parameter + "'>上一页</a>  ");
-		}
-		// 显示-1234
-		int k = pageBean.getCurrentPage() - 4 > 0 ? pageBean.getCurrentPage() - 4 : 1;
-		for (int j = 1; j <= 9 && k <= pageBean.getPageCount(); k++, j++) {
-			if (pageBean.getCurrentPage() == k) {
-				// str.append("<a class=\"on\" href=\"javascript:void(0);\" onclick=\"fenye('" + k + "','" + pageInfo.getRowsOfPage() + "');\" >" + k + "</a>");
-				str.append("<a class=\"selectPnum\" href='" + url + "?pageNum=" + k + parameter + "'>" + k + "</a>  ");
-			} else {
-				// str.append("<a href=\"javascript:void(0);\" onclick=\"fenye('" + k + "','" + pageInfo.getRowsOfPage() + "');\">" + k + "</a>");
-				str.append("<a class=\"onPnum\" href='" + url + "?pageNum=" + k + parameter + "'>" + k + "</a>  ");
-			}
-		}
+    /** 传入参数 */
+    private String parameter;
 
-		if (pageBean.getCurrentPage() < maxPage) {
-			str.append("<a href='" + url + "?pageNum=" + (pageBean.getCurrentPage() + 1) + parameter + "'>下一页</a>  " + "<a href='" + url + "?pageNum=" + maxPage + parameter + "'>末页</a>");
-		}
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            this.pageContext.getOut().write(getTextString());
+        } catch (Exception e) {
+            throw new JspException();
+        }
+        return 6;
+    }
 
-		/*
-		 * str.append("<select id=pageChange onchange='forChange(this.value)'>"); for(int i=1;i<=maxPage;i++){ if(pageInfo.getCurrentPageNum()==i){
-		 * str.append("<option value="+i+" selected>第"+i+"页</option>"); }else{ str.append("<option value="+i+">第"+i+"页</option>"); } }
-		 */
-		str.append("</select>");
-		return str.toString();
-	}
+    @Override
+    public int doStartTag() {
+        return 1;
+    }
 
-	/**
-	 * pageInfo.
-	 * 
-	 * @return the pageInfo
-	 */
-	public PageBean getPageBean() {
-		return pageBean;
-	}
+    private String getTextString() {
+        if (pageBean == null) {
+            return "";
+        }
+        Integer maxPage;
+        if (currentPage == null) {
+            pageBean.setCurrentPage(1);
+        }
 
-	/**
-	 * @param pageInfo
-	 *            the pageInfo to set
-	 */
-	public void setPageBean(PageBean pageBean) {
-		this.pageBean = pageBean;
-	}
+        // 获取最大页数
+        if (pageBean.getTotalCount() == 0) {
+            maxPage = 0;
+        } else if (pageBean.getTotalCount() % pageBean.getNumPerPage() > 0) {
+            maxPage = pageBean.getTotalCount() / pageBean.getNumPerPage() + 1;
+        } else {
+            maxPage = pageBean.getTotalCount() / pageBean.getNumPerPage();
+        }
 
-	/**
-	 * url. URL
-	 * 
-	 * @return the url
-	 */
-	public String getUrl() {
-		return url;
-	}
+        // 打印分页
+        StringBuffer str = new StringBuffer();
+        str.append("当前是第").append(pageBean.getCurrentPage()).append("页，总共有").append(maxPage).append("页  ");
+        if (pageBean.getCurrentPage() > 1) {
+            str.append("<a href='").append(url).append("?pageNum=1").append(parameter).append("'>首页</a>  ");
+            str.append("<a href='").append(url).append("?pageNum=").append(pageBean.getCurrentPage() - 1)
+                    .append(parameter).append("'>上一页</a>  ");
+        }
 
-	/**
-	 * @param url
-	 *            the url to set
-	 */
-	public void setUrl(String url) {
-		this.url = url;
-	}
+        // 显示-1234
+        int k = pageBean.getCurrentPage() - 4 > 0 ? pageBean.getCurrentPage() - 4 : 1;
+        for (int j = 1; j <= 9 && k <= pageBean.getPageCount(); k++, j++) {
+            if (pageBean.getCurrentPage() == k) {
+                // str.append
+                // ("<a class=\"on\" href=\"javascript:void(0);\" onclick=\"fenye('" + k + "','" + pageInfo.getRowsOfPage() + "');\" >" + k + "</a>");
+                str.append("<a class=\"selectPnum\" href='").append(url).append("?pageNum=").append(k)
+                        .append(parameter).append("'>").append(k).append("</a>  ");
+            } else {
+                // str.append
+                // ("<a href=\"javascript:void(0);\" onclick=\"fenye('" + k + "','" + pageInfo.getRowsOfPage() + "');\">" + k + "</a>");
+                str.append("<a class=\"onPnum\" href='").append(url).append("?pageNum=").append(k).append(parameter)
+                        .append("'>").append(k).append("</a>  ");
+            }
+        }
 
-	/**
-	 * currentPage.
-	 * 
-	 * @return the currentPage
-	 */
-	public Integer getCurrentPage() {
-		return currentPage;
-	}
+        if (pageBean.getCurrentPage() < maxPage) {
+            str.append("<a href='").append(url).append("?pageNum=").append(pageBean.getCurrentPage() + 1)
+                    .append(parameter).append("'>下一页</a>  ").append("<a href='").append(url).append("?pageNum=")
+                    .append(maxPage).append(parameter).append("'>末页</a>");
+        }
 
-	/**
-	 * @param currentPage
-	 *            the currentPage to set
-	 */
-	public void setCurrentPage(Integer currentPage) {
-		this.currentPage = currentPage;
-	}
+        /*
+         * str.append("<select id=pageChange onchange='forChange(this.value)'>"); for(int i=1;i<=maxPage;i++){ if
+         * (pageInfo.getCurrentPageNum()==i){
+         * str.append("<option value="+i+" selected>第"+i+"页</option>"); }else{ str.append("<option
+         * value="+i+">第"+i+"页</option>"); } }
+         */
+        str.append("</select>");
+        return str.toString();
+    }
 
-	/**
-	 * parameter.
-	 * 
-	 * @return the parameter
-	 */
-	public String getParameter() {
-		return parameter;
-	}
+    /**
+     * pageInfo.
+     *
+     * @return the pageInfo
+     */
+    public PageBean getPageBean() {
+        return pageBean;
+    }
 
-	/**
-	 * @param parameter
-	 *            the parameter to set
-	 */
-	public void setParameter(String parameter) {
-		this.parameter = parameter;
-	}
+    /**
+     * @param pageBean
+     *         the pageInfo to set
+     */
+    public void setPageBean(PageBean pageBean) {
+        this.pageBean = pageBean;
+    }
+
+    /**
+     * url. URL
+     *
+     * @return the url
+     */
+    public String getUrl() {
+        return url;
+    }
+
+    /**
+     * @param url
+     *         the url to set
+     */
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    /**
+     * currentPage.
+     *
+     * @return the currentPage
+     */
+    public Integer getCurrentPage() {
+        return currentPage;
+    }
+
+    /**
+     * @param currentPage
+     *         the currentPage to set
+     */
+    public void setCurrentPage(Integer currentPage) {
+        this.currentPage = currentPage;
+    }
+
+    /**
+     * parameter.
+     *
+     * @return the parameter
+     */
+    public String getParameter() {
+        return parameter;
+    }
+
+    /**
+     * @param parameter
+     *         the parameter to set
+     */
+    public void setParameter(String parameter) {
+        this.parameter = parameter;
+    }
 
 }

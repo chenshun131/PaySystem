@@ -10,7 +10,8 @@ import wusc.edu.pay.facade.notify.entity.NotifyRecordLog;
 @Repository("notifyRecordLogDao")
 public class NotifyRecordLogDaoIpml extends BaseDaoImpl<NotifyRecordLog> implements NotifyRecordLogDao {
 
-	public long insert(NotifyRecordLog entity) {
+	@Override
+    public long insert(NotifyRecordLog entity) {
 		return this.getSqlSession().insert(getStatement(SQL_INSERT), entity);
 	}
 

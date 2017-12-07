@@ -47,7 +47,8 @@ public class BankLinkBizException extends BizException {
 	 * @param args
 	 * @return
 	 */
-	public BankLinkBizException newInstance(String msgFormat, Object... args) {
+	@Override
+    public BankLinkBizException newInstance(String msgFormat, Object... args) {
 		return new BankLinkBizException(this.code, msgFormat, args);
 	}
 

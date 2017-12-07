@@ -47,7 +47,8 @@ public class CostBizException extends BizException{
 	 * @param args
 	 * @return
 	 */
-	public CostBizException newInstance(String msgFormat, Object... args) {
+	@Override
+    public CostBizException newInstance(String msgFormat, Object... args) {
 		return new CostBizException(this.code, msgFormat, args);
 	}
 }

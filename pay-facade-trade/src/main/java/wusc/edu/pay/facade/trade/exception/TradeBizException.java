@@ -304,7 +304,8 @@ public class TradeBizException extends BizException {
 	 * @param args
 	 * @return
 	 */
-	public TradeBizException newInstance(String msgFormat, Object... args) {
+	@Override
+    public TradeBizException newInstance(String msgFormat, Object... args) {
 		return new TradeBizException(this.code, msgFormat, args);
 	}
 
