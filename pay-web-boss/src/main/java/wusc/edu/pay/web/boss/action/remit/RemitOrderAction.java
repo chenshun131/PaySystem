@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import wusc.edu.pay.common.enums.BankAccountTypeEnum;
 import wusc.edu.pay.common.enums.PublicStatusEnum;
-import wusc.edu.pay.common.utils.importExcel.ExcelUtil;
+import wusc.edu.pay.common.utils.importexcel.ExcelUtil;
 import wusc.edu.pay.common.utils.string.StringUtil;
 import wusc.edu.pay.common.web.annotation.Permission;
 import wusc.edu.pay.facade.remit.entity.RemitBankInfo;

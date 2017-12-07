@@ -63,8 +63,8 @@ public class NotifyPersist {
 	 *            通知状态(HTTP状态).<br/>
 	 * @return 创建结果
 	 */
-	public static long saveNotifyRecordLogs(long notifyId, String merchantNo, String merchantOrderNo, String request, String response,
-			int httpStatus) {
+	public static long saveNotifyRecordLogs(long notifyId, String merchantNo, String merchantOrderNo, String request,
+											String response, int httpStatus) {
 		NotifyRecordLog notifyRecordLog = new NotifyRecordLog();
 		notifyRecordLog.setHttpStatus(httpStatus);
 		notifyRecordLog.setMerchantNo(merchantNo);

@@ -15,6 +15,13 @@
     <name>pay-timer-report</name>
     <url>http://maven.apache.org</url>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>${compiler.source.version}</maven.compiler.source>
+        <maven.compiler.target>${compiler.target.version}</maven.compiler.target>
+        <maven.compiler.compilerVersion>${compiler.compilerVersion.version}</maven.compiler.compilerVersion>
+    </properties>
+
     <build>
         <finalName>pay-timer-report</finalName>
         <resources>
@@ -99,10 +106,6 @@
             </plugin>
         </plugins>
     </build>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
     <dependencies>
         <dependency>

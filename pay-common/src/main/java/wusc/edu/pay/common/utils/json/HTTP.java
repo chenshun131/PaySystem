@@ -28,6 +28,7 @@ import java.util.Iterator;
 
 /**
  * Convert an HTTP header to a JSONObject and back.
+ *
  * @author JSON.org
  * @version 2010-12-24
  */
@@ -63,37 +64,32 @@ public class HTTP {
      * ...}</pre>
      * It does no further checking or conversion. It does not parse dates.
      * It does not do '%' transforms on URLs.
-     * @param string An HTTP header string.
+     *
+     * @param string
+     *         An HTTP header string.
      * @return A JSONObject containing the elements and attributes
      * of the XML string.
      * @throws JSONException
      */
     public static JSONObject toJSONObject(String string) throws JSONException {
-        JSONObject     jo = new JSONObject();
-        HTTPTokener    x = new HTTPTokener(string);
-        String         token;
-
+        JSONObject jo = new JSONObject();
+        HTTPTokener x = new HTTPTokener(string);
+        String token;
         token = x.nextToken();
         if (token.toUpperCase().startsWith("HTTP")) {
-
-// Response
-
+            // Response
             jo.put("HTTP-Version", token);
             jo.put("Status-Code", x.nextToken());
             jo.put("Reason-Phrase", x.nextTo('\0'));
             x.next();
-
         } else {
-
-// Request
-
+            // Request
             jo.put("Method", token);
             jo.put("Request-URI", x.nextToken());
             jo.put("HTTP-Version", x.nextToken());
         }
 
-// Fields
-
+        // Fields
         while (x.more()) {
             String name = x.nextTo(':');
             x.next(':');
@@ -119,15 +115,18 @@ public class HTTP {
      * }</pre>
      * Any other members of the JSONObject will be output as HTTP fields.
      * The result will end with two CRLF pairs.
-     * @param jo A JSONObject
+     *
+     * @param jo
+     *         A JSONObject
      * @return An HTTP header string.
-     * @throws JSONException if the object does not contain enough
-     *  information.
+     * @throws JSONException
+     *         if the object does not contain enough
+     *         information.
      */
     public static String toString(JSONObject jo) throws JSONException {
-        Iterator     keys = jo.keys();
-        String       string;
-        StringBuffer sb = new StringBuffer();
+        Iterator keys = jo.keys();
+        String string;
+        StringBuilder sb = new StringBuilder();
         if (jo.has("Status-Code") && jo.has("Reason-Phrase")) {
             sb.append(jo.getString("HTTP-Version"));
             sb.append(' ');
@@ -148,9 +147,8 @@ public class HTTP {
         sb.append(CRLF);
         while (keys.hasNext()) {
             string = keys.next().toString();
-            if (!"HTTP-Version".equals(string)      && !"Status-Code".equals(string) &&
-                    !"Reason-Phrase".equals(string) && !"Method".equals(string) &&
-                    !"Request-URI".equals(string)   && !jo.isNull(string)) {
+            if (!"HTTP-Version".equals(string) && !"Status-Code".equals(string) && !"Reason-Phrase".equals(string) &&
+                    !"Method".equals(string) && !"Request-URI".equals(string) && !jo.isNull(string)) {
                 sb.append(string);
                 sb.append(": ");
                 sb.append(jo.getString(string));
@@ -160,4 +158,5 @@ public class HTTP {
         sb.append(CRLF);
         return sb.toString();
     }
+
 }

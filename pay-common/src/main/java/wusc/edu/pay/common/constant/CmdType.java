@@ -45,10 +45,8 @@ public enum CmdType {
     public static Map<String, String> toStringMap() {
         CmdType[] type = values();
         Map<String, String> map = new LinkedHashMap<>();
-        if (type != null) {
-            for (CmdType e : type) {
-                map.put(e.toString(), e.getDesc());
-            }
+        for (CmdType e : type) {
+            map.put(e.toString(), e.getDesc());
         }
         return map;
     }

@@ -1,24 +1,13 @@
 package wusc.edu.pay.common.utils.sftp;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Properties;
-import java.util.Vector;
-
-import org.apache.log4j.Logger;
-
+import com.jcraft.jsch.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import wusc.edu.pay.common.utils.FileUtils;
 
-import com.jcraft.jsch.Channel;
-import com.jcraft.jsch.ChannelSftp;
-import com.jcraft.jsch.JSch;
-import com.jcraft.jsch.JSchException;
-import com.jcraft.jsch.Session;
-import com.jcraft.jsch.SftpException;
+import java.io.*;
+import java.util.Properties;
+import java.util.Vector;
 
 /**
  * ClassName: Sftp 连接类包括上传下载<br/>
@@ -29,7 +18,7 @@ import com.jcraft.jsch.SftpException;
  */
 public class Sftp {
 
-	private static final Logger LOG = Logger.getLogger(Sftp.class);
+	private static final Logger logger = LoggerFactory.getLogger(Sftp.class);
 
 	/**
 	 * 连接sftp服务器
@@ -59,7 +48,7 @@ public class Sftp {
 			channel.connect();
 			sftp = (ChannelSftp) channel;
 		} catch (Exception e) {
-			LOG.error("sftp connect exception:", e);
+			logger.error("sftp connect exception:", e);
 		}
 		return sftp;
 	}
@@ -81,7 +70,7 @@ public class Sftp {
 			channel.put(new FileInputStream(file), file.getName());
 			sftpClose(channel);
 		} catch (Exception e) {
-			LOG.error("sftp upload exception:", e);
+			logger.error("sftp upload exception:", e);
 		}finally {
 			if (channel != null) {
 				sftpClose(channel);
@@ -106,7 +95,7 @@ public class Sftp {
 			File file = new File(saveFile);
 			channel.get(downloadFilePath, new FileOutputStream(file));
 		} catch (Exception e) {
-			LOG.error("sftp download exception:", e);
+			logger.error("sftp download exception:", e);
 		}finally {
 			if (channel != null) {
 				sftpClose(channel);
@@ -132,7 +121,7 @@ public class Sftp {
 			channelSftp.get(downloadFile, new FileOutputStream(file));
 			return readFileByLines(file.getPath());
 		} catch (Exception e) {
-			LOG.error("sftp downloadGetString excetpin:", e);
+			logger.error("sftp downloadGetString excetpin:", e);
 		}
 		return null;
 	}
@@ -155,13 +144,13 @@ public class Sftp {
 			}
 			reader.close();
 		} catch (IOException e) {
-			LOG.error(e);
+			logger.error(e.getMessage());
 		} finally {
 			if (reader != null) {
 				try {
 					reader.close();
 				} catch (IOException e) {
-					LOG.error("BufferedReader close exception:", e);
+					logger.error("BufferedReader close exception:", e);
 				}
 			}
 		}
@@ -182,7 +171,7 @@ public class Sftp {
 			sftp.cd(directory);
 			sftp.rm(deleteFile);
 		} catch (Exception e) {
-			LOG.error(e);
+			logger.error(e.getMessage());
 		}
 	}
 
@@ -208,9 +197,9 @@ public class Sftp {
 	 */
 	public static void creatDir(String directory, ChannelSftp sftp) throws SftpException {
 		String[] dirArr = directory.split("/");
-		StringBuffer tempStr = new StringBuffer("");
+		StringBuilder tempStr = new StringBuilder("");
 		for (int i = 1; i < dirArr.length; i++) {
-			tempStr.append("/" + dirArr[i]);
+			tempStr.append("/").append(dirArr[i]);
 			try {
 				sftp.cd(tempStr.toString());
 			} catch (SftpException e) {
@@ -228,7 +217,7 @@ public class Sftp {
 		try {
 			channel.getSession().disconnect();
 		} catch (JSchException e) {
-			LOG.error("sftp disconnect exception:", e);
+			logger.error("sftp disconnect exception:", e);
 		}
 	}
 	
@@ -242,10 +231,16 @@ public class Sftp {
 	public static String getFileContentFormSFTP(final ChannelSftp channelSftp, final String dataFilePath) {
 		String property = System.getProperty("user.dir") + File.separator + "temp/";
 		FileUtils.isDir(property);
-		String directory = dataFilePath.substring(0, dataFilePath.lastIndexOf("/")); // 文件路径
-		String downloadFile = dataFilePath.substring(dataFilePath.lastIndexOf("/") + 1); // 文件名称
-		String saveFile = property + "/" + downloadFile; // 保存文件路径
-		LOG.info("==>从SFTP获取文件内容，源文件路径[" + dataFilePath + "], 保存本地的临时文件路径[" + saveFile + "]");
+
+		// 文件路径
+		String directory = dataFilePath.substring(0, dataFilePath.lastIndexOf("/"));
+
+		// 文件名称
+		String downloadFile = dataFilePath.substring(dataFilePath.lastIndexOf("/") + 1);
+
+		// 保存文件路径
+		String saveFile = property + "/" + downloadFile;
+		logger.info("==>从SFTP获取文件内容，源文件路径[" + dataFilePath + "], 保存本地的临时文件路径[" + saveFile + "]");
 		return downloadGetString(directory, downloadFile, saveFile, channelSftp);
 	}
 	
@@ -256,7 +251,7 @@ public class Sftp {
 	 */
 	public static File downFileFromSFTP(ChannelSftp channelSftp, final String filePath) {
 		// 创建临时目录，用来存放下载的文件
-		StringBuffer tempFilePath = new StringBuffer(System.getProperty("user.dir")).append(File.separator).append("temp");
+		StringBuilder tempFilePath = new StringBuilder(System.getProperty("user.dir")).append(File.separator).append("temp");
 		isDir(tempFilePath.toString());
 		String fileName = filePath.substring(filePath.lastIndexOf("/") + 1);
 		String tempPath = filePath.substring(0, filePath.lastIndexOf("/") + 1);
@@ -267,7 +262,7 @@ public class Sftp {
 		try {
 			download(tempPath, fileName, saveFile, channelSftp);
 		} catch (Exception e) {
-			LOG.error("==>对账文件下载失败：", e);
+			logger.error("==>对账文件下载失败：", e);
 		} finally {
 			if (channelSftp != null) {
 				sftpClose(channelSftp);
@@ -322,7 +317,7 @@ public class Sftp {
 		String uploadFile = "E:\\PINGANBANK-NET-B2C-GZ20140523clear.txt";
 		// String deleteFile = "delete.txt";
 		ChannelSftp sftp = sf.connect(host, port, username, password);
-		sf.upload(directory, uploadFile, sftp);
+		upload(directory, uploadFile, sftp);
 //		sf.download(directory, downloadFile, saveFile, sftp);
 		// sf.delete(directory, deleteFile, sftp);
 		try {
@@ -331,10 +326,10 @@ public class Sftp {
 			// System.out.println("finished");
 //			sf.sftpClose(sftp);
 		} catch (Exception e) {
-			LOG.error(e);
+			logger.error(e.getMessage());
 		} finally {
 			if (sf != null){
-				sf.sftpClose(sftp);
+				sftpClose(sftp);
 			}
 		}
 	}

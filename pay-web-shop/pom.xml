@@ -21,6 +21,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>${compiler.source.version}</maven.compiler.source>
+        <maven.compiler.target>${compiler.target.version}</maven.compiler.target>
+        <maven.compiler.compilerVersion>${compiler.compilerVersion.version}</maven.compiler.compilerVersion>
     </properties>
 
     <dependencies>

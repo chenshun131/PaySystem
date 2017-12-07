@@ -1,11 +1,12 @@
 package wusc.edu.pay.common.utils.export.excel;
 
-
 /**
  * 描述: 表格渲染
- * @author Hill
  *
+ * @author Hill
  */
 public interface CellRender {
-	void render(Object fieldValue);
+
+    void render(Object fieldValue);
+
 }

@@ -53,16 +53,15 @@ SOFTWARE.
  * you. Objects and arrays can be nested up to 20 levels deep.
  * <p>
  * This can sometimes be easier than using a JSONObject to build a string.
+ *
  * @author JSON.org
  * @version 2010-12-24
  */
 public class JSONWriter {
+
     private static final int maxdepth = 20;
 
-    /**
-     * The comma flag determines if a comma should be output before the next
-     * value.
-     */
+    /** The comma flag determines if a comma should be output before the next value. */
     private boolean comma;
 
     /**
@@ -75,19 +74,13 @@ public class JSONWriter {
      */
     protected char mode;
 
-    /**
-     * The object/array stack.
-     */
+    /** The object/array stack. */
     private JSONObject stack[];
 
-    /**
-     * The stack top index. A value of 0 indicates that the stack is empty.
-     */
+    /** The stack top index. A value of 0 indicates that the stack is empty. */
     private int top;
 
-    /**
-     * The writer that will receive the output.
-     */
+    /** The writer that will receive the output. */
     protected Writer writer;
 
     /**
@@ -103,9 +96,12 @@ public class JSONWriter {
 
     /**
      * Append a value.
-     * @param string A string value.
+     *
+     * @param string
+     *         A string value.
      * @return this
-     * @throws JSONException If the value is out of sequence.
+     * @throws JSONException
+     *         If the value is out of sequence.
      */
     private JSONWriter append(String string) throws JSONException {
         if (string == null) {
@@ -133,10 +129,12 @@ public class JSONWriter {
      * Begin appending a new array. All values until the balancing
      * <code>endArray</code> will be appended to this array. The
      * <code>endArray</code> method must be called to mark the array's end.
+     *
      * @return this
-     * @throws JSONException If the nesting is too deep, or if the object is
-     * started in the wrong place (for example as a key or after the end of the
-     * outermost array or object).
+     * @throws JSONException
+     *         If the nesting is too deep, or if the object is
+     *         started in the wrong place (for example as a key or after the end of the
+     *         outermost array or object).
      */
     public JSONWriter array() throws JSONException {
         if (this.mode == 'i' || this.mode == 'o' || this.mode == 'a') {
@@ -150,15 +148,18 @@ public class JSONWriter {
 
     /**
      * End something.
-     * @param mode Mode
-     * @param c Closing character
+     *
+     * @param mode
+     *         Mode
+     * @param c
+     *         Closing character
      * @return this
-     * @throws JSONException If unbalanced.
+     * @throws JSONException
+     *         If unbalanced.
      */
     private JSONWriter end(char mode, char c) throws JSONException {
         if (this.mode != mode) {
-            throw new JSONException(mode == 'a' ? "Misplaced endArray." : 
-            		"Misplaced endObject.");
+            throw new JSONException(mode == 'a' ? "Misplaced endArray." : "Misplaced endObject.");
         }
         this.pop(mode);
         try {
@@ -173,8 +174,10 @@ public class JSONWriter {
     /**
      * End an array. This method most be called to balance calls to
      * <code>array</code>.
+     *
      * @return this
-     * @throws JSONException If incorrectly nested.
+     * @throws JSONException
+     *         If incorrectly nested.
      */
     public JSONWriter endArray() throws JSONException {
         return this.end('a', ']');
@@ -183,8 +186,10 @@ public class JSONWriter {
     /**
      * End an object. This method most be called to balance calls to
      * <code>object</code>.
+     *
      * @return this
-     * @throws JSONException If incorrectly nested.
+     * @throws JSONException
+     *         If incorrectly nested.
      */
     public JSONWriter endObject() throws JSONException {
         return this.end('k', '}');
@@ -193,10 +198,13 @@ public class JSONWriter {
     /**
      * Append a key. The key will be associated with the next value. In an
      * object, every value must be preceded by a key.
-     * @param string A key string.
+     *
+     * @param string
+     *         A key string.
      * @return this
-     * @throws JSONException If the key is out of place. For example, keys
-     *  do not belong in arrays or if the key is null.
+     * @throws JSONException
+     *         If the key is out of place. For example, keys
+     *         do not belong in arrays or if the key is null.
      */
     public JSONWriter key(String string) throws JSONException {
         if (string == null) {
@@ -220,15 +228,16 @@ public class JSONWriter {
         throw new JSONException("Misplaced key.");
     }
 
-
     /**
      * Begin appending a new object. All keys and values until the balancing
      * <code>endObject</code> will be appended to this object. The
      * <code>endObject</code> method must be called to mark the object's end.
+     *
      * @return this
-     * @throws JSONException If the nesting is too deep, or if the object is
-     * started in the wrong place (for example as a key or after the end of the
-     * outermost array or object).
+     * @throws JSONException
+     *         If the nesting is too deep, or if the object is
+     *         started in the wrong place (for example as a key or after the end of the
+     *         outermost array or object).
      */
     public JSONWriter object() throws JSONException {
         if (this.mode == 'i') {
@@ -241,14 +250,15 @@ public class JSONWriter {
             return this;
         }
         throw new JSONException("Misplaced object.");
-
     }
-
 
     /**
      * Pop an array or object scope.
-     * @param c The scope to close.
-     * @throws JSONException If nesting is wrong.
+     *
+     * @param c
+     *         The scope to close.
+     * @throws JSONException
+     *         If nesting is wrong.
      */
     private void pop(char c) throws JSONException {
         if (this.top <= 0) {
@@ -259,14 +269,16 @@ public class JSONWriter {
             throw new JSONException("Nesting error.");
         }
         this.top -= 1;
-        this.mode = this.top == 0 ? 
-        		'd' : this.stack[this.top - 1] == null ? 'a' : 'k';
+        this.mode = this.top == 0 ? 'd' : this.stack[this.top - 1] == null ? 'a' : 'k';
     }
 
     /**
      * Push an array or object scope.
-     * @param c The scope to open.
-     * @throws JSONException If nesting is too deep.
+     *
+     * @param jo
+     *         The scope to open.
+     * @throws JSONException
+     *         If nesting is too deep.
      */
     private void push(JSONObject jo) throws JSONException {
         if (this.top >= maxdepth) {
@@ -277,11 +289,12 @@ public class JSONWriter {
         this.top += 1;
     }
 
-
     /**
      * Append either the value <code>true</code> or the value
      * <code>false</code>.
-     * @param b A boolean.
+     *
+     * @param b
+     *         A boolean.
      * @return this
      * @throws JSONException
      */
@@ -291,9 +304,12 @@ public class JSONWriter {
 
     /**
      * Append a double value.
-     * @param d A double.
+     *
+     * @param d
+     *         A double.
      * @return this
-     * @throws JSONException If the number is not finite.
+     * @throws JSONException
+     *         If the number is not finite.
      */
     public JSONWriter value(double d) throws JSONException {
         return this.value(new Double(d));
@@ -301,7 +317,9 @@ public class JSONWriter {
 
     /**
      * Append a long value.
-     * @param l A long.
+     *
+     * @param l
+     *         A long.
      * @return this
      * @throws JSONException
      */
@@ -309,15 +327,18 @@ public class JSONWriter {
         return this.append(Long.toString(l));
     }
 
-
     /**
      * Append an object value.
-     * @param object The object to append. It can be null, or a Boolean, Number,
-     *   String, JSONObject, or JSONArray, or an object that implements JSONString.
+     *
+     * @param object
+     *         The object to append. It can be null, or a Boolean, Number,
+     *         String, JSONObject, or JSONArray, or an object that implements JSONString.
      * @return this
-     * @throws JSONException If the value is out of sequence.
+     * @throws JSONException
+     *         If the value is out of sequence.
      */
     public JSONWriter value(Object object) throws JSONException {
         return this.append(JSONObject.valueToString(object));
     }
+
 }

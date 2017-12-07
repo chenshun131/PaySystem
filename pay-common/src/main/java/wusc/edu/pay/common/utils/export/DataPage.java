@@ -7,38 +7,34 @@ package wusc.edu.pay.common.utils.export;
  * @版本:
  */
 public class DataPage {
-//	/**
-//	 * 总页数
-//	 */
-//	private int countPage = 1;
-	
-	/**
-	 * 一页中最多条目数
-	 */
-	private int maxEntityInOnePage;
-	
 
-	public DataPage() {
-	}
+    /** 总页数 */
+    private int countPage = 1;
 
-	public DataPage (int maxEntityInOnePage) {
-		this.maxEntityInOnePage = maxEntityInOnePage;
-	}
+    /** 一页中最多条目数 */
+    private int maxEntityInOnePage;
 
-//	public int getCountPage() {
-//		return countPage;
-//	}
-//
-//	public void setCountPage(int countPage) {
-//		this.countPage = countPage;
-//	}
+    public DataPage() {
+    }
 
-	public int getMaxEntityInOnePage() {
-		return maxEntityInOnePage;
-	}
+    public DataPage(int maxEntityInOnePage) {
+        this.maxEntityInOnePage = maxEntityInOnePage;
+    }
 
-	public void setMaxEntityInOnePage(int maxEntityInOnePage) {
-		this.maxEntityInOnePage = maxEntityInOnePage;
-	}
-	
+    public int getCountPage() {
+        return countPage;
+    }
+
+    public void setCountPage(int countPage) {
+        this.countPage = countPage;
+    }
+
+    public int getMaxEntityInOnePage() {
+        return maxEntityInOnePage;
+    }
+
+    public void setMaxEntityInOnePage(int maxEntityInOnePage) {
+        this.maxEntityInOnePage = maxEntityInOnePage;
+    }
+
 }

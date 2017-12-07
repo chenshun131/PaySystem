@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 public class PageParam implements Serializable {
 
-    private static final long serialVersionUID = 6297178964005032338L;
+    private static final long serialVersionUID = 5803258804806187801L;
 
     /** 当前页数 */
     private int pageNum;
