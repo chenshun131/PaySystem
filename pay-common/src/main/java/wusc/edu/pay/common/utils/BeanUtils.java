@@ -13,19 +13,14 @@ import java.util.*;
  *
  * @version:
  */
-@SuppressWarnings({"rawtypes", "unchecked"})
 public class BeanUtils {
 
-    /**
-     * 存储BeanCoper对象
-     */
-    public static Map<String, BeanCopier> beanCopierMap = new HashMap<String, BeanCopier>();
+    /** 存储BeanCoper对象 */
+    public static Map<String, BeanCopier> beanCopierMap = new HashMap<>();
 
     private static Logger logger = Logger.getLogger(BeanUtils.class);
 
-    /**
-     * 转换时对map中的key里的字符串会做忽略处理的正则串
-     */
+    /** 转换时对map中的key里的字符串会做忽略处理的正则串 */
     private static final String OMIT_REG = "_";
 
     /**
@@ -44,9 +39,7 @@ public class BeanUtils {
                 Object d = descClazz.newInstance();
                 copyProperties(o, d);
                 desc.add(d);
-            } catch (InstantiationException e) {
-                throw new RuntimeException(e);
-            } catch (IllegalAccessException e) {
+            } catch (InstantiationException | IllegalAccessException e) {
                 throw new RuntimeException(e);
             }
         }
@@ -351,7 +344,6 @@ public class BeanUtils {
      * @return
      */
     public static <E> E toBean(Class<E> cla, Map<String, Object> map) {
-
         // 创建对象
         E obj = null;
         try {
@@ -393,7 +385,7 @@ public class BeanUtils {
      * @return
      */
     public static <E> List<E> toBeanList(Class<E> cla, List<Map<String, Object>> mapList) {
-        List<E> list = new ArrayList<E>(mapList.size());
+        List<E> list = new ArrayList<>(mapList.size());
         for (Map<String, Object> map : mapList) {
             E obj = toBean(cla, map);
             list.add(obj);

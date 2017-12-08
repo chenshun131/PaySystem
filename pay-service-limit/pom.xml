@@ -110,9 +110,7 @@
                         <configuration>
                             <type>jar</type>
                             <includeTypes>jar</includeTypes>
-                            <outputDirectory>
-                                ${project.build.directory}/lib
-                            </outputDirectory>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>

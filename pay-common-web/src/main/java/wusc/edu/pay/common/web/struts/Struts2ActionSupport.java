@@ -7,11 +7,11 @@ import net.sf.json.processors.JsonValueProcessor;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.http.util.ByteArrayBuffer;
 import org.apache.struts2.ServletActionContext;
 import wusc.edu.pay.common.page.PageBean;
 import wusc.edu.pay.common.page.PageParam;
 import wusc.edu.pay.common.utils.string.StrUtil;
-import wusc.edu.pay.common.utils.string.StringUtil;
 import wusc.edu.pay.common.web.themes.dwz.DwzParam;
 import wusc.edu.pay.common.web.utils.UdpGetClientMacAddr;
 
@@ -20,9 +20,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.net.InetAddress;
-import java.net.SocketTimeoutException;
 import java.net.URLDecoder;
 import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
@@ -50,10 +50,10 @@ public class Struts2ActionSupport extends ActionSupport {
 
     private static final Log LOG = LogFactory.getLog(Struts2ActionSupport.class);
 
-    private static ThreadLocal<Map<String, Object>> outPutMsg = new ThreadLocal<Map<String, Object>>();
+    private static ThreadLocal<Map<String, Object>> outPutMsg = new ThreadLocal<>();
 
-    /**编码类型 ISO-8859-1.*/
-    // private static final String ISO8859_1 = "iso8859-1";
+    /** 编码类型 ISO-8859-1. */
+    private static final String ISO8859_1 = "iso8859-1";
 
     /** 编码类型 UTF-8. */
     private static final String UTF_8 = "utf-8";
@@ -92,8 +92,7 @@ public class Struts2ActionSupport extends ActionSupport {
     public Map<String, Object> getOutputMsg() {
         Map<String, Object> output = outPutMsg.get();
         if (output == null) {
-            output = new HashMap<>();
-            outPutMsg.set(output);
+            outPutMsg.set(new HashMap<>(0));
         }
         return output;
     }
@@ -384,10 +383,9 @@ public class Struts2ActionSupport extends ActionSupport {
     }
 
     /**
-     * 获取每页记录数（DWZ-UI分页查询参数）.<br/>
-     * 如果没有值则默认返回15.
+     * 获取每页记录数（DWZ-UI分页查询参数），如果没有值则默认返回15<br/>
      *
-     * @author WuShuicheng.
+     * @author WuShuicheng
      */
     private int getNumPerPage() {
         String numPerPageStr = getHttpRequest().getParameter("numPerPage");
@@ -399,9 +397,9 @@ public class Struts2ActionSupport extends ActionSupport {
     }
 
     /**
-     * 获取分页参数，包含当前页、每页记录数.
+     * 获取分页参数，包含当前页、每页记录数
      *
-     * @return PageParam .
+     * @return PageParam
      */
     public PageParam getPageParam() {
         return new PageParam(getPageNum(), getNumPerPage());
@@ -428,11 +426,10 @@ public class Struts2ActionSupport extends ActionSupport {
     // ///////////////////////getHttpRequest()方法扩展//////////////////////////
 
     /**
-     * 根据参数名从HttpRequest中获取Double类型的参数值，无值则返回null .
+     * 根据参数名从HttpRequest中获取Double类型的参数值，无值则返回null
      *
      * @param key
-     *         .
-     * @return DoubleValue or null .
+     * @return DoubleValue or null
      */
     public Double getDouble(String key) {
         String value = getHttpRequest().getParameter(key);
@@ -443,11 +440,10 @@ public class Struts2ActionSupport extends ActionSupport {
     }
 
     /**
-     * 根据参数名从HttpRequest中获取Integer类型的参数值，无值则返回null .
+     * 根据参数名从HttpRequest中获取Integer类型的参数值，无值则返回null
      *
      * @param key
-     *         .
-     * @return IntegerValue or null .
+     * @return IntegerValue or null
      */
     public Integer getInteger(String key) {
         String value = getHttpRequest().getParameter(key);
@@ -458,11 +454,10 @@ public class Struts2ActionSupport extends ActionSupport {
     }
 
     /**
-     * 根据参数名从HttpRequest中获取Long类型的参数值，无值则返回null .
+     * 根据参数名从HttpRequest中获取Long类型的参数值，无值则返回null
      *
      * @param key
-     *         .
-     * @return LongValue or null .
+     * @return LongValue or null
      */
     public Long getLong(String key) {
         String value = getHttpRequest().getParameter(key);
@@ -473,22 +468,20 @@ public class Struts2ActionSupport extends ActionSupport {
     }
 
     /**
-     * 根据参数名从HttpRequest中获取String类型的参数值，无值则返回null .
+     * 根据参数名从HttpRequest中获取String类型的参数值，无值则返回null
      *
      * @param key
-     *         .
-     * @return String or null .
+     * @return String or null
      */
     public String getString(String key) {
         return getHttpRequest().getParameter(key);
     }
 
     /**
-     * 根据参数名从HttpRequest中获取String类型的参数值，无值则返回"" .
+     * 根据参数名从HttpRequest中获取String类型的参数值，无值则返回""
      *
      * @param key
-     *         .
-     * @return String .
+     * @return String
      */
     public String getString_UrlDecode_UTF8(String key) {
         try {
@@ -501,30 +494,27 @@ public class Struts2ActionSupport extends ActionSupport {
 
     public String getString_UrlDecode_GBK(String key) {
         try {
-            return new String(getString(key.toString()).getBytes("GBK"), "UTF-8");
+            return new String(getString(key).getBytes("GBK"), "UTF-8");
         } catch (Exception e) {
             return "";
         }
-
     }
 
     /**
-     * 根据参数名从HttpRequest中获取String[] 类型的参数值 有 返回字符串数组 无 返回null;
+     * 根据参数名从HttpRequest中获取String[] 类型的参数值 有 返回字符串数组 无 返回null
      *
      * @param key
-     *         .
-     * @return String[] or null .
+     * @return String[] or null
      */
     public String[] getStringArr(String key) {
         return getHttpRequest().getParameterValues(key);
     }
 
     /**
-     * 根据参数名从HttpRequest中获取Integer[] 类型的参数值，无值则返回null .
+     * 根据参数名从HttpRequest中获取Integer[] 类型的参数值，无值则返回null
      *
      * @param key
-     *         .
-     * @return Integer[] or null .
+     * @return Integer[] or null
      */
     public Integer[] getIntegerArr(String key) {
         String[] values = getHttpRequest().getParameterValues(key);
@@ -540,11 +530,10 @@ public class Struts2ActionSupport extends ActionSupport {
     }
 
     /**
-     * 根据参数名从HttpRequest中获取Long[] 类型的参数值，无值则返回null .
+     * 根据参数名从HttpRequest中获取Long[] 类型的参数值，无值则返回null
      *
      * @param key
-     *         .
-     * @return Long[] or null .
+     * @return Long[] or null
      */
     public Long[] getLongArr(String key) {
         String[] values = getHttpRequest().getParameterValues(key);
@@ -560,11 +549,10 @@ public class Struts2ActionSupport extends ActionSupport {
     }
 
     /**
-     * 根据参数名从HttpRequest中获取Long[] 类型的参数值，无值则返回null .
+     * 根据参数名从HttpRequest中获取Long[] 类型的参数值，无值则返回null
      *
      * @param key
-     *         .
-     * @return Long[] or null .
+     * @return Long[] or null
      */
     public Double[] getDoubleArr(String key) {
         String[] values = getHttpRequest().getParameterValues(key);
@@ -580,31 +568,35 @@ public class Struts2ActionSupport extends ActionSupport {
     }
 
     /**
-     * 与DWZ框架结合的表单属性长度校验方法.
+     * 与DWZ框架结合的表单属性长度校验方法
      *
      * @param propertyName
-     *         要校验的属性中文名称，如“登录名”.
+     *         要校验的属性中文名称，如“登录名”
      * @param property
-     *         要校验的属性值，如“gzzyzz”.
+     *         要校验的属性值，如“gzzyzz”
      * @param isRequire
-     *         是否必填:true or false.
+     *         是否必填:true or false
      * @param minLength
-     *         最少长度:大于或等于0，如果不限制则可请设为0.
+     *         最少长度:大于或等于0，如果不限制则可请设为0
      * @param maxLength
-     *         最大长度:对应数据库字段的最大长度，如不限制则可设为0.
-     * @return 校验结果消息，校验通过则返回空字符串 .
+     *         最大长度:对应数据库字段的最大长度，如不限制则可设为0
+     * @return 校验结果消息，校验通过则返回空字符串
      */
     protected String lengthValidate(String propertyName, String property, boolean isRequire, int minLength, int
             maxLength) {
         int propertyLenght = StrUtil.strLengthCn(property);
         if (isRequire && propertyLenght == 0) {
-            return propertyName + "不能为空，"; // 校验不能为空
+            // 校验不能为空
+            return propertyName + "不能为空，";
         } else if (isRequire && minLength != 0 && propertyLenght < minLength) {
-            return propertyName + "不能少于" + minLength + "个字符，"; // 必填情况下校验最少长度
+            // 必填情况下校验最少长度
+            return propertyName + "不能少于" + minLength + "个字符，";
         } else if (maxLength != 0 && propertyLenght > maxLength) {
-            return propertyName + "不能多于" + maxLength + "个字符，"; // 校验最大长度
+            // 校验最大长度
+            return propertyName + "不能多于" + maxLength + "个字符，";
         } else {
-            return ""; // 校验通过则返回空字符串 .
+            // 校验通过则返回空字符串
+            return "";
         }
     }
 
@@ -653,11 +645,10 @@ public class Struts2ActionSupport extends ActionSupport {
      */
     public String getClientMacAddr() {
         try {
-            return new UdpGetClientMacAddr(this.getIpAddr()).GetRemoteMacAddr();
+            return new UdpGetClientMacAddr(this.getIpAddr()).getRemoteMacAddr();
         } catch (Exception e) {
             return "00:00:00:00";
         }
-
     }
 
     /**
@@ -666,8 +657,9 @@ public class Struts2ActionSupport extends ActionSupport {
      * @return
      */
     public Map<String, Object> getParamMap() {
-        Map<String, Object> parameters = new HashMap<>();
         Map map = getHttpRequest().getParameterMap();
+        Map<String, Object> parameters = new HashMap<>(map.size());
+
         Set keys = map.keySet();
         for (Object key : keys) {
             parameters.put(key.toString(), this.getString(key.toString()));
@@ -681,8 +673,9 @@ public class Struts2ActionSupport extends ActionSupport {
      * @return
      */
     public Map<String, Object> getParamMap_NullStr() {
-        Map<String, Object> parameters = new HashMap<>();
         Map map = getHttpRequest().getParameterMap();
+        Map<String, Object> parameters = new HashMap<>(map.size());
+
         Set keys = map.keySet();
         for (Object key : keys) {
             String value = this.getString(key.toString());
@@ -700,8 +693,9 @@ public class Struts2ActionSupport extends ActionSupport {
      * @return
      */
     public Map<String, Object> getParamMap_Utf8() {
-        Map<String, Object> parameters = new HashMap<>();
         Map map = getHttpRequest().getParameterMap();
+        Map<String, Object> parameters = new HashMap<>(map.size());
+
         Set keys = map.keySet();
         for (Object key : keys) {
             parameters.put(key.toString(), this.getString_UrlDecode_UTF8(key.toString()));
@@ -714,10 +708,10 @@ public class Struts2ActionSupport extends ActionSupport {
      *
      * @return
      */
-    @SuppressWarnings("rawtypes")
     public Map<String, Object> getParamMap_GBK() {
-        Map<String, Object> parameters = new HashMap<>();
         Map map = getHttpRequest().getParameterMap();
+        Map<String, Object> parameters = new HashMap<>(map.size());
+
         Set keys = map.keySet();
         for (Object key : keys) {
             parameters.put(key.toString(), this.getString_UrlDecode_GBK(key.toString()));
@@ -730,10 +724,6 @@ public class Struts2ActionSupport extends ActionSupport {
      */
     public String getRefererUrl() {
         return getHttpRequest().getHeader("referer");
-    }
-
-    public static void main(String[] args) {
-        System.out.println(StringUtil.isNotNull(" "));
     }
 
     /**
@@ -775,6 +765,22 @@ public class Struts2ActionSupport extends ActionSupport {
         } catch (Exception ignored) {
         }
         return "";
+    }
+
+    public String readStringFromInputStream(InputStream is) throws IOException {
+        byte[] buf = new byte[4096];
+        int len = 0;
+        ByteArrayBuffer bytes = new ByteArrayBuffer(4096);
+
+        while (true) {
+            len = is.read(buf);
+            if (len >= 0) {
+                bytes.append(buf, 0, len);
+            } else {
+                break;
+            }
+        }
+        return new String(bytes.toByteArray(), "UTF-8");
     }
 
 }

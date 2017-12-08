@@ -1,17 +1,9 @@
 package wusc.edu.pay.web.bankreceive.action;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.ServletInputStream;
-
+import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.http.util.ByteArrayBuffer;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import wusc.edu.pay.common.utils.string.StringUtil;
 import wusc.edu.pay.common.web.struts.Struts2ActionSupport;
 import wusc.edu.pay.facade.banklink.netpay.enums.BankTradeStatusEnum;
@@ -26,246 +18,235 @@ import wusc.edu.pay.facade.trade.util.OrderFacadeUtil;
 import wusc.edu.pay.facade.user.entity.MerchantOnline;
 import wusc.edu.pay.facade.user.service.MerchantOnlineFacade;
 
-import com.alibaba.fastjson.JSONObject;
+import javax.servlet.ServletInputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class NetBankReceiveAction extends Struts2ActionSupport {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 6667580313192178807L;
+    private static final long serialVersionUID = 6667580313192178807L;
 
-	private static final Log log = LogFactory.getLog(NetBankReceiveAction.class);
+    private static final Log log = LogFactory.getLog(NetBankReceiveAction.class);
 
-	@Autowired
-	private BankFacade bankFacade;
-	@Autowired
-	private PaymentFacade paymentFacade;
-	@Autowired
-	private PaymentQueryFacade paymentQueryFacade;
-	@Autowired
-	private MerchantOnlineFacade merchantOnlineFacade;
+    @Autowired
+    private BankFacade bankFacade;
 
-	private String payInterface;
+    @Autowired
+    private PaymentFacade paymentFacade;
 
-	/**
-	 * 页面通知
-	 * 
-	 * @return
-	 * @throws Exception
-	 */
-	public String page() throws Exception {
+    @Autowired
+    private PaymentQueryFacade paymentQueryFacade;
 
-		log.debug(this.getHttpRequest().getRequestURL().toString() + "?" + this.getHttpRequest().getQueryString());
-		log.debug(this.getParamMap_NullStr().toString());
+    @Autowired
+    private MerchantOnlineFacade merchantOnlineFacade;
 
-		String encode = getHttpRequest().getParameter("encode");
+    private String payInterface;
 
-		NotifyParam param = new NotifyParam();
-		param.setPayInterface(payInterface);
-		if (StringUtil.isBlank(encode)) {
-			param.setParamMap(this.getParamMap_NullStr());
-		} else {
-			param.setParamMap(this.getParamMap_GBK());
-		}
-		param.setUrl(this.getHttpRequest().getRequestURL().toString() + "?" + this.getHttpRequest().getQueryString());
-		NotifyResult result = bankFacade.verify(param);
+    /**
+     * 页面通知
+     *
+     * @return
+     * @throws Exception
+     */
+    public String page() throws Exception {
+        log.debug(this.getHttpRequest().getRequestURL().toString() + "?" + this.getHttpRequest().getQueryString());
+        log.debug(this.getParamMap_NullStr().toString());
 
-		if (result == null) {
-			log.debug("NotifyResult is null");
-			return ERROR;
-		}
+        String encode = getHttpRequest().getParameter("encode");
 
-		log.info("回调验签结果:" + JSONObject.toJSONString(result));
+        NotifyParam param = new NotifyParam();
+        param.setPayInterface(payInterface);
+        if (StringUtil.isBlank(encode)) {
+            param.setParamMap(this.getParamMap_NullStr());
+        } else {
+            param.setParamMap(this.getParamMap_GBK());
+        }
+        param.setUrl(this.getHttpRequest().getRequestURL().toString() + "?" + this.getHttpRequest().getQueryString());
+        NotifyResult result = bankFacade.verify(param);
+        if (result == null) {
+            log.debug("NotifyResult is null");
+            return ERROR;
+        }
 
-		if (result.isVerify()) {
+        log.info("回调验签结果:" + JSONObject.toJSONString(result));
+        if (result.isVerify()) {
+            // 支付记录是否已处理
+            PaymentRecord paymentRecord = paymentQueryFacade.
+                    getPaymentRecordByMerchantNo_orderNo_trxNo_bankOrderNo_status(null, null,
+                            null, result.getBankOrderNo(), null);
 
-			// 支付记录是否已处理
-			PaymentRecord paymentRecord = paymentQueryFacade.getPaymentRecordByMerchantNo_orderNo_trxNo_bankOrderNo_status(null, null,
-					null, result.getBankOrderNo(), null);
+            if (paymentRecord.getStatus().equals(PaymentRecordStatusEnum.CREATED.getValue())) {
+                if (result.getStatus().equals(BankTradeStatusEnum.SUCCESS)) {
+                    paymentRecord = paymentFacade.completePayment(result.getBankOrderNo(), result.getBankTrxNo(),
+                            result.getPayAmount().doubleValue(), PaymentRecordStatusEnum.SUCCESS);
+                } else if (result.getStatus().equals(BankTradeStatusEnum.FAILED)) {
+                    paymentRecord = paymentFacade.completePayment(result.getBankOrderNo(), result.getBankTrxNo(),
+                            result.getPayAmount().doubleValue(), PaymentRecordStatusEnum.FAILED);
+                }
+            }
 
-			if (paymentRecord.getStatus().equals(PaymentRecordStatusEnum.CREATED.getValue())) {
-				if (result.getStatus().equals(BankTradeStatusEnum.SUCCESS)) {
-					paymentRecord = paymentFacade.completePayment(result.getBankOrderNo(), result.getBankTrxNo(), result.getPayAmount()
-							.doubleValue(), PaymentRecordStatusEnum.SUCCESS);
-				} else if (result.getStatus().equals(BankTradeStatusEnum.FAILED)) {
-					paymentRecord = paymentFacade.completePayment(result.getBankOrderNo(), result.getBankTrxNo(), result.getPayAmount()
-							.doubleValue(), PaymentRecordStatusEnum.FAILED);
-				}
-			}
+            String backToMerchantUrl = this.getBankToMerchantUrl(paymentRecord);
+            if (paymentRecord.getStatus().equals(PaymentRecordStatusEnum.FAILED.getValue())) {
+                super.putData("backToMerchantUrl", backToMerchantUrl);
+                return ERROR;
+            }
+            super.putData("backToMerchantUrl", backToMerchantUrl);
+            super.putData("productName", paymentRecord.getProductName());
+            super.putData("merchantName", paymentRecord.getMerchantName());
+            super.putData("payAmount", paymentRecord.getOrderAmount());
+            super.putData("orderNo", paymentRecord.getMerchantOrderNo());
+            super.putData("trxNo", paymentRecord.getTrxNo());
+            super.putData("bankOrderNo", paymentRecord.getBankOrderNo());
+            super.putData("createTime", paymentRecord.getCreateTime());
+            super.putData("paymentTime", paymentRecord.getPaySuccessTime());
+            return SUCCESS;
+        } else {
+            log.debug("签名失败.");
+            return ERROR;
+        }
+    }
 
-			String backToMerchantUrl = this.getBankToMerchantUrl(paymentRecord);
+    private String getBankToMerchantUrl(PaymentRecord paymentRecord) throws Exception {
+        int cmdCode = Objects.requireNonNull(OrderFacadeUtil.toCmdCodeEnum(paymentRecord.getBizType(), paymentRecord
+                .getPaymentType())).getValue();
 
-			if (paymentRecord.getStatus().equals(PaymentRecordStatusEnum.FAILED.getValue())) {
-				super.putData("backToMerchantUrl", backToMerchantUrl);
-				return ERROR;
-			}
+        MerchantOnline merchantOnline =
+                merchantOnlineFacade.getMerchantOnlineByMerchantNo(paymentRecord.getMerchantNo());
+        return OrderFacadeUtil.buildMerchantNotifyUrl(paymentRecord.getReturnUrl(),
+                cmdCode,
+                paymentRecord.getMerchantNo(),
+                paymentRecord.getMerchantOrderNo(),
+                paymentRecord.getOrderAmount().doubleValue(),
+                paymentRecord.getCur(),
+                paymentRecord.getProductDesc(),
+                paymentRecord.getStatus(),
+                paymentRecord.getTrxNo(),
+                paymentRecord.getBankOrderNo(),
+                paymentRecord.getBankTrxNo(),
+                paymentRecord.getPaySuccessTime(),
+                paymentRecord.getCompleteTime(),
+                paymentRecord.getPayWayCode(),
+                merchantOnline.getMerchantKey());
+    }
 
-			super.putData("backToMerchantUrl", backToMerchantUrl);
-			super.putData("productName", paymentRecord.getProductName());
-			super.putData("merchantName", paymentRecord.getMerchantName());
-			super.putData("payAmount", paymentRecord.getOrderAmount());
-			super.putData("orderNo", paymentRecord.getMerchantOrderNo());
-			super.putData("trxNo", paymentRecord.getTrxNo());
-			super.putData("bankOrderNo", paymentRecord.getBankOrderNo());
-			super.putData("createTime", paymentRecord.getCreateTime());
-			super.putData("paymentTime", paymentRecord.getPaySuccessTime());
+    /**
+     * 后台通知
+     *
+     * @return
+     */
+    public String server() {
+        log.info(payInterface);
+        log.info(this.getHttpRequest().getRequestURL().toString() + "?" + this.getHttpRequest().getQueryString());
+        log.info(this.getParamMap_NullStr().toString());
 
-			return SUCCESS;
+        String encode = getHttpRequest().getParameter("encode");
 
-		} else {
-			log.debug("签名失败.");
-			return ERROR;
-		}
+        NotifyParam param = new NotifyParam();
+        param.setPayInterface(payInterface);
+        if (StringUtil.isBlank(encode)) {
+            param.setParamMap(this.getParamMap_NullStr());
+        } else {
+            param.setParamMap(this.getParamMap_GBK());
+        }
+        NotifyResult result = bankFacade.verify(param);
 
-	}
+        if (result == null) {
+            log.debug("NotifyResult is null");
+            return null;
+        }
 
-	private String getBankToMerchantUrl(PaymentRecord paymentRecord) throws Exception {
-		int cmdCode = OrderFacadeUtil.toCmdCodeEnum(paymentRecord.getBizType(), paymentRecord.getPaymentType()).getValue();
+        log.debug("回调验签结果:" + JSONObject.toJSONString(result));
 
-		MerchantOnline merchantOnline = merchantOnlineFacade.getMerchantOnlineByMerchantNo(paymentRecord.getMerchantNo());
-		String returnUrl = OrderFacadeUtil.buildMerchantNotifyUrl(paymentRecord.getReturnUrl(), cmdCode, paymentRecord.getMerchantNo(),
-				paymentRecord.getMerchantOrderNo(), paymentRecord.getOrderAmount().doubleValue(), paymentRecord.getCur(),
-				paymentRecord.getProductDesc(), paymentRecord.getStatus(), paymentRecord.getTrxNo(), paymentRecord.getBankOrderNo(),
-				paymentRecord.getBankTrxNo(), paymentRecord.getPaySuccessTime(), paymentRecord.getCompleteTime(),
-				paymentRecord.getPayWayCode(), merchantOnline.getMerchantKey());
+        if (result.isVerify()) {
+            // 支付记录是否已处理
+            PaymentRecord paymentRecord = paymentQueryFacade
+                    .getPaymentRecordByMerchantNo_orderNo_trxNo_bankOrderNo_status(null, null,
+                            null, result.getBankOrderNo(), PaymentRecordStatusEnum.CREATED.getValue());
 
-		return returnUrl;
-	}
+            if (paymentRecord != null) {
+                if (result.getStatus().equals(BankTradeStatusEnum.SUCCESS)) {
+                    paymentFacade.completePayment(result.getBankOrderNo(), result.getBankTrxNo(), result.getPayAmount
+                                    ().doubleValue(),
+                            PaymentRecordStatusEnum.SUCCESS);
+                } else if (result.getStatus().equals(BankTradeStatusEnum.FAILED)) {
+                    paymentFacade.completePayment(result.getBankOrderNo(), result.getBankTrxNo(), result.getPayAmount
+                                    ().doubleValue(),
+                            PaymentRecordStatusEnum.FAILED);
+                }
+            }
 
-	/**
-	 * 后台通知
-	 * 
-	 * @return
-	 */
-	public String server() {
-		log.info(payInterface);
-		log.info(this.getHttpRequest().getRequestURL().toString() + "?" + this.getHttpRequest().getQueryString());
-		log.info(this.getParamMap_NullStr().toString());
+            // 回写成功字符串
+            this.write(result.getResponseStr());
 
-		String encode = getHttpRequest().getParameter("encode");
+        } else {
+            log.debug("签名失败.");
+        }
+        return null;
+    }
 
-		NotifyParam param = new NotifyParam();
-		param.setPayInterface(payInterface);
-		if (StringUtil.isBlank(encode)) {
-			param.setParamMap(this.getParamMap_NullStr());
-		} else {
-			param.setParamMap(this.getParamMap_GBK());
-		}
-		NotifyResult result = bankFacade.verify(param);
+    /**
+     * 用来接收银行端，以流的方式传送通知结果
+     *
+     * @return
+     */
+    public String serverStream() {
+        String response = "";
+        try {
+            ServletInputStream in = this.getHttpRequest().getInputStream();
+            response = readStringFromInputStream(in);
+            log.info("response:" + response);
+        } catch (IOException e) {
+            log.error("IOException:", e);
+        }
 
-		if (result == null) {
-			log.debug("NotifyResult is null");
-			return null;
-		}
+        NotifyParam param = new NotifyParam();
+        param.setPayInterface(payInterface);
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("param", response);
 
-		log.debug("回调验签结果:" + JSONObject.toJSONString(result));
+        NotifyResult result = bankFacade.verify(param);
 
-		if (result.isVerify()) {
+        if (result == null) {
+            log.debug("NotifyResult is null");
+            return null;
+        }
 
-			// 支付记录是否已处理
-			PaymentRecord paymentRecord = paymentQueryFacade.getPaymentRecordByMerchantNo_orderNo_trxNo_bankOrderNo_status(null, null,
-					null, result.getBankOrderNo(), PaymentRecordStatusEnum.CREATED.getValue());
+        log.debug("回调验签结果:" + JSONObject.toJSONString(result));
 
-			if (paymentRecord != null) {
-				if (result.getStatus().equals(BankTradeStatusEnum.SUCCESS)) {
-					paymentFacade.completePayment(result.getBankOrderNo(), result.getBankTrxNo(), result.getPayAmount().doubleValue(),
-							PaymentRecordStatusEnum.SUCCESS);
-				} else if (result.getStatus().equals(BankTradeStatusEnum.FAILED)) {
-					paymentFacade.completePayment(result.getBankOrderNo(), result.getBankTrxNo(), result.getPayAmount().doubleValue(),
-							PaymentRecordStatusEnum.FAILED);
-				}
-			}
+        if (result.isVerify()) {
 
-			// 回写成功字符串
-			this.write(result.getResponseStr());
+            // 支付记录是否已处理
+            PaymentRecord paymentRecord = paymentQueryFacade
+                    .getPaymentRecordByMerchantNo_orderNo_trxNo_bankOrderNo_status(null, null,
+                            null, result.getBankOrderNo(), PaymentRecordStatusEnum.CREATED.getValue());
 
-		} else {
-			log.debug("签名失败.");
-		}
+            if (paymentRecord != null) {
+                if (result.getStatus().equals(BankTradeStatusEnum.SUCCESS)) {
+                    paymentFacade.completePayment(result.getBankOrderNo(), result.getBankTrxNo(), result.getPayAmount
+                                    ().doubleValue(),
+                            PaymentRecordStatusEnum.SUCCESS);
+                } else if (result.getStatus().equals(BankTradeStatusEnum.FAILED)) {
+                    paymentFacade.completePayment(result.getBankOrderNo(), result.getBankTrxNo(), result.getPayAmount
+                                    ().doubleValue(),
+                            PaymentRecordStatusEnum.FAILED);
+                }
+            }
+            // 回写成功字符串
+            this.write(result.getResponseStr());
+        } else {
+            log.debug("签名失败.");
+        }
+        return null;
+    }
 
-		return null;
-	}
-	
-	
-	/**
-	 * 用来接收银行端，以流的方式传送通知结果
-	 * @return
-	 */
-	public String serverStream() {
-		
-		String response = "";
-		try {
-			ServletInputStream in = this.getHttpRequest().getInputStream();
-			 response = readStringFromInputStream(in);
-			log.info("response:" + response);
-		} catch (IOException e) {
-			log.error("IOException:",e);
-		}
+    public String getPayInterface() {
+        return payInterface;
+    }
 
-		NotifyParam param = new NotifyParam();
-		param.setPayInterface(payInterface);
-		Map<String, Object> map = new HashMap<String , Object>();
-		map.put("param", response);
-		
-		NotifyResult result = bankFacade.verify(param);
-
-		if (result == null) {
-			log.debug("NotifyResult is null");
-			return null;
-		}
-
-		log.debug("回调验签结果:" + JSONObject.toJSONString(result));
-
-		if (result.isVerify()) {
-
-			// 支付记录是否已处理
-			PaymentRecord paymentRecord = paymentQueryFacade.getPaymentRecordByMerchantNo_orderNo_trxNo_bankOrderNo_status(null, null,
-					null, result.getBankOrderNo(), PaymentRecordStatusEnum.CREATED.getValue());
-
-			if (paymentRecord != null) {
-				if (result.getStatus().equals(BankTradeStatusEnum.SUCCESS)) {
-					paymentFacade.completePayment(result.getBankOrderNo(), result.getBankTrxNo(), result.getPayAmount().doubleValue(),
-							PaymentRecordStatusEnum.SUCCESS);
-				} else if (result.getStatus().equals(BankTradeStatusEnum.FAILED)) {
-					paymentFacade.completePayment(result.getBankOrderNo(), result.getBankTrxNo(), result.getPayAmount().doubleValue(),
-							PaymentRecordStatusEnum.FAILED);
-				}
-			}
-
-			// 回写成功字符串
-			this.write(result.getResponseStr());
-
-		} else {
-			log.debug("签名失败.");
-		}
-
-		return null;
-	}
-	
-	
-	private String readStringFromInputStream(InputStream is) throws IOException {
-		byte[] buf = new byte[4096];
-		int len = 0;
-		ByteArrayBuffer bytes = new ByteArrayBuffer(4096);
-
-		while (true) {
-			len = is.read(buf);
-			if (len >= 0) {
-				bytes.append(buf, 0, len);
-			} else {
-				break;
-			}
-		}
-		return new String(bytes.toByteArray(), "UTF-8");
-	}
-
-	public String getPayInterface() {
-		return payInterface;
-	}
-
-	public void setPayInterface(String payInterface) {
-		this.payInterface = payInterface;
-	}
+    public void setPayInterface(String payInterface) {
+        this.payInterface = payInterface;
+    }
 
 }

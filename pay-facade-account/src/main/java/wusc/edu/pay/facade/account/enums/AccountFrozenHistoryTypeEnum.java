@@ -13,15 +13,8 @@ import java.util.Map;
  * @version 1.0
  */
 public enum AccountFrozenHistoryTypeEnum {
-	
-	/**
-	 * 冻结
-	 */
-	FROZEN("冻结", 123), 
-	
-	/**
-	 * 解冻
-	 */
+
+	FROZEN("冻结", 123),
 	UNFROZEN("解冻", 321);
 
 	/** 枚举值 */

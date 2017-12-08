@@ -57,7 +57,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.1.1</version>
                 <configuration>
                     <webResources>
                         <resource>
@@ -250,7 +249,6 @@
             <artifactId>slf4j-log4j12</artifactId>
         </dependency>
         <!-- Common Dependency End -->
-
         <!-- Spring Dependency Begin -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -330,7 +328,6 @@
             <artifactId>spring-webmvc-portlet</artifactId>
         </dependency>
         <!-- Spring Dependency End -->
-
         <!-- Struts2 Dependency Begin -->
         <dependency>
             <groupId>org.apache.struts</groupId>
@@ -353,7 +350,6 @@
             <artifactId>xwork-core</artifactId>
         </dependency>
         <!-- Struts2 Dependency End -->
-
         <!-- Others Begin -->
         <dependency>
             <groupId>com.github.penggle</groupId>
@@ -383,12 +379,10 @@
             <version>1.7</version>
         </dependency>
         <!-- Others End -->
-
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
         </dependency>
-
         <!-- dubbo 需要的jar start -->
         <dependency>
             <groupId>org.jboss.netty</groupId>
@@ -412,7 +406,6 @@
             <groupId>com.101tec</groupId>
             <artifactId>zkclient</artifactId>
         </dependency>
-
         <!-- dubbo 需要的jar end -->
         <dependency>
             <groupId>org.apache.activemq</groupId>
@@ -422,7 +415,6 @@
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-pool</artifactId>
         </dependency>
-
         <!-- pinyin4j -->
         <dependency>
             <groupId>com.belerweb</groupId>

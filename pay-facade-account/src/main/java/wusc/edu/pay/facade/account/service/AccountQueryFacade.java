@@ -75,8 +75,7 @@ public interface AccountQueryFacade {
 	 * @return
 	 * @throws AccountBizException
 	 */
-	List<DailyCollectAccountHistoryVo> listDailyCollectAccountHistoryVo(String accountNo, String statDate, Integer riskDay,
-			Integer fundDirection) throws AccountBizException;
+	List<DailyCollectAccountHistoryVo> listDailyCollectAccountHistoryVo(String accountNo, String statDate, Integer riskDay, Integer fundDirection) throws AccountBizException;
 
 	/**
 	 * 日汇总账户待结算金额_针对单笔t+0结算

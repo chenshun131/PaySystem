@@ -108,9 +108,7 @@ public class PublicConfig {
         }
     }
 
-    /**
-     * 是否开发状态
-     */
+    /** 是否开发状态 */
     public final static boolean IS_DEV_STATUS = Boolean.parseBoolean(PUBLIC_USER.get("IS_DEV_STATUS"));
 
     /** 是否 是 域名 + 应用名 */

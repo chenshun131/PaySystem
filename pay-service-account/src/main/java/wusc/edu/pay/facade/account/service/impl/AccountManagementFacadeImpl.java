@@ -26,6 +26,7 @@ public class AccountManagementFacadeImpl implements AccountManagementFacade {
 	/**
 	 * 重新绑定商户编号
 	 */
+	@Override
 	public long reBindUserNo(String accountNo, String userNo) {
 		return accountManagementBiz.reBindUserNo(accountNo, userNo);
 	}
@@ -37,6 +38,7 @@ public class AccountManagementFacadeImpl implements AccountManagementFacade {
 	 * @return accountNo 账户编号.
 	 * @throws AccountBizException
 	 */
+	@Override
 	public String buildAccountNo(AccountTypeEnum accountType) {
 		return accountManagementBiz.buildAccountNo(accountType);
 	}
@@ -49,6 +51,7 @@ public class AccountManagementFacadeImpl implements AccountManagementFacade {
 	 * @return
 	 * @throws AccountBizException
 	 */
+	@Override
 	public long createAccount(String userNo, String accountNo, int accountType) {
 		return accountManagementBiz.createAccount(userNo, accountNo, accountType);
 	}
@@ -70,6 +73,7 @@ public class AccountManagementFacadeImpl implements AccountManagementFacade {
 	 * @param desc
 	 *            变更操作说明.
 	 */
+	@Override
 	public void changeAccountStatus(String userNo, AccountOperationTypeEnum operationType, AccountInitiatorEnum initiator, String desc) {
 		accountManagementBiz.changeAccountStatus(userNo, operationType, initiator, desc);
 	}
