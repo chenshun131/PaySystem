@@ -44,7 +44,7 @@
 			#{item.fundDirection}, #{item.isAllowSett}, #{item.isCompleteSett}, #{item.trxType}, #{item.riskDay})
 		</foreach>
 	</insert>
-	
+
 	<sql id="condition_sql">
 		<if test="beginDate != null and endDate != null and endDate !='' and beginDate !=''">
 			and CREATETIME between #{beginDate} AND CONCAT(#{endDate},' 23:59:59')
@@ -88,7 +88,7 @@
 			<include refid="condition_sql" />
 		</where>
 	</select>
-	
+
 	<select id="countByPageParam" parameterType="java.util.Map" resultType="hashmap">
 		select sum(AMOUNT) as "income",
 		(select sum(AMOUNT) from
@@ -121,7 +121,7 @@
 			and RISK_DAY is null
 			)
 	</update>
-	
+
 	<!-- 更新账户历史记录记为结算完成_针对单笔交易T+0 -->
 	<update id="updateCompleteSettTo100_t0" parameterType="java.util.Map">
 		update <include refid="table" />
@@ -133,7 +133,7 @@
 			and ISALLOWSETT = 100
 			and TRXTYPE = 6006
 	</update>
-	
+
 	<!-- 日汇总账户待结算金额  -->
 	<select id="listDailyCollectAccountHistoryVo" parameterType="java.util.Map" resultType="DailyCollectAccountHistoryVo">
 		select
@@ -178,7 +178,7 @@
 			<if test="fundDirection != null and fundDirection !=''"> and FUNDDIRECTION = #{fundDirection} </if>
 		group by ACCOUNTNO, RISK_DAY, CREATETIME
 	</select>
-	
+
 	<!-- 更新账户历史记录记为结算完成 -->
 	<update id="updateCompleteSettTo100LastId" parameterType="java.util.Map">
 		update <include refid="table" />
