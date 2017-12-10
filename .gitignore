@@ -70,3 +70,6 @@ freeline_project_description.json
 
 # Maven
 target/
+
+# log
+/logs
