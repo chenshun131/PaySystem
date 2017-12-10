@@ -1,475 +1,283 @@
 package wusc.edu.pay.facade.bank.entity;
 
-import java.util.Date;
-
 import wusc.edu.pay.common.entity.BaseEntity;
+
+import java.util.Date;
 
 
 /**
- * 
  * @描述: 银行账户信息表参数实体.
  * @作者: WuShuicheng .
  * @创建时间: 2014-4-15, 下午2:31:56
  */
 public class BankAccount extends BaseEntity {
-	
-	private static final long serialVersionUID = 1L;
-	
-	
-	/** 开户银行：具体的银行名称 */
-	private String openBank;
-	
-	/** 开户行地址：具体到开户支行地址 */
-	private String openBankAddress;
-	
-	/** 开户日期：账户开户的日期 */
-	private Date opendate;
-	
-	/** 银行账号：具体的账户编号 */
-	private String bankAccount;
-	
-	/** 银行行号：具体视银行支行行号，确定与银联系统数据相同 */
-	private String bankNo;
-	
-	/** 银行账户名称：具体的银行账户名称 */
-	private String userName;
-	
-	/** 开户经办人：具体经办人 */
-	private String operator;
-	
-	/** 合作方式：1：存管银行、2：合作银行 */
-	private Integer cooperationWay;
-	
-	/** 账户性质：1：备付金存管账户、2：自有资金账户、3：备付金收付账户 、4：备付金汇缴账户 */
-	private Integer accountNature;
-	
-	/** 账户状态：1：正常、2：待销户、3：已销户 */
-	private Integer accountStatus;
-	
-	/** 账户类型：1:活期 、2:定期 、3:通支 */
-	private Integer accountType;
-	
-	/** 网银管理费：按照具体情况填写 */
-	private Double onlineBankFee;
-	
-	/** 账户管理费：按照具体情况填写 */
-	private Double accountMngFee;
-	
-	/** 是否有网银：1：是、2：否 */
-	private Integer isOnlineBank;
-	
-	/** 回单形式：1:邮寄、2:自取、3:打印 */
-	private Integer receiptForm;
-	
-	/** 预留印鉴记录 */
-	private String reserveSeal;
-	
-	/** 申请人：具体申请人 */
-	private String proposer;
-	
-	/** 银行联系方式：姓名、类型、电话、邮箱（长文本存放） */
-	private String linkMan;
-	
-	/** 开户信息预留人 */
-	private String openAccountObligate;
-	
-	/** 网银验证码预留人 */
-	private String onlineBankObligate;
-	
-	/** 大额转款确定预留人 */
-	private String bigAmounttransferObligate;
-	
-	/** 质押保证金 */
-	private Double pledgefDeposits;
-	
-	/** 备注 */
-	private String comments;
 
-	/**
-	 * 初始化金额
-	 */
-	private Double balance;
-	
-	/**
-	 * 初始化金额
-	 */
-	public Double getBalance() {
-		return balance;
-	}
-	
-	/**
-	 * 初始化金额
-	 */
-	public void setBalance(Double balance) {
-		this.balance = balance;
-	}
-	
-	/**
-	 * 开户银行：具体的银行名称
-	 * @return
-	 */
-	public String getOpenBank() {
-		return openBank;
-	}
+    private static final long serialVersionUID = 6258550876950539637L;
 
-	/**
-	 * 开户银行：具体的银行名称
-	 * @param openBank
-	 */
-	public void setOpenBank(String openBank) {
-		this.openBank = openBank;
-	}
+    /** 开户银行：具体的银行名称 */
+    private String openBank;
 
-	/**
-	 * 开户行地址：具体到开户支行地址
-	 * @return
-	 */
-	public String getOpenBankAddress() {
-		return openBankAddress;
-	}
+    /** 开户行地址：具体到开户支行地址 */
+    private String openBankAddress;
 
-	/**
-	 * 开户行地址：具体到开户支行地址
-	 * @param openBankAddress
-	 */
-	public void setOpenBankAddress(String openBankAddress) {
-		this.openBankAddress = openBankAddress;
-	}
+    /** 开户日期：账户开户的日期 */
+    private Date opendate;
 
-	/**
-	 * 开户日期：账户开户的日期
-	 * @return
-	 */
-	public Date getOpendate() {
-		return opendate;
-	}
+    /** 银行账号：具体的账户编号 */
+    private String bankAccount;
 
-	/**
-	 * 开户日期：账户开户的日期
-	 * @param opendate
-	 */
-	public void setOpendate(Date opendate) {
-		this.opendate = opendate;
-	}
+    /** 银行行号：具体视银行支行行号，确定与银联系统数据相同 */
+    private String bankNo;
 
-	/**
-	 * 银行账号：具体的账户编号
-	 * @return
-	 */
-	public String getBankAccount() {
-		return bankAccount;
-	}
+    /** 银行账户名称：具体的银行账户名称 */
+    private String userName;
 
-	/**
-	 * 银行账号：具体的账户编号
-	 * @param bankAccount
-	 */
-	public void setBankAccount(String bankAccount) {
-		this.bankAccount = bankAccount;
-	}
+    /** 开户经办人：具体经办人 */
+    private String operator;
 
-	/**
-	 * 银行行号：具体视银行支行行号，确定与银联系统数据相同
-	 * @return
-	 */
-	public String getBankNo() {
-		return bankNo;
-	}
+    /** 合作方式：1：存管银行、2：合作银行 */
+    private Integer cooperationWay;
 
-	/**
-	 * 银行行号：具体视银行支行行号，确定与银联系统数据相同
-	 * @param bankNo
-	 */
-	public void setBankNo(String bankNo) {
-		this.bankNo = bankNo;
-	}
+    /** 账户性质：1：备付金存管账户、2：自有资金账户、3：备付金收付账户 、4：备付金汇缴账户 */
+    private Integer accountNature;
 
-	/**
-	 * 银行账户名称：具体的银行账户名称
-	 * @return
-	 */
-	public String getUserName() {
-		return userName;
-	}
+    /** 账户状态：1：正常、2：待销户、3：已销户 */
+    private Integer accountStatus;
 
-	/**
-	 * 银行账户名称：具体的银行账户名称
-	 * @param userName
-	 */
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+    /** 账户类型：1:活期 、2:定期 、3:通支 */
+    private Integer accountType;
 
-	/**
-	 * 开户经办人：具体经办人
-	 * @return
-	 */
-	public String getOperator() {
-		return operator;
-	}
+    /** 网银管理费：按照具体情况填写 */
+    private Double onlineBankFee;
 
-	/**
-	 * 开户经办人：具体经办人
-	 * @param operator
-	 */
-	public void setOperator(String operator) {
-		this.operator = operator;
-	}
+    /** 账户管理费：按照具体情况填写 */
+    private Double accountMngFee;
 
-	/**
-	 * 合作方式：1：存管银行、2：合作银行
-	 * @return
-	 */
-	public Integer getCooperationWay() {
-		return cooperationWay;
-	}
+    /** 是否有网银：1：是、2：否 */
+    private Integer isOnlineBank;
 
-	/**
-	 * 合作方式：1：存管银行、2：合作银行
-	 * @param cooperationWay
-	 */
-	public void setCooperationWay(Integer cooperationWay) {
-		this.cooperationWay = cooperationWay;
-	}
+    /** 回单形式：1:邮寄、2:自取、3:打印 */
+    private Integer receiptForm;
 
-	/**
-	 * 账户性质：1：备付金存管账户、2：自有资金账户、3：备付金收付账户 、4：备付金汇缴账户
-	 * @return
-	 */
-	public Integer getAccountNature() {
-		return accountNature;
-	}
+    /** 预留印鉴记录 */
+    private String reserveSeal;
 
-	/**
-	 * 账户性质：1：备付金存管账户、2：自有资金账户、3：备付金收付账户 、4：备付金汇缴账户
-	 * @param accountNature
-	 */
-	public void setAccountNature(Integer accountNature) {
-		this.accountNature = accountNature;
-	}
+    /** 申请人：具体申请人 */
+    private String proposer;
 
-	/**
-	 * 账户状态：1：正常、2：待销户、3：已销户
-	 * @return
-	 */
-	public Integer getAccountStatus() {
-		return accountStatus;
-	}
+    /** 银行联系方式：姓名、类型、电话、邮箱（长文本存放） */
+    private String linkMan;
 
-	/**
-	 * 账户状态：1：正常、2：待销户、3：已销户
-	 * @param accountStatus
-	 */
-	public void setAccountStatus(Integer accountStatus) {
-		this.accountStatus = accountStatus;
-	}
+    /** 开户信息预留人 */
+    private String openAccountObligate;
 
-	/**
-	 * 账户类型：1:活期 、2:定期 、3:通支
-	 * @return
-	 */
-	public Integer getAccountType() {
-		return accountType;
-	}
+    /** 网银验证码预留人 */
+    private String onlineBankObligate;
 
-	/**
-	 * 账户类型：1:活期 、2:定期 、3:通支
-	 * @param accountType
-	 */
-	public void setAccountType(Integer accountType) {
-		this.accountType = accountType;
-	}
+    /** 大额转款确定预留人 */
+    private String bigAmounttransferObligate;
 
-	/**
-	 * 网银管理费：按照具体情况填写
-	 * @return
-	 */
-	public Double getOnlineBankFee() {
-		return onlineBankFee;
-	}
+    /** 质押保证金 */
+    private Double pledgefDeposits;
 
-	/**
-	 * 网银管理费：按照具体情况填写
-	 * @param onlineBankFee
-	 */
-	public void setOnlineBankFee(Double onlineBankFee) {
-		this.onlineBankFee = onlineBankFee;
-	}
+    /** 备注 */
+    private String comments;
 
-	/**
-	 * 账户管理费：按照具体情况填写
-	 * @return
-	 */
-	public Double getAccountMngFee() {
-		return accountMngFee;
-	}
+    /** 初始化金额 */
+    private Double balance;
 
-	/**
-	 * 账户管理费：按照具体情况填写
-	 * @param accountMngFee
-	 */
-	public void setAccountMngFee(Double accountMngFee) {
-		this.accountMngFee = accountMngFee;
-	}
+    /** 初始化金额 */
+    public Double getBalance() {
+        return balance;
+    }
 
-	/**
-	 * 是否有网银：1：是、2：否
-	 * @return
-	 */
-	public Integer getIsOnlineBank() {
-		return isOnlineBank;
-	}
+    /** 初始化金额 */
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
 
-	/**
-	 * 是否有网银：1：是、2：否
-	 * @param isOnlineBank
-	 */
-	public void setIsOnlineBank(Integer isOnlineBank) {
-		this.isOnlineBank = isOnlineBank;
-	}
+    public String getOpenBank() {
+        return openBank;
+    }
 
-	/**
-	 * 回单形式：1:邮寄、2:自取、3:打印
-	 * @return
-	 */
-	public Integer getReceiptForm() {
-		return receiptForm;
-	}
+    public void setOpenBank(String openBank) {
+        this.openBank = openBank;
+    }
 
-	/**
-	 * 回单形式：1:邮寄、2:自取、3:打印
-	 * @param receiptForm
-	 */
-	public void setReceiptForm(Integer receiptForm) {
-		this.receiptForm = receiptForm;
-	}
+    public String getOpenBankAddress() {
+        return openBankAddress;
+    }
 
-	/**
-	 * 预留印鉴记录
-	 * @return
-	 */
-	public String getReserveSeal() {
-		return reserveSeal;
-	}
+    public void setOpenBankAddress(String openBankAddress) {
+        this.openBankAddress = openBankAddress;
+    }
 
-	/**
-	 * 预留印鉴记录
-	 * @param reserveSeal
-	 */
-	public void setReserveSeal(String reserveSeal) {
-		this.reserveSeal = reserveSeal;
-	}
+    public Date getOpendate() {
+        return opendate;
+    }
 
-	/**
-	 * 申请人：具体申请人
-	 * @return
-	 */
-	public String getProposer() {
-		return proposer;
-	}
+    public void setOpendate(Date opendate) {
+        this.opendate = opendate;
+    }
 
-	/**
-	 * 申请人：具体申请人
-	 * @param proposer
-	 */
-	public void setProposer(String proposer) {
-		this.proposer = proposer;
-	}
+    public String getBankAccount() {
+        return bankAccount;
+    }
 
-	/**
-	 * 银行联系方式：姓名、类型、电话、邮箱（长文本存放）
-	 * @return
-	 */
-	public String getLinkMan() {
-		return linkMan;
-	}
+    public void setBankAccount(String bankAccount) {
+        this.bankAccount = bankAccount;
+    }
 
-	/**
-	 * 银行联系方式：姓名、类型、电话、邮箱（长文本存放）
-	 * @param linkMan
-	 */
-	public void setLinkMan(String linkMan) {
-		this.linkMan = linkMan;
-	}
+    public String getBankNo() {
+        return bankNo;
+    }
 
-	/**
-	 * 开户信息预留人
-	 * @return
-	 */
-	public String getOpenAccountObligate() {
-		return openAccountObligate;
-	}
+    public void setBankNo(String bankNo) {
+        this.bankNo = bankNo;
+    }
 
-	/**
-	 * 开户信息预留人
-	 * @param openAccountObligate
-	 */
-	public void setOpenAccountObligate(String openAccountObligate) {
-		this.openAccountObligate = openAccountObligate;
-	}
+    public String getUserName() {
+        return userName;
+    }
 
-	/**
-	 * 网银验证码预留人
-	 * @return
-	 */
-	public String getOnlineBankObligate() {
-		return onlineBankObligate;
-	}
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-	/**
-	 * 网银验证码预留人
-	 * @param onlineBankObligate
-	 */
-	public void setOnlineBankObligate(String onlineBankObligate) {
-		this.onlineBankObligate = onlineBankObligate;
-	}
+    public String getOperator() {
+        return operator;
+    }
 
-	/**
-	 * 大额转款确定预留人
-	 * @return
-	 */
-	public String getBigAmounttransferObligate() {
-		return bigAmounttransferObligate;
-	}
+    public void setOperator(String operator) {
+        this.operator = operator;
+    }
 
-	/**
-	 * 大额转款确定预留人
-	 * @param bigAmounttransferObligate
-	 */
-	public void setBigAmounttransferObligate(String bigAmounttransferObligate) {
-		this.bigAmounttransferObligate = bigAmounttransferObligate;
-	}
+    public Integer getCooperationWay() {
+        return cooperationWay;
+    }
 
-	/**
-	 * 质押保证金
-	 * @return
-	 */
-	public Double getPledgefDeposits() {
-		return pledgefDeposits;
-	}
+    public void setCooperationWay(Integer cooperationWay) {
+        this.cooperationWay = cooperationWay;
+    }
 
-	/**
-	 * 质押保证金
-	 * @param pledgefDeposits
-	 */
-	public void setPledgefDeposits(Double pledgefDeposits) {
-		this.pledgefDeposits = pledgefDeposits;
-	}
+    public Integer getAccountNature() {
+        return accountNature;
+    }
 
-	/**
-	 * 备注
-	 * @return
-	 */
-	public String getComments() {
-		return comments;
-	}
+    public void setAccountNature(Integer accountNature) {
+        this.accountNature = accountNature;
+    }
 
-	/**
-	 * 备注
-	 * @param comments
-	 */
-	public void setComments(String comments) {
-		this.comments = comments;
-	}
-	
+    public Integer getAccountStatus() {
+        return accountStatus;
+    }
+
+    public void setAccountStatus(Integer accountStatus) {
+        this.accountStatus = accountStatus;
+    }
+
+    public Integer getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(Integer accountType) {
+        this.accountType = accountType;
+    }
+
+    public Double getOnlineBankFee() {
+        return onlineBankFee;
+    }
+
+    public void setOnlineBankFee(Double onlineBankFee) {
+        this.onlineBankFee = onlineBankFee;
+    }
+
+    public Double getAccountMngFee() {
+        return accountMngFee;
+    }
+
+    public void setAccountMngFee(Double accountMngFee) {
+        this.accountMngFee = accountMngFee;
+    }
+
+    public Integer getIsOnlineBank() {
+        return isOnlineBank;
+    }
+
+    public void setIsOnlineBank(Integer isOnlineBank) {
+        this.isOnlineBank = isOnlineBank;
+    }
+
+    public Integer getReceiptForm() {
+        return receiptForm;
+    }
+
+    public void setReceiptForm(Integer receiptForm) {
+        this.receiptForm = receiptForm;
+    }
+
+    public String getReserveSeal() {
+        return reserveSeal;
+    }
+
+    public void setReserveSeal(String reserveSeal) {
+        this.reserveSeal = reserveSeal;
+    }
+
+    public String getProposer() {
+        return proposer;
+    }
+
+    public void setProposer(String proposer) {
+        this.proposer = proposer;
+    }
+
+    public String getLinkMan() {
+        return linkMan;
+    }
+
+    public void setLinkMan(String linkMan) {
+        this.linkMan = linkMan;
+    }
+
+    public String getOpenAccountObligate() {
+        return openAccountObligate;
+    }
+
+    public void setOpenAccountObligate(String openAccountObligate) {
+        this.openAccountObligate = openAccountObligate;
+    }
+
+    public String getOnlineBankObligate() {
+        return onlineBankObligate;
+    }
+
+    public void setOnlineBankObligate(String onlineBankObligate) {
+        this.onlineBankObligate = onlineBankObligate;
+    }
+
+    public String getBigAmounttransferObligate() {
+        return bigAmounttransferObligate;
+    }
+
+    public void setBigAmounttransferObligate(String bigAmounttransferObligate) {
+        this.bigAmounttransferObligate = bigAmounttransferObligate;
+    }
+
+    public Double getPledgefDeposits() {
+        return pledgefDeposits;
+    }
+
+    public void setPledgefDeposits(Double pledgefDeposits) {
+        this.pledgefDeposits = pledgefDeposits;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
 }

@@ -39,7 +39,8 @@ public class CalFeeFlowBiz extends BaseBizImpl<CalFeeFlow> {
 	 */
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 
-	protected BaseDao<CalFeeFlow> getDao() {
+	@Override
+    protected BaseDao<CalFeeFlow> getDao() {
 		return calFeeFlowDao;
 	}
 	

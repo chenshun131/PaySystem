@@ -69,8 +69,7 @@ public class SimpleHttpUtils {
      * @param charSet
      * @return 通讯失败返回null, 否则返回服务端输出
      */
-    public static String httpRequest(String url, Map<String, String> params, String method, String charSet,
-                                     Map<String, String> headers) {
+    public static String httpRequest(String url, Map<String, String> params, String method, String charSet, Map<String, String> headers) {
         SimpleHttpParam param = new SimpleHttpParam(url);
         param.setParameters(params);
         if (null != headers) {
@@ -86,10 +85,6 @@ public class SimpleHttpUtils {
         }
     }
 
-    /**
-     * @param httpParam
-     * @return
-     */
     public static SimpleHttpResult httpRequest(SimpleHttpParam httpParam) {
         String url = httpParam.getUrl();
         Map<String, Object> parameters = httpParam.getParameters();

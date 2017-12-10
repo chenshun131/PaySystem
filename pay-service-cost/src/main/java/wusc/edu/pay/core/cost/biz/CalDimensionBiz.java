@@ -26,10 +26,12 @@ public class CalDimensionBiz extends BaseBizImpl<CalDimension> {
 	@Autowired
 	private CalDimensionDao calDimensionDao;
 
-	protected BaseDao<CalDimension> getDao() {
+	@Override
+    protected BaseDao<CalDimension> getDao() {
 		return calDimensionDao;
 	}
 
+	@Override
 	public long deleteById(long id) {
 		return calDimensionDao.deleteById(id);
 	}

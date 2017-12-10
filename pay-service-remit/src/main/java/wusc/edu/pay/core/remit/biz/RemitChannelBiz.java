@@ -37,6 +37,7 @@ public class RemitChannelBiz extends BaseBizImpl<RemitChannel> {
 		return remitChannelDao;
 	}
 
+	@Override
 	@Transactional(readOnly = false, rollbackFor = Exception.class)
 	public long deleteById(long id) throws RemitBizException {
 		return remitChannelDao.deleteById(id);
@@ -48,7 +49,8 @@ public class RemitChannelBiz extends BaseBizImpl<RemitChannel> {
 		return remitChannelDao.listBy(paramMap);
 	}
 
-	public List<RemitChannel> listBy(Map<String, Object> paramMap) {
+	@Override
+    public List<RemitChannel> listBy(Map<String, Object> paramMap) {
 		return remitChannelDao.listBy(paramMap);
 	}
 

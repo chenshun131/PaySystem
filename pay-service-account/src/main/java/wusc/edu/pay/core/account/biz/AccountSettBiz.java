@@ -133,7 +133,7 @@ public class AccountSettBiz {
             throw AccountBizException.ACCOUNT_NOT_EXIT.newInstance("账户不存在,用户编号{%s}", userNo).print();
         }
 
-        List<AccountTransactionVo> voList = new ArrayList<AccountTransactionVo>();
+        List<AccountTransactionVo> voList = new ArrayList<>();
 
         AccountTradeTypeEnum accountTradeType = AccountTradeTypeEnum.SETTLEMENT;
         if (account.getAccountType() == AccountTypeEnum.CUSTOMER.getValue()) {

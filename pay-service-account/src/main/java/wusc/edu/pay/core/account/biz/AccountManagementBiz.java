@@ -185,9 +185,4 @@ public class AccountManagementBiz {
         accountFrozenRecordDao.insert(accountFrozenRecord);
     }
 
-    public static void main(String[] args) {
-        // System.out.println(new AccountManagementBiz().buildAccountNo(12,
-        // "0123456789"));
-    }
-
 }

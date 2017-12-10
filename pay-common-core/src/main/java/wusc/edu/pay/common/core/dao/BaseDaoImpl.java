@@ -23,10 +23,10 @@ import java.util.Map;
 
 /**
  * @param <T>
- * @描述: 数据访问层基础支撑类.
- * @作者: WuShuicheng .
- * @创建时间: 2013-7-22,下午4:52:52 .
- * @版本: 1.0 .
+ * @描述: 数据访问层基础支撑类
+ * @作者: WuShuicheng
+ * @创建时间: 2013-7-22,下午4:52:52
+ * @版本: 1.0
  */
 public abstract class BaseDaoImpl<T extends BaseEntity> extends SqlSessionDaoSupport implements BaseDao<T> {
 
@@ -45,6 +45,8 @@ public abstract class BaseDaoImpl<T extends BaseEntity> extends SqlSessionDaoSup
     public static final String SQL_LIST_PAGE = "listPage";
 
     public static final String SQL_LIST_BY = "listBy";
+
+    public static final String SQL_DELETE = "delete";
 
     /** 根据当前分页参数进行统计 */
     public static final String SQL_COUNT_BY_PAGE_PARAM = "countByPageParam";
@@ -173,8 +175,7 @@ public abstract class BaseDaoImpl<T extends BaseEntity> extends SqlSessionDaoSup
                 new RowBounds((pageParam.getPageNum() - 1) * pageParam.getNumPerPage(), pageParam.getNumPerPage()));
 
         // 统计总记录数
-        Object countObject = (Object) getSqlSession().selectOne(getStatement(SQL_LIST_PAGE),
-                new ExecutorInterceptor.CountParameter(paramMap));
+        Object countObject = getSqlSession().selectOne(getStatement(SQL_LIST_PAGE), new ExecutorInterceptor.CountParameter(paramMap));
         Long count = Long.valueOf(countObject.toString());
 
         // 是否统计当前分页条件下的数据：1:是，其他为否
@@ -261,10 +262,31 @@ public abstract class BaseDaoImpl<T extends BaseEntity> extends SqlSessionDaoSup
         } catch (Exception e) {
             throw BizException.DB_GET_SEQ_NEXT_VALUE_ERROR.newInstance("获取序列出现错误!序列名称:{%s}", seqName);
         } finally {
-            if (isClosedConn) {
+            if (isClosedConn && sqlRunner != null) {
                 sqlRunner.closeConnection();
             }
         }
+    }
+
+    @Override
+    public long listPageCount(Map<String, Object> paramMap) {
+        if (paramMap == null) {
+            paramMap = new HashMap<>(0);
+        }
+        return sessionTemplate.selectOne(getStatement(SQL_LIST_PAGE), paramMap);
+    }
+
+    @Override
+    public HashMap countByPageParam(Map<String, Object> paramMap) {
+        if (paramMap == null) {
+            paramMap = new HashMap<>(0);
+        }
+        return sessionTemplate.selectOne(getStatement(SQL_COUNT_BY_PAGE_PARAM), paramMap);
+    }
+
+    @Override
+    public long delete(Map<String, String> param) {
+        return sessionTemplate.delete(getStatement(SQL_DELETE));
     }
 
 }

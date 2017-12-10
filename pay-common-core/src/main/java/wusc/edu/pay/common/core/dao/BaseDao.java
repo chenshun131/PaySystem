@@ -5,6 +5,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import wusc.edu.pay.common.page.PageBean;
 import wusc.edu.pay.common.page.PageParam;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -109,5 +110,29 @@ public interface BaseDao<T> {
     SqlSessionTemplate getSessionTemplate();
 
     SqlSession getSqlSession();
+
+    /**
+     * 通过条件查询指定数据的数量
+     *
+     * @param paramMap
+     * @return
+     */
+    long listPageCount(Map<String, Object> paramMap);
+
+    /**
+     * 根据当前分页参数进行统计
+     *
+     * @param paramMap
+     * @return
+     */
+    HashMap countByPageParam(Map<String, Object> paramMap);
+
+    /**
+     * 删除数据
+     *
+     * @param param
+     * @return
+     */
+    long delete(Map<String, String> param);
 
 }

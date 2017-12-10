@@ -53,7 +53,8 @@ public class RemitProcessBiz extends BaseBizImpl<RemitProcess> {
 		return remitProcessDao.getBy(paramMap);
 	}
 
-	public List<RemitProcess> listBy(Map<String, Object> paramMap) {
+	@Override
+    public List<RemitProcess> listBy(Map<String, Object> paramMap) {
 		return remitProcessDao.listBy(paramMap);
 	}
 

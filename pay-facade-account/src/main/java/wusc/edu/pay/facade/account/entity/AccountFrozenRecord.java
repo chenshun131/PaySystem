@@ -1,85 +1,71 @@
-/**
- * 
- */
 package wusc.edu.pay.facade.account.entity;
-
-import java.util.Date;
 
 import wusc.edu.pay.common.entity.BaseEntity;
 
+import java.util.Date;
 
 /**
  * 账户状态变更记录
- * 
+ *
  * @author Administrator
- * 
  */
 public class AccountFrozenRecord extends BaseEntity {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = -7868719634685586767L;
 
-	/**
-	 * 账户编号
-	 */
-	private String accountNo;
-	/**
-	 * 发起方(AccountInitiatorEnum)
-	 */
-	private Integer initiator;
-	/**
-	 * 账户操作类型(AccountOperationTypeEnum)
-	 */
-	private Integer operationType;
-	/**
-	 * 最后更新时间
-	 */
-	private Date lastTime = new Date();
-	/**
-	 * 操作描述
-	 */
-	private String remark;
+    /** 账户编号 */
+    private String accountNo;
 
-	public String getAccountNo() {
-		return accountNo;
-	}
+    /** 发起方(AccountInitiatorEnum) */
+    private Integer initiator;
 
-	public void setAccountNo(String accountNo) {
-		this.accountNo = accountNo;
-	}
+    /** 账户操作类型(AccountOperationTypeEnum) */
+    private Integer operationType;
 
-	public Integer getInitiator() {
-		return initiator;
-	}
+    /** 最后更新时间 */
+    private Date lastTime = new Date();
 
-	public void setInitiator(Integer initiator) {
-		this.initiator = initiator;
-	}
+    /** 操作描述 */
+    private String remark;
 
-	public Integer getOperationType() {
-		return operationType;
-	}
+    public String getAccountNo() {
+        return accountNo;
+    }
 
-	public void setOperationType(Integer operationType) {
-		this.operationType = operationType;
-	}
+    public void setAccountNo(String accountNo) {
+        this.accountNo = accountNo;
+    }
 
-	public Date getLastTime() {
-		return lastTime;
-	}
+    public Integer getInitiator() {
+        return initiator;
+    }
 
-	public void setLastTime(Date lastTime) {
-		this.lastTime = lastTime;
-	}
+    public void setInitiator(Integer initiator) {
+        this.initiator = initiator;
+    }
 
-	public String getRemark() {
-		return remark;
-	}
+    public Integer getOperationType() {
+        return operationType;
+    }
 
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
+    public void setOperationType(Integer operationType) {
+        this.operationType = operationType;
+    }
+
+    public Date getLastTime() {
+        return lastTime;
+    }
+
+    public void setLastTime(Date lastTime) {
+        this.lastTime = lastTime;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 
 }

@@ -3,330 +3,210 @@ package wusc.edu.pay.facade.bank.entity;
 import wusc.edu.pay.common.entity.BaseEntity;
 
 /**
- * 
- * @描述: 银行结算信息参数实体.
- * @作者: WuShuicheng .
+ * @描述: 银行结算信息参数实体
+ * @作者: WuShuicheng
  * @创建时间: 2014-4-15, 下午5:54:03
  */
 public class BankSettlement extends BaseEntity {
-	
-	private static final long serialVersionUID = 1L;
-	
-	/** 银行渠道编码  */
-	private String bankChannelCode;
-	
-	/** 结算周期：T+X */
-	private Integer settleCycle;
-	
-	/** 手续费账户：关联银行账户表 */
-	private String chargeAccount;
-	
-	/** 保证金账户：关联银行账户表 */
-	private String marginAccount;
-	
-	/** 手续费扣收方式：1：内扣、2：外扣 */
-	private Integer chargeDeductWay;
-	
-	/** 手续费扣收周期：1：实时、2：包年 */
-	private Integer chargeDeductCycle;
-	
-	/** 手续费支付方式：1：自动扣帐、2：人工转账 */
-	private Integer chargePayWay;
-	
-	/** 退款方式：1：内扣、2：外扣 */
-	private Integer refoundType;
-	
-	/** 退款扣收方式：1：接口、2：网银、3：传真、4：邮件、5：邮寄 */
-	private Integer refoundDeductWay;
-	
-	/** 退款有效期：（X天内允许退款） */
-	private Integer refoundValidity;
-	
-	/** 是否退回手续费：1：是 、 2：否 */
-	private Integer isReturnCharge;
-	
-	/** 部分退款是否退回部分手续费：对于支持部分退款的情况 ：1：是 、 2 ：否 */
-	private Integer isReturnPartFee;
-	
-	/** 退款到账时间（X天后到帐） */
-	private Integer refundAccountTime;
-	
-	/** 退款限额 */
-	private Double refundLimit;
-	
-	/** 是否非工作日到账 ，1:是，2:否 */
-	private Integer isNonWorkdayAccount;
-	
-	/** 备注 */
-	private String comments;
-	
 
-	/** 银行渠道名称(只用来显示用，对应数据库没有实际字段)*/
-	private String bankChannelName;
-	/** 银行渠道名称(只用来显示用，对应数据库没有实际字段)*/
-	public String getBankChannelName() {
-		return bankChannelName;
-	}
-	/** 银行渠道名称(只用来显示用，对应数据库没有实际字段)*/
-	public void setBankChannelName(String bankChannelName) {
-		this.bankChannelName = bankChannelName;
-	}
-	
-	
-	/**
-	 * 结算周期：T+X
-	 * @return
-	 */
-	public Integer getSettleCycle() {
-		return settleCycle;
-	}
+    private static final long serialVersionUID = 6479382076993649504L;
 
-	/**
-	 * 结算周期：T+X
-	 * @param settleCycle
-	 */
-	public void setSettleCycle(Integer settleCycle) {
-		this.settleCycle = settleCycle;
-	}
+    /** 银行渠道编码 */
+    private String bankChannelCode;
 
-	/**
-	 * 手续费账户：关联银行账户表
-	 * @return
-	 */
-	public String getChargeAccount() {
-		return chargeAccount;
-	}
+    /** 结算周期：T+X */
+    private Integer settleCycle;
 
-	/**
-	 * 手续费账户：关联银行账户表
-	 * @param chargeAccount
-	 */
-	public void setChargeAccount(String chargeAccount) {
-		this.chargeAccount = chargeAccount;
-	}
+    /** 手续费账户：关联银行账户表 */
+    private String chargeAccount;
 
-	/**
-	 * 保证金账户：关联银行账户表
-	 * @return
-	 */
-	public String getMarginAccount() {
-		return marginAccount;
-	}
+    /** 保证金账户：关联银行账户表 */
+    private String marginAccount;
 
-	/**
-	 * 保证金账户：关联银行账户表
-	 * @param marginAccount
-	 */
-	public void setMarginAccount(String marginAccount) {
-		this.marginAccount = marginAccount;
-	}
+    /** 手续费扣收方式：1：内扣、2：外扣 */
+    private Integer chargeDeductWay;
 
-	/**
-	 * 手续费扣收方式：1：内扣、2：外扣 
-	 * @return
-	 */
-	public Integer getChargeDeductWay() {
-		return chargeDeductWay;
-	}
+    /** 手续费扣收周期：1：实时、2：包年 */
+    private Integer chargeDeductCycle;
 
-	/**
-	 * 手续费扣收方式：1：内扣、2：外扣 
-	 * @param chargeDeductWay
-	 */
-	public void setChargeDeductWay(Integer chargeDeductWay) {
-		this.chargeDeductWay = chargeDeductWay;
-	}
+    /** 手续费支付方式：1：自动扣帐、2：人工转账 */
+    private Integer chargePayWay;
 
-	/**
-	 * 手续费扣收周期：1：实时、2：包年 
-	 * @return
-	 */
-	public Integer getChargeDeductCycle() {
-		return chargeDeductCycle;
-	}
+    /** 退款方式：1：内扣、2：外扣 */
+    private Integer refoundType;
 
-	/**
-	 * 手续费扣收周期：1：实时、2：包年 
-	 * @param chargeDeductCycle
-	 */
-	public void setChargeDeductCycle(Integer chargeDeductCycle) {
-		this.chargeDeductCycle = chargeDeductCycle;
-	}
+    /** 退款扣收方式：1：接口、2：网银、3：传真、4：邮件、5：邮寄 */
+    private Integer refoundDeductWay;
 
-	/**
-	 * 手续费支付方式：1：自动扣帐、2：人工转账
-	 * @return
-	 */
-	public Integer getChargePayWay() {
-		return chargePayWay;
-	}
+    /** 退款有效期：（X天内允许退款） */
+    private Integer refoundValidity;
 
-	/**
-	 * 手续费支付方式：1：自动扣帐、2：人工转账
-	 * @param chargePayWay
-	 */
-	public void setChargePayWay(Integer chargePayWay) {
-		this.chargePayWay = chargePayWay;
-	}
+    /** 是否退回手续费：1：是 、 2：否 */
+    private Integer isReturnCharge;
 
-	/**
-	 * 退款方式：1：内扣、2：外扣
-	 * @return
-	 */
-	public Integer getRefoundType() {
-		return refoundType;
-	}
+    /** 部分退款是否退回部分手续费：对于支持部分退款的情况 ：1：是 、 2 ：否 */
+    private Integer isReturnPartFee;
 
-	/**
-	 * 退款方式：1：内扣、2：外扣
-	 * @param refoundType
-	 */
-	public void setRefoundType(Integer refoundType) {
-		this.refoundType = refoundType;
-	}
+    /** 退款到账时间（X天后到帐） */
+    private Integer refundAccountTime;
 
-	/**
-	 * 退款扣收方式：1：接口、2：网银、3：传真、4：邮件、5：邮寄
-	 * @return
-	 */
-	public Integer getRefoundDeductWay() {
-		return refoundDeductWay;
-	}
+    /** 退款限额 */
+    private Double refundLimit;
 
-	/**
-	 * 退款扣收方式：1：接口、2：网银、3：传真、4：邮件、5：邮寄
-	 * @param refoundDeductWay
-	 */
-	public void setRefoundDeductWay(Integer refoundDeductWay) {
-		this.refoundDeductWay = refoundDeductWay;
-	}
+    /** 是否非工作日到账 ，1:是，2:否 */
+    private Integer isNonWorkdayAccount;
 
-	/**
-	 * 退款有效期：（X天内允许退款）
-	 * @return
-	 */
-	public Integer getRefoundValidity() {
-		return refoundValidity;
-	}
+    /** 备注 */
+    private String comments;
 
-	/**
-	 * 退款有效期：（X天内允许退款）
-	 * @param refoundValidity
-	 */
-	public void setRefoundValidity(Integer refoundValidity) {
-		this.refoundValidity = refoundValidity;
-	}
+    /** 银行渠道名称(只用来显示用，对应数据库没有实际字段) */
+    private String bankChannelName;
 
-	/**
-	 * 是否退回手续费：1：是 、 2：否
-	 * @return
-	 */
-	public Integer getIsReturnCharge() {
-		return isReturnCharge;
-	}
+    /** 是否支持部分退款 1:是 2:否 */
+    private Integer isRabates;
 
-	/**
-	 * 是否退回手续费：1：是 、 2：否
-	 * @param isReturnCharge
-	 */
-	public void setIsReturnCharge(Integer isReturnCharge) {
-		this.isReturnCharge = isReturnCharge;
-	}
+    public String getBankChannelName() {
+        return bankChannelName;
+    }
 
-	/**
-	 * 部分退款是否退回部分手续费：对于支持部分退款的情况 ：1：是 、 2 ：否
-	 * @return
-	 */
-	public Integer getIsReturnPartFee() {
-		return isReturnPartFee;
-	}
+    public void setBankChannelName(String bankChannelName) {
+        this.bankChannelName = bankChannelName;
+    }
 
-	/**
-	 * 部分退款是否退回部分手续费：对于支持部分退款的情况 ：1：是 、 2 ：否
-	 * @param isReturnPartFee
-	 */
-	public void setIsReturnPartFee(Integer isReturnPartFee) {
-		this.isReturnPartFee = isReturnPartFee;
-	}
+    public Integer getSettleCycle() {
+        return settleCycle;
+    }
 
-	/**
-	 * 退款到账时间（X天后到帐）
-	 * @return
-	 */
-	public Integer getRefundAccountTime() {
-		return refundAccountTime;
-	}
+    public void setSettleCycle(Integer settleCycle) {
+        this.settleCycle = settleCycle;
+    }
 
-	/**
-	 * 退款到账时间（X天后到帐）
-	 * @param refundAccountTime
-	 */
-	public void setRefundAccountTime(Integer refundAccountTime) {
-		this.refundAccountTime = refundAccountTime;
-	}
+    public String getChargeAccount() {
+        return chargeAccount;
+    }
 
-	/**
-	 * 退款限额
-	 * @return
-	 */
-	public Double getRefundLimit() {
-		return refundLimit;
-	}
+    public void setChargeAccount(String chargeAccount) {
+        this.chargeAccount = chargeAccount;
+    }
 
-	/**
-	 * 退款限额
-	 * @param refundLimit
-	 */
-	public void setRefundLimit(Double refundLimit) {
-		this.refundLimit = refundLimit;
-	}
+    public String getMarginAccount() {
+        return marginAccount;
+    }
 
-	/**
-	 * 是否非工作日到账 ，1:是，2:否
-	 * @return
-	 */
-	public Integer getIsNonWorkdayAccount() {
-		return isNonWorkdayAccount;
-	}
+    public void setMarginAccount(String marginAccount) {
+        this.marginAccount = marginAccount;
+    }
 
-	/**
-	 * 是否非工作日到账 ，1:是，2:否
-	 * @param isNonWorkdayAccount
-	 */
-	public void setIsNonWorkdayAccount(Integer isNonWorkdayAccount) {
-		this.isNonWorkdayAccount = isNonWorkdayAccount;
-	}
+    public Integer getChargeDeductWay() {
+        return chargeDeductWay;
+    }
 
-	/**
-	 * 备注
-	 * @return
-	 */
-	public String getComments() {
-		return comments;
-	}
+    public void setChargeDeductWay(Integer chargeDeductWay) {
+        this.chargeDeductWay = chargeDeductWay;
+    }
 
-	/**
-	 * 备注
-	 * @param comments
-	 */
-	public void setComments(String comments) {
-		this.comments = comments;
-	}
+    public Integer getChargeDeductCycle() {
+        return chargeDeductCycle;
+    }
 
-	/**
-	 * 银行渠道编码
-	 * @return
-	 */
-	public String getBankChannelCode() {
-		return bankChannelCode;
-	}
+    public void setChargeDeductCycle(Integer chargeDeductCycle) {
+        this.chargeDeductCycle = chargeDeductCycle;
+    }
 
-	/**
-	 * 银行渠道编码
-	 * @param bankChannelCode
-	 */
-	public void setBankChannelCode(String bankChannelCode) {
-		this.bankChannelCode = bankChannelCode;
-	}
-	
+    public Integer getChargePayWay() {
+        return chargePayWay;
+    }
+
+    public void setChargePayWay(Integer chargePayWay) {
+        this.chargePayWay = chargePayWay;
+    }
+
+    public Integer getRefoundType() {
+        return refoundType;
+    }
+
+    public void setRefoundType(Integer refoundType) {
+        this.refoundType = refoundType;
+    }
+
+    public Integer getRefoundDeductWay() {
+        return refoundDeductWay;
+    }
+
+    public void setRefoundDeductWay(Integer refoundDeductWay) {
+        this.refoundDeductWay = refoundDeductWay;
+    }
+
+    public Integer getRefoundValidity() {
+        return refoundValidity;
+    }
+
+    public void setRefoundValidity(Integer refoundValidity) {
+        this.refoundValidity = refoundValidity;
+    }
+
+    public Integer getIsReturnCharge() {
+        return isReturnCharge;
+    }
+
+    public void setIsReturnCharge(Integer isReturnCharge) {
+        this.isReturnCharge = isReturnCharge;
+    }
+
+    public Integer getIsReturnPartFee() {
+        return isReturnPartFee;
+    }
+
+    public void setIsReturnPartFee(Integer isReturnPartFee) {
+        this.isReturnPartFee = isReturnPartFee;
+    }
+
+    public Integer getRefundAccountTime() {
+        return refundAccountTime;
+    }
+
+    public void setRefundAccountTime(Integer refundAccountTime) {
+        this.refundAccountTime = refundAccountTime;
+    }
+
+    public Double getRefundLimit() {
+        return refundLimit;
+    }
+
+    public void setRefundLimit(Double refundLimit) {
+        this.refundLimit = refundLimit;
+    }
+
+    public Integer getIsNonWorkdayAccount() {
+        return isNonWorkdayAccount;
+    }
+
+    public void setIsNonWorkdayAccount(Integer isNonWorkdayAccount) {
+        this.isNonWorkdayAccount = isNonWorkdayAccount;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public String getBankChannelCode() {
+        return bankChannelCode;
+    }
+
+    public void setBankChannelCode(String bankChannelCode) {
+        this.bankChannelCode = bankChannelCode;
+    }
+
+    public Integer getIsRabates() {
+        return isRabates;
+    }
+
+    public void setIsRabates(Integer isRabates) {
+        this.isRabates = isRabates;
+    }
+
 }

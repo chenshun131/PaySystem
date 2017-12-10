@@ -46,20 +46,20 @@
             USERNO = #{userNo}
         </set>
         <where>
-            ID = #{id} and VERSION = #{version}
+            ID = #{id} AND VERSION = #{version}
         </where>
     </update>
 
     <sql id="condition_sql">
         <!-- Equal query -->
         <if test="beginDate != null and endDate != null and endDate !='' and beginDate != ''">
-            and CREATETIME between #{beginDate} AND CONCAT(#{endDate},' 23:59:59')
+            AND CREATETIME between #{beginDate} AND CONCAT(#{endDate},' 23:59:59')
         </if>
-        <if test="accountNo != null and accountNo !='' ">and ACCOUNTNO = #{accountNo}</if>
-        <if test="status != null and status !='' ">and STATUS = #{status}</if>
-        <if test="userNo != null and userNo !='' ">and USERNO = #{userNo}</if>
-        <if test="accountType != null and accountType !='' ">and ACCOUNTTYPE = #{accountType}</if>
-        <if test="accountTitleNo != null and accountTitleNo !='' ">and ACCOUNTTITLENO = #{accountTitleNo}</if>
+        <if test="accountNo != null and accountNo !='' ">AND ACCOUNTNO = #{accountNo}</if>
+        <if test="status != null and status !='' ">AND STATUS = #{status}</if>
+        <if test="userNo != null and userNo !='' ">AND USERNO = #{userNo}</if>
+        <if test="accountType != null and accountType !='' ">AND ACCOUNTTYPE = #{accountType}</if>
+        <if test="accountTitleNo != null and accountTitleNo !='' ">AND ACCOUNTTITLENO = #{accountTitleNo}</if>
         <!-- 是否行锁，要放在查询条件最后 -->
         <if test="isPessimist != null and isPessimist == true ">for update</if>
     </sql>

@@ -19,6 +19,11 @@ import java.util.Map;
  */
 public abstract class BaseBizImpl<T extends BaseEntity> implements BaseBiz<T> {
 
+    /**
+     * 获取 Dao
+     *
+     * @return
+     */
     protected abstract BaseDao<T> getDao();
 
     @Override
@@ -47,10 +52,9 @@ public abstract class BaseBizImpl<T extends BaseEntity> implements BaseBiz<T> {
     }
 
     /**
-     * 根据ID删除记录.
+     * 根据ID删除记录
      *
      * @param id
-     *         .
      * @return
      */
     @Override
@@ -59,12 +63,12 @@ public abstract class BaseBizImpl<T extends BaseEntity> implements BaseBiz<T> {
     }
 
     /**
-     * 分页查询 .
+     * 分页查询
      *
      * @param pageParam
-     *         分页参数.
+     *         分页参数
      * @param paramMap
-     *         业务条件查询参数.
+     *         业务条件查询参数
      * @return
      */
     @Override

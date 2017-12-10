@@ -1,22 +1,20 @@
 package wusc.edu.pay.test.facade.account;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
-
 import junit.framework.TestCase;
 import net.sourceforge.groboutils.junit.v1.MultiThreadedTestRunner;
 import net.sourceforge.groboutils.junit.v1.TestRunnable;
-
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import wusc.edu.pay.facade.account.enums.AccountFundDirectionEnum;
 import wusc.edu.pay.facade.account.enums.AccountTradeTypeEnum;
 import wusc.edu.pay.facade.account.enums.AccountTypeEnum;
 import wusc.edu.pay.facade.account.service.AccountManagementFacade;
 import wusc.edu.pay.facade.account.service.AccountTransactionFacade;
 import wusc.edu.pay.facade.account.vo.AccountTransactionVo;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
 
 
 /**
@@ -140,7 +138,7 @@ public class TsAccountTransactionM extends TestCase {
 		String accountNo = accountManagementFacade.buildAccountNo(AccountTypeEnum.PRIVATE);
 		//accountManagementFacade.createPrivateAccount(accountNo, accountNo);
 
-		List<AccountTransactionVo> list = new ArrayList<AccountTransactionVo>();
+		List<AccountTransactionVo> list = new ArrayList<>();
 
 		// 同一账户批量加款(1w笔)
 		for (int i = 0; i < 1000; i++) {
@@ -149,16 +147,14 @@ public class TsAccountTransactionM extends TestCase {
 
 			AccountTransactionVo vo = new AccountTransactionVo();
 			vo.setUserNo(accountNo);
-			vo.setAmount(Double.valueOf(Math.random() * 1000));
+			vo.setAmount(Math.random() * 1000);
 			vo.setAccountFundDirection(AccountFundDirectionEnum.ADD);
 			vo.setDesc(AccountTradeTypeEnum.NET_B2C_PAY.getDesc());
 			vo.setTradeType(AccountTradeTypeEnum.NET_B2C_PAY);
 			vo.setRequestNo(requestNo);
 			list.add(vo);
 		}
-
 		accountTransactionFacade.batchCreditForSameAccount(list);
-
 		completeThread += 1;
 	}
 }

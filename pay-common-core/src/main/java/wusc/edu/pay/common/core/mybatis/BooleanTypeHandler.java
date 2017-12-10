@@ -19,36 +19,36 @@ import java.sql.SQLException;
 public class BooleanTypeHandler implements TypeHandler {
 
     @Override
-    public Object getResult(ResultSet arg0, int arg1) throws SQLException {
-        int num = arg0.getInt(arg1);
-        Boolean rt = Boolean.FALSE;
-        if (num == 1) {
-            rt = Boolean.TRUE;
-        }
-        return rt;
-    }
-
-    @Override
-    public Object getResult(CallableStatement arg0, int arg1) throws SQLException {
-        Boolean b = arg0.getBoolean(arg1);
-        return b ? 1 : 0;
-    }
-
-    @Override
-    public void setParameter(PreparedStatement arg0, int arg1, Object arg2, JdbcType arg3) throws SQLException {
-        Boolean b = (Boolean) arg2;
+    public void setParameter(PreparedStatement rs, int i, Object parameter, JdbcType jdbcType) throws SQLException {
+        Boolean b = (Boolean) parameter;
         int value = b ? 1 : 0;
-        arg0.setInt(arg1, value);
+        rs.setInt(i, value);
     }
 
     @Override
-    public Object getResult(ResultSet arg0, String arg1) throws SQLException {
-        int num = arg0.getInt(arg1);
+    public Object getResult(ResultSet rs, String columnName) throws SQLException {
+        int num = rs.getInt(columnName);
         Boolean rt = Boolean.FALSE;
         if (num == 1) {
             rt = Boolean.TRUE;
         }
         return rt;
+    }
+
+    @Override
+    public Object getResult(ResultSet rs, int columnIndex) throws SQLException {
+        int num = rs.getInt(columnIndex);
+        Boolean rt = Boolean.FALSE;
+        if (num == 1) {
+            rt = Boolean.TRUE;
+        }
+        return rt;
+    }
+
+    @Override
+    public Object getResult(CallableStatement rs, int columnIndex) throws SQLException {
+        Boolean b = rs.getBoolean(columnIndex);
+        return b ? 1 : 0;
     }
 
 }

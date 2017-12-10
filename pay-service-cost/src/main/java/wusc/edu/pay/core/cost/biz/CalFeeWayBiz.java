@@ -42,10 +42,12 @@ public class CalFeeWayBiz extends BaseBizImpl<CalFeeWay> {
 	 */
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-	protected BaseDao<CalFeeWay> getDao() {
+	@Override
+    protected BaseDao<CalFeeWay> getDao() {
 		return calFeeWayDao;
 	}
 
+	@Override
 	public long deleteById(long id) {
 		return calFeeWayDao.deleteById(id);
 	}

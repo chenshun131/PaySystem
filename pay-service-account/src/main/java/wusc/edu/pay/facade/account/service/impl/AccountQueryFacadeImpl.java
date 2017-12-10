@@ -98,9 +98,7 @@ public class AccountQueryFacadeImpl implements AccountQueryFacade {
      */
     @Override
     public List<DailyCollectAccountHistoryVo> listDailyCollectAccountHistoryVo(String accountNo, String statDate, Integer riskDay, Integer fundDirection) {
-
         return accountHistoryDao.listDailyCollectAccountHistoryVo(accountNo, statDate, riskDay, fundDirection);
-
     }
 
     /**
@@ -113,4 +111,5 @@ public class AccountQueryFacadeImpl implements AccountQueryFacade {
     public List<DailyCollectAccountHistoryVo> listDailyCollectAccountHistoryVo_t0(String accountNo, String requestNo) {
         return accountHistoryDao.listDailyCollectAccountHistoryVo_t0(accountNo, requestNo);
     }
+
 }

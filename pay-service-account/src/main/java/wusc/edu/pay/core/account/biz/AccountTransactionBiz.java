@@ -20,6 +20,8 @@ import wusc.edu.pay.facade.account.vo.AccountTransactionVo;
 import java.util.ArrayList;
 import java.util.List;
 
+import static wusc.edu.pay.facade.account.enums.AccountFundDirectionEnum.*;
+
 
 /**
  * 账户交易biz
@@ -52,15 +54,21 @@ public class AccountTransactionBiz {
             return;
         }
 
-        logger.info("==>execute");
-        if (vo.getAccountFundDirection().equals(AccountFundDirectionEnum.ADD)) {
-            this.credit(vo.getUserNo(), vo.getAmount(), vo.getRequestNo(), vo.getTradeType(), vo.getDesc(), vo.getRiskDay(), vo.getFee());
-        } else if (vo.getAccountFundDirection().equals(AccountFundDirectionEnum.SUB)) {
-            this.debit(vo.getUserNo(), vo.getAmount(), vo.getRequestNo(), vo.getTradeType(), vo.getDesc(), vo.getFee());
-        } else if (vo.getAccountFundDirection().equals(AccountFundDirectionEnum.FROZEN)) {
-            this.frozen(vo.getUserNo(), vo.getFrezonAmount(), vo.getRequestNo(), vo.getTradeType());
-        } else if (vo.getAccountFundDirection().equals(AccountFundDirectionEnum.UNFROZEN)) {
-            this.unFrozen(vo.getUserNo(), vo.getUnFrezonAmount(), vo.getRequestNo(), vo.getTradeType());
+        logger.info("==>execute" + vo.getAccountFundDirection().toString());
+        switch (vo.getAccountFundDirection()) {
+            case ADD:
+                this.credit(vo.getUserNo(), vo.getAmount(), vo.getRequestNo(), vo.getTradeType(), vo.getDesc(), vo.getRiskDay(), vo.getFee());
+                break;
+            case SUB:
+                this.debit(vo.getUserNo(), vo.getAmount(), vo.getRequestNo(), vo.getTradeType(), vo.getDesc(), vo.getFee());
+                break;
+            case FROZEN:
+                this.frozen(vo.getUserNo(), vo.getFrezonAmount(), vo.getRequestNo(), vo.getTradeType());
+                break;
+            case UNFROZEN:
+                this.unFrozen(vo.getUserNo(), vo.getUnFrezonAmount(), vo.getRequestNo(), vo.getTradeType());
+                break;
+            default:
         }
         logger.info("==>execute<==");
     }
@@ -123,7 +131,7 @@ public class AccountTransactionBiz {
             accountHistory.setRequestNo(vo.getRequestNo());
             accountHistory.setCompleteSett(PublicStatus.INACTIVE);
             accountHistory.setRemark(vo.getTradeType().getDesc());
-            accountHistory.setFundDirection(AccountFundDirectionEnum.ADD.getValue());
+            accountHistory.setFundDirection(ADD.getValue());
             accountHistory.setAccountNo(account.getAccountNo());
             accountHistory.setTrxType(vo.getTradeType().getValue());
             accountHistory.setRiskDay(vo.getRiskDay());
@@ -174,7 +182,7 @@ public class AccountTransactionBiz {
         accountHistoryEntity.setCompleteSett(PublicStatus.INACTIVE);
         accountHistoryEntity.setRemark(remark);
         accountHistoryEntity.setFee(fee);
-        accountHistoryEntity.setFundDirection(AccountFundDirectionEnum.ADD.getValue());
+        accountHistoryEntity.setFundDirection(ADD.getValue());
         accountHistoryEntity.setAccountNo(account.getAccountNo());
         accountHistoryEntity.setTrxType(tradeType.getValue());
         accountHistoryEntity.setRiskDay(riskDay);
@@ -225,7 +233,7 @@ public class AccountTransactionBiz {
         accountHistoryEntity.setRequestNo(requestNo);
         accountHistoryEntity.setCompleteSett(PublicStatus.INACTIVE);
         accountHistoryEntity.setRemark(remark);
-        accountHistoryEntity.setFundDirection(AccountFundDirectionEnum.SUB.getValue());
+        accountHistoryEntity.setFundDirection(SUB.getValue());
         accountHistoryEntity.setAccountNo(account.getAccountNo());
         accountHistoryEntity.setTrxType(tradeType.getValue());
         accountHistoryDao.insert(accountHistoryEntity);
@@ -261,7 +269,8 @@ public class AccountTransactionBiz {
             throw AccountBizException.ACCOUNT_NOT_EXIT.newInstance("账户不存在,用户编号{%s}", userNo).print();
         }
 
-        account.frozen(frozenAmount); // 资金冻结
+        // 资金冻结
+        account.frozen(frozenAmount);
 
         // 如果accountType是会员，isAllowSett置false
         int isAllowSett = PublicStatus.ACTIVE;
@@ -290,7 +299,7 @@ public class AccountTransactionBiz {
         accountHistoryEntity.setRequestNo(requestNo);
         accountHistoryEntity.setCompleteSett(PublicStatus.INACTIVE);
         accountHistoryEntity.setRemark(tradeType.getDesc() + "资金冻结");
-        accountHistoryEntity.setFundDirection(AccountFundDirectionEnum.SUB.getValue());
+        accountHistoryEntity.setFundDirection(SUB.getValue());
         accountHistoryEntity.setAccountNo(account.getAccountNo());
         accountHistoryEntity.setTrxType(tradeType.getValue());
 
@@ -324,7 +333,8 @@ public class AccountTransactionBiz {
             throw AccountBizException.ACCOUNT_NOT_EXIT.newInstance("账户不存在,用户编号{%s}", userNo).print();
         }
 
-        account.unFrozen(unFrozenAmount); // 资金解冻
+        // 资金解冻
+        account.unFrozen(unFrozenAmount);
 
         // 如果accountType是会员，isAllowSett置false
         int isAllowSett = PublicStatus.ACTIVE;
@@ -354,7 +364,7 @@ public class AccountTransactionBiz {
         accountHistoryEntity.setCompleteSett(PublicStatus.INACTIVE);
         accountHistoryEntity.setRemark(tradeType.getDesc() + "资金解冻");
         accountHistoryEntity.setFee(0D);
-        accountHistoryEntity.setFundDirection(AccountFundDirectionEnum.ADD.getValue());
+        accountHistoryEntity.setFundDirection(ADD.getValue());
         accountHistoryEntity.setAccountNo(account.getAccountNo());
         accountHistoryEntity.setTrxType(tradeType.getValue());
 

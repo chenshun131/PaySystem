@@ -1,106 +1,91 @@
-/**
- * 
- */
 package wusc.edu.pay.facade.account.entity;
 
 import wusc.edu.pay.common.entity.BaseEntity;
 
 /**
  * 账户资金冻结/解冻历史
- * 
+ *
  * @author Administrator
- * 
  */
 public class AccountFrozenHistory extends BaseEntity {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2094992102021383780L;
 
-	/**
-	 * 请求号
-	 */
-	private String requestNo;
-	/**
-	 * 账户编号
-	 */
-	private String accountNo;
-	/**
-	 * 冻结/解冻金额
-	 */
-	private Double amount = 0D;
-	/**
-	 * 当前冻结金额
-	 */
-	private Double currentAmount = 0D;
-	/**
-	 * 描述
-	 */
-	private String remark;
-	/**
-	 * 冻结/解冻(AccountFrozenHistoryTypeEnum)
-	 */
-	private Integer accountFrozenHistoryType;
-	/**
-	 * 交易类型（枚举AccountTradeTypeEnum）
-	 */
-	private Integer trxType;
+    /** 请求号 */
+    private String requestNo;
 
-	public String getRequestNo() {
-		return requestNo;
-	}
+    /** 账户编号 */
+    private String accountNo;
 
-	public void setRequestNo(String requestNo) {
-		this.requestNo = requestNo;
-	}
+    /** 冻结/解冻金额 */
+    private Double amount = 0D;
 
-	public String getAccountNo() {
-		return accountNo;
-	}
+    /** 当前冻结金额 */
+    private Double currentAmount = 0D;
 
-	public void setAccountNo(String accountNo) {
-		this.accountNo = accountNo;
-	}
+    /** 描述 */
+    private String remark;
 
-	public Double getAmount() {
-		return amount;
-	}
+    /** 冻结/解冻(AccountFrozenHistoryTypeEnum) */
+    private Integer accountFrozenHistoryType;
 
-	public void setAmount(Double amount) {
-		this.amount = amount;
-	}
+    /** 交易类型（枚举AccountTradeTypeEnum） */
+    private Integer trxType;
 
-	public Double getCurrentAmount() {
-		return currentAmount;
-	}
+    public String getRequestNo() {
+        return requestNo;
+    }
 
-	public void setCurrentAmount(Double currentAmount) {
-		this.currentAmount = currentAmount;
-	}
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
 
-	public String getRemark() {
-		return remark;
-	}
+    public String getAccountNo() {
+        return accountNo;
+    }
 
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
+    public void setAccountNo(String accountNo) {
+        this.accountNo = accountNo;
+    }
 
-	public Integer getAccountFrozenHistoryType() {
-		return accountFrozenHistoryType;
-	}
+    public Double getAmount() {
+        return amount;
+    }
 
-	public void setAccountFrozenHistoryType(Integer accountFrozenHistoryType) {
-		this.accountFrozenHistoryType = accountFrozenHistoryType;
-	}
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
 
-	public Integer getTrxType() {
-		return trxType;
-	}
+    public Double getCurrentAmount() {
+        return currentAmount;
+    }
 
-	public void setTrxType(Integer trxType) {
-		this.trxType = trxType;
-	}
+    public void setCurrentAmount(Double currentAmount) {
+        this.currentAmount = currentAmount;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public Integer getAccountFrozenHistoryType() {
+        return accountFrozenHistoryType;
+    }
+
+    public void setAccountFrozenHistoryType(Integer accountFrozenHistoryType) {
+        this.accountFrozenHistoryType = accountFrozenHistoryType;
+    }
+
+    public Integer getTrxType() {
+        return trxType;
+    }
+
+    public void setTrxType(Integer trxType) {
+        this.trxType = trxType;
+    }
 
 }

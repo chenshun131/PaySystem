@@ -62,7 +62,8 @@ public class CalCostOrderBiz extends BaseBizImpl<CalCostOrder> {
 	 */
 	private Log logger = LogFactory.getLog(CalCostOrderBiz.class);
 
-	protected BaseDao<CalCostOrder> getDao() {
+	@Override
+    protected BaseDao<CalCostOrder> getDao() {
 		return calCostOrderDao;
 	}
 

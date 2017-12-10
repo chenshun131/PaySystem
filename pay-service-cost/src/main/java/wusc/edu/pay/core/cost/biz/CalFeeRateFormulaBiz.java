@@ -23,7 +23,8 @@ public class CalFeeRateFormulaBiz extends BaseBizImpl<CalFeeRateFormula> {
 	@Autowired
 	private CalFeeRateFormulaDao calFeeRateFormulaDao;
 
-	protected BaseDao<CalFeeRateFormula> getDao() {
+	@Override
+    protected BaseDao<CalFeeRateFormula> getDao() {
 		return calFeeRateFormulaDao;
 	}
 	

@@ -30,6 +30,11 @@ public enum AccountFundDirectionEnum {
         this.desc = desc;
     }
 
+    @Override
+    public String toString() {
+        return "value=" + this.value + " desc=" + this.desc;
+    }
+
     public String getDesc() {
         return desc;
     }
@@ -49,9 +54,9 @@ public enum AccountFundDirectionEnum {
     public static AccountFundDirectionEnum getEnum(int value) {
         AccountFundDirectionEnum resultEnum = null;
         AccountFundDirectionEnum[] enumAry = AccountFundDirectionEnum.values();
-        for (int i = 0; i < enumAry.length; i++) {
-            if (enumAry[i].getValue() == value) {
-                resultEnum = enumAry[i];
+        for (AccountFundDirectionEnum anEnumAry : enumAry) {
+            if (anEnumAry.getValue() == value) {
+                resultEnum = anEnumAry;
                 break;
             }
         }
@@ -60,27 +65,28 @@ public enum AccountFundDirectionEnum {
 
     public static Map<String, Map<String, Object>> toMap() {
         AccountFundDirectionEnum[] ary = AccountFundDirectionEnum.values();
-        Map<String, Map<String, Object>> enumMap = new HashMap<String, Map<String, Object>>();
-        for (int num = 0; num < ary.length; num++) {
-            Map<String, Object> map = new HashMap<String, Object>();
-            String key = String.valueOf(getEnum(ary[num].getValue()));
-            map.put("value", String.valueOf(ary[num].getValue()));
-            map.put("desc", ary[num].getDesc());
+        Map<String, Map<String, Object>> enumMap = new HashMap<>();
+        for (AccountFundDirectionEnum anAry : ary) {
+            Map<String, Object> map = new HashMap<>();
+            String key = String.valueOf(getEnum(anAry.getValue()));
+            map.put("value", String.valueOf(anAry.getValue()));
+            map.put("desc", anAry.getDesc());
             enumMap.put(key, map);
         }
         return enumMap;
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
     public static List toList() {
         AccountFundDirectionEnum[] ary = AccountFundDirectionEnum.values();
         List list = new ArrayList();
-        for (int i = 0; i < ary.length; i++) {
-            Map<String, String> map = new HashMap<String, String>();
-            map.put("value", ary[i].toString());
-            map.put("desc", ary[i].getDesc());
+        for (AccountFundDirectionEnum anAry : ary) {
+            Map<String, String> map = new HashMap<>();
+            map.put("value", anAry.toString());
+            map.put("desc", anAry.getDesc());
             list.add(map);
         }
         return list;
     }
+
+
 }

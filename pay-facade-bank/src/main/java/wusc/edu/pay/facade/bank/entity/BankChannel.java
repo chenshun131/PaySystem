@@ -4,266 +4,166 @@ import wusc.edu.pay.common.entity.BaseEntity;
 import wusc.edu.pay.common.enums.BankCode;
 
 /**
- * 
- * @描述: 银行渠道参数实体 .
- * @作者: HuQian,WuShuicheng .
+ * @描述: 银行渠道参数实体
+ * @作者: HuQian, WuShuicheng
  * @创建时间: 2014-4-15, 下午3:48:52
  */
 public class BankChannel extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = -9144042321324982118L;
 
-	/** 银行渠道编号：系统自动生成 */
-	private String bankChannelCode;
+    /** 银行渠道编号：系统自动生成 */
+    private String bankChannelCode;
 
-	/** 银行渠道名称：系统自动生成 */
-	private String bankChannelName;
+    /** 银行渠道名称：系统自动生成 */
+    private String bankChannelName;
 
-	/** 银行名称 */
-	private String bankName;
+    /** 银行名称 */
+    private String bankName;
 
-	/** 银行编号：银行简称，例如：工商银行(ICBC) */
-	private BankCode bankCode;
+    /** 银行编号：银行简称，例如：工商银行(ICBC) */
+    private BankCode bankCode;
 
-	/** 状态:100:激活 101:冻结 */
-	private Integer status;
+    /** 状态:100:激活 101:冻结 */
+    private Integer status;
 
-	/** 落地行名称：具体到支行 */
-	private String landingBankName;
+    /** 落地行名称：具体到支行 */
+    private String landingBankName;
 
-	/** 银行协议ID */
-	private Long bankAgreementId;
+    /** 银行协议ID */
+    private Long bankAgreementId;
 
-	/** 银行账户ID */
-	private Long bankAccountId;
+    /** 银行账户ID */
+    private Long bankAccountId;
 
-	/** 描述 */
-	private String remark;
+    /** 描述 */
+    private String remark;
 
-	/** 银行序号（非数据表映射字段，只用于展示数据） */
-	private String bankSequence;
-	/** 银行账户名称 （非数据表映射字段，只用于展示数据） */
-	private String bankAccountName;
+    /** 银行序号（非数据表映射字段，只用于展示数据） */
+    private String bankSequence;
 
-	/** 银行账户名称 （非数据表映射字段，只用于展示数据） */
-	public String getBankAccountName() {
-		return bankAccountName;
-	}
+    /** 银行账户名称 （非数据表映射字段，只用于展示数据） */
+    private String bankAccountName;
 
-	/** 银行账户名称 （非数据表映射字段，只用于展示数据） */
-	public void setBankAccountName(String bankAccountName) {
-		this.bankAccountName = bankAccountName;
-	}
+    public String getBankAccountName() {
+        return bankAccountName;
+    }
 
-	// --------along add ---------
-	private Double bankRateOrFee;
-	private String province;
-	private String city;
+    public void setBankAccountName(String bankAccountName) {
+        this.bankAccountName = bankAccountName;
+    }
 
-	public String getProvince() {
-		return province;
-	}
+    // --------along add ---------
+    private Double bankRateOrFee;
 
-	public void setProvince(String province) {
-		this.province = province;
-	}
+    private String province;
 
-	public String getCity() {
-		return city;
-	}
+    private String city;
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+    public String getProvince() {
+        return province;
+    }
 
-	public Double getBankRateOrFee() {
-		return bankRateOrFee;
-	}
+    public void setProvince(String province) {
+        this.province = province;
+    }
 
-	public void setBankRateOrFee(Double bankRateOrFee) {
-		this.bankRateOrFee = bankRateOrFee;
-	}
+    public String getCity() {
+        return city;
+    }
 
-	// -----------along add------------------
+    public void setCity(String city) {
+        this.city = city;
+    }
 
-	/**
-	 * 银行渠道编号：系统自动生成
-	 * 
-	 * @return
-	 */
-	public String getBankChannelCode() {
-		return bankChannelCode;
-	}
+    public Double getBankRateOrFee() {
+        return bankRateOrFee;
+    }
 
-	/**
-	 * 银行渠道编号：系统自动生成
-	 * 
-	 * @param bankChannelCode
-	 */
-	public void setBankChannelCode(String bankChannelCode) {
-		this.bankChannelCode = bankChannelCode;
-	}
+    public void setBankRateOrFee(Double bankRateOrFee) {
+        this.bankRateOrFee = bankRateOrFee;
+    }
 
-	/**
-	 * 银行渠道名称：系统自动生成
-	 * 
-	 * @return
-	 */
-	public String getBankChannelName() {
-		return bankChannelName;
-	}
+    // -----------along add------------------
 
-	/**
-	 * 银行渠道名称：系统自动生成
-	 * 
-	 * @param bankChannelName
-	 */
-	public void setBankChannelName(String bankChannelName) {
-		this.bankChannelName = bankChannelName;
-	}
+    public String getBankChannelCode() {
+        return bankChannelCode;
+    }
 
-	/**
-	 * 银行名称
-	 * 
-	 * @return
-	 */
-	public String getBankName() {
-		return bankName;
-	}
+    public void setBankChannelCode(String bankChannelCode) {
+        this.bankChannelCode = bankChannelCode;
+    }
 
-	/**
-	 * 银行名称
-	 * 
-	 * @param bankName
-	 */
-	public void setBankName(String bankName) {
-		this.bankName = bankName;
-	}
+    public String getBankChannelName() {
+        return bankChannelName;
+    }
 
-	/**
-	 * 银行编号：银行简称，例如：工商银行(ICBC)
-	 * 
-	 * @return
-	 */
-	public BankCode getBankCode() {
-		return bankCode;
-	}
+    public void setBankChannelName(String bankChannelName) {
+        this.bankChannelName = bankChannelName;
+    }
 
-	/**
-	 * 银行编号：银行简称，例如：工商银行(ICBC)
-	 * 
-	 * @param bankCode
-	 */
-	public void setBankCode(BankCode bankCode) {
-		this.bankCode = bankCode;
-	}
+    public String getBankName() {
+        return bankName;
+    }
 
-	/**
-	 * 状态:100:激活 101:冻结
-	 * 
-	 * @return
-	 */
-	public Integer getStatus() {
-		return status;
-	}
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
+    }
 
-	/**
-	 * 状态:100:激活 101:冻结
-	 * 
-	 * @param status
-	 */
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
+    public BankCode getBankCode() {
+        return bankCode;
+    }
 
-	/**
-	 * 落地行名称：具体到支行
-	 * 
-	 * @return
-	 */
-	public String getLandingBankName() {
-		return landingBankName;
-	}
+    public void setBankCode(BankCode bankCode) {
+        this.bankCode = bankCode;
+    }
 
-	/**
-	 * 落地行名称：具体到支行
-	 * 
-	 * @param landingBankName
-	 */
-	public void setLandingBankName(String landingBankName) {
-		this.landingBankName = landingBankName;
-	}
+    public Integer getStatus() {
+        return status;
+    }
 
-	/**
-	 * 银行协议ID
-	 * 
-	 * @return
-	 */
-	public Long getBankAgreementId() {
-		return bankAgreementId;
-	}
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
-	/**
-	 * 银行协议ID
-	 * 
-	 * @param bankAgreementId
-	 */
-	public void setBankAgreementId(Long bankAgreementId) {
-		this.bankAgreementId = bankAgreementId;
-	}
+    public String getLandingBankName() {
+        return landingBankName;
+    }
 
-	/**
-	 * 银行账户ID
-	 * 
-	 * @return
-	 */
-	public Long getBankAccountId() {
-		return bankAccountId;
-	}
+    public void setLandingBankName(String landingBankName) {
+        this.landingBankName = landingBankName;
+    }
 
-	/**
-	 * 银行账户ID
-	 * 
-	 * @param bankAccountId
-	 */
-	public void setBankAccountId(Long bankAccountId) {
-		this.bankAccountId = bankAccountId;
-	}
+    public Long getBankAgreementId() {
+        return bankAgreementId;
+    }
 
-	/**
-	 * 描述
-	 * 
-	 * @return
-	 */
-	public String getRemark() {
-		return remark;
-	}
+    public void setBankAgreementId(Long bankAgreementId) {
+        this.bankAgreementId = bankAgreementId;
+    }
 
-	/**
-	 * 描述
-	 * 
-	 * @param desc
-	 */
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
+    public Long getBankAccountId() {
+        return bankAccountId;
+    }
 
-	/**
-	 * 银行序号（非数据表映射字段，只用于展示数据）
-	 * 
-	 * @return
-	 */
-	public String getBankSequence() {
-		return bankSequence;
-	}
+    public void setBankAccountId(Long bankAccountId) {
+        this.bankAccountId = bankAccountId;
+    }
 
-	/**
-	 * 银行序号（非数据表映射字段，只用于展示数据）
-	 * 
-	 * @param bankSequence
-	 */
-	public void setBankSequence(String bankSequence) {
-		this.bankSequence = bankSequence;
-	}
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public String getBankSequence() {
+        return bankSequence;
+    }
+
+    public void setBankSequence(String bankSequence) {
+        this.bankSequence = bankSequence;
+    }
 
 }

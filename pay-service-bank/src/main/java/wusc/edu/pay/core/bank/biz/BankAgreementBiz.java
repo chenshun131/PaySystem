@@ -12,12 +12,12 @@ import wusc.edu.pay.facade.bank.entity.BankAgreement;
 @Component("bankAgreementBiz")
 public class BankAgreementBiz extends BaseBizImpl<BankAgreement> {
 
-	@Autowired
-	private BankAgreementDao bankAgreementDao;
+    @Autowired
+    private BankAgreementDao bankAgreementDao;
 
-	@Override
-	protected BaseDao<BankAgreement> getDao() {
-		return bankAgreementDao;
-	}
+    @Override
+    protected BaseDao<BankAgreement> getDao() {
+        return bankAgreementDao;
+    }
 
 }

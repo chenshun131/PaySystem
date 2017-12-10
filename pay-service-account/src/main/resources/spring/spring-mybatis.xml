@@ -8,10 +8,13 @@
                            http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- scan for mappers and let them be autowired -->
-    <!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> <property name="basePackage" value="mybatis.mapper" /> </bean> -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="wusc.edu.pay.core.account.mapper"/>
+    </bean>
+
     <!-- 基于Druid数据库链接池的数据源配置 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="clone">
-        <!-- 基本属性driverClassName、 url、user、password -->
+        <!-- 基本属性driverClassName、 url、user、password，其中 password 使用Druid加密数据库密码 -->
         <property name="driverClassName" value="${jdbc.driverClassName}"/>
         <property name="url" value="${account.jdbc.url}"/>
         <property name="username" value="${account.jdbc.username}"/>
@@ -73,7 +76,7 @@
     <!-- 事务管理器（由Spring管理MyBatis的事务） -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <!-- 关联数据源 -->
-        <property name="dataSource" ref="dataSource"></property>
+        <property name="dataSource" ref="dataSource"/>
     </bean>
     <!-- 注解事务 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
