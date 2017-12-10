@@ -32,4 +32,6 @@
     <dubbo:service retries="0" interface="wusc.edu.pay.facade.account.service.AccountQueryFacade" ref="accountQueryFacade"/>
     <!-- 结算专用 -->
     <dubbo:service retries="0" interface="wusc.edu.pay.facade.account.service.AccountSettFacade" ref="accountSettFacade"/>
+
+    
 </beans>
