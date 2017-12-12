@@ -82,7 +82,12 @@
 
         <!-- frameworks -->
         <org.springframework.version>5.0.2.RELEASE</org.springframework.version>
+        <spring-security.version>4.2.3.RELEASE</spring-security.version>
         <org.apache.struts.version>2.5.14.1</org.apache.struts.version>
+        <!-- shiro -->
+        <shiro.version>1.4.0</shiro.version>
+        <!-- swagger -->
+        <swagger.version>2.7.0</swagger.version>
     </properties>
 
     <!-- 全局属性配置 -->
@@ -129,7 +134,6 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
             <scope>test</scope>
         </dependency>
         <!-- Test Dependency End -->
@@ -137,6 +141,20 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- test Begin -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>2.11.0</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- test End -->
+
             <!-- Common Dependency Begin -->
             <dependency>
                 <groupId>antlr</groupId>
@@ -153,11 +171,11 @@
                 <artifactId>aspectjweaver</artifactId>
                 <version>1.8.13</version>
             </dependency>
-            <!-- <dependency> -->
-            <!-- <groupId>cglib</groupId> -->
-            <!-- <artifactId>cglib-nodep</artifactId> -->
-            <!-- <version>2.2.2</version> -->
-            <!-- </dependency> -->
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib-nodep</artifactId>
+                <version>3.2.5</version>
+            </dependency>
             <dependency>
                 <groupId>cglib</groupId>
                 <artifactId>cglib</artifactId>
@@ -223,6 +241,12 @@
                 <version>2.1</version>
             </dependency>
             <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-compress</artifactId>
+                <version>1.15</version>
+            </dependency>
+            <!-- 上传 -->
+            <dependency>
                 <groupId>commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
                 <version>1.3.3</version>
@@ -235,7 +259,7 @@
             <dependency>
                 <groupId>commons-lang</groupId>
                 <artifactId>commons-lang</artifactId>
-                <version>2.5</version>
+                <version>2.6</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
@@ -298,6 +322,23 @@
                 <version>1.7.25</version>
             </dependency>
             <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>1.7.25</version>
+            </dependency>
+            <!-- 代码直接调用LOG4J会被桥接到SLF4J -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>log4j-over-slf4j</artifactId>
+                <version>1.7.25</version>
+            </dependency>
+            <!-- 代码直接调用JAVA.UTIL.LOGGING会被桥接到SLF4J -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jul-to-slf4j</artifactId>
+                <version>1.7.25</version>
+            </dependency>
+            <dependency>
                 <groupId>com.belerweb</groupId>
                 <artifactId>pinyin4j</artifactId>
                 <version>2.5.1</version>
@@ -338,19 +379,32 @@
                 <version>2.5.7</version>
             </dependency>
             <dependency>
+                <groupId>net.sf.dozer</groupId>
+                <artifactId>dozer</artifactId>
+                <version>5.5.1</version>
+            </dependency>
+            <!-- Common Dependency End -->
+
+            <!-- redis Begin -->
+            <dependency>
                 <groupId>redis.clients</groupId>
                 <artifactId>jedis</artifactId>
                 <version>2.9.0</version>
             </dependency>
-            <!-- Common Dependency End -->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-redis</artifactId>
+                <version>2.0.1.RELEASE</version>
+            </dependency>
+            <!-- redis End -->
 
-            <!-- sftp begin -->
+            <!-- sftp Begin -->
             <dependency>
                 <groupId>com.jcraft</groupId>
                 <artifactId>jsch</artifactId>
                 <version>0.1.54</version>
             </dependency>
-            <!-- sftp end -->
+            <!-- sftp End -->
 
             <!-- Zookeeper 用于分布式服务管理 -->
             <dependency>
@@ -481,7 +535,33 @@
                 <artifactId>spring-support</artifactId>
                 <version>2.0.8</version>
             </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>1.8.12</version>
+            </dependency>
             <!-- Spring Dependency End -->
+
+            <!-- Spring Security Begin -->
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-web</artifactId>
+                <version>${spring-security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-config</artifactId>
+                <version>${spring-security.version}</version>
+            </dependency>
+            <!-- Spring Security End -->
+
+            <!-- spring-session Begin -->
+            <dependency>
+                <groupId>org.springframework.session</groupId>
+                <artifactId>spring-session-data-redis</artifactId>
+                <version>1.3.1.RELEASE</version>
+            </dependency>
+            <!-- spring-session End -->
 
             <!-- MyBatis Dependency Begin -->
             <dependency>
@@ -494,13 +574,67 @@
                 <artifactId>mybatis-spring</artifactId>
                 <version>1.3.1</version>
             </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>5.1.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-core</artifactId>
+                <version>1.3.2</version>
+            </dependency>
             <!-- MyBatis Dependency End -->
+
+            <!-- hibernate Begin -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>5.2.12.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-annotations</artifactId>
+                <version>3.5.6-Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-ehcache</artifactId>
+                <version>5.2.12.Final</version>
+            </dependency>
+            <!-- hibernate End -->
+
+            <!-- Hibernate Validator Begin -->
+            <dependency>
+                <groupId>javax.persistence</groupId>
+                <artifactId>persistence-api</artifactId>
+                <version>1.0.2</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>2.0.0.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>6.0.4.Final</version>
+            </dependency>
+            <!-- Hibernate Validator End -->
+
+            <!-- fluent-validator Begin -->
+            <dependency>
+                <groupId>com.baidu.unbiz</groupId>
+                <artifactId>fluent-validator</artifactId>
+                <version>1.0.9</version>
+            </dependency>
+            <!-- fluent-validator End -->
 
             <!-- Mysql Driver Begin -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>5.1.32</version>
+                <version>5.1.34</version>
             </dependency>
             <!-- Mysql Driver End -->
 
@@ -590,6 +724,11 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-core</artifactId>
+                <version>5.7.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
                 <artifactId>activemq-pool</artifactId>
                 <version>5.15.2</version>
             </dependency>
@@ -628,7 +767,7 @@
             </dependency>
             <!-- JPOS End -->
 
-            <!--drools -->
+            <!--drools Begin -->
             <dependency>
                 <groupId>org.drools</groupId>
                 <artifactId>drools-core</artifactId>
@@ -644,22 +783,222 @@
                 <artifactId>drools-spring</artifactId>
                 <version>5.6.0.Final</version>
             </dependency>
-            <!--drools -->
+            <!--drools End -->
 
+            <!-- cache Begin -->
             <dependency>
-                <groupId>xml-security</groupId>
-                <artifactId>xmlsec</artifactId>
-                <version>1.3.0</version>
+                <groupId>net.sf.ehcache</groupId>
+                <artifactId>ehcache</artifactId>
+                <version>2.10.4</version>
             </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-ehcache</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-ehcache</artifactId>
+                <version>1.4.0</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.ehcache</groupId>
+                <artifactId>ehcache-core</artifactId>
+                <version>2.6.11</version>
+            </dependency>
+            <!-- cache End -->
+
+            <!-- 模板引擎 Begin -->
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity</artifactId>
+                <version>1.7</version>
+            </dependency>
+            <!-- 模板引擎 End -->
+
+            <!-- shiro Begin -->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-web</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-quartz</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <!-- shiro End -->
+
+            <!-- swagger2 Begin -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <!-- swagger2 End -->
+
+            <!-- Thymeleaf Begin -->
+            <dependency>
+                <groupId>org.thymeleaf</groupId>
+                <artifactId>thymeleaf-spring4</artifactId>
+                <version>3.0.9.RELEASE</version>
+            </dependency>
+            <!-- Thymeleaf End -->
+
+            <!-- java mail Begin-->
             <dependency>
                 <groupId>javax.mail</groupId>
                 <artifactId>mail</artifactId>
                 <version>1.4.7</version>
             </dependency>
+            <!-- java mail End-->
+
+            <!-- jms Begin -->
             <dependency>
-                <groupId>org.apache.velocity</groupId>
-                <artifactId>velocity</artifactId>
-                <version>1.7</version>
+                <groupId>javax.jms</groupId>
+                <artifactId>jms</artifactId>
+                <version>1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.thoughtworks.xstream</groupId>
+                <artifactId>xstream</artifactId>
+                <version>1.4.10</version>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.jibx</groupId>
+                <artifactId>jibx-bind</artifactId>
+                <version>1.3.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.godmonth</groupId>
+                <artifactId>godmonth-commons</artifactId>
+                <version>1.0.2</version>
+            </dependency>
+            <!-- jms End -->
+
+            <!-- joda Begin -->
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>2.9.9</version>
+            </dependency>
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time-jsptags</artifactId>
+                <version>1.1.1</version>
+            </dependency>
+            <!-- joda End -->
+
+            <!-- 验证码 Begin -->
+            <dependency>
+                <groupId>com.octo.captcha</groupId>
+                <artifactId>jcaptcha</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.octo.captcha</groupId>
+                <artifactId>jcaptcha-all</artifactId>
+                <version>1.0-RC6</version>
+            </dependency>
+            <dependency>
+                <groupId>com.octo.captcha</groupId>
+                <artifactId>jcaptcha-extension-sound-freetts</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mobicents.external.freetts</groupId>
+                <artifactId>freetts</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mobicents.external.freetts</groupId>
+                <artifactId>cmutimelex</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mobicents.external.freetts</groupId>
+                <artifactId>cmulex</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mobicents.external.freetts</groupId>
+                <artifactId>cmudict04</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mobicents.external.freetts</groupId>
+                <artifactId>cmu_us_kal</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mobicents.external.freetts</groupId>
+                <artifactId>cmu_time_awb</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <!-- 验证码 End -->
+
+            <dependency>
+                <groupId>taglibs</groupId>
+                <artifactId>standard</artifactId>
+                <version>1.1.2</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml</groupId>
+                <artifactId>classmate</artifactId>
+                <version>1.3.4</version>
+            </dependency>
+            <dependency>
+                <groupId>jaxen</groupId>
+                <artifactId>jaxen</artifactId>
+                <version>1.1.6</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml</groupId>
+                <artifactId>classmate</artifactId>
+                <version>1.3.4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.fusesource.hawtbuf</groupId>
+                <artifactId>hawtbuf</artifactId>
+                <version>1.11</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.faces</groupId>
+                <artifactId>javax.faces-api</artifactId>
+                <version>2.3</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.googlecode.log4jdbc</groupId>
+                <artifactId>log4jdbc</artifactId>
+                <version>1.2</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>23.0</version>
+            </dependency>
+            <dependency>
+                <groupId>xml-security</groupId>
+                <artifactId>xmlsec</artifactId>
+                <version>1.3.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
