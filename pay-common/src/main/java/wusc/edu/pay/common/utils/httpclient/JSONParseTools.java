@@ -1,4 +1,4 @@
-package wusc.edu.pay.api.merchant.utils;
+package wusc.edu.pay.common.utils.httpclient;
 
 import com.alibaba.fastjson.JSONObject;
 
@@ -28,8 +28,7 @@ public class JSONParseTools {
     }
 
     public static void main(String[] args) {
-        String str = "{\"version\":29999,\"description\":\"你好\"," +
-                "\"apkurl\":\"http://192.168.1.104:8080/mobilesafe2.0.apk\"}";
+        String str = "{\"version\":29999,\"description\":\"你好\",\"apkurl\":\"http://192.168.1.104:8080/mobilesafe2.0.apk\"}";
         Map<String, String> map = parseJSON2Map(str);
         System.out.println(map);
     }

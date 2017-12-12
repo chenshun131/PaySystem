@@ -30,8 +30,6 @@ import java.util.Map;
  */
 public abstract class BaseDaoImpl<T extends BaseEntity> extends SqlSessionDaoSupport implements BaseDao<T> {
 
-    protected static final Logger log = LoggerFactory.getLogger(BaseDaoImpl.class);
-
     public static final String SQL_INSERT = "insert";
 
     public static final String SQL_BATCH_INSERT = "batchInsert";

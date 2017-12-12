@@ -13,17 +13,8 @@ import java.util.Map;
  */
 public enum AccountInitiatorEnum {
 
-	/**
-	 * 风控系统
-	 */
 	RCMS_SYS("风控系统", 1),
-	/**
-	 * 运营BOSS
-	 */
 	BOSS_SYS("运营BOSS", 2),
-	/**
-	 * 用户注册
-	 */
 	USER_REG("用户注册", 3);
 
 	/** 枚举值 */

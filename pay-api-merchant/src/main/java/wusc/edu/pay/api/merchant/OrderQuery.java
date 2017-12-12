@@ -2,10 +2,10 @@ package wusc.edu.pay.api.merchant;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.codec.digest.DigestUtils;
-import wusc.edu.pay.api.merchant.utils.Context;
-import wusc.edu.pay.api.merchant.utils.SimpleHttpParam;
-import wusc.edu.pay.api.merchant.utils.SimpleHttpResult;
-import wusc.edu.pay.api.merchant.utils.SimpleHttpUtils;
+import wusc.edu.pay.common.utils.httpclient.Context;
+import wusc.edu.pay.common.utils.httpclient.SimpleHttpParam;
+import wusc.edu.pay.common.utils.httpclient.SimpleHttpResult;
+import wusc.edu.pay.common.utils.httpclient.SimpleHttpUtils;
 
 import java.util.HashMap;
 import java.util.Map;

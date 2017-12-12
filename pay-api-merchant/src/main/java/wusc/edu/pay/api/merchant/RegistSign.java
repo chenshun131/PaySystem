@@ -2,11 +2,10 @@ package wusc.edu.pay.api.merchant;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
-import wusc.edu.pay.api.merchant.utils.Context;
+import wusc.edu.pay.common.utils.httpclient.Context;
 
 import java.io.UnsupportedEncodingException;
 import java.util.*;
-
 
 public class RegistSign {
 
@@ -39,9 +38,9 @@ public class RegistSign {
             }
         }
 
-        StringBuffer content = new StringBuffer("");
-        StringBuffer html = new StringBuffer("<form name='toSplit' action='").
-                append(Context.WEB_TRADE_URL).append(actionUrl).append(".action").append("' method='POST'>");
+        StringBuilder content = new StringBuilder("");
+        StringBuilder html = new StringBuilder("<form name='toSplit' action='")
+                .append(Context.WEB_TRADE_URL).append(actionUrl).append(".action").append("' method='POST'>");
 
         List<String> keyList = new ArrayList(properties.keySet());
         Collections.sort(keyList);
@@ -61,8 +60,7 @@ public class RegistSign {
         }
 
         System.out.println("客户端签名数据：" + content.toString() + merchantKey);
-        html.append("<input type='hidden' name='hmac' value='").
-                append(DigestUtils.md5Hex(content.toString() + merchantKey).toUpperCase()).append("'></br>");
+        html.append("<input type='hidden' name='hmac' value='").append(DigestUtils.md5Hex(content.toString() + merchantKey).toUpperCase()).append("'></br>");
         html.append("</form><script>document.forms['toSplit'].submit();</script>");
         return html.toString();
     }

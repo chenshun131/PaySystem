@@ -1,9 +1,5 @@
 package wusc.edu.pay.common.utils.httpclient;
 
-import org.apache.commons.io.output.ByteArrayOutputStream;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import javax.net.ssl.*;
 import java.io.*;
 import java.lang.reflect.Array;
@@ -18,9 +14,8 @@ import java.security.cert.X509Certificate;
 import java.util.*;
 import java.util.Map.Entry;
 
-public class SimpleHttpUtils {
 
-    private static final Logger logger = LoggerFactory.getLogger(SimpleHttpUtils.class);
+public class SimpleHttpUtils {
 
     /** 默认字符编码 */
     public static final String DEFAULT_CHARSET = "utf-8";
@@ -71,7 +66,9 @@ public class SimpleHttpUtils {
      */
     public static String httpRequest(String url, Map<String, String> params, String method, String charSet, Map<String, String> headers) {
         SimpleHttpParam param = new SimpleHttpParam(url);
-        param.setParameters(params);
+        if (null != param) {
+            param.setParameters(params);
+        }
         if (null != headers) {
             param.setHeaders(headers);
         }
@@ -85,6 +82,10 @@ public class SimpleHttpUtils {
         }
     }
 
+    /**
+     * @param httpParam
+     * @return
+     */
     public static SimpleHttpResult httpRequest(SimpleHttpParam httpParam) {
         String url = httpParam.getUrl();
         Map<String, Object> parameters = httpParam.getParameters();
@@ -144,9 +145,7 @@ public class SimpleHttpUtils {
         try {
             destURL = new URL(targetUrl);
             urlConn = (HttpURLConnection) destURL.openConnection();
-
             setSSLSocketFactory(urlConn, sslVerify, hostnameVerify, trustKeyStore, clientKeyStore);
-
 
             boolean hasContentType = false;
             boolean hasUserAgent = false;
@@ -164,8 +163,7 @@ public class SimpleHttpUtils {
             if (!hasUserAgent) {
                 headers.put("user-agent", "PlatSystem");
             }
-
-            if (headers != null && !headers.isEmpty()) {
+            if (!headers.isEmpty()) {
                 for (Entry<String, Object> entry : headers.entrySet()) {
                     String key = entry.getKey();
                     Object value = entry.getValue();
@@ -182,6 +180,7 @@ public class SimpleHttpUtils {
             urlConn.setRequestMethod(method);
             urlConn.setConnectTimeout(connectTimeout);
             urlConn.setReadTimeout(readTimeout);
+
 
             if (method.equals(HTTP_METHOD_POST)) {
                 String postData = queryString.length() == 0 ? httpParam.getPostData() : queryString;
@@ -208,25 +207,18 @@ public class SimpleHttpUtils {
 
             InputStream is = urlConn.getInputStream();
             byte[] temp = new byte[1024];
-//			ByteBuffer buffer = ByteBuffer.allocate(maxResultSize);
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             int readBytes = is.read(temp);
             while (readBytes > 0) {
-//				if(buffer.remaining()>=readBytes){
-//					buffer.put(temp, 0, readBytes);
-//				}else{
-//					buffer.put(temp, 0, buffer.remaining());
-//					break;
-//				}
                 baos.write(temp, 0, readBytes);
                 readBytes = is.read(temp);
             }
-            String resultString = new String(baos.toByteArray(), charSet); //new String(buffer.array(), charSet);
+            String resultString = new String(baos.toByteArray(), charSet);
             baos.close();
             result.setContent(resultString);
             return result;
         } catch (Exception e) {
-            logger.warn("connection error : " + e.getMessage());
+            e.printStackTrace();
             return new SimpleHttpResult(e);
         } finally {
             if (urlConn != null) {
@@ -298,13 +290,12 @@ public class SimpleHttpUtils {
         if (queryString == null) {
             throw new IllegalArgumentException("queryString must be specified");
         }
-
         int index = queryString.indexOf("?");
         if (index > 0) {
             queryString = queryString.substring(index + 1);
         }
         String[] keyValuePairs = queryString.split("&");
-        Map<String, String> map = new HashMap<String, String>();
+        Map<String, String> map = new HashMap<>(keyValuePairs.length);
         for (String keyValue : keyValuePairs) {
             if (keyValue.indexOf("=") == -1) {
                 continue;
@@ -324,8 +315,8 @@ public class SimpleHttpUtils {
         return map;
     }
 
-    private static void setSSLSocketFactory(HttpURLConnection urlConn, boolean sslVerify, boolean hostnameVerify,
-                                            TrustKeyStore trustCertFactory, ClientKeyStore clientKeyFactory) {
+    private static void setSSLSocketFactory(HttpURLConnection urlConn, boolean sslVerify, boolean hostnameVerify, TrustKeyStore trustCertFactory,
+                                            ClientKeyStore clientKeyFactory) {
         try {
             SSLSocketFactory socketFactory = null;
             if (trustCertFactory != null || clientKeyFactory != null || !sslVerify) {
@@ -367,7 +358,7 @@ public class SimpleHttpUtils {
                 }
             }
         } catch (Exception e) {
-            logger.error(e.getMessage(), e);
+            e.printStackTrace();
         }
     }
 
@@ -375,7 +366,7 @@ public class SimpleHttpUtils {
         if (value == null) {
             value = "";
         }
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         if (value.getClass().isArray()) {
             for (int j = 0; j < Array.getLength(value); j++) {
                 Object obj = Array.get(value, j);
@@ -448,13 +439,12 @@ public class SimpleHttpUtils {
         try {
             return loadClientKeyStore(new FileInputStream(keyStorePath), keyStorePass, privateKeyPass);
         } catch (Exception e) {
-            logger.error("loadClientKeyFactory fail : " + e.getMessage(), e);
+            e.printStackTrace();
             return null;
         }
     }
 
-    public static ClientKeyStore loadClientKeyStore(InputStream keyStoreStream, String keyStorePass, String
-            privateKeyPass) {
+    public static ClientKeyStore loadClientKeyStore(InputStream keyStoreStream, String keyStorePass, String privateKeyPass) {
         try {
             KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");
             KeyStore ks = KeyStore.getInstance("JKS");
@@ -462,7 +452,7 @@ public class SimpleHttpUtils {
             kmf.init(ks, privateKeyPass.toCharArray());
             return new ClientKeyStore(kmf);
         } catch (Exception e) {
-            logger.error("loadClientKeyFactory fail : " + e.getMessage(), e);
+            e.printStackTrace();
             return null;
         }
     }
@@ -471,7 +461,7 @@ public class SimpleHttpUtils {
         try {
             return loadTrustKeyStore(new FileInputStream(keyStorePath), keyStorePass);
         } catch (Exception e) {
-            logger.error("loadTrustCertFactory fail : " + e.getMessage(), e);
+            e.printStackTrace();
             return null;
         }
     }
@@ -484,7 +474,7 @@ public class SimpleHttpUtils {
             tmf.init(ks);
             return new TrustKeyStore(tmf);
         } catch (Exception e) {
-            logger.error("loadTrustCertFactory fail : " + e.getMessage(), e);
+            e.printStackTrace();
             return null;
         }
     }
@@ -499,7 +489,7 @@ public class SimpleHttpUtils {
         for (int i = 0; i < 10; i++) {
             String result = httpPost(str, null);
             System.out.println(result);
-            Thread.sleep(1000);
+            Thread.sleep(1000L);
         }
         return 0;
     }

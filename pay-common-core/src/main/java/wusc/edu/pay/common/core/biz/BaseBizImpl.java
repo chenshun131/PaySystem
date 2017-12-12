@@ -1,6 +1,3 @@
-/**
- * wusc.edu.pay.core.common.biz;
- */
 package wusc.edu.pay.common.core.biz;
 
 import wusc.edu.pay.common.core.dao.BaseDao;
@@ -10,7 +7,6 @@ import wusc.edu.pay.common.page.PageParam;
 
 import java.util.List;
 import java.util.Map;
-
 
 /**
  * 基类Biz接口实现类

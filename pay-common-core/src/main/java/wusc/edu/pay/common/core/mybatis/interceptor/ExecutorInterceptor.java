@@ -27,8 +27,7 @@ import java.util.Properties;
  * @author Hill
  * @version 2014-10-13
  */
-@Intercepts({@Signature(type = Executor.class, method = "query",
-        args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class})})
+@Intercepts({@Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class})})
 public class ExecutorInterceptor extends AbstractInterceptor {
 
     private final static Logger logger = LoggerFactory.getLogger(ExecutorInterceptor.class);
@@ -91,8 +90,7 @@ public class ExecutorInterceptor extends AbstractInterceptor {
                 }
             }
 
-            BoundSql newBoundSql = new BoundSql(ms.getConfiguration(), sql, boundSql.getParameterMappings(),
-                    boundSql.getParameterObject());
+            BoundSql newBoundSql = new BoundSql(ms.getConfiguration(), sql, boundSql.getParameterMappings(), boundSql.getParameterObject());
             MappedStatement newMs = copyFromMappedStatement(ms, new BoundSqlSqlSource(newBoundSql), true);
             queryArgs[MAPPED_STATEMENT_INDEX] = newMs;
             queryArgs[PARAMETER_INDEX] = parameter;
@@ -118,8 +116,7 @@ public class ExecutorInterceptor extends AbstractInterceptor {
             }
 
             queryArgs[ROWBOUNDS_INDEX] = new RowBounds(offset, limit);
-            BoundSql newBoundSql = new BoundSql(ms.getConfiguration(), sql, boundSql.getParameterMappings(),
-                    boundSql.getParameterObject());
+            BoundSql newBoundSql = new BoundSql(ms.getConfiguration(), sql, boundSql.getParameterMappings(), boundSql.getParameterObject());
             MappedStatement newMs = copyFromMappedStatement(ms, new BoundSqlSqlSource(newBoundSql), false);
             queryArgs[MAPPED_STATEMENT_INDEX] = newMs;
             logger.debug("==>" + sql);
@@ -157,7 +154,6 @@ public class ExecutorInterceptor extends AbstractInterceptor {
     public static void main(String[] args) {
         String sql = "select temp.* from (select id,var_3 as 'abc', var_4 as 'cde' from  youtable where 1=1 and " +
                 "var_3='1')group by var_3) as temp order by temp.id desc";
-
         System.out.println(sql.split("from").length);
 
         sql = sql.trim().replace("\r", "").replace("\n", "").replaceAll("\\s{2,}", " ").replace(" FROM ", " from ")

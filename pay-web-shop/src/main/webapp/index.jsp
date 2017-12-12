@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" errorPage=""%>
-<%@ page import="wusc.edu.pay.api.merchant.utils.Context"%>
+<%@ page import="wusc.edu.pay.common.utils.httpclient.Context"%>
 <%@ page import="wusc.edu.pay.common.config.PublicConfig"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

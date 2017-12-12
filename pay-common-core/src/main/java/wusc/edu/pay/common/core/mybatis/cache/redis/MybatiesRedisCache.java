@@ -14,4 +14,5 @@ public class MybatiesRedisCache extends LoggingCache {
     public MybatiesRedisCache(String id) {
         super(new RedisCache(id));
     }
+
 }

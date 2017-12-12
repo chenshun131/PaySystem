@@ -48,8 +48,7 @@ public interface HttpClientWrapper {
      * @throws HttpException
      * @throws IOException
      */
-    String doRequest(MethodType method, String url, Map<String, String> params, String charset)
-            throws HttpException, IOException;
+    String doRequest(MethodType method, String url, Map<String, String> params, String charset) throws HttpException, IOException;
 
     /**
      * @param method
@@ -74,8 +73,7 @@ public interface HttpClientWrapper {
      * @throws HttpException
      * @throws IOException
      */
-    void doRequest(HttpResponseCallBack callback, MethodType method, String url, Map<String, String> params,
-                   String charset) throws HttpException, IOException;
+    void doRequest(HttpResponseCallBack callback, MethodType method, String url, Map<String, String> params, String charset) throws HttpException, IOException;
 
     /**
      * 无返回值 外部可以利用到流来得到结果 主要考虑的是多线程下载的情况
@@ -89,7 +87,6 @@ public interface HttpClientWrapper {
      * @throws HttpException
      * @throws IOException
      */
-    void doRequest(HttpResponseCallBack callback, MethodType method, String url, String charset)
-            throws HttpException, IOException;
+    void doRequest(HttpResponseCallBack callback, MethodType method, String url, String charset) throws HttpException, IOException;
 
 }

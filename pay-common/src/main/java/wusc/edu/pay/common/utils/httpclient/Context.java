@@ -1,4 +1,4 @@
-package wusc.edu.pay.api.merchant.utils;
+package wusc.edu.pay.common.utils.httpclient;
 
 import java.util.Map;
 

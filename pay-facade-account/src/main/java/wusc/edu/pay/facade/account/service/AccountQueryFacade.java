@@ -13,15 +13,15 @@ import wusc.edu.pay.facade.account.vo.DailyCollectAccountHistoryVo;
 
 /**
  * 账户查询
- * 
+ *
  * @author healy
- * 
+ *
  */
 public interface AccountQueryFacade {
 
 	/**
 	 * 账户历史查询.
-	 * 
+	 *
 	 * @param pageParam
 	 *            分页参数.
 	 * @param paramMap
@@ -33,7 +33,7 @@ public interface AccountQueryFacade {
 
 	/**
 	 * 获取账户历史
-	 * 
+	 *
 	 * @param accountNo
 	 * @param requestNo
 	 * @param trxType
@@ -43,7 +43,7 @@ public interface AccountQueryFacade {
 
 	/**
 	 * 根据用户编号获取账户信息 .
-	 * 
+	 *
 	 * @param userNo
 	 *            用户编号.
 	 * @return account 查询到的账户信息.
@@ -53,7 +53,7 @@ public interface AccountQueryFacade {
 
 	/**
 	 * 根据账户编号查询账户信息.
-	 * 
+	 *
 	 * @param accountNo
 	 *            账户编号.
 	 * @return account 查询到的账户信息.
@@ -63,7 +63,7 @@ public interface AccountQueryFacade {
 
 	/**
 	 * 日汇总账户待结算金额 .
-	 * 
+	 *
 	 * @param accountNo
 	 *            账户编号
 	 * @param statDate
@@ -75,11 +75,12 @@ public interface AccountQueryFacade {
 	 * @return
 	 * @throws AccountBizException
 	 */
-	List<DailyCollectAccountHistoryVo> listDailyCollectAccountHistoryVo(String accountNo, String statDate, Integer riskDay, Integer fundDirection) throws AccountBizException;
+	List<DailyCollectAccountHistoryVo> listDailyCollectAccountHistoryVo(String accountNo, String statDate, Integer riskDay, Integer fundDirection)
+            throws AccountBizException;
 
 	/**
 	 * 日汇总账户待结算金额_针对单笔t+0结算
-	 * 
+	 *
 	 * @param accountNo
 	 * @param requestNo
 	 */

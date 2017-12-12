@@ -6,9 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import wusc.edu.pay.app.notify.entity.NotifyParam;
 import wusc.edu.pay.common.exceptions.BizException;
-import wusc.edu.pay.common.utils.httpclient.SimpleHttpParam;
-import wusc.edu.pay.common.utils.httpclient.SimpleHttpResult;
-import wusc.edu.pay.common.utils.httpclient.SimpleHttpUtils;
 import wusc.edu.pay.facade.notify.entity.NotifyRecord;
 import wusc.edu.pay.facade.notify.enums.NotifyStatusEnum;
 

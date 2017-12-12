@@ -2,13 +2,12 @@ package wusc.edu.pay.api.merchant;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.httpclient.HttpException;
-import wusc.edu.pay.api.merchant.utils.Context;
+import wusc.edu.pay.common.utils.httpclient.Context;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
-
 
 public class Pay {
 
@@ -31,7 +30,6 @@ public class Pay {
      * @throws HttpException
      */
     public String buildPayUrlPost(Map<String, String> map) throws UnsupportedEncodingException {
-
         String p1_MerchantNo = map.get("p1_MerchantNo");
         String p2_OrderNo = map.get("p2_OrderNo");
         String p3_Amount = map.get("p3_Amount");
@@ -43,7 +41,6 @@ public class Pay {
         String p9_FrpCode = map.get("p9_FrpCode");
         String pa_OrderPeriod = map.get("pa_OrderPeriod");
         String pb_PayerLoginName = map.get("pb_PayerLoginName");
-
         String pay_url = map.get("pay_url");
 
         StringBuilder html = new StringBuilder();
@@ -55,18 +52,13 @@ public class Pay {
         html.append("<input type='hidden' name='p2_OrderNo' value='").append(p2_OrderNo).append("'>\r");
         html.append("<input type='hidden' name='p3_Amount' value='").append(p3_Amount).append("'>\r");
         html.append("<input type='hidden' name='p4_Cur' value='").append(p4_Cur).append("'>\r");
-        html.append("<input type='hidden' name='p5_ProductName' value='").
-                append(URLEncoder.encode(p5_ProductName, "utf-8")).append("'>\r");
-        html.append("<input type='hidden' name='p6_Mp' value='").append(URLEncoder.encode(p6_Mp, "utf-8")).
-                append("'>\r");
-        html.append("<input type='hidden' name='p7_ReturnUrl' value='").
-                append(URLEncoder.encode(p7_ReturnUrl, "utf-8")).append("'>\r");
-        html.append("<input type='hidden' name='p8_NotifyUrl' value='").
-                append(URLEncoder.encode(p8_NotifyUrl, "utf-8")).append("'>\r");
+        html.append("<input type='hidden' name='p5_ProductName' value='").append(URLEncoder.encode(p5_ProductName, "utf-8")).append("'>\r");
+        html.append("<input type='hidden' name='p6_Mp' value='").append(URLEncoder.encode(p6_Mp, "utf-8")).append("'>\r");
+        html.append("<input type='hidden' name='p7_ReturnUrl' value='").append(URLEncoder.encode(p7_ReturnUrl, "utf-8")).append("'>\r");
+        html.append("<input type='hidden' name='p8_NotifyUrl' value='").append(URLEncoder.encode(p8_NotifyUrl, "utf-8")).append("'>\r");
         html.append("<input type='hidden' name='p9_FrpCode' value='").append(p9_FrpCode).append("'>\r");
         html.append("<input type='hidden' name='pa_OrderPeriod' value='").append(pa_OrderPeriod).append("'>\r");
-        html.append("<input type='hidden' name='pb_PayerLoginName' value='").
-                append(URLEncoder.encode(pb_PayerLoginName, "utf-8")).append("'>\r");
+        html.append("<input type='hidden' name='pb_PayerLoginName' value='").append(URLEncoder.encode(pb_PayerLoginName, "utf-8")).append("'>\r");
         html.append("<input type='hidden' name='hmac' value='").append(hmacRequest(map)).append("'>\r");
         html.append("</form><script>document.forms['toPay'].submit();</script>");
         return html.toString();

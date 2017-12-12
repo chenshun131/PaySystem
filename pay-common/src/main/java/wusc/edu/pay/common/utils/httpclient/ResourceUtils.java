@@ -1,4 +1,4 @@
-package wusc.edu.pay.api.merchant.utils;
+package wusc.edu.pay.common.utils.httpclient;
 
 import java.text.MessageFormat;
 import java.util.HashMap;
@@ -49,7 +49,7 @@ public class ResourceUtils {
      * @return 资源Map
      */
     public Map<String, String> getMap() {
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>(resourceBundle.keySet().size());
         for (String key : resourceBundle.keySet()) {
             map.put(key, resourceBundle.getString(key));
         }

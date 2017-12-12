@@ -1,13 +1,12 @@
 package wusc.edu.pay.api.merchant;
 
 import org.apache.commons.httpclient.HttpException;
-import wusc.edu.pay.api.merchant.utils.Context;
+import wusc.edu.pay.common.utils.httpclient.Context;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
-
 
 public class Recharge {
 
@@ -30,14 +29,10 @@ public class Recharge {
         StringBuilder html = new StringBuilder();
         html.append("<form name='toPay' action='").append(Context.RECHARGE_URL).append("' method='POST'>\r");
         html.append("<input type='hidden' name='p1_Amount' value='").append(p1_Amount).append("'>\r");
-        html.append("<input type='hidden' name='p2_LoginName' value='").
-                append(URLEncoder.encode(p2_LoginName, "utf-8")).append("'>\r");
-        html.append("<input type='hidden' name='p3_ReturnUrl' value='").
-                append(URLEncoder.encode(p3_ReturnUrl, "utf-8")).append("'>\r");
-        html.append("<input type='hidden' name='p4_OrderNo' value='").
-                append(URLEncoder.encode(p4_OrderNo, "utf-8")).append("'>\r");
-        html.append("<input type='hidden' name='hmac' value='").append(URLEncoder.encode(hmac, "utf-8"))
-                .append("'>\r");
+        html.append("<input type='hidden' name='p2_LoginName' value='").append(URLEncoder.encode(p2_LoginName, "utf-8")).append("'>\r");
+        html.append("<input type='hidden' name='p3_ReturnUrl' value='").append(URLEncoder.encode(p3_ReturnUrl, "utf-8")).append("'>\r");
+        html.append("<input type='hidden' name='p4_OrderNo' value='").append(URLEncoder.encode(p4_OrderNo, "utf-8")).append("'>\r");
+        html.append("<input type='hidden' name='hmac' value='").append(URLEncoder.encode(hmac, "utf-8")).append("'>\r");
         html.append("</form>");
         return html.toString();
     }

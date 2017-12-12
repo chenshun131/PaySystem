@@ -1,7 +1,7 @@
 package wusc.edu.pay.common.core.interceptor;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.aop.ThrowsAdvice;
 import wusc.edu.pay.common.exceptions.BizException;
 
@@ -16,7 +16,7 @@ import java.lang.reflect.Method;
  */
 public class ExceptionInterceptorLog implements ThrowsAdvice {
 
-    private static final Log log = LogFactory.getLog(ExceptionInterceptorLog.class);
+    private static final Logger logger = LoggerFactory.getLogger(ExceptionInterceptorLog.class);
 
     /**
      * 对未知异常的处理. <br>
@@ -25,22 +25,22 @@ public class ExceptionInterceptorLog implements ThrowsAdvice {
      * 代理的目标对象 Throwable BizException 产生的异常 <br>
      */
     public void afterThrowing(Method method, Object[] args, Object target, BizException ex) {
-        log.info("==>ExceptionInterceptorLog.BizException");
-        log.info("==>errCode:" + ex.getCode() + " errMsg:" + ex.getMsg());
-        log.info("==>" + ex.fillInStackTrace());
+        logger.info("==>ExceptionInterceptorLog.BizException");
+        logger.info("==>errCode:" + ex.getCode() + " errMsg:" + ex.getMsg());
+        logger.info("==>" + ex.fillInStackTrace());
     }
 
     public void afterThrowing(Method method, Object[] args, Object target, Exception ex) {
-        log.error("==>ExceptionInterceptorLog.Exception");
-        log.error("==>Error class: " + target.getClass().getName());
-        log.error("==>Error method: " + method.getName());
+        logger.error("==>ExceptionInterceptorLog.Exception");
+        logger.error("==>Error class: " + target.getClass().getName());
+        logger.error("==>Error method: " + method.getName());
 
         for (int i = 0; i < args.length; i++) {
-            log.error("==>args[" + i + "]: " + args[i]);
+            logger.error("==>args[" + i + "]: " + args[i]);
         }
 
-        log.error("==>Exception class: " + ex.getClass().getName());
-        log.error("==>" + ex.fillInStackTrace());
+        logger.error("==>Exception class: " + ex.getClass().getName());
+        logger.error("==>" + ex.fillInStackTrace());
         ex.printStackTrace();
     }
 

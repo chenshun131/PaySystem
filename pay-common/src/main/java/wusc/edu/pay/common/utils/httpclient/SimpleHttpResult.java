@@ -23,14 +23,13 @@ public class SimpleHttpResult {
 
     private String contentType;
 
-
     public SimpleHttpResult(int code) {
         this.statusCode = code;
     }
 
-    public SimpleHttpResult(int code, String _content) {
+    public SimpleHttpResult(int code, String content) {
         this.statusCode = code;
-        this.content = _content;
+        this.content = content;
     }
 
     public SimpleHttpResult(Exception e) {

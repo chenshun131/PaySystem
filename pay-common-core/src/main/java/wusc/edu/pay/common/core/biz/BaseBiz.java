@@ -1,6 +1,3 @@
-/**
- * wusc.edu.pay.core.common.biz;
- */
 package wusc.edu.pay.common.core.biz;
 
 import wusc.edu.pay.common.entity.BaseEntity;
@@ -19,7 +16,7 @@ import java.util.Map;
 public interface BaseBiz<T extends BaseEntity> {
 
     /**
-     * 根据实体对象新增记录.
+     * 根据实体对象新增记录
      *
      * @param entity
      * @return id

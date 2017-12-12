@@ -41,7 +41,6 @@ public abstract class Dialect {
      *
      * @return 包含占位符的分页sql
      */
-    public abstract String getLimitString(String sql, int offset, String offsetPlaceholder, int limit,
-                                          String limitPlaceholder);
+    public abstract String getLimitString(String sql, int offset, String offsetPlaceholder, int limit, String limitPlaceholder);
 
 }
