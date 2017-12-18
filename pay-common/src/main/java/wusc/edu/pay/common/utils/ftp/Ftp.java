@@ -72,7 +72,6 @@ public class Ftp {
         } catch (IOException e) {
             result = false;
         }
-
         return result;
     }
 

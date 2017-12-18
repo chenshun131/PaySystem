@@ -15,10 +15,10 @@ import java.util.*;
  */
 public class BeanUtils {
 
+    private static Logger logger = Logger.getLogger(BeanUtils.class);
+
     /** 存储BeanCoper对象 */
     public static Map<String, BeanCopier> beanCopierMap = new HashMap<>();
-
-    private static Logger logger = Logger.getLogger(BeanUtils.class);
 
     /** 转换时对map中的key里的字符串会做忽略处理的正则串 */
     private static final String OMIT_REG = "_";
@@ -43,7 +43,6 @@ public class BeanUtils {
                 throw new RuntimeException(e);
             }
         }
-
     }
 
     /**
@@ -82,13 +81,10 @@ public class BeanUtils {
         copyProperties(source, target, properties, convertType, ignoreNullValue);
     }
 
-    public static void copyProperties(Object source, Object target, String[] properties, boolean convertType, boolean
-            ignoreNullValue) {
+    public static void copyProperties(Object source, Object target, String[] properties, boolean convertType, boolean ignoreNullValue) {
         Map valueMap = getProperties(source, properties);
-
-        Iterator keys = valueMap.keySet().iterator();
-        while (keys.hasNext()) {
-            String property = keys.next().toString();
+        for (Object o : valueMap.keySet()) {
+            String property = o.toString();
             Object value = valueMap.get(property);
             copyProperty(target, property, value, convertType, ignoreNullValue);
         }
@@ -98,8 +94,7 @@ public class BeanUtils {
         return copyProperty(obj, property, value, true, true);
     }
 
-    public static boolean copyProperty(Object obj, String property, Object value, boolean convertType, boolean
-            ignoreNullValue) {
+    public static boolean copyProperty(Object obj, String property, Object value, boolean convertType, boolean ignoreNullValue) {
         if (obj == null) {
             throw new IllegalArgumentException("no bean specified");
         }
@@ -163,7 +158,6 @@ public class BeanUtils {
         if (property == null) {
             throw new IllegalArgumentException("no property specified");
         }
-
         if (obj instanceof Map) {
             return ((Map) obj).get(property);
         }
@@ -174,7 +168,6 @@ public class BeanUtils {
         }
 
         Object result = obj;
-
         try {
             while (st.hasMoreTokens()) {
                 String currentPropertyName = st.nextToken();
@@ -204,9 +197,9 @@ public class BeanUtils {
             throw new IllegalArgumentException("no priperties specified");
         }
         Map result = new LinkedHashMap();
-        for (int i = 0; i < properties.length; i++) {
-            Object value = getProperty(obj, properties[i]);
-            result.put(properties[i], value);
+        for (String property : properties) {
+            Object value = getProperty(obj, property);
+            result.put(property, value);
         }
         return result;
     }
@@ -254,8 +247,7 @@ public class BeanUtils {
      *         是否自动忽略NULL值
      * @return
      */
-    public static boolean invokeSetter(Object target, String property, Object value, boolean autoConvert, boolean
-            ingoreNullValue) {
+    public static boolean invokeSetter(Object target, String property, Object value, boolean autoConvert, boolean ingoreNullValue) {
         if (target instanceof Map) {
             ((Map) target).put(property, value);
             return true;
@@ -352,11 +344,13 @@ public class BeanUtils {
             logger.error(e);
             return null;
         }
+
         // 处理map的key
-        Map<String, Object> newmap = new HashMap<String, Object>();
+        Map<String, Object> newmap = new HashMap<>();
         for (Map.Entry<String, Object> en : map.entrySet()) {
             newmap.put("set" + en.getKey().trim().replaceAll(OMIT_REG, "").toLowerCase(), en.getValue());
         }
+
         // 进行值装入
         Method[] ms = cla.getMethods();
         for (Method method : ms) {

@@ -1,31 +1,26 @@
 package wusc.edu.pay.common.utils.validate;
 
+import org.apache.commons.lang.StringUtils;
+
 import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.lang.StringUtils;
-
 /**
- * @描述: 验证工具类.
- * @作者: WuShuicheng .
- * @创建时间: 2013-8-9,上午10:15:34 .
- * @版本: 1.0 .
+ * @描述: 验证工具类
+ * @作者: WuShuicheng
+ * @创建时间: 2013-8-9,上午10:15:34
+ * @版本: 1.0
  */
 public class ValidateUtils {
 
     /**
      * 判断传入参数是否为字母与数字的组合字符串,而不是单一的字母或者数字
      *
-     * @param psw
+     * @param pwd
      * @return
      */
     public static boolean isPassword(String pwd) {
@@ -45,7 +40,7 @@ public class ValidateUtils {
     }
 
     /**
-     * 判断字母、数字（适用于密码校验）.
+     * 判断字母、数字 (适用于密码校验)
      *
      * @param str
      *         传入的字符串
@@ -113,11 +108,7 @@ public class ValidateUtils {
      * @author WuShuicheng .
      */
     public static boolean isNumeric(String str) {
-        if (StringUtils.isBlank(str)) {
-            return false;
-        } else {
-            return str.matches("\\d*");
-        }
+        return !StringUtils.isBlank(str) && str.matches("\\d*");
     }
 
     /**
@@ -230,7 +221,7 @@ public class ValidateUtils {
     /**
      * 是否为邮编
      *
-     * @param phone
+     * @param post
      * @return
      */
     public static boolean isPostCode(String post) {
@@ -241,7 +232,7 @@ public class ValidateUtils {
     /**
      * 是否为日期格式：yyyy-MM-dd
      *
-     * @param date
+     * @param dateStr
      * @return
      */
     public static boolean isDate(String dateStr) {
@@ -403,8 +394,7 @@ public class ValidateUtils {
      * 3、QQ号长度为5到15位，多的算违规.
      *
      * @param qq
-     *         .
-     * @return true/false .
+     * @return true/false
      */
     public static boolean isQQ(String qq) {
         Pattern pattern = Pattern.compile("^[1-9][0-9]{4,14}$");
@@ -512,11 +502,7 @@ public class ValidateUtils {
      */
     public static boolean checkStrMinLengthByBytes(String str, Integer minLength) {
         int length = str.getBytes().length;
-        if (length >= minLength) {
-            return true;
-        } else {
-            return false;
-        }
+        return length >= minLength;
     }
 
     /**
@@ -524,16 +510,12 @@ public class ValidateUtils {
      *
      * @param str
      *         待检查的字符串
-     * @param minLength
+     * @param maxLength
      *         最小长度
      */
     public static boolean checkStrMaxLengthByBytes(String str, Integer maxLength) {
         int length = str.getBytes().length;
-        if (length <= maxLength) {
-            return true;
-        } else {
-            return false;
-        }
+        return length <= maxLength;
     }
 
     /**
@@ -574,7 +556,6 @@ public class ValidateUtils {
      * @param message
      *         异常信息
      */
-    @SuppressWarnings("rawtypes")
     public static void checkNotEmpty(Object obj, String message) {
         if (obj == null) {
             throw new IllegalArgumentException(message);
@@ -597,14 +578,10 @@ public class ValidateUtils {
      * 判断参数否非空
      *
      * @param obj
-     * @param message
      * @return
      */
     public static boolean isNull(Object obj) {
-        if (obj == null) {
-            return true;
-        }
-        return false;
+        return obj == null;
     }
 
     /**
@@ -613,7 +590,6 @@ public class ValidateUtils {
      * @param obj
      * @return
      */
-    @SuppressWarnings("rawtypes")
     public static boolean isEmpty(Object obj) {
         if (obj == null) {
             return true;
@@ -627,10 +603,7 @@ public class ValidateUtils {
         if (obj instanceof Collection && ((Collection) obj).isEmpty()) {
             return true;
         }
-        if (obj instanceof Map && ((Map) obj).isEmpty()) {
-            return true;
-        }
-        return false;
+        return obj instanceof Map && ((Map) obj).isEmpty();
     }
 
     public static boolean isIdCard(String idCard) {
@@ -668,7 +641,6 @@ public class ValidateUtils {
             parity += wi[i] * Integer.parseInt(map.get(val).toString());
         }
         String cheak = (11 - parity % 11) == 10 ? "X" : Integer.toString((11 - parity % 11));
-
         return cheak.equals(all[1]);
     }
 

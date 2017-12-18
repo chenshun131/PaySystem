@@ -100,7 +100,8 @@ public class ReceiveRechargeAction extends MemberLogonAction {
 			new ExcelDataExportor<Object>(dataFields, new ExportDataSource<Object>() {
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-				@SuppressWarnings({ "rawtypes", "unchecked" })
+				@Override
+                @SuppressWarnings({ "rawtypes", "unchecked" })
 				public List getData() {
 					PageParam pageParam = new PageParam(1, 10000);
 

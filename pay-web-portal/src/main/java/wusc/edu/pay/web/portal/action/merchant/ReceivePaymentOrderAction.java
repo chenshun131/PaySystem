@@ -204,7 +204,8 @@ public class ReceivePaymentOrderAction extends MerchantLogonAction {
 		new ExcelDataExportor<Object>(dataFields, new ExportDataSource<Object>() {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-			@SuppressWarnings({ "unchecked", "rawtypes" })
+			@Override
+            @SuppressWarnings({ "unchecked", "rawtypes" })
 			public List getData() {
 				List<Map<String, Object>> lists = new ArrayList<Map<String, Object>>();
 				List<Object> recordList = pageBean.getRecordList();

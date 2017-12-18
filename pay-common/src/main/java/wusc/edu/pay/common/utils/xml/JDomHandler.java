@@ -1,17 +1,5 @@
 package wusc.edu.pay.common.utils.xml;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.apache.log4j.Logger;
 import org.jdom.Attribute;
 import org.jdom.Document;
@@ -22,6 +10,14 @@ import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 import org.jdom.xpath.XPath;
 import org.xml.sax.InputSource;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.StringReader;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class JDomHandler {
 
@@ -444,7 +440,6 @@ public class JDomHandler {
      * @throws IOException
      */
     public Document loadXmlByString(String xml) throws JDOMException, IOException {
-
         try {
             xml = xml.trim();
             StringReader read = new StringReader(xml);
@@ -491,8 +486,7 @@ public class JDomHandler {
         forMat.setEncoding(ENCODE);
         forMat.setTextMode(Format.TextMode.TRIM_FULL_WHITE);
         XMLOutputter out = new XMLOutputter(forMat);
-        String xml = out.outputString(doc);
-        return xml;
+        return out.outputString(doc);
     }
 
     public void save(String path) {
@@ -511,6 +505,7 @@ public class JDomHandler {
         }
     }
 
+    @Override
     public String toString() {
         return toString("GBK");
     }
@@ -524,7 +519,6 @@ public class JDomHandler {
      *
      * @param parentElementPath
      * @param elementName
-     * @param value
      * @return
      * @throws JDOMException
      * @throws JDomHandlerException
@@ -548,8 +542,6 @@ public class JDomHandler {
     /**
      * 设置指定节点的值,先检测所在路径的节点是否存在，如果不存在则添加节点
      *
-     * @param message
-     *         要操作的Document对象
      * @param path
      *         路径
      * @param nodeName
@@ -558,12 +550,9 @@ public class JDomHandler {
      * @throws JDomHandlerException
      * @throws JDOMException
      */
-    public Document setNodeValueWithCheckAllPathNodes(String path, String nodeName, String value) throws
-            JDOMException, JDomHandlerException {
+    public Document setNodeValueWithCheckAllPathNodes(String path, String nodeName, String value) throws JDOMException, JDomHandlerException {
         checkPathNodes(path);
-
         setNodeValues(path, nodeName, value);
-
         return doc;
     }
 
@@ -587,8 +576,7 @@ public class JDomHandler {
         return doc;
     }
 
-    public Document addNodeAndAttr(String path, String nodeName, Map<String, String> attrMap) throws JDOMException,
-            JDomHandlerException {
+    public Document addNodeAndAttr(String path, String nodeName, Map<String, String> attrMap) throws JDOMException, JDomHandlerException {
         this.checkPathNodes(path);
         Element praElement = (Element) XPath.selectSingleNode(doc, path);
         Element element = new Element(nodeName);
@@ -614,7 +602,6 @@ public class JDomHandler {
         String[] pathNames = path.split("/");
         String headPath = "";
         String tailName = "";
-
         for (int i = 0; i < pathNames.length - 1; i++) {
             if (i == 0) {
                 headPath = pathNames[i];
@@ -622,7 +609,6 @@ public class JDomHandler {
                 headPath = headPath + "/" + pathNames[i];
             }
             tailName = pathNames[i + 1];
-
             if (!hasNode(headPath + "/" + tailName)) {
                 addNode(headPath, tailName);
             }

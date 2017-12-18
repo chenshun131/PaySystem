@@ -107,7 +107,8 @@ public class ReceiveTransferAction extends MerchantLogonAction {
 		new ExcelDataExportor<Object>(dataFields, new ExportDataSource<Object>() {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-			@SuppressWarnings({ "unchecked", "rawtypes" })
+			@Override
+            @SuppressWarnings({ "unchecked", "rawtypes" })
 			public List getData() {
 
 				PageParam pageParam = new PageParam(1, 10000);

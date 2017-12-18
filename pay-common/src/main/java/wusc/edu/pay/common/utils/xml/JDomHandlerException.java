@@ -48,7 +48,6 @@ public class JDomHandlerException extends Exception {
         this.cause = cause;
     }
 
-
     // ----------------------------------------------------- Instance Variables
 
     /**
@@ -57,7 +56,6 @@ public class JDomHandlerException extends Exception {
     protected Throwable cause = null;
 
     // --------------------------------------------------------- Public Methods
-
 
     /**
      * Return the root cause of this exception (if any).

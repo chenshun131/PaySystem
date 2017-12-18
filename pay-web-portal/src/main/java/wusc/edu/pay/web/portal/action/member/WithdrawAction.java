@@ -235,7 +235,8 @@ public class WithdrawAction extends MerchantLogonAction {
 				// DecimalFormat df = new DecimalFormat("#0.00");
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-				@SuppressWarnings({ "rawtypes", "unchecked" })
+				@Override
+                @SuppressWarnings({ "rawtypes", "unchecked" })
 				public List getData() {
 					Map<String, Object> map = new HashMap<String, Object>();
 					map.put("accountNo", getCurrentUserInfo().getAccountNo());

@@ -102,7 +102,8 @@ public class ReceiveRechargeAction extends MerchantLogonAction {
 		new ExcelDataExportor<Object>(dataFields, new ExportDataSource<Object>() {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-			@SuppressWarnings({ "unchecked", "rawtypes" })
+			@Override
+            @SuppressWarnings({ "unchecked", "rawtypes" })
 			public List getData() {
 				List<Object> list = pageBean.getRecordList();
 				List<Map<String, Object>> lists = new ArrayList<Map<String, Object>>();
