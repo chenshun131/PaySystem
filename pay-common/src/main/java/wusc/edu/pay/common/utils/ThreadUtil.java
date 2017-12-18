@@ -12,7 +12,6 @@ import java.util.Map;
  * @verstion 1.0
  * Copyright (c) 2013, laichunhua@gzzyzz.com All Rights Reserved.
  */
-
 public class ThreadUtil {
 
     private static final ThreadLocal ctx = new ThreadLocal();

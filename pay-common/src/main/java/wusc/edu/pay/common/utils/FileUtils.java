@@ -1,8 +1,6 @@
 package wusc.edu.pay.common.utils;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 
 /**
  * 文件工具类
@@ -66,6 +64,30 @@ public class FileUtils {
         File file = new File(filePath);
         if (!file.exists()) {
             file.mkdir();
+        }
+    }
+
+    /**
+     * 向文件末尾添加内容
+     *
+     * @param filename
+     * @param content
+     */
+    public static void addContentToEndFile(String filename, String content) {
+        BufferedWriter out = null;
+        try {
+            out = new BufferedWriter(new FileWriter(filename, true));
+            out.write(content);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (out != null) {
+                try {
+                    out.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
