@@ -6,9 +6,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
-public class MethodUtil {
+public class MethodUtils {
 
-    private static Logger logger = Logger.getLogger(MethodUtil.class);
+    private static Logger logger = Logger.getLogger(MethodUtils.class);
 
     public static Object copyProperties(Object targetObject, Map<String, Object> srcObject) throws Exception {
         Class srcClass = null;

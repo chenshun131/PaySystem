@@ -48,8 +48,7 @@ public class JDomHandler {
      * @throws JDomHandlerException
      *         添加了错误处理机制，与容错机制
      **/
-    public Document addNodeVaue(String parentElementPath, String elementName, String value) throws JDOMException,
-            JDomHandlerException {
+    public Document addNodeVaue(String parentElementPath, String elementName, String value) throws JDOMException, JDomHandlerException {
         Element parentElement = null;
         if (parentElementPath == null || "".equals(parentElementPath)) {
             throw new JDomHandlerException("添加节点值异常：父节点输入不能为空，或者不能为null");
@@ -106,8 +105,7 @@ public class JDomHandler {
      * @throws JDOMException
      * @throws JDomHandlerException
      **/
-    public String getNodeAttributeWithIndex(String path, int index, String attribute) throws JDOMException,
-            JDomHandlerException {
+    public String getNodeAttributeWithIndex(String path, int index, String attribute) throws JDOMException, JDomHandlerException {
         String value = "";
         this.checkPathNodes(path);
         List<Element> valueList = this.getNodeValues(path);
@@ -138,8 +136,7 @@ public class JDomHandler {
      * @throws JDOMException
      * @throws JDomHandlerException
      **/
-    public void addNodeAttribute(String path, String attributeName, String value) throws JDOMException,
-            JDomHandlerException {
+    public void addNodeAttribute(String path, String attributeName, String value) throws JDOMException, JDomHandlerException {
         Element visitElment = null;
         visitElment = (Element) XPath.selectSingleNode(doc, path);
         if (visitElment != null) {
@@ -171,8 +168,7 @@ public class JDomHandler {
      * @throws JDOMException
      * @throws JDomHandlerException
      **/
-    public Document setNodeAttributeWithIndex(String path, String attribute, String value, int index) throws
-            JDOMException, JDomHandlerException {
+    public Document setNodeAttributeWithIndex(String path, String attribute, String value, int index) throws JDOMException, JDomHandlerException {
         this.checkPathNodes(path);
         List<Element> valueList = this.getNodeValues(path);
         if (valueList != null) {
@@ -201,8 +197,7 @@ public class JDomHandler {
      * @throws JDOMException
      * @throws JDomHandlerException
      **/
-    public Document setNodeValueWithIndex(String path, String name, String value, int index) throws JDOMException,
-            JDomHandlerException {
+    public Document setNodeValueWithIndex(String path, String name, String value, int index) throws JDOMException, JDomHandlerException {
         this.checkPathNodes(path);
         List<Element> valueList = this.getNodeValues(path);
         if (valueList != null) {
@@ -328,11 +323,7 @@ public class JDomHandler {
      */
     public boolean hasNode(String path) throws JDOMException {
         Element element = (Element) XPath.selectSingleNode(doc, path);
-        if (element == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return element != null;
     }
 
     /**
@@ -368,8 +359,7 @@ public class JDomHandler {
      * @throws JDOMException
      * @throws JDomHandlerException
      */
-    public Document addBatchNodeValues(String path, String elementName, Map<String, String> nodeMap)
-            throws JDOMException, JDomHandlerException {
+    public Document addBatchNodeValues(String path, String elementName, Map<String, String> nodeMap) throws JDOMException, JDomHandlerException {
         if (path == null || "".equals(path)) {
             throw new JDomHandlerException("添加节点值异常：父节点输入不能为空，或者不能为null");
         }
