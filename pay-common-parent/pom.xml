@@ -88,6 +88,8 @@
         <shiro.version>1.4.0</shiro.version>
         <!-- swagger -->
         <swagger.version>2.7.0</swagger.version>
+        <!-- poi -->
+        <poi.version>3.17</poi.version>
     </properties>
 
     <!-- 全局属性配置 -->
@@ -347,6 +349,11 @@
                 <groupId>net.sourceforge.jexcelapi</groupId>
                 <artifactId>jxl</artifactId>
                 <version>2.6.12</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.jxls</groupId>
+                <artifactId>jxls-core</artifactId>
+                <version>1.0.6</version>
             </dependency>
             <!--<dependency>-->
             <!--<groupId>com.alibaba.external</groupId>-->
@@ -952,6 +959,24 @@
                 <version>1.0</version>
             </dependency>
             <!-- 验证码 End -->
+
+            <!-- poi Begin -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml-schemas</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <!-- poi End -->
 
             <dependency>
                 <groupId>taglibs</groupId>

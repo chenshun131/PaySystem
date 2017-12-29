@@ -160,4 +160,19 @@ public class FileUtils {
         out.close();
     }
 
+    /**
+     * 删除目录和目录中的所有文件
+     *
+     * @param file
+     */
+    public static void deleteFile(File file) {
+        if (file.isDirectory()) {
+            File[] files = file.listFiles();
+            for (File file1 : files) {
+                deleteFile(file1);
+            }
+        }
+        file.delete();
+    }
+
 }

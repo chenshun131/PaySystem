@@ -55,8 +55,7 @@ public class ExcelDataExportor<T> extends DataExportor<T> {
      * @param os
      * @param mode
      */
-    public ExcelDataExportor(DataPage pageParam, DataField[] fields, ExportDataSource<T> dataSource, OutputStream os,
-                             MODE mode) {
+    public ExcelDataExportor(DataPage pageParam, DataField[] fields, ExportDataSource<T> dataSource, OutputStream os, MODE mode) {
         super(pageParam, fields, dataSource, os);
         this.mode = mode;
     }
@@ -85,8 +84,9 @@ public class ExcelDataExportor<T> extends DataExportor<T> {
         int countPage = 1;
         // 如果下载的数据存在且需要分页
         if (dataList.size() > 0) {
-            countPage = (dataList.size() % pageParam.getMaxEntityInOnePage()) == 0 ? (dataList.size() /
-                    pageParam.getMaxEntityInOnePage()) : (dataList.size() / pageParam.getMaxEntityInOnePage()) + 1;
+            countPage = (dataList.size() % pageParam.getMaxEntityInOnePage()) == 0 ?
+                    (dataList.size() / pageParam.getMaxEntityInOnePage()) :
+                    (dataList.size() / pageParam.getMaxEntityInOnePage()) + 1;
         }
 
         // 一页中最多条目数
@@ -132,10 +132,7 @@ public class ExcelDataExportor<T> extends DataExportor<T> {
         os.flush();
     }
 
-    /**
-     *
-     */
-    private void exportExcel07() throws IOException, RowsExceededException, WriteException {
+    private void exportExcel07() throws IOException, WriteException {
         Collection<?> dataList;
         WritableWorkbook workBook = Workbook.createWorkbook(os);
         int sheetIndex = 1;
