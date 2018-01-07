@@ -23,7 +23,7 @@ public class Ftp {
     private Logger logger = Logger.getLogger(Ftp.class);
 
     public Ftp() {
-        // 设置连接超时为10秒钟
+        // 设置连接超时为20秒钟
         ftpClient.setConnectTimeout(20000);
         ftpClient.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
     }
