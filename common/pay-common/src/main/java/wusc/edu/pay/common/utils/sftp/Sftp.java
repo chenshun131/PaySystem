@@ -14,7 +14,7 @@ import java.util.Vector;
  * Function: <br/>
  * date: 2014-2-24 上午10:28:10 <br/>
  *
- * @author laich.<br       />
+ * @author laich.<br                                                               />
  * @修改: Wushuicheng, 2014-04-24.
  */
 public class Sftp {
@@ -132,7 +132,7 @@ public class Sftp {
      * 以行为单位读取文件，常用于读面向行的格式化文件
      */
     public static String readFileByLines(String fileName) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         File file = new File(fileName);
         BufferedReader reader = null;
         try {
@@ -198,6 +198,7 @@ public class Sftp {
      * @throws SftpException
      */
     public static void creatDir(String directory, ChannelSftp sftp) throws SftpException {
+        // ChannelSftp 的 mkdir 方法只能创建相对于当前的远程目录，直接创建多级目录会抛出异常
         String[] dirArr = directory.split("/");
         StringBuilder tempStr = new StringBuilder("");
         for (int i = 1; i < dirArr.length; i++) {

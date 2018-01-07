@@ -5,14 +5,15 @@
         <groupId>wusc.edu.pay.common</groupId>
         <artifactId>pay-common-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../../common/pay-common-parent</relativePath>
     </parent>
 
     <groupId>wusc.edu.pay.service</groupId>
-    <artifactId>pay-service-account</artifactId>
-    <version>${pay-service-account.version}</version>
+    <artifactId>pay-service-cost</artifactId>
     <packaging>jar</packaging>
+    <version>${pay-service-cost.version}</version>
 
-    <name>pay-service-account</name>
+    <name>pay-service-cost</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -26,7 +27,7 @@
     </properties>
 
     <build>
-        <finalName>pay-service-account</finalName>
+        <finalName>pay-service-cost</finalName>
         <resources>
             <resource>
                 <targetPath>${project.build.directory}/classes</targetPath>
@@ -136,8 +137,8 @@
         </dependency>
         <dependency>
             <groupId>wusc.edu.pay.facade</groupId>
-            <artifactId>pay-facade-account</artifactId>
-            <version>${pay-facade-account.version}</version>
+            <artifactId>pay-facade-cost</artifactId>
+            <version>${pay-facade-cost.version}</version>
         </dependency>
 
         <!-- Spring Dependency Begin -->
