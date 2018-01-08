@@ -1,6 +1,7 @@
 package wusc.edu.pay.common.utils;
 
 import wusc.edu.pay.common.utils.json.JSONUtils;
+import wusc.edu.pay.common.utils.string.StringUtil;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -84,7 +85,7 @@ public class ConvertUtils {
         if (Type.STRING.equals(toType)) {
             return value;
         }
-        if (CheckUtils.isEmpty(value)) {
+        if (StringUtil.isEmpty(value)) {
             return null;
         }
         switch (toType) {

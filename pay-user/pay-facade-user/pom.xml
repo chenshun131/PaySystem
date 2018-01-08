@@ -27,7 +27,7 @@
         <groupId>wusc.edu.pay.common</groupId>
         <artifactId>pay-common-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pay-common-parent</relativePath>
+        <relativePath>../../common/pay-common-parent</relativePath>
     </parent>
 
     <groupId>wusc.edu.pay.facade</groupId>

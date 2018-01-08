@@ -5,15 +5,15 @@
         <groupId>wusc.edu.pay.common</groupId>
         <artifactId>pay-common-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pay-common-parent</relativePath>
+        <relativePath>../../common/pay-common-parent</relativePath>
     </parent>
 
     <groupId>wusc.edu.pay.service</groupId>
-    <artifactId>pay-service-user</artifactId>
-    <version>${pay-service-user.version}</version>
+    <artifactId>pay-service-fee</artifactId>
+    <version>${pay-service-fee.version}</version>
     <packaging>jar</packaging>
 
-    <name>pay-service-user</name>
+    <name>pay-service-fee</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -27,7 +27,7 @@
     </properties>
 
     <build>
-        <finalName>pay-service-user</finalName>
+        <finalName>pay-service-fee</finalName>
         <resources>
             <resource>
                 <targetPath>${project.build.directory}/classes</targetPath>
@@ -137,14 +137,13 @@
         </dependency>
         <dependency>
             <groupId>wusc.edu.pay.facade</groupId>
-            <artifactId>pay-facade-user</artifactId>
-            <version>${pay-facade-user.version}</version>
+            <artifactId>pay-facade-fee</artifactId>
+            <version>${pay-facade-fee.version}</version>
         </dependency>
-
         <dependency>
             <groupId>wusc.edu.pay.facade</groupId>
-            <artifactId>pay-facade-settlement</artifactId>
-            <version>${pay-facade-settlement.version}</version>
+            <artifactId>pay-facade-payrule</artifactId>
+            <version>${pay-facade-payrule.version}</version>
         </dependency>
 
         <!-- Spring Dependency Begin -->
@@ -160,10 +159,6 @@
         <!-- Spring Dependency End -->
 
         <!-- dubbo required jars start -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.jboss.netty</groupId>
             <artifactId>netty</artifactId>
