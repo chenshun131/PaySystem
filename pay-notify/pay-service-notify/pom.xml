@@ -5,15 +5,15 @@
         <groupId>wusc.edu.pay.common</groupId>
         <artifactId>pay-common-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pay-common-parent</relativePath>
+        <relativePath>../../common/pay-common-parent</relativePath>
     </parent>
 
     <groupId>wusc.edu.pay.service</groupId>
-    <artifactId>pay-service-settlement</artifactId>
-    <version>${pay-service-settlement.version}</version>
+    <artifactId>pay-service-notify</artifactId>
+    <version>${pay-service-notify.version}</version>
     <packaging>jar</packaging>
 
-    <name>pay-service-settlement</name>
+    <name>pay-service-notify</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -27,7 +27,7 @@
     </properties>
 
     <build>
-        <finalName>pay-service-settlement</finalName>
+        <finalName>pay-service-notify</finalName>
         <resources>
             <resource>
                 <targetPath>${project.build.directory}/classes</targetPath>
@@ -134,21 +134,6 @@
             <groupId>wusc.edu.pay.common</groupId>
             <artifactId>pay-common-core</artifactId>
             <version>${pay-common-core.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>wusc.edu.pay.facade</groupId>
-            <artifactId>pay-facade-settlement</artifactId>
-            <version>${pay-facade-settlement.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>wusc.edu.pay.facade</groupId>
-            <artifactId>pay-facade-user</artifactId>
-            <version>${pay-facade-user.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>wusc.edu.pay.facade</groupId>
-            <artifactId>pay-facade-limit</artifactId>
-            <version>${pay-facade-limit.version}</version>
         </dependency>
         <dependency>
             <groupId>wusc.edu.pay.facade</groupId>

@@ -5,15 +5,15 @@
         <groupId>wusc.edu.pay.common</groupId>
         <artifactId>pay-common-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pay-common-parent</relativePath>
+        <relativePath>../../common/pay-common-parent</relativePath>
     </parent>
 
     <groupId>wusc.edu.pay.facade</groupId>
-    <artifactId>pay-facade-report</artifactId>
-    <version>${pay-facade-report.version}</version>
+    <artifactId>pay-facade-limit</artifactId>
+    <version>${pay-facade-limit.version}</version>
     <packaging>jar</packaging>
 
-    <name>pay-facade-report</name>
+    <name>pay-facade-limit</name>
     <url>http://maven.apache.org</url>
 
     <properties>

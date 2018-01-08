@@ -5,15 +5,15 @@
         <groupId>wusc.edu.pay.common</groupId>
         <artifactId>pay-common-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pay-common-parent</relativePath>
+        <relativePath>../../common/pay-common-parent</relativePath>
     </parent>
 
     <groupId>wusc.edu.pay.service</groupId>
-    <artifactId>pay-service-payrule</artifactId>
-    <version>${pay-service-payrule.version}</version>
+    <artifactId>pay-service-settlement</artifactId>
+    <version>${pay-service-settlement.version}</version>
     <packaging>jar</packaging>
 
-    <name>pay-service-payrule</name>
+    <name>pay-service-settlement</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -27,7 +27,7 @@
     </properties>
 
     <build>
-        <finalName>pay-service-payrule</finalName>
+        <finalName>pay-service-settlement</finalName>
         <resources>
             <resource>
                 <targetPath>${project.build.directory}/classes</targetPath>
@@ -137,8 +137,23 @@
         </dependency>
         <dependency>
             <groupId>wusc.edu.pay.facade</groupId>
-            <artifactId>pay-facade-payrule</artifactId>
-            <version>${pay-facade-payrule.version}</version>
+            <artifactId>pay-facade-settlement</artifactId>
+            <version>${pay-facade-settlement.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>wusc.edu.pay.facade</groupId>
+            <artifactId>pay-facade-user</artifactId>
+            <version>${pay-facade-user.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>wusc.edu.pay.facade</groupId>
+            <artifactId>pay-facade-limit</artifactId>
+            <version>${pay-facade-limit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>wusc.edu.pay.facade</groupId>
+            <artifactId>pay-facade-notify</artifactId>
+            <version>${pay-facade-notify.version}</version>
         </dependency>
 
         <!-- Spring Dependency Begin -->
@@ -185,5 +200,14 @@
             <scope>test</scope>
         </dependency>
         <!-- 多线程测试工具 End -->
+
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-pool</artifactId>
+        </dependency>
     </dependencies>
 </project>

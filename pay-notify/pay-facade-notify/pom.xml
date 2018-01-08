@@ -5,15 +5,15 @@
         <groupId>wusc.edu.pay.common</groupId>
         <artifactId>pay-common-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pay-common-parent</relativePath>
+        <relativePath>../../common/pay-common-parent</relativePath>
     </parent>
 
     <groupId>wusc.edu.pay.facade</groupId>
-    <artifactId>pay-facade-settlement</artifactId>
-    <version>${pay-facade-settlement.version}</version>
+    <artifactId>pay-facade-notify</artifactId>
+    <version>${pay-facade-notify.version}</version>
     <packaging>jar</packaging>
 
-    <name>pay-facade-settlement</name>
+    <name>pay-facade-notify</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -31,6 +31,11 @@
         </dependency>
         <dependency>
             <groupId>wusc.edu.pay.facade</groupId>
+            <artifactId>pay-facade-cost</artifactId>
+            <version>${pay-facade-cost.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>wusc.edu.pay.facade</groupId>
             <artifactId>pay-facade-fee</artifactId>
             <version>${pay-facade-fee.version}</version>
         </dependency>
@@ -39,10 +44,24 @@
             <artifactId>pay-facade-remit</artifactId>
             <version>${pay-facade-remit.version}</version>
         </dependency>
+
         <dependency>
-            <groupId>wusc.edu.pay.facade</groupId>
-            <artifactId>pay-facade-account</artifactId>
-            <version>${pay-facade-account.version}</version>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-pool</artifactId>
         </dependency>
     </dependencies>
 </project>
