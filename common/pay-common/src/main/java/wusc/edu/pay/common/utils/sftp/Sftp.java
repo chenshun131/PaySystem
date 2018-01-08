@@ -4,6 +4,7 @@ import com.jcraft.jsch.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import wusc.edu.pay.common.utils.FileUtils;
+import wusc.edu.pay.common.utils.string.StringUtil;
 
 import java.io.*;
 import java.util.Properties;
@@ -14,7 +15,8 @@ import java.util.Vector;
  * Function: <br/>
  * date: 2014-2-24 上午10:28:10 <br/>
  *
- * @author laich.<br                                                               />
+ * @author laich.<br
+       *       />
  * @修改: Wushuicheng, 2014-04-24.
  */
 public class Sftp {
@@ -202,11 +204,14 @@ public class Sftp {
         String[] dirArr = directory.split("/");
         StringBuilder tempStr = new StringBuilder("");
         for (int i = 1; i < dirArr.length; i++) {
-            tempStr.append("/").append(dirArr[i]);
-            try {
-                sftp.cd(tempStr.toString());
-            } catch (SftpException e) {
-                sftp.mkdir(tempStr.toString());
+            // 舍弃空路径
+            if (!StringUtil.isEmpty(dirArr[i])) {
+                tempStr.append("/").append(dirArr[i]);
+                try {
+                    sftp.cd(tempStr.toString());
+                } catch (SftpException e) {
+                    sftp.mkdir(tempStr.toString());
+                }
             }
         }
     }
