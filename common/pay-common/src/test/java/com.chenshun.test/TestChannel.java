@@ -101,9 +101,7 @@ public class TestChannel {
     @Test
     public void test5() {
         Map<String, Charset> map = Charset.availableCharsets();
-
         Set<Entry<String, Charset>> set = map.entrySet();
-
         for (Entry<String, Charset> entry : set) {
             System.out.println(entry.getKey() + "=" + entry.getValue());
         }
