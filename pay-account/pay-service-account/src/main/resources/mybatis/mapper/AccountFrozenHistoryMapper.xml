@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="wusc.edu.pay.core.account.dao.AccountFrozenHistoryDao">
 
-    <sql id="table"> TBL_ACCOUNT_FROZEN_HISTORY </sql>
+    <sql id="table">TBL_ACCOUNT_FROZEN_HISTORY</sql>
 
     <resultMap id="beanMap" type="AccountFrozenHistory">
         <id property="id" column="ID"/>
@@ -20,13 +20,8 @@
     <insert id="insert" parameterType="AccountFrozenHistory" keyProperty="id" useGeneratedKeys="true">
         insert into
         <include refid="table"/>
-        (VERSION, CREATE_TIME, REQUEST_NO, ACCOUNT_NO,
-        AMOUNT, CURRENT_AMOUNT, REMARK, ACCOUNT_FROZEN_HISTORY_TYPE,
-        TRX_TYPE)
-        values (0, #{createTime}, #{requestNo}, #{accountNo},
-        #{amount}, #{currentAmount},
-        #{remark}, #{accountFrozenHistoryType},
-        #{trxType})
+        (VERSION, CREATE_TIME, REQUEST_NO, ACCOUNT_NO, AMOUNT, CURRENT_AMOUNT, REMARK, ACCOUNT_FROZEN_HISTORY_TYPE, TRX_TYPE)
+        values (0, #{createTime}, #{requestNo}, #{accountNo}, #{amount}, #{currentAmount}, #{remark}, #{accountFrozenHistoryType}, #{trxType})
     </insert>
 
     <sql id="condition_sql">

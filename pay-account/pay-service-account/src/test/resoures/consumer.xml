@@ -11,7 +11,7 @@
     <dubbo:application name="dubbo-consumer-account-test"/>
 
     <!-- 使用zookeeper注册中心暴露发现服务地址 -->
-    <dubbo:registry protocol="zookeeper" address="192.168.88.106:2181"/>
+    <dubbo:registry protocol="zookeeper" address="pay-server:2181"/>
 
     <!-- 账户子系统对外服务接口 -->
     <dubbo:reference interface="wusc.edu.pay.facade.account.service.AccountManagementFacade" id="accountManagementFacade"/>
