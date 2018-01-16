@@ -12,8 +12,8 @@
 例如：实现类  PayWayFacadeImpl
 @Cacheable(value="redisCache",key="'PAYRULE_'+#userNo")
 public List<PayWayVo> findPayWayByUserNo(String userNo ,String busType){
-		System.out.println("from database-----------");
-		return payWayBiz.findPayWayByUserNo(userNo ,busType);
+  System.out.println("from database-----------");
+  return payWayBiz.findPayWayByUserNo(userNo ,busType);
 }
  
 
