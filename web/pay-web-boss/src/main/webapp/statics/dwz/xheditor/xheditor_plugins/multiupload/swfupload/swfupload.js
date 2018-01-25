@@ -931,7 +931,7 @@ SWFUpload.prototype.debugMessage = function (message) {
 	if (this.settings.debug) {
 		var exceptionMessage, exceptionValues = [];
 
-		// Check for an exception object and print it nicely
+		// Check for an com.chenshun.test.exception object and print it nicely
 		if (typeof message === "object" && typeof message.name === "string" && typeof message.message === "string") {
 			for (var key in message) {
 				if (message.hasOwnProperty(key)) {

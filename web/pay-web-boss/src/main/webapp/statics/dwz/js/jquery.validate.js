@@ -881,7 +881,7 @@ $.extend($.validator, {
 			if ( value||((method=="min"||method=="max")&&value=="0")) {   //zzh：修复min,max属性值为0时失效的BUG
 				rules[method] = value;
 			} else if ( type === method && type !== 'range' ) {
-				// exception: the jquery validate 'range' method
+				// com.chenshun.test.exception: the jquery validate 'range' method
 				// does not test for the html5 'range' type
 				rules[method] = true;
 			}

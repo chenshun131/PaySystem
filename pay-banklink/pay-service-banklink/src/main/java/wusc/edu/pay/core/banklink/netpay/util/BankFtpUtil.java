@@ -83,7 +83,7 @@ public class BankFtpUtil {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			logger.error("ftp exception", e);
+			logger.error("ftp com.chenshun.test.exception", e);
 		} finally {
 			try {
 				if (is != null)

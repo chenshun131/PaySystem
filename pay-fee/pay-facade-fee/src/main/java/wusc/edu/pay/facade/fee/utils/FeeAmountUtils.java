@@ -16,7 +16,7 @@ public class FeeAmountUtils {
 	 */
 	public static boolean isThan(Double target, Double amount) {
 		if (null == target || null == amount) {
-			throw new IllegalArgumentException("Illegal argument exception, target and amount can not be null.");
+			throw new IllegalArgumentException("Illegal argument com.chenshun.test.exception, target and amount can not be null.");
 		} else {
 			return target.compareTo(amount) == -1;
 		}

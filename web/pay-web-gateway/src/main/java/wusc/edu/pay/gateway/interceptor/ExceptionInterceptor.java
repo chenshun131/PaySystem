@@ -53,7 +53,7 @@ public class ExceptionInterceptor extends AbstractInterceptor {
 			log.error(ostr.toString());
 			ActionContext context = invocation.getInvocationContext();
 			context.put("errMsg", e.toString());
-			return "exception";
+			return "com.chenshun.test.exception";
 		}
 	}
 

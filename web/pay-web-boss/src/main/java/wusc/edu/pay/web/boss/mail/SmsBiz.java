@@ -45,7 +45,7 @@ public class SmsBiz {
         try {
             return VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, smsTemplatePath, "UTF-8", paramModel);
         } catch (Exception e) {
-            logger.error("==>merge " + smsTemplatePath + " exception:", e);
+            logger.error("==>merge " + smsTemplatePath + " com.chenshun.test.exception:", e);
             throw e;
         }
     }

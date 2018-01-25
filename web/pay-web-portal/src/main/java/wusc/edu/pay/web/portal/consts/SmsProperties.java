@@ -70,7 +70,7 @@ public class SmsProperties {
             props.load(proFile);
             init(props);
         } catch (Exception e) {
-            log.error("=== load and init sms.properties exception:" + e);
+            log.error("=== load and init sms.properties com.chenshun.test.exception:" + e);
         }
     }
 

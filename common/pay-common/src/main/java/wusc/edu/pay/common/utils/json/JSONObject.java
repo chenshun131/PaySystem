@@ -48,8 +48,8 @@ import java.util.*;
  * <code>get</code> and <code>opt</code> methods, or to convert values into a
  * JSON text using the <code>put</code> and <code>toString</code> methods.
  * A <code>get</code> method returns a value if one can be found, and throws an
- * exception if one cannot be found. An <code>opt</code> method returns a
- * default value instead of throwing an exception, and so is useful for
+ * com.chenshun.test.exception if one cannot be found. An <code>opt</code> method returns a
+ * default value instead of throwing an com.chenshun.test.exception, and so is useful for
  * obtaining optional values.
  * <p>
  * The generic <code>get()</code> and <code>opt()</code> methods return an
@@ -1292,7 +1292,7 @@ public class JSONObject {
     }
 
     /**
-     * Throw an exception if the object is a NaN or infinite number.
+     * Throw an com.chenshun.test.exception if the object is a NaN or infinite number.
      *
      * @param o
      *         The object to test.

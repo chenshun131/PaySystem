@@ -60,7 +60,7 @@ public class ExceptionInterceptor implements Interceptor {
 			response.getWriter().write("errCode:" + e.getCode() + " errMsg:" + e.toString());
 			return null;
 		} catch (Exception e) {
-			log.error("interceptor exception:", e);
+			log.error("interceptor com.chenshun.test.exception:", e);
 			ActionContext context = invocation.getInvocationContext();
 			context.put("errMsg", e.toString());
 

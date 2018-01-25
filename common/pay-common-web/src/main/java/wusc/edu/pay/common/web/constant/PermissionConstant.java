@@ -59,7 +59,7 @@ public class PermissionConstant {
 			props.load(proFile);
 			init(props);
 		} catch (Exception e) {
-			LOG.error("=== load and init session.properties exception:" + e);
+			LOG.error("=== load and init session.properties com.chenshun.test.exception:" + e);
 		}
 	}
 	

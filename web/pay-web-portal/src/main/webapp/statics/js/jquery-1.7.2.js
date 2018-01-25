@@ -5195,7 +5195,7 @@ if ( document.querySelectorAll ) {
 			pseudoWorks = false;
 
 		try {
-			// This should fail with an exception
+			// This should fail with an com.chenshun.test.exception
 			// Gecko does not error, returns false instead
 			matches.call( document.documentElement, "[test!='']:sizzle" );
 
@@ -5955,7 +5955,7 @@ jQuery.fn.extend({
 
 					elem = 0;
 
-				// If using innerHTML throws an exception, use the fallback method
+				// If using innerHTML throws an com.chenshun.test.exception, use the fallback method
 				} catch(e) {}
 			}
 
@@ -6203,7 +6203,7 @@ jQuery.buildFragment = function( args, nodes, scripts ) {
 	}
 
 	// Ensure that an attr object doesn't incorrectly stand in as a document object
-	// Chrome and Firefox seem to allow this to occur and will throw exception
+	// Chrome and Firefox seem to allow this to occur and will throw com.chenshun.test.exception
 	// Fixes #8950
 	if ( !doc.createDocumentFragment ) {
 		doc = document;
@@ -7015,7 +7015,7 @@ var r20 = /%20/g,
 	// Avoid comment-prolog char sequence (#10098); must appease lint and evade compression
 	allTypes = ["*/"] + ["*"];
 
-// #8138, IE may throw an exception when accessing
+// #8138, IE may throw an com.chenshun.test.exception when accessing
 // a field from window.location if document.domain has been set
 try {
 	ajaxLocation = location.href;
@@ -7718,7 +7718,7 @@ jQuery.extend({
 				state = 1;
 				transport.send( requestHeaders, done );
 			} catch (e) {
-				// Propagate exception as error if not done
+				// Propagate com.chenshun.test.exception as error if not done
 				if ( state < 2 ) {
 					done( -1, e );
 				// Simply rethrow otherwise
@@ -8235,7 +8235,7 @@ if ( jQuery.support.ajax ) {
 					} catch( _ ) {}
 
 					// Do send the request
-					// This may raise an exception which is actually
+					// This may raise an com.chenshun.test.exception which is actually
 					// handled in jQuery.ajax (so no try/catch here)
 					xhr.send( ( s.hasContent && s.data ) || null );
 
@@ -8284,14 +8284,14 @@ if ( jQuery.support.ajax ) {
 										responses.xml = xml;
 									}
 
-									// When requesting binary data, IE6-9 will throw an exception
+									// When requesting binary data, IE6-9 will throw an com.chenshun.test.exception
 									// on any attempt to access responseText (#11426)
 									try {
 										responses.text = xhr.responseText;
 									} catch( _ ) {
 									}
 
-									// Firefox throws an exception when accessing
+									// Firefox throws an com.chenshun.test.exception when accessing
 									// statusText for faulty cross-domain requests
 									try {
 										statusText = xhr.statusText;
@@ -8912,7 +8912,7 @@ jQuery.fx.prototype = {
 				}
 
 				// Execute the complete function
-				// in the event that the complete function throws an exception
+				// in the event that the complete function throws an com.chenshun.test.exception
 				// we must ensure it won't be called twice. #5684
 
 				complete = options.complete;

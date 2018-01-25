@@ -121,7 +121,7 @@ public class MailBiz {
 		try {
 			content = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, templateName, "UTF-8", mapModel);
 		} catch (Exception e) {
-			LOG.error("==>mergeTemplateIntoString exception:", e);
+			LOG.error("==>mergeTemplateIntoString com.chenshun.test.exception:", e);
 		}
 
 		sendMail(toMail, subject, content);// 发送邮件

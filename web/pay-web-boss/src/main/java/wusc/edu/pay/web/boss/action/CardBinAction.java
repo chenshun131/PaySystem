@@ -108,7 +108,7 @@ public class CardBinAction extends BossBaseAction {
 			// 记录系统操作日志
 			super.logSave("添加卡BIN.发卡行代码[" + cardBin.getBankCode() + "],卡名[" + cardBin.getBankCode() + "]");
 		} catch (Exception e) {
-			log.error("== addCardBin exception:", e);
+			log.error("== addCardBin com.chenshun.test.exception:", e);
 			e.printStackTrace();
 			return operateError("添加卡Bin异常");
 		}
@@ -163,7 +163,7 @@ public class CardBinAction extends BossBaseAction {
 			// 记录系统操作日志
 			super.logEdit("修改卡BIN.发卡行代码[" + cardBin.getBankCode() + "],卡名[" + cardBin.getBankCode() + "]");
 		} catch (Exception e) {
-			log.error("== editCardBin exception:", e);
+			log.error("== editCardBin com.chenshun.test.exception:", e);
 			return operateError("操作失败");
 		}
 		return operateSuccess();

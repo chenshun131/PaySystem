@@ -161,13 +161,13 @@ public class AuthSSLProtocolSocketFactory implements SecureProtocolSocketFactory
 			return sslcontext;
 		} catch (NoSuchAlgorithmException e) {
 			LOG.error(e.getMessage(), e);
-			throw new Error("Unsupported algorithm exception: " + e.getMessage());
+			throw new Error("Unsupported algorithm com.chenshun.test.exception: " + e.getMessage());
 		} catch (KeyStoreException e) {
 			LOG.error(e.getMessage(), e);
-			throw new Error("Keystore exception: " + e.getMessage());
+			throw new Error("Keystore com.chenshun.test.exception: " + e.getMessage());
 		} catch (GeneralSecurityException e) {
 			LOG.error(e.getMessage(), e);
-			throw new Error("Key management exception: " + e.getMessage());
+			throw new Error("Key management com.chenshun.test.exception: " + e.getMessage());
 		} catch (IOException e) {
 			LOG.error(e.getMessage(), e);
 			throw new Error("I/O error reading keystore/truststore file: " + e.getMessage());

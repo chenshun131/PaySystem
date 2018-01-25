@@ -158,7 +158,7 @@ public final class StrUtil {
             Matcher m_ba = p_ba.matcher(htmlStr);
             htmlStr = m_ba.replaceAll("");
         } catch (Exception e) {
-            logger.error("=== HtmlToText exception: " + e.getMessage());
+            logger.error("=== HtmlToText com.chenshun.test.exception: " + e.getMessage());
         }
         // 返回文本字符串
         return htmlStr;

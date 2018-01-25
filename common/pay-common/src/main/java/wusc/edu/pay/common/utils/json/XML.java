@@ -104,7 +104,7 @@ public class XML {
     }
 
     /**
-     * Throw an exception if the string contains whitespace.
+     * Throw an com.chenshun.test.exception if the string contains whitespace.
      * Whitespace is not allowed in tagNames and attributes.
      *
      * @param string

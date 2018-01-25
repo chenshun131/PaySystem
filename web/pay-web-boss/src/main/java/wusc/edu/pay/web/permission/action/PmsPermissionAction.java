@@ -83,7 +83,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 			super.pushData(paramMap); // 回显查询条件值
 			return "PmsActionList";
 		} catch (Exception e) {
-			log.error("== listPmsAction exception:", e);
+			log.error("== listPmsAction com.chenshun.test.exception:", e);
 			return operateError("获取数据失败");
 		}
 	}
@@ -142,7 +142,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 
 			return operateSuccess(); // 返回operateSuccess视图,并提示“操作成功”
 		} catch (Exception e) {
-			log.error("== addPmsAction exception:", e);
+			log.error("== addPmsAction com.chenshun.test.exception:", e);
 			return operateError("保存失败");
 		}
 	}
@@ -200,7 +200,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 			super.putData("pmsAction", pmsAction);
 			return "PmsActionEdit";
 		} catch (Exception e) {
-			log.error("== editPmsActionUI exception:", e);
+			log.error("== editPmsActionUI com.chenshun.test.exception:", e);
 			return operateError("获取数据失败");
 		}
 	}
@@ -252,7 +252,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 				return operateSuccess();
 			}
 		} catch (Exception e) {
-			log.error("== editPmsAction exception:", e);
+			log.error("== editPmsAction com.chenshun.test.exception:", e);
 			return operateError("修改失败");
 		}
 	}
@@ -279,7 +279,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 			super.logDelete("删除权限[" + act.getActionName() + "],[" + act.getAction() + "]");
 			return operateSuccess(); // 返回operateSuccess视图,并提示“操作成功”
 		} catch (Exception e) {
-			log.error("== deletePmsAction exception:", e);
+			log.error("== deletePmsAction com.chenshun.test.exception:", e);
 			return operateError("删除限权异常");
 		}
 	}
@@ -314,7 +314,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 			
 			return "PmsRoleList";
 		} catch (Exception e) {
-			log.error("== listPmsRole exception:", e);
+			log.error("== listPmsRole com.chenshun.test.exception:", e);
 			return operateError("获取数据失败");
 		}
 	}
@@ -329,7 +329,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 		try {
 			return "PmsRoleAdd";
 		} catch (Exception e) {
-			log.error("== addPmsRoleUI get data exception:", e);
+			log.error("== addPmsRoleUI get data com.chenshun.test.exception:", e);
 			return operateError("获取数据失败");
 		}
 	}
@@ -367,7 +367,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 			super.logSave("添加角色信息，角色名称[" + pmsRole.getRoleName() + "]");
 			return operateSuccess();
 		} catch (Exception e) {
-			log.error("== addPmsRole exception:", e);
+			log.error("== addPmsRole com.chenshun.test.exception:", e);
 			return operateError("保存数据失败");
 		}
 	}
@@ -414,7 +414,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 			
 			return "PmsRoleEdit";
 		} catch (Exception e) {
-			log.error("== editPmsRoleUI exception:", e);
+			log.error("== editPmsRoleUI com.chenshun.test.exception:", e);
 			return operateError("获取数据失败");
 		}
 	}
@@ -461,7 +461,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 
 			return operateSuccess();
 		} catch (Exception e) {
-			log.error("== editPmsRole exception:", e);
+			log.error("== editPmsRole com.chenshun.test.exception:", e);
 			return operateError("保存失败");
 		}
 	}
@@ -510,7 +510,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 			super.logDelete("删除角色，名称:" + role.getRoleName());
 			return operateSuccess();
 		} catch (Exception e) {
-			log.error("== deletePmsRole exception:", e);
+			log.error("== deletePmsRole com.chenshun.test.exception:", e);
 			super.logDeleteError("删除角色出错:" + e.getMessage());
 			return operateError("删除失败");
 		}
@@ -700,7 +700,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 			
 			return "PmsOperatorList";
 		} catch (Exception e) {
-			log.error("== listPmsOperator exception:", e);
+			log.error("== listPmsOperator com.chenshun.test.exception:", e);
 			return operateError("获取数据失败");
 		}
 	}
@@ -743,7 +743,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 			super.putData("owenedRoleIds", owenedRoleIds);
 			return "PmsOperatorView";
 		} catch (Exception e) {
-			log.error("== viewPmsOperatorUI exception:", e);
+			log.error("== viewPmsOperatorUI com.chenshun.test.exception:", e);
 			return operateError("获取数据失败");
 		}
 	}
@@ -762,7 +762,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 			super.putData("RoleTypeEnum", RoleTypeEnum.toMap());
 			return "PmsOperatorAdd";
 		} catch (Exception e) {
-			log.error("== addPmsOperatorUI exception:", e);
+			log.error("== addPmsOperatorUI com.chenshun.test.exception:", e);
 			return operateError("获取角色列表数据失败");
 		}
 	}
@@ -818,7 +818,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 
 			return operateSuccess();
 		} catch (Exception e) {
-			log.error("== addPmsOperator exception:", e);
+			log.error("== addPmsOperator com.chenshun.test.exception:", e);
 			return operateError("保存操作员信息失败");
 		}
 	}
@@ -1003,7 +1003,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 			
 			return "PmsOperatorEdit";
 		} catch (Exception e) {
-			log.error("== editPmsOperatorUI exception:", e);
+			log.error("== editPmsOperatorUI com.chenshun.test.exception:", e);
 			return operateError("获取修改数据失败");
 		}
 	}
@@ -1067,7 +1067,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 			super.logEdit("修改操作员[" + pmsOperator.getLoginName() + "]，更改前角色[" + oldRoleNameBuffer + "]，更改后角色[" + newRoleNames + "]");
 			return operateSuccess();
 		} catch (Exception e) {
-			log.error("== editPmsOperator exception:", e);
+			log.error("== editPmsOperator com.chenshun.test.exception:", e);
 			return operateError("更新操作员信息失败");
 		}
 	}
@@ -1113,7 +1113,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 			}
 			return operateSuccess();
 		} catch (Exception e) {
-			log.error("== changeOperatorStatus exception:", e);
+			log.error("== changeOperatorStatus com.chenshun.test.exception:", e);
 			return operateError("删除操作员失败:" + e.getMessage());
 		}
 	}
@@ -1177,7 +1177,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 			super.logEdit("重置操作员[" + operator.getLoginName() + "]的密码");
 			return operateSuccess();
 		} catch (Exception e) {
-			log.error("== resetOperatorPwd exception:", e);
+			log.error("== resetOperatorPwd com.chenshun.test.exception:", e);
 			return operateError("密码重置出错:" + e.getMessage());
 		}
 	}
@@ -1242,7 +1242,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 
 			return operateSuccess("密码修改成功，请重新登录!");
 		} catch (Exception e) {
-			log.error("== operatorChangeOwnPwd exception:", e);
+			log.error("== operatorChangeOwnPwd com.chenshun.test.exception:", e);
 			super.logEditError("修改了自己的密码出错:" + e.getMessage());
 			return operateError("修改密码出错:" + e.getMessage());
 		}
@@ -1270,7 +1270,7 @@ public class PmsPermissionAction extends PermissionBaseAction {
 
 			return "PmsOperatorViewOwnInfo";
 		} catch (Exception e) {
-			log.error("== editPmsOperator exception:", e);
+			log.error("== editPmsOperator com.chenshun.test.exception:", e);
 			return operateError("无法获取要修改的操作员信息失败");
 		}
 	}

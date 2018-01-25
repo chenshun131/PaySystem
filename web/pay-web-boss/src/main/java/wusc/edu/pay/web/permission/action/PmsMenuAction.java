@@ -100,7 +100,7 @@ public class PmsMenuAction extends PermissionBaseAction implements ModelDriven<P
 			super.logSave("添加菜单[" + getModel().getName() + "]");
 		} catch (Exception e) {
 			// 记录系统操作日志
-			log.error("== addPmsMenu exception:", e);
+			log.error("== addPmsMenu com.chenshun.test.exception:", e);
 			super.logSaveError("增加菜单");
 			return operateError("添加菜单出错");
 		}
@@ -144,7 +144,7 @@ public class PmsMenuAction extends PermissionBaseAction implements ModelDriven<P
 			return operateSuccess();
 		} catch (Exception e) {
 			// 记录系统操作日志
-			log.error("== editPmsMenu exception:", e);
+			log.error("== editPmsMenu com.chenshun.test.exception:", e);
 			super.logEditError("修改菜单,菜单名称[" + getModel().getName() + "]");
 			return operateError("保存菜单出错");
 		}
@@ -199,7 +199,7 @@ public class PmsMenuAction extends PermissionBaseAction implements ModelDriven<P
 			return operateSuccess();
 		} catch (Exception e) {
 			// 记录系统操作日志
-			log.error("== delPmsMenu exception:", e);
+			log.error("== delPmsMenu com.chenshun.test.exception:", e);
 			super.logDeleteError("删除菜单,菜单名称[" + menuName + "]");
 			return operateError("删除菜单出错");
 		}
