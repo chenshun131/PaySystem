@@ -41,7 +41,7 @@ public class ReportProperties {
 			props.load(proFile);
 			init(props);
 		} catch (Exception e) {
-			LOG.error("==>load and init report.properties exception:", e);
+			LOG.error("==>load and init report.properties com.chenshun.test.exception:", e);
 		}
 	}
 	

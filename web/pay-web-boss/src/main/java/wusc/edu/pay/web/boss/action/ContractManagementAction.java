@@ -250,7 +250,7 @@ public class ContractManagementAction extends BossBaseAction{
 			putData("merchantNo",getString("merchantNo"));
 			return "merchantLookupList";
 		} catch (Exception e) {
-			log.error("== merchantLookupList get data exception:", e);
+			log.error("== merchantLookupList get data com.chenshun.test.exception:", e);
 			return operateError("获取商户信息失败");
 		}
 	}

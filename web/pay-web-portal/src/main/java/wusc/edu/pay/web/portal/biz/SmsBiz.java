@@ -50,7 +50,7 @@ public class SmsBiz {
 		try {
 			return VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, smsTemplatePath, "UTF-8", paramModel);
 		} catch (Exception e) {
-			LOG.error("==>merge " + smsTemplatePath + " exception:", e);
+			LOG.error("==>merge " + smsTemplatePath + " com.chenshun.test.exception:", e);
 			throw e;
 		}
 	}

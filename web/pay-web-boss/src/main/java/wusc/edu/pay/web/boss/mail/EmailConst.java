@@ -96,7 +96,7 @@ public class EmailConst {
             props.load(proFile);
             init(props);
         } catch (Exception e) {
-            logger.error("=== load and init email.properties exception:" + e);
+            logger.error("=== load and init email.properties com.chenshun.test.exception:" + e);
         }
     }
 

@@ -131,7 +131,7 @@
         <location>/page/error/404.jsp</location>
     </error-page>
     <error-page>
-        <exception-type>java.lang.Throwable</exception-type>
+        <com.chenshun.test.exception-type>java.lang.Throwable</com.chenshun.test.exception-type>
         <location>/page/error/500.jsp</location>
     </error-page>
     <error-page>

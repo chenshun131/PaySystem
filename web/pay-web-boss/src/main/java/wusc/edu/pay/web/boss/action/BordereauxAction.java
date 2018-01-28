@@ -568,7 +568,7 @@ public class BordereauxAction extends BossBaseAction {
 			putData("memberNo", memberNo);
 			return "memberLookupList";
 		} catch (Exception e) {
-			log.error("== memberLookupList get data exception:", e);
+			log.error("== memberLookupList get data com.chenshun.test.exception:", e);
 			return operateError("获取商户信息失败");
 		}
 	}

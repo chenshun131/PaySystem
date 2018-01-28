@@ -1,4 +1,4 @@
-package com.chenshun.test;
+package com.chenshun.test.nio;
 
 import org.junit.Test;
 

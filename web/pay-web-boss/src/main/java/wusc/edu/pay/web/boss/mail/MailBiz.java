@@ -44,7 +44,7 @@ public class MailBiz {
         try {
             return VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, emailTemplatePath, "UTF-8", paramModel);
         } catch (Exception e) {
-            logger.error("==>merge " + emailTemplatePath + " exception:", e);
+            logger.error("==>merge " + emailTemplatePath + " com.chenshun.test.exception:", e);
             throw e;
         }
     }

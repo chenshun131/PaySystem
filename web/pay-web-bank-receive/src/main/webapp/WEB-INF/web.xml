@@ -61,7 +61,7 @@
         <location>/requestError_code404.action</location>
     </error-page>
     <error-page>
-        <exception-type>java.lang.Throwable</exception-type>
+        <com.chenshun.test.exception-type>java.lang.Throwable</com.chenshun.test.exception-type>
         <location>/requestError_code500.action</location>
     </error-page>
     <error-page>

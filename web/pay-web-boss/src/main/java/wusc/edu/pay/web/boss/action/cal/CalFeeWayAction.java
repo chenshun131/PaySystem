@@ -164,7 +164,7 @@ public class CalFeeWayAction extends BossBaseAction {
 			return operateSuccess();
 		} catch (Exception e) {
 			this.logSaveError("添加计费约束，计费约束名称："+getString("wayName"));
-			log.error("== addCalFeeWay exception:", e);
+			log.error("== addCalFeeWay com.chenshun.test.exception:", e);
 			return operateError("该计费约束已存在");
 		}
 	}
@@ -225,7 +225,7 @@ public class CalFeeWayAction extends BossBaseAction {
 			return operateSuccess();
 		} catch (Exception e) {
 			super.logEditError("修改计费约束.计费约束名称[" + getString("wayName") + "]");
-			log.error("== editCalFeeWay exception:", e);
+			log.error("== editCalFeeWay com.chenshun.test.exception:", e);
 			return operateError("操作失败");
 		}
 	}

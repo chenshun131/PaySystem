@@ -44,14 +44,14 @@
 		<!-- 设置系统默认拦截器 -->
 		<default-interceptor-ref name="ourDefaultStack" />
 		<global-results>
-			<result name="exception">page/error_exception.jsp</result>
+			<result name="com.chenshun.test.exception">page/error_exception.jsp</result>
 			<result name="bizException">page/error_bizException.jsp</result>
 			<result name="sessionOutTime">page/common/error.jsp</result>
 		</global-results>
 		
-		<global-exception-mappings> 
-			<exception-mapping result="bizException" exception="wusc.edu.pay.common.exceptions.BizException"></exception-mapping> 
-		</global-exception-mappings> 
+		<global-com.chenshun.test.exception-mappings>
+			<com.chenshun.test.exception-mapping result="bizException" com.chenshun.test.exception="wusc.edu.pay.common.exceptions.BizException"></com.chenshun.test.exception-mapping>
+		</global-com.chenshun.test.exception-mappings>
 
 	</package>
 

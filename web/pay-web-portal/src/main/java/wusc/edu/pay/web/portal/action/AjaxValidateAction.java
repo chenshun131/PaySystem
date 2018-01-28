@@ -485,9 +485,9 @@ public class AjaxValidateAction extends BaseAction {
 		/*// 看收款方是否开通收款权限
 		try {
 			tradeLimitFacade.validateBizFunctionAvailable(userInfo.getUserNo(), LimitTrxTypeEnum.ACCOUNT_TRANSFER);
-		} catch (SwitchLimitException exception) {
+		} catch (SwitchLimitException com.chenshun.test.exception) {
 			getOutputMsg().put(STATE, "FAIL");
-			getOutputMsg().put(MSG, exception.getMsg());
+			getOutputMsg().put(MSG, com.chenshun.test.exception.getMsg());
 		}*/
 		
 		if (getOutputMsg().get("MSG") == null) {

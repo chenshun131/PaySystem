@@ -34,7 +34,7 @@ public class SimpleHttpResult {
 
     public SimpleHttpResult(Exception e) {
         if (e == null) {
-            throw new IllegalArgumentException("exception must be specified");
+            throw new IllegalArgumentException("com.chenshun.test.exception must be specified");
         }
         this.statusCode = -1;
         this.exception = e;

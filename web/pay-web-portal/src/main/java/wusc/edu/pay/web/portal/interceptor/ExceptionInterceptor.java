@@ -57,7 +57,7 @@ public class ExceptionInterceptor implements Interceptor {
 			log.error(ostr.toString());
 			ActionContext context = invocation.getInvocationContext();
 			context.put("errCode", ostr.toString());
-			return "exception";
+			return "com.chenshun.test.exception";
 		}
 	}
 }

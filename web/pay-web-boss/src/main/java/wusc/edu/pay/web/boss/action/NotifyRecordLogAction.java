@@ -34,7 +34,7 @@ package wusc.edu.pay.web.boss.action;
 //			this.pushData(pageBean);
 //			return "listNotifyRecordLog";
 //		} catch (Exception e) {
-//			log.error("== listNotifyRecordLog exception:", e);
+//			log.error("== listNotifyRecordLog com.chenshun.test.exception:", e);
 //			return operateError("获取信息异常");
 //			
 //		}

@@ -188,11 +188,11 @@ public class PmsLoginAction extends PermissionBaseAction {
 			}
 
 		} catch (RuntimeException e) {
-			log.error("login exception:", e);
+			log.error("login com.chenshun.test.exception:", e);
 			super.putData("errorMsg", "登录出错");
 			return "input";
 		} catch (Exception e) {
-			log.error("login exception:", e);
+			log.error("login com.chenshun.test.exception:", e);
 			super.putData("errorMsg", "登录出错");
 			return "input";
 		}

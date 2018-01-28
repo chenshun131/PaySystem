@@ -128,7 +128,7 @@ public class PmsOperatorLogAction extends PermissionBaseAction {
 			
 			return "PmsOperatorLogList";
 		} catch (Exception e) {
-			log.error("==>listPmsOperatorLog exception:", e);
+			log.error("==>listPmsOperatorLog com.chenshun.test.exception:", e);
 			return operateError("获取数据失败");
 		}
 	}

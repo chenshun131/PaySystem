@@ -51,7 +51,7 @@ public class Sftp {
             channel.connect();
             sftp = (ChannelSftp) channel;
         } catch (Exception e) {
-            logger.error("sftp connect exception:", e);
+            logger.error("sftp connect com.chenshun.test.exception:", e);
         }
         return sftp;
     }
@@ -73,7 +73,7 @@ public class Sftp {
             channel.put(new FileInputStream(file), file.getName());
             sftpClose(channel);
         } catch (Exception e) {
-            logger.error("sftp upload exception:", e);
+            logger.error("sftp upload com.chenshun.test.exception:", e);
         } finally {
             if (channel != null) {
                 sftpClose(channel);
@@ -98,7 +98,7 @@ public class Sftp {
             File file = new File(saveFile);
             channel.get(downloadFilePath, new FileOutputStream(file));
         } catch (Exception e) {
-            logger.error("sftp download exception:", e);
+            logger.error("sftp download com.chenshun.test.exception:", e);
         } finally {
             if (channel != null) {
                 sftpClose(channel);
@@ -154,7 +154,7 @@ public class Sftp {
                 try {
                     reader.close();
                 } catch (IOException e) {
-                    logger.error("BufferedReader close exception:", e);
+                    logger.error("BufferedReader close com.chenshun.test.exception:", e);
                 }
             }
         }
@@ -225,7 +225,7 @@ public class Sftp {
         try {
             channel.getSession().disconnect();
         } catch (JSchException e) {
-            logger.error("sftp disconnect exception:", e);
+            logger.error("sftp disconnect com.chenshun.test.exception:", e);
         }
     }
 

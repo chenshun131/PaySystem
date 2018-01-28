@@ -46,8 +46,8 @@ import java.util.Map;
  * <code>toString</code> method converts to JSON text.
  * <p>
  * A <code>get</code> method returns a value if one can be found, and throws an
- * exception if one cannot be found. An <code>opt</code> method returns a
- * default value instead of throwing an exception, and so is useful for
+ * com.chenshun.test.exception if one cannot be found. An <code>opt</code> method returns a
+ * default value instead of throwing an com.chenshun.test.exception, and so is useful for
  * obtaining optional values.
  * <p>
  * The generic <code>get()</code> and <code>opt()</code> methods return an

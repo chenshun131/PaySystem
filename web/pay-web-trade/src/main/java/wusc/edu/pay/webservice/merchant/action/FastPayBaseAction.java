@@ -34,7 +34,7 @@ public class FastPayBaseAction extends Struts2ActionSupport {
             param = readStringFromInputStream(in);
             LOG.info("request data 【" + param + "】");
         } catch (IOException e) {
-            LOG.error("get fast pay inputsteam exception :", e);
+            LOG.error("get fast pay inputsteam com.chenshun.test.exception :", e);
         }
         return param;
     }

@@ -52,10 +52,10 @@ public class ExceptionInterceptor implements Interceptor {
             context.put("errMsg", e.toString());
             return "bizException";
         } catch (Exception e) {
-            log.error("interceptor exception:", e);
+            log.error("interceptor com.chenshun.test.exception:", e);
             ActionContext context = invocation.getInvocationContext();
             context.put("errMsg", e.toString());
-            return "exception";
+            return "com.chenshun.test.exception";
         }
     }
 

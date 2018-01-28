@@ -34,7 +34,7 @@ public class ExceptionInterceptor extends AbstractInterceptor {
 
 			ActionSupport actionSupport = (ActionSupport) invocation.getAction();
 			actionSupport.addActionError(e.toString());
-			return "exception";
+			return "com.chenshun.test.exception";
 		}
 
 	}
