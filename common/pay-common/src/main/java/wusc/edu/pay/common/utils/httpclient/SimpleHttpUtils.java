@@ -66,9 +66,7 @@ public class SimpleHttpUtils {
      */
     public static String httpRequest(String url, Map<String, String> params, String method, String charSet, Map<String, String> headers) {
         SimpleHttpParam param = new SimpleHttpParam(url);
-        if (null != param) {
-            param.setParameters(params);
-        }
+        param.setParameters(params);
         if (null != headers) {
             param.setHeaders(headers);
         }
@@ -347,16 +345,16 @@ public class SimpleHttpUtils {
                     httpsUrlCon.setHostnameVerifier(new TrustAnyHostnameVerifier());
                 }
             }
-            if (urlConn instanceof com.sun.net.ssl.HttpsURLConnection) {
-                com.sun.net.ssl.HttpsURLConnection httpsUrlCon = (com.sun.net.ssl.HttpsURLConnection) urlConn;
-                if (socketFactory != null) {
-                    httpsUrlCon.setSSLSocketFactory(socketFactory);
-                }
-                //设置是否验证hostname
-                if (!hostnameVerify) {
-                    httpsUrlCon.setHostnameVerifier(new TrustAnyHostnameVerifierOld());
-                }
-            }
+//            if (urlConn instanceof com.sun.net.ssl.HttpsURLConnection) {
+//                com.sun.net.ssl.HttpsURLConnection httpsUrlCon = (com.sun.net.ssl.HttpsURLConnection) urlConn;
+//                if (socketFactory != null) {
+//                    httpsUrlCon.setSSLSocketFactory(socketFactory);
+//                }
+//                //设置是否验证hostname
+//                if (!hostnameVerify) {
+//                    httpsUrlCon.setHostnameVerifier(new TrustAnyHostnameVerifierOld());
+//                }
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -427,13 +425,13 @@ public class SimpleHttpUtils {
         }
     }
 
-    private static class TrustAnyHostnameVerifierOld implements com.sun.net.ssl.HostnameVerifier {
-
-        @Override
-        public boolean verify(String arg0, String arg1) {
-            return true;
-        }
-    }
+//    private static class TrustAnyHostnameVerifierOld implements com.sun.net.ssl.HostnameVerifier {
+//
+//        @Override
+//        public boolean verify(String arg0, String arg1) {
+//            return true;
+//        }
+//    }
 
     public static ClientKeyStore loadClientKeyStore(String keyStorePath, String keyStorePass, String privateKeyPass) {
         try {

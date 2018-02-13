@@ -14,6 +14,8 @@ import java.util.Map;
  */
 public class PublicConfig {
 
+    public static String CHARSET_NAME = "UTF-8";
+
     /** 系统文件配置 加载 */
     public static Map<String, String> PUBLIC_USER = ResourceUtils.getResource("public_user").getMap();
 

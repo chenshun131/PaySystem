@@ -1,6 +1,7 @@
 package com.chenshun.test.nio;
 
 import org.junit.Test;
+import wusc.edu.pay.common.config.PublicConfig;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -28,7 +29,8 @@ public class TestNonBlockingNIO2 {
         Scanner scan = new Scanner(System.in);
         while (scan.hasNext()) {
             String str = scan.next();
-            buf.put((new Date().toString() + ":\n" + str).getBytes());
+            String content = new Date().toString() + ":\n" + str;
+            buf.put(content.getBytes(PublicConfig.CHARSET_NAME));
             buf.flip();
             dc.send(buf, new InetSocketAddress("127.0.0.1", 9898));
             buf.clear();

@@ -32,8 +32,6 @@ import java.util.Map;
  */
 public class RSAUtils {
 
-    public static final String ENCODING = "UTF-8";
-
     /** deviceType 是安卓 */
     public static final String ANDROID = "android";
 

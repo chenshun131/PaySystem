@@ -1,11 +1,6 @@
 package wusc.edu.pay.common.utils.token;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
-
-import java.io.IOException;
+import wusc.edu.pay.common.utils.Base64Utils;
 
 /**
  * ClassName: TokenToolEncrypter <br/>
@@ -17,12 +12,6 @@ import java.io.IOException;
  */
 public class TokenToolEncrypterBase64 implements TokenBaseInter {
 
-    private static final Log logger = LogFactory.getLog(TokenToolEncrypterBase64.class);
-
-    private static BASE64Encoder encoder = new BASE64Encoder();
-
-    private static BASE64Decoder decoder = new BASE64Decoder();
-
     /**
      * 对字符串进行加密
      *
@@ -31,17 +20,7 @@ public class TokenToolEncrypterBase64 implements TokenBaseInter {
      */
     @Override
     public String encrypt(String str) {
-        return encrypt(str.getBytes()).replace("=", "_");
-    }
-
-    /**
-     * 对数组进行加密
-     *
-     * @param b
-     * @return
-     */
-    public String encrypt(byte[] b) {
-        return encoder.encode(b);
+        return Base64Utils.encryptBASE64(str.getBytes()).replace("=", "_");
     }
 
     /**
@@ -52,13 +31,8 @@ public class TokenToolEncrypterBase64 implements TokenBaseInter {
      */
     @Override
     public String decrypt(String str) {
-        try {
-            byte[] temp = decoder.decodeBuffer(str.replace("_", "="));
-            return new String(temp);
-        } catch (IOException e) {
-            logger.error("解密[" + str + "]出错" + e);
-            return null;
-        }
+        byte[] temp = Base64Utils.decryptBASE64(str.replace("_", "="));
+        return new String(temp);
     }
 
     /**
@@ -78,9 +52,8 @@ public class TokenToolEncrypterBase64 implements TokenBaseInter {
         } else {
             StringBuilder sb = new StringBuilder();
             for (String pramater : pramaters) {
-                sb.append(pramater + "-");
+                sb.append(pramater).append("-");
             }
-
             // 最后加上Key值
             sb.append(key);
             return this.encrypt(sb.toString());

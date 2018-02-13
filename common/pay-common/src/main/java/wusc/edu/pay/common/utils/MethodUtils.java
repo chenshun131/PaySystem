@@ -49,14 +49,14 @@ public class MethodUtils {
                 try {
                     returnType = srcGetMethod.getReturnType();
                     try {
-                        returnObject = srcGetMethod.invoke(srcObject, null);
+                        returnObject = srcGetMethod.invoke(srcObject);
                     } catch (IllegalArgumentException e1) {
                         continue;
                     }
 
                     Class targetType = null;
                     try {
-                        targetGetMethod = targetClass.getMethod(srcGetMethodName, null);
+                        targetGetMethod = targetClass.getMethod(srcGetMethodName);
 
                         targetType = targetGetMethod.getReturnType();
                         targetSetMethodName = "set" + srcGetMethodName.substring(3);
