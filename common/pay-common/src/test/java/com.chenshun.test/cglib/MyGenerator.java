@@ -24,7 +24,7 @@ public class MyGenerator {
     public void generatorClass1() throws IOException {
         ClassWriter classWriter = new ClassWriter(0);
         // 通过visit方法确定类的头部信息
-        classWriter.visit(Opcodes.V1_8, // java版本
+        classWriter.visit(Opcodes.V1_7, // java版本
                 Opcodes.ACC_PUBLIC, // 类修饰符
                 "Programmer", // 类的全限定名
                 null, "java/lang/Object", null);

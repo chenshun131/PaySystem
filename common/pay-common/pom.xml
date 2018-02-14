@@ -235,6 +235,10 @@
         <!-- 序列化 Begin -->
         <dependency>
             <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.protostuff</groupId>
             <artifactId>protostuff-core</artifactId>
         </dependency>
         <dependency>
@@ -242,6 +246,10 @@
             <artifactId>protostuff-runtime</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.dyuproject.protostuff</groupId>
+            <artifactId>protostuff-api</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.dyuproject.protostuff</groupId>
             <artifactId>protostuff-core</artifactId>
