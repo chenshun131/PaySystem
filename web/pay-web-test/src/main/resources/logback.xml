@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/Users/mew/Desktop/AllMyFile/Log/StudyApp/rolling.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/Users/mew/Desktop/AllMyFile/Log/StudyApp/rolling.%d{yyyy-MM-dd}.log
+            </fileNamePattern> <!-- 本地测试 -->
+            <maxHistory>30</maxHistory> <!-- 只保留最近30天的日志文件 -->
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- project default level -->
+    <logger name="com.chenshun" level="INFO"/>
+
+    <!-- test environment enable -->
+    <logger name="com.chenshun.studyapp.dao" level="DEBUG"/>
+
+    <!-- log4jdbc -->
+    <logger name="jdbc.sqltiming" level="INFO"/>
+
+    <!-- <logger name="org.springframework.jdbc.datasource" level="DEBUG" /> -->
+
+    <!-- jdbc，使得控制台可以打印SQL执行语句 -->
+    <logger name="java.sql.Connection" level="debug" />
+    <logger name="java.sql.Statement" level="debug" />
+    <logger name="java.sql.PreparedStatement" level="debug" />
+    <logger name="java.sql.ResultSet" level="debug" />
+
+    <!-- root -->
+    <root level="INFO">
+        <appender-ref ref="console"/>
+        <appender-ref ref="rollingFile"/>
+    </root>
+</configuration>
