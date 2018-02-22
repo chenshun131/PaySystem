@@ -2,6 +2,7 @@ package wusc.edu.pay.common.utils.rsa;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import wusc.edu.pay.common.config.PublicConfig;
 
 import java.security.KeyFactory;
 import java.security.PrivateKey;
@@ -20,7 +21,6 @@ public class RsaSign {
     public static final String SIGN_ALGORITHMS = "SHA1WithRSA";
 
     public static String sign(String content, String privateKey) {
-        String charset = "utf-8";
         try {
             PKCS8EncodedKeySpec priPKCS8 = new PKCS8EncodedKeySpec(Base64.decode(privateKey));
             KeyFactory keyf = KeyFactory.getInstance("RSA");
@@ -28,7 +28,7 @@ public class RsaSign {
 
             Signature signature = Signature.getInstance(SIGN_ALGORITHMS);
             signature.initSign(priKey);
-            signature.update(content.getBytes(charset));
+            signature.update(content.getBytes(PublicConfig.CHARSET_NAME));
             byte[] signed = signature.sign();
             return Base64.encode(signed);
         } catch (Exception e) {
@@ -45,7 +45,7 @@ public class RsaSign {
 
             Signature signature = Signature.getInstance(SIGN_ALGORITHMS);
             signature.initVerify(pubKey);
-            signature.update(content.getBytes("utf-8"));
+            signature.update(content.getBytes(PublicConfig.CHARSET_NAME));
             return signature.verify(Base64.decode(sign));
         } catch (Exception e) {
             logger.error(e.getMessage());

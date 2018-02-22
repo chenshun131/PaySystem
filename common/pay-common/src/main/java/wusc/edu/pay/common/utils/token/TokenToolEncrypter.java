@@ -2,6 +2,7 @@ package wusc.edu.pay.common.utils.token;
 
 import org.apache.commons.lang3.StringUtils;
 import wusc.edu.pay.common.exceptions.BizException;
+import wusc.edu.pay.common.utils.Base64Utils;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -67,7 +68,7 @@ public class TokenToolEncrypter implements TokenBaseInter {
             byte[] enc = ecipher.doFinal(utf8);
 
             // Encode bytes to base64 to get a string
-            return new sun.misc.BASE64Encoder().encode(enc).replace("+", "_");
+            return Base64Utils.encryptBASE64(enc).replace("+", "_");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -91,11 +92,9 @@ public class TokenToolEncrypter implements TokenBaseInter {
             }
             str = str.replace("_", "+");
             // Decode base64 to get bytes
-            byte[] dec = new sun.misc.BASE64Decoder().decodeBuffer(str);
-
+            byte[] dec = Base64Utils.decryptBASE64(str);
             // Decrypt
             byte[] utf8 = dcipher.doFinal(dec);
-
             // Decode using utf-8
             return new String(utf8, "UTF8");
         } catch (Exception e) {

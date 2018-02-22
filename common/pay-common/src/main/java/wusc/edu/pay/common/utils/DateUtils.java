@@ -1044,13 +1044,16 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
      * @return
      */
     public static int getQuarter(Date date) {
-        if (date.getMonth() == 0 || date.getMonth() == 1 || date.getMonth() == 2) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+
+        if (calendar.get(Calendar.MONTH) == 0 || calendar.get(Calendar.MONTH) == 1 || calendar.get(Calendar.MONTH) == 2) {
             return 1;
-        } else if (date.getMonth() == 3 || date.getMonth() == 4 || date.getMonth() == 5) {
+        } else if (calendar.get(Calendar.MONTH) == 3 || calendar.get(Calendar.MONTH) == 4 || calendar.get(Calendar.MONTH) == 5) {
             return 2;
-        } else if (date.getMonth() == 6 || date.getMonth() == 7 || date.getMonth() == 8) {
+        } else if (calendar.get(Calendar.MONTH) == 6 || calendar.get(Calendar.MONTH) == 7 || calendar.get(Calendar.MONTH) == 8) {
             return 3;
-        } else if (date.getMonth() == 9 || date.getMonth() == 10 || date.getMonth() == 11) {
+        } else if (calendar.get(Calendar.MONTH) == 9 || calendar.get(Calendar.MONTH) == 10 || calendar.get(Calendar.MONTH) == 11) {
             return 4;
         } else {
             return 0;

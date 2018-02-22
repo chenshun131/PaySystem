@@ -1,8 +1,5 @@
 package wusc.edu.pay.common.utils;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
-
 import java.io.*;
 
 /**
@@ -26,10 +23,9 @@ public class ImageUtils {
         if (imgStr == null) {
             return false;
         }
-        BASE64Decoder decoder = new BASE64Decoder();
         try {
             // 解密
-            byte[] b = decoder.decodeBuffer(imgStr);
+            byte[] b = Base64Utils.decryptBASE64(imgStr);
             // 处理特殊数据
             for (int i = 0; i < b.length; ++i) {
                 if (b[i] < 0) {
@@ -65,8 +61,7 @@ public class ImageUtils {
             e.printStackTrace();
         }
         // 加密
-        BASE64Encoder encoder = new BASE64Encoder();
-        return encoder.encode(data);
+        return Base64Utils.encryptBASE64(data);
     }
 
 }

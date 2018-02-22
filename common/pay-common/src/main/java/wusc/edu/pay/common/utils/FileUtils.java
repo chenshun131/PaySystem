@@ -1,9 +1,6 @@
 package wusc.edu.pay.common.utils;
 
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGEncodeParam;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
-
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
@@ -148,16 +145,29 @@ public class FileUtils {
         Graphics2D graphics2D = thumbImage.createGraphics();
         graphics2D.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
         graphics2D.drawImage(image, 0, 0, thumbWidth, thumbHeight, null);
+        saveImage(thumbImage, outFilename);
+    }
 
-        // save thumbnail image to outFilename
-        BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(outFilename));
-        JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
-        JPEGEncodeParam param = encoder.getDefaultJPEGEncodeParam(thumbImage);
-        quality = Math.max(0, Math.min(quality, 100));
-        param.setQuality((float) quality / 100.0f, false);
-        encoder.setJPEGEncodeParam(param);
-        encoder.encode(thumbImage);
-        out.close();
+    /**
+     * save thumbnail image to outFilename <br/>
+     * <code>
+     * BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(outFilename)); <br/>
+     * JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out); <br/>
+     * JPEGEncodeParam param = encoder.getDefaultJPEGEncodeParam(thumbImage); <br/>
+     * quality = Math.max(0, Math.min(quality, 100)); <br/>
+     * param.setQuality((float) quality / 100.0f, false); <br/>
+     * encoder.setJPEGEncodeParam(param); <br/>
+     * encoder.encode(thumbImage); <br/>
+     * out.close(); <br/>
+     * </code>
+     *
+     * @param dstImage
+     * @param outFilename
+     * @throws IOException
+     */
+    public static void saveImage(BufferedImage dstImage, String outFilename) throws IOException {
+        String formatName = outFilename.substring(outFilename.lastIndexOf(".") + 1);
+        ImageIO.write(dstImage, formatName, new File(outFilename));
     }
 
     /**
@@ -168,8 +178,10 @@ public class FileUtils {
     public static void deleteFile(File file) {
         if (file.isDirectory()) {
             File[] files = file.listFiles();
-            for (File file1 : files) {
-                deleteFile(file1);
+            if (files != null) {
+                for (File file1 : files) {
+                    deleteFile(file1);
+                }
             }
         }
         file.delete();
