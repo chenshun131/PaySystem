@@ -12,6 +12,7 @@
 
     <groupId>wusc.edu.pay.web</groupId>
     <artifactId>pay-web-test</artifactId>
+    <version>${pay-web-test.version}</version>
     <packaging>war</packaging>
 
     <name>pay-web-test</name>
@@ -23,8 +24,6 @@
         <maven.compiler.target>${compiler.target.version}</maven.compiler.target>
         <maven.compiler.compilerVersion>${compiler.compilerVersion.version}</maven.compiler.compilerVersion>
     </properties>
-
-    <version>1.0.0</version>
 
     <dependencies>
         <dependency>
