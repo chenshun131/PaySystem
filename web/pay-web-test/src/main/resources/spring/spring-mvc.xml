@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+                           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd ">
+
+    <!-- 将无法mapping到Controller的path交给default servlet handler处理 -->
+    <mvc:default-servlet-handler/>
+
+    <!--ViewResolver 视图解析器-->
+    <!--<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+    <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+    <!--<property name="prefix" value="/WEB-INF/pages/"/>-->
+    <!--<property name="suffix" value=".jsp"/>-->
+    <!--</bean>-->
+
+    <!-- enable autowire -->
+    <context:annotation-config/>
+
+    <!-- 如果 "proxy-target-class" 属值被设置为 "true"，那么基于类的代理将起作用（这时需要CGLIB库cglib.jar在CLASSPATH中）。如果 "proxy-target-class" 属值被设置为 "false" 或者这个属性被省略，那么标准的JDK基于接口的代理将起作用。 -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <bean class="com.chenshun.helper.LogReqAspect"/>
+
+    <!-- 启动包扫描功能，以便注册带有@Controller、@Service、@repository、@Component、@Configuration等注解的类成为spring的bean -->
+    <context:component-scan base-package="com.chenshun"/>
+
+    <!-- 启用 annotation-driven -->
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <ref bean="stringHttpMessageConverter"/>
+            <ref bean="fastJsonHttpMessageConverter"/><!-- 开启对FASTJSON的支持替换掉默认的JACKSON支持,使用只需在方法上标注 @ResponseBody -->
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <bean class="com.mangofactory.swagger.configuration.SpringSwaggerConfig" />
+
+    <bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
+        <constructor-arg value="UTF-8" index="0"/>
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/plain;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="fastJsonHttpMessageConverter" class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/html;charset=UTF-8</value>
+                <value>application/json;charset=UTF-8</value>
+            </list>
+        </property>
+        <property name="fastJsonConfig">
+            <bean class="com.alibaba.fastjson.support.config.FastJsonConfig">
+                <property name="charset" value="UTF-8"/> <!-- Default charset -->
+                <property name="dateFormat" value="yyyy-MM-dd HH:mm:ss"/> <!-- Default charset -->
+                <property name="features">
+                    <list>
+                        <value>AllowArbitraryCommas</value>
+                        <value>AllowUnQuotedFieldNames</value>
+                        <value>DisableCircularReferenceDetect</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- Bean解析器,级别高于默认解析器,寻找bean对象进行二次处理 -->
+    <bean id="beanNameViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="0">
+    </bean>
+</beans>
