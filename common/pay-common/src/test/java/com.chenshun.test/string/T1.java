@@ -51,4 +51,17 @@ public class T1 {
         System.out.println(int7 + int9 == int8); // true
     }
 
+    @Test
+    public void test2() {
+        String str1 = "str";
+        String str2 = "ing";
+
+        String str3 = "str" + "ing";
+        String str4 = str1 + str2;
+        System.out.println(str3 == str4); // false
+
+        String str5 = "string";
+        System.out.println(str3 == str5); // true
+    }
+
 }
