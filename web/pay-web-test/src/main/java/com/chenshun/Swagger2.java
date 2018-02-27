@@ -52,10 +52,10 @@ public class Swagger2 {
      * framework - allowing for multiple swagger groups i.e. same code base
      * multiple swagger resource listings.
      */
-    @Bean
-    public SwaggerSpringMvcPlugin customImplementation() {
-        return new SwaggerSpringMvcPlugin(this.springSwaggerConfig).apiInfo(apiInfo()).includePatterns(".*?");
-    }
+//    @Bean
+//    public SwaggerSpringMvcPlugin customImplementation() {
+//        return new SwaggerSpringMvcPlugin(this.springSwaggerConfig).apiInfo(apiInfo()).includePatterns(".*?");
+//    }
 
     @Bean
     public Docket webApi() {

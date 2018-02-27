@@ -8,6 +8,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import wusc.edu.pay.common.utils.CheckUtils;
+import wusc.edu.pay.common.utils.validate.ValidateUtils;
 
 
 /**
@@ -44,7 +45,7 @@ public class BankConfUtil {
 	 * @return
 	 */
 	public static String get(String key) {
-		if (CheckUtils.isEmpty(key)) {
+		if (ValidateUtils.isEmpty(key)) {
 			return null;
 		}
 		String value = configs.get(key);

@@ -1133,6 +1133,50 @@
             </dependency>
             <!-- lucene End -->
 
+            <!-- hadoop client Begin -->
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-client</artifactId>
+                <version>2.5.0</version>
+            </dependency>
+            <!-- hadoop client End -->
+
+            <!-- hive client Begin -->
+            <dependency>
+                <groupId>org.apache.hive</groupId>
+                <artifactId>hive-jdbc</artifactId>
+                <version>0.13.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hive</groupId>
+                <artifactId>hive-exec</artifactId>
+                <version>0.13.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hive</groupId>
+                <artifactId>hive-cli</artifactId>
+                <version>0.13.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hive</groupId>
+                <artifactId>hive-service</artifactId>
+                <version>0.13.1</version>
+            </dependency>
+            <!-- hive client End -->
+
+            <!-- hbase client Begin -->
+            <dependency>
+                <groupId>org.apache.hbase</groupId>
+                <artifactId>hbase-server</artifactId>
+                <version>0.98.6-hadoop2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hbase</groupId>
+                <artifactId>hbase-client</artifactId>
+                <version>0.98.6-hadoop2</version>
+            </dependency>
+            <!-- hbase client End -->
+
             <dependency>
                 <groupId>taglibs</groupId>
                 <artifactId>standard</artifactId>
