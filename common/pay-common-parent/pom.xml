@@ -315,6 +315,11 @@
                 <version>1.2.17</version>
             </dependency>
             <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>2.10.0</version>
+            </dependency>
+            <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>1.7.25</version>
@@ -553,6 +558,17 @@
                 <artifactId>aspectjrt</artifactId>
                 <version>1.8.12</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-commons</artifactId>
+                <version>2.0.4.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-jpa</artifactId>
+                <version>2.0.4.RELEASE</version>
+            </dependency>
             <!-- Spring Dependency End -->
 
             <!-- Spring Security Begin -->
@@ -615,6 +631,11 @@
                 <artifactId>hibernate-ehcache</artifactId>
                 <version>5.2.12.Final</version>
             </dependency>
+            <dependency>
+                <groupId>org.hibernate.javax.persistence</groupId>
+                <artifactId>hibernate-jpa-2.1-api</artifactId>
+                <version>1.0.2.Final</version>
+            </dependency>
             <!-- hibernate End -->
 
             <!-- Hibernate Validator Begin -->
@@ -632,6 +653,11 @@
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-validator</artifactId>
                 <version>6.0.4.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-c3p0</artifactId>
+                <version>5.2.13.Final</version>
             </dependency>
             <!-- Hibernate Validator End -->
 
@@ -726,11 +752,6 @@
                 <version>3.1</version>
             </dependency>
             <dependency>
-                <groupId>org.jboss.netty</groupId>
-                <artifactId>netty</artifactId>
-                <version>3.2.10.Final</version>
-            </dependency>
-            <dependency>
                 <groupId>org.apache.activemq</groupId>
                 <artifactId>activemq-all</artifactId>
                 <version>5.15.2</version>
@@ -779,6 +800,24 @@
                 <version>6.0.0</version>
             </dependency>
             <!-- JPOS End -->
+
+            <!-- jboss Begin -->
+            <dependency>
+                <groupId>org.jboss.netty</groupId>
+                <artifactId>netty</artifactId>
+                <version>3.2.10.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.logging</groupId>
+                <artifactId>jboss-logging</artifactId>
+                <version>3.3.2.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.spec.javax.transaction</groupId>
+                <artifactId>jboss-transaction-api_1.2_spec</artifactId>
+                <version>1.1.1.Final</version>
+            </dependency>
+            <!-- jboss End -->
 
             <!--drools Begin -->
             <dependency>
@@ -1176,6 +1215,19 @@
                 <version>0.98.6-hadoop2</version>
             </dependency>
             <!-- hbase client End -->
+
+            <!-- mchange Begin -->
+            <dependency>
+                <groupId>com.mchange</groupId>
+                <artifactId>c3p0</artifactId>
+                <version>0.9.5.2</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mchange</groupId>
+                <artifactId>mchange-commons-java</artifactId>
+                <version>0.2.15</version>
+            </dependency>
+            <!-- mchange End -->
 
             <dependency>
                 <groupId>taglibs</groupId>
