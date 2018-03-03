@@ -363,7 +363,7 @@
             </dependency>
             <!--<dependency>-->
             <!--<groupId>com.alibaba.external</groupId>-->
-            <!--<artifactId>sourceforge.spring</artifactId>-->
+            <!--<artifactId>sourceforge.spring1</artifactId>-->
             <!--<version>2.0.1</version>-->
             <!--</dependency>-->
             <!--<dependency>-->
@@ -584,13 +584,13 @@
             </dependency>
             <!-- Spring Security End -->
 
-            <!-- spring-session Begin -->
+            <!-- spring1-session Begin -->
             <dependency>
                 <groupId>org.springframework.session</groupId>
                 <artifactId>spring-session-data-redis</artifactId>
                 <version>1.3.1.RELEASE</version>
             </dependency>
-            <!-- spring-session End -->
+            <!-- spring1-session End -->
 
             <!-- MyBatis Dependency Begin -->
             <dependency>

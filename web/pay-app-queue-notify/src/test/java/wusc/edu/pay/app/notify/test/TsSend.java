@@ -16,7 +16,7 @@ import wusc.edu.pay.facade.notify.util.NotifyUtil;
 public class TsSend {
 	@Test
 	public void testSend() throws Exception {
-		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring-activemq.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring1-activemq.xml");
 
 		JmsTemplate notifyJmsTemplate = (JmsTemplate) context.getBean("notifyJmsTemplate");
 

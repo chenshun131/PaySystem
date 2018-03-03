@@ -13,7 +13,7 @@
 	<!-- 开发模式下使用,这样可以打印出更详细的错误信息 -->
 	<constant name="struts.devMode" value="false" />
 	<!-- 使用spring的工厂去替换struts2的默认工厂,也就是Action由spring来创建和维护 -->
-	<!-- constant name="struts.objectFactory" value="spring" / -->
+	<!-- constant name="struts.objectFactory" value="spring1" / -->
 	
 	<include file="struts-default.xml" />
 	

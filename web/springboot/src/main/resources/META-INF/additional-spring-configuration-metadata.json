@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "roncoo.secret",
+      "type": "java.lang.String",
+      "description": "Description for roncoo.secret."
+  }
+] }

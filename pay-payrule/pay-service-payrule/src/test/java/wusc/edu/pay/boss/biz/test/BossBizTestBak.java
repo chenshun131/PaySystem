@@ -13,7 +13,7 @@ import wusc.edu.pay.facade.payrule.entity.PayWay;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:spring/spring-context.xml"})
+@ContextConfiguration(locations={"classpath:spring1/spring1-context.xml"})
 @Transactional 
 public class BossBizTestBak {
 

@@ -39,7 +39,7 @@ public class App {
 
     public static void main(String[] args) {
         try {
-            context = new ClassPathXmlApplicationContext(new String[]{"spring/spring-context.xml"});
+            context = new ClassPathXmlApplicationContext(new String[]{"spring1/spring1-context.xml"});
             context.start();
             threadPool = (ThreadPoolTaskExecutor) context.getBean("threadPool");
             notifyFacade = (NotifyFacade) context.getBean("notifyFacade");

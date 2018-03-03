@@ -20,7 +20,7 @@ import wusc.edu.pay.facade.fee.service.CalculateFeeFacade;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring/spring-context.xml" })
+@ContextConfiguration(locations = { "classpath:spring1/spring1-context.xml" })
 // @Transactional
 public class FeeFacadeTestBak {
 

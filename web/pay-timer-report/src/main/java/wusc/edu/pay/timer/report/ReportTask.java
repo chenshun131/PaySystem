@@ -25,7 +25,7 @@ public class ReportTask {
 		ClassPathXmlApplicationContext context;
 
 		try {
-			context = new ClassPathXmlApplicationContext(new String[] { "spring-context.xml" });
+			context = new ClassPathXmlApplicationContext(new String[] { "spring1-context.xml" });
 			// 初始化SpringContextUtil
 			final SpringContextUtil ctxUtil = new SpringContextUtil();
 			ctxUtil.setApplicationContext(context);

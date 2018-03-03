@@ -27,7 +27,7 @@ import wusc.edu.pay.facade.account.enums.AccountTradeTypeEnum;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring/spring-context.xml" })
+@ContextConfiguration(locations = { "classpath:spring1/spring1-context.xml" })
 // @Transactional 不添加事务处理，即默认用Mysql自动提交方式 auto commit();
 public class TranAccountTs {
 

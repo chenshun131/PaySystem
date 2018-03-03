@@ -36,7 +36,7 @@ public class HTMLGenController {
         Template template = configuration.getTemplate("hello.ftl");
         //4、创建数据集
         Map data = new HashMap<>();
-        data.put("hello", "spring freemarker test");
+        data.put("hello", "spring1 freemarker test");
         //5、创建输出文件的Writer对象。
         Writer out = new FileWriter(new File("E:/temp/javaee28/out/test.html"));
         //6、使用模板对象的process方法输出文件

@@ -4,7 +4,7 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -93,7 +93,7 @@ public class TestFreeMarker {
 
     @Test
     public void testFreeMarkerWithSpring() {
-        ApplicationContext applicaitonContext = new FileSystemXmlApplicationContext("classpath:springApplication-freemarker.xml");
+        ApplicationContext applicaitonContext = new ClassPathXmlApplicationContext("classpath:applicationContext-freemarker.xml");
     }
 
 }

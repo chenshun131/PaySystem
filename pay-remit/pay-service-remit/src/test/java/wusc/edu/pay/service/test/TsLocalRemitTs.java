@@ -32,7 +32,7 @@ import wusc.edu.pay.facade.remit.service.RemitRequestFacade;
  * @author laich
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:spring/spring-context.xml"})
+@ContextConfiguration(locations={"classpath:spring1/spring1-context.xml"})
 public class TsLocalRemitTs {
 
 	@Autowired 

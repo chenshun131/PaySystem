@@ -22,7 +22,7 @@ import wusc.edu.pay.facade.user.service.MerchantOnlineFacade;
  * 
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring/spring-context.xml" })
+@ContextConfiguration(locations = { "classpath:spring1/spring1-context.xml" })
 public class TsUserFacade extends TestCase {/*
 
 	@Autowired

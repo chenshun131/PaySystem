@@ -6,7 +6,7 @@ import org.springframework.cache.support.AbstractCacheManager;
 import java.util.Collection;
 
 /**
- * 继承了 spring 内置的 AbstractCacheManager 管理 RedisCache 类缓存管理
+ * 继承了 spring1 内置的 AbstractCacheManager 管理 RedisCache 类缓存管理
  * ClassName: CacheManager <br/>
  * date: 2014-7-26 下午1:17:00 <br/>
  *

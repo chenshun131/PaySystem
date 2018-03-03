@@ -199,7 +199,7 @@
             <artifactId>drools-spring</artifactId>
             <type>jar</type>
             <exclusions>
-                <!-- The dependency pom includes spring and hibernate dependencies by
+                <!-- The dependency pom includes spring1 and hibernate dependencies by
                     mistake. -->
             </exclusions>
         </dependency>

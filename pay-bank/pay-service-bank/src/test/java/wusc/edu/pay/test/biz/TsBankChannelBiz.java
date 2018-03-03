@@ -14,7 +14,7 @@ public class TsBankChannelBiz extends TestCase {
 	BankChannelBiz bankChannelBiz;
 
 	public void setUp() throws Exception {
-		context = new ClassPathXmlApplicationContext(new String[] { "spring-context.xml" });
+		context = new ClassPathXmlApplicationContext(new String[] { "spring1-context.xml" });
 		super.setUp();
 		bankChannelBiz = (BankChannelBiz) context.getBean("bankChannelBiz");
 	}

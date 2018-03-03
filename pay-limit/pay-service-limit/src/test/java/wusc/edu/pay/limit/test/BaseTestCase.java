@@ -7,5 +7,5 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public abstract class BaseTestCase extends TestCase {
 	protected static ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
-			new String[] { "spring/spring-context.xml" });
+			new String[] { "spring1/spring1-context.xml" });
 }

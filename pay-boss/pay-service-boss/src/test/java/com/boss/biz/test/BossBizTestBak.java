@@ -16,7 +16,7 @@ import wusc.edu.pay.facade.boss.entity.Article;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:spring-context-boss.xml"})
+@ContextConfiguration(locations={"classpath:spring1-context-boss.xml"})
 @Transactional 
 public class BossBizTestBak {
 

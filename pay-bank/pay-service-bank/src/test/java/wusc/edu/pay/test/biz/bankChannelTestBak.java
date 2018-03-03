@@ -21,7 +21,7 @@ import wusc.edu.pay.facade.bank.service.BankChannelFacade;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring-context-bank.xml" })
+@ContextConfiguration(locations = { "classpath:spring1-context-bank.xml" })
 // @Transactional
 public class bankChannelTestBak {
 
