@@ -2,12 +2,12 @@ package spring5.dao;
 
 public interface BookShopDao {
 
-	//������Ż�ȡ��ĵ���
-	public int findBookPriceByIsbn(String isbn);
-	
-	//�������Ŀ��. ʹ��Ŷ�Ӧ�Ŀ�� - 1
-	public void updateBookStock(String isbn);
-	
-	//�����û����˻����: ʹ username �� balance - price
-	public void updateUserAccount(String username, int price);
+    //根据书号获取书的单价
+    public int findBookPriceByIsbn(String isbn);
+
+    //更新数的库存. 使书号对应的库存 - 1
+    public void updateBookStock(String isbn);
+
+    //更新用户的账户余额: 使 username 的 balance - price
+    public void updateUserAccount(String username, int price);
 }

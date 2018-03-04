@@ -2,32 +2,34 @@ package spring5.entities;
 
 public class Account {
 
-	private Integer id;
-	private String username;
-	private int balance;
+    private Integer id;
 
-	public Integer getId() {
-		return id;
-	}
+    private String username;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    private int balance;
 
-	public String getUsername() {
-		return username;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public int getBalance() {
-		return balance;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public void setBalance(int balance) {
-		this.balance = balance;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
 
 }

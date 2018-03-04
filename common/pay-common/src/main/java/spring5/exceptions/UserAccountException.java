@@ -1,38 +1,27 @@
 package spring5.exceptions;
 
-public class UserAccountException extends RuntimeException{
+public class UserAccountException extends RuntimeException {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public UserAccountException() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    public UserAccountException() {
+        super();
+    }
 
-	public UserAccountException(String message, Throwable cause,
-			boolean enableSuppression, boolean writableStackTrace) {
-		super(message, cause, enableSuppression, writableStackTrace);
-		// TODO Auto-generated constructor stub
-	}
+    public UserAccountException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
+    }
 
-	public UserAccountException(String message, Throwable cause) {
-		super(message, cause);
-		// TODO Auto-generated constructor stub
-	}
+    public UserAccountException(String message, Throwable cause) {
+        super(message, cause);
+    }
 
-	public UserAccountException(String message) {
-		super(message);
-		// TODO Auto-generated constructor stub
-	}
+    public UserAccountException(String message) {
+        super(message);
+    }
 
-	public UserAccountException(Throwable cause) {
-		super(cause);
-		// TODO Auto-generated constructor stub
-	}
+    public UserAccountException(Throwable cause) {
+        super(cause);
+    }
 
-	
-	
 }
