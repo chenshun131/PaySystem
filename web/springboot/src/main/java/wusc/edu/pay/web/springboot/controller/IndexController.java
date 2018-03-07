@@ -17,4 +17,7 @@ public class IndexController {
     @Value(value = "${roncoo.secret}")
     private String secret;
 
+    @Value(value = "${roncoo.number}")
+    private int number;
+
 }
