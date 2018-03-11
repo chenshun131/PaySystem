@@ -239,6 +239,11 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
         <!-- Spring Dependency End -->
 
         <!-- poi Begin -->
@@ -381,6 +386,13 @@
             <artifactId>hibernate-jpa-2.1-api</artifactId>
         </dependency>
         <!-- hibernate End -->
+
+        <!-- cache Begin -->
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+        </dependency>
+        <!-- cache End -->
 
         <dependency>
             <groupId>org.freemarker</groupId>
