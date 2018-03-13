@@ -47,4 +47,21 @@ public class data13 {
         }
     }
 
+    @Test
+    public void t5() {
+        String[] strs = {"a", "b", "c", "d", "e", "f", "g", "h"};
+        for (String str : strs) {
+            System.out.println(str);
+        }
+    }
+
+    @Test
+    public void t6() {
+        String str = new String("abc");
+        System.out.println(str.hashCode());
+        System.out.println("----------");
+        System.out.println("gdejicbegh".hashCode());
+        System.out.println("hgebcijedg".hashCode());
+    }
+
 }

@@ -1381,7 +1381,7 @@ jQuery.support = (function() {
 	all = div.getElementsByTagName( "*" );
 	a = div.getElementsByTagName( "a" )[ 0 ];
 
-	// Can't get basic test support
+	// Can't get base test support
 	if ( !all || !all.length || !a ) {
 		return {};
 	}
