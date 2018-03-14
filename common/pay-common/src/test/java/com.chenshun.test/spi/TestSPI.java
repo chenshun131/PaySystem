@@ -18,6 +18,9 @@ public class TestSPI {
         for (ISayName sayName : loaders) {
             sayName.say();
         }
+        // 打印 :
+        // 精通要饭
+        // Proficient in begging
     }
 
 }
