@@ -1,0 +1,82 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		                   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	                       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 加载db.properties文件中的内容，db.properties文件中key命名要有一定的特殊规则 -->
+    <context:property-placeholder location="classpath:db.properties"/>
+
+    <context:component-scan base-package="com.chenshun.test.mapper"/>
+
+    <!-- 配置多数据源 ，druid -->
+    <bean id="masterDataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+        <property name="url" value="${master.jdbc.url}"/>
+        <property name="username" value="${master.jdbc.username}"/>
+        <property name="password" value="${master.jdbc.password}"/>
+        <property name="driverClassName" value="${master.jdbc.driver}"/>
+
+        <!-- 最大连接池数量 -->
+        <property name="maxActive" value="${master.maxActive}"/>
+        <!-- 获取连接时最大等待时间，单位毫秒。 配置了maxWait之后，缺省启用公平锁，并发效率会有所下降，如果需要可以通过配置useUnfairLock属性为true使用非公平锁。 -->
+        <property name="maxWait" value="60000"/>
+        <!-- 建议配置为true，不影响性能，并且保证安全性。 申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。 -->
+        <property name="testWhileIdle" value="true"/>
+        <property name="filters" value="stat"/>
+    </bean>
+
+    <!-- 配置多数据源 ，druid -->
+    <bean id="slaveDataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+        <property name="url" value="${slave.jdbc.url}"/>
+        <property name="username" value="${slave.jdbc.username}"/>
+        <property name="password" value="${slave.jdbc.password}"/>
+        <property name="driverClassName" value="${slave.jdbc.driver}"/>
+
+        <!-- 最大连接池数量 -->
+        <property name="maxActive" value="${slave.maxActive}"/>
+        <!-- 获取连接时最大等待时间，单位毫秒。 配置了maxWait之后，缺省启用公平锁，并发效率会有所下降，如果需要可以通过配置useUnfairLock属性为true使用非公平锁。 -->
+        <property name="maxWait" value="60000"/>
+        <!-- 建议配置为true，不影响性能，并且保证安全性。 申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。 -->
+        <property name="testWhileIdle" value="true"/>
+        <property name="filters" value="stat"/>
+    </bean>
+
+    <bean id="dataSource" class="com.chenshun.test.db.DynamicDataSource">
+        <property name="targetDataSources">
+            <map key-type="java.lang.String">
+                <entry key="master" value-ref="masterDataSource"/>
+                <entry key="slave" value-ref="slaveDataSource"/>
+            </map>
+        </property>
+        <property name="defaultTargetDataSource" ref="masterDataSource"/>
+    </bean>
+
+    <aop:aspectj-autoproxy/>
+    <bean id="dataSourceAspect" class="com.chenshun.test.db.DataSourceAspect"/>
+    <aop:config>
+        <aop:aspect ref="dataSourceAspect">
+            <!-- 拦截所有service方法 -->
+            <aop:pointcut id="dataSourcePointcut" expression="execution(* * (..))"/>
+            <aop:before pointcut-ref="dataSourcePointcut" method="intercept"/>
+        </aop:aspect>
+    </aop:config>
+
+    <!--<bean id="manyDataSourceAspect" class="com.chenshun.test.db.DataSourceAspect"/>-->
+    <!--<aop:config>-->
+    <!--<aop:aspect ref="manyDataSourceAspect">-->
+    <!--<aop:pointcut expression="execution(* * (..))" id="p1"/>-->
+    <!--<aop:before method="before" pointcut-ref="p1"/>-->
+    <!--</aop:aspect>-->
+    <!--</aop:config>-->
+
+    <!-- sqlSessionFactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 数据库连接池 -->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 加载mybatis的全局配置文件 -->
+        <property name="configLocation" value="classpath:mybatis/sqlMapConfig.xml"/>
+        <property name="mapperLocations" value="classpath:com/chenshun/test/mapper/*Mapper.xml"/>
+    </bean>
+</beans>
