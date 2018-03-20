@@ -11,7 +11,6 @@ import java.util.Random;
  */
 public class DBTest {
 
-
     public static final String url = "jdbc:mysql://ci-server/test";
 
     public static final String name = "com.mysql.jdbc.Driver";
@@ -29,14 +28,14 @@ public class DBTest {
             Class.forName(name); // 指定连接类型
             conn = DriverManager.getConnection(url, user, password); // 获取连接
             Random random = new Random();
-            for (int i = 0; i < 1000; i++) {
+            for (int i = 0; i < 100000; i++) {
                 pst = conn.prepareStatement(
-                        "INSERT INTO article(pid,rootid,title,cont,pdate,isleaf) VALUES("
+                        "INSERT INTO article2(pid,rootid,title,cont,pdate,isleaf) VALUES("
                                 + random.nextInt(9999999) + ","
                                 + random.nextInt(9999999) + ",'"
-                                + getRandomString(50) + "','"
-                                + getRandomString(50) + "','2018-03-16',"
-                                + random.nextInt(50) + ")"
+                                + getRandomString(60) + "','"
+                                + getRandomString(60) + "','2017-12-22',"
+                                + random.nextInt(400) + ")"
                 );
                 pst.execute();
             }
