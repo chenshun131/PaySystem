@@ -11,7 +11,10 @@ public class T1 {
     public static void main(String[] args) {
         String str = "werewrwer24342";
         int hash = str.hashCode() & 3;
-        System.out.print(hash);
+        System.out.println(hash);
+
+        System.out.println("Integer.hashCode 1000 => " + new Integer(1000).hashCode());
+        System.out.println("Byte.hashCode 1 => " + new Byte("1").hashCode());
     }
 
 }
