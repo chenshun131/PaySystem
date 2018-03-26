@@ -9,7 +9,7 @@
     <!-- 加载db.properties文件中的内容，db.properties文件中key命名要有一定的特殊规则 -->
     <context:property-placeholder location="classpath:db.properties"/>
 
-    <context:component-scan base-package="com.chenshun.test.mapper"/>
+    <context:component-scan base-package="com.chenshun.test"/>
 
     <!-- 配置多数据源 ，druid -->
     <bean id="masterDataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
@@ -77,6 +77,12 @@
         <property name="dataSource" ref="dataSource"/>
         <!-- 加载mybatis的全局配置文件 -->
         <property name="configLocation" value="classpath:mybatis/sqlMapConfig.xml"/>
-        <property name="mapperLocations" value="classpath:com/chenshun/test/mapper/*Mapper.xml"/>
+    </bean>
+
+    <!-- mapper扫描器 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 扫描包路径，如果需要扫描多个包，中间使用半角逗号隔开 -->
+        <property name="basePackage" value="com.chenshun.test"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 </beans>
