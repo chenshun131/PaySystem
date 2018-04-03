@@ -102,10 +102,10 @@ Boxy.EF = function() {};
 
 jQuery.extend(Boxy, {
     
-    WRAPPER:    "<table cellspacing='0' cellpadding='0' border='0' class='boxy-wrapper'>" +
-                "<tr><td class='top-left'></td><td class='top'></td><td class='top-right'></td></tr>" +
-                "<tr><td class='left'></td><td class='boxy-inner'></td><td class='right'></td></tr>" +
-                "<tr><td class='bottom-left'></td><td class='bottom'></td><td class='bottom-right'></td></tr>" +
+    WRAPPER:    "<table cellspacing='0' cellpadding='0' border='0' clazz='boxy-wrapper'>" +
+                "<tr><td clazz='top-left'></td><td clazz='top'></td><td clazz='top-right'></td></tr>" +
+                "<tr><td clazz='left'></td><td clazz='boxy-inner'></td><td clazz='right'></td></tr>" +
+                "<tr><td clazz='bottom-left'></td><td clazz='bottom'></td><td clazz='bottom-right'></td></tr>" +
                 "</table>",
     
     DEFAULTS: {
@@ -166,7 +166,7 @@ jQuery.extend(Boxy, {
     
     // allows you to get a handle to the containing boxy instance of any element
     // e.g. <a href='#' onclick='alert(Boxy.get(this));'>inspect!</a>.
-    // this returns the actual instance of the boxy 'class', not just a DOM element.
+    // this returns the actual instance of the boxy 'clazz', not just a DOM element.
     // Boxy.get(this).hide() would be valid, for instance.
     get: function(ele) {
         var p = jQuery(ele).parents('.boxy-wrapper');
@@ -204,7 +204,7 @@ jQuery.extend(Boxy, {
                                 options || {},
                                 {show: true, unloadOnHide: true});
         
-        var body = jQuery('<div></div>').append(jQuery('<div class="question"></div>').html(question));
+        var body = jQuery('<div></div>').append(jQuery('<div clazz="question"></div>').html(question));
         
         // ick
         var map = {}, answerStrings = [];
@@ -220,7 +220,7 @@ jQuery.extend(Boxy, {
             }
         }
         
-        var buttons = jQuery('<form class="answers"></form>');
+        var buttons = jQuery('<form clazz="answers"></form>');
         buttons.html(jQuery.map(answerStrings, function(v) {
 			//add by zhangxinxu http://www.zhangxinxu.com 给确认对话框的确认取消按钮添加不同的class
 			var btn_index; 	
@@ -232,7 +232,7 @@ jQuery.extend(Boxy, {
 				btn_index = 3;	
 			}
 			//add end.  include the 'btn_index' below 
-            return "<input class='boxy-btn"+btn_index+"' type='button' value='" + v + "' />";
+            return "<input clazz='boxy-btn"+btn_index+"' type='button' value='" + v + "' />";
         }).join(' '));
         
         jQuery('input[type=button]', buttons).click(function() {
@@ -442,7 +442,7 @@ Boxy.prototype = {
                 Boxy.resizeConfigured = true;
                 jQuery(window).resize(function() { Boxy._handleResize(); });
             }
-            this.modalBlackout = jQuery('<div class="boxy-modal-blackout"></div>')
+            this.modalBlackout = jQuery('<div clazz="boxy-modal-blackout"></div>')
                 .css({zIndex: Boxy._nextZ(),
                       opacity: 0.7,
                       width: jQuery(document).width(),
@@ -535,9 +535,9 @@ Boxy.prototype = {
     _setupTitleBar: function() {
         if (this.options.title) {
             var self = this;
-            var tb = jQuery("<div class='title-bar'></div>").html("<h2>" + this.options.title + "</h2>");
+            var tb = jQuery("<div clazz='title-bar'></div>").html("<h2>" + this.options.title + "</h2>");
             if (this.options.closeable) {
-                tb.append(jQuery("<a href='#' class='close'></a>").html(this.options.closeText));
+                tb.append(jQuery("<a href='#' clazz='close'></a>").html(this.options.closeText));
             }
             if (this.options.draggable) {
                 tb[0].onselectstart = function() { return false; }

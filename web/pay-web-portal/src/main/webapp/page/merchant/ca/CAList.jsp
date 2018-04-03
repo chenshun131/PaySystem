@@ -109,7 +109,7 @@ $(document).ready(function() { setPageType('.mer-security', '.mer-security-info 
 		
 
 		<%--<c:if test="${pageBean.totalCount>0}">
-		<div class="pageCla">
+		<div clazz="pageCla">
 	<z:page pageBean="${pageBean }" url="merchantca_listCA.action" currentPage="${pageNum }"
 	parameter="&merchantId=${proMap.merchantId }&userId=${proMap.userId }&userType=${proMap.userType}"></z:page>
 	</div>

@@ -124,7 +124,7 @@ public class WCMapReduce extends Configured implements Tool {
         // job.setSortComparatorClass(cls);
 
         // 3.combiner
-        // job.setCombinerClass(WordCountCombiner.class);
+        // job.setCombinerClass(WordCountCombiner.clazz);
 
         // 4.group
         // job.setGroupingComparatorClass(cls);

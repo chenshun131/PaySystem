@@ -1118,18 +1118,18 @@
 			var nameStr = data.getNodeName(setting, node),
 			name = setting.view.nameIsHTML ? nameStr : nameStr.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 			html.push("<span id='", node.tId, consts.id.ICON,
-				"' title='' treeNode", consts.id.ICON," class='", view.makeNodeIcoClass(setting, node),
+				"' title='' treeNode", consts.id.ICON," clazz='", view.makeNodeIcoClass(setting, node),
 				"' style='", view.makeNodeIcoStyle(setting, node), "'></span><span id='", node.tId, consts.id.SPAN,
 				"'>",name,"</span>");
 		},
 		makeDOMNodeLine: function(html, setting, node) {
-			html.push("<span id='", node.tId, consts.id.SWITCH,	"' title='' class='", view.makeNodeLineClass(setting, node), "' treeNode", consts.id.SWITCH,"></span>");
+			html.push("<span id='", node.tId, consts.id.SWITCH,	"' title='' clazz='", view.makeNodeLineClass(setting, node), "' treeNode", consts.id.SWITCH,"></span>");
 		},
 		makeDOMNodeMainAfter: function(html, setting, node) {
 			html.push("</li>");
 		},
 		makeDOMNodeMainBefore: function(html, setting, node) {
-			html.push("<li id='", node.tId, "' class='", consts.className.LEVEL, node.level,"' tabindex='0' hidefocus='true' treenode>");
+			html.push("<li id='", node.tId, "' clazz='", consts.className.LEVEL, node.level,"' tabindex='0' hidefocus='true' treenode>");
 		},
 		makeDOMNodeNameAfter: function(html, setting, node) {
 			html.push("</a>");
@@ -1142,7 +1142,7 @@
 			for (var f in fontcss) {
 				fontStyle.push(f, ":", fontcss[f], ";");
 			}
-			html.push("<a id='", node.tId, consts.id.A, "' class='", consts.className.LEVEL, node.level,"' treeNode", consts.id.A," onclick=\"", (node.click || ''),
+			html.push("<a id='", node.tId, consts.id.A, "' clazz='", consts.className.LEVEL, node.level,"' treeNode", consts.id.A," onclick=\"", (node.click || ''),
 				"\" ", ((url != null && url.length > 0) ? "href='" + url + "'" : ""), " target='",view.makeNodeTarget(node),"' style='", fontStyle.join(''),
 				"'");
 			if (tools.apply(setting.view.showTitle, [setting.treeId, node], setting.view.showTitle) && title) {html.push("title='", title.replace(/'/g,"&#39;").replace(/</g,'&lt;').replace(/>/g,'&gt;'),"'");}
@@ -1208,7 +1208,7 @@
 			return node[urlKey] ? node[urlKey] : null;
 		},
 		makeUlHtml: function(setting, node, html, content) {
-			html.push("<ul id='", node.tId, consts.id.UL, "' class='", consts.className.LEVEL, node.level, " ", view.makeUlLineClass(setting, node), "' style='display:", (node.open ? "block": "none"),"'>");
+			html.push("<ul id='", node.tId, consts.id.UL, "' clazz='", consts.className.LEVEL, node.level, " ", view.makeUlLineClass(setting, node), "' style='display:", (node.open ? "block": "none"),"'>");
 			html.push(content);
 			html.push("</ul>");
 		},

@@ -36,7 +36,7 @@
 				var alertPwdDays = "${alertPwdDays}";
 				var pwd_edit_limit_time = "${pwd_edit_limit_time}";
 				if (alertPwdDays > pwd_edit_limit_time) {
-					var text = "您已经有<font class='markRed'>"+alertPwdDays+"</font>天没有修改密码了，点击确定修改密码";
+					var text = "您已经有<font clazz='markRed'>"+alertPwdDays+"</font>天没有修改密码了，点击确定修改密码";
 					myAlert(text,350,200,function(){
 					logPwdEditHint();
 					});

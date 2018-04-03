@@ -1310,15 +1310,15 @@ $.fn.showTooltips = function()
 	if($("body [id=fvtt]").length==0){
 		fvtt = $("<div id='fvtt' style='position:absolute;z-index:56002'></div>");
 		$("body").append(fvtt);
-		fvtt.before("<iframe index=0 src='about:blank' class='fv_iframe' scrolling='no' frameborder='0'></iframe>");
+		fvtt.before("<iframe index=0 src='about:blank' clazz='fv_iframe' scrolling='no' frameborder='0'></iframe>");
 		
 	}
 	return this.each(function()
 	{
 		jqobj = $(this);
-		s = $("<span class='top' id=fv_content style='display:block'></span>");
-		b = $("<b class='bottom' style='display:block' />");
-		this.tooltip = $("<span class='fv_tooltip' style='display:block'></span>").append(s).append(b).css({"filter":"alpha(opacity:95)","KHTMLOpacity":"0.95","MozOpacity":"0.95","opacity":"0.95"});
+		s = $("<span clazz='top' id=fv_content style='display:block'></span>");
+		b = $("<b clazz='bottom' style='display:block' />");
+		this.tooltip = $("<span clazz='fv_tooltip' style='display:block'></span>").append(s).append(b).css({"filter":"alpha(opacity:95)","KHTMLOpacity":"0.95","MozOpacity":"0.95","opacity":"0.95"});
 		//注册事件
 		jqobj.bind({
 			mouseover : function(e){

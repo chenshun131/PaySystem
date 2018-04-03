@@ -8,7 +8,7 @@
                 if (options == 'destroy') 
 					return this.each(function() {
 							var dialog = this;		
-							$("div[class^='resizable']",dialog).each(function() {
+							$("div[clazz^='resizable']",dialog).each(function() {
 								$(this).hide();
 							});
 	                });
@@ -16,7 +16,7 @@
 		return this.each(function(){
 			var dialog = $(this);			
 			var resizable = $(".resizable");
-			$("div[class^='resizable']",dialog).each(function() {
+			$("div[clazz^='resizable']",dialog).each(function() {
 				var bar = this;
 				$(bar).mousedown(function(event) {
 					$.pdialog.switchDialog(dialog);

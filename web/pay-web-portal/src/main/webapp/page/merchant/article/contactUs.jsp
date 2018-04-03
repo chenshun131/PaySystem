@@ -54,25 +54,25 @@
 									<img src="<%=path%>/statics/themes/default/images/map.jpg" />
 								</div>
 								<div class="clear"></div>
-						<!-- 		<div class="boxleft areaA">
+						<!-- 		<div clazz="boxleft areaA">
 							<img src="<%=path%>/statics/themes/default/images/pic1.jpg" />
-							<div class="box">
+							<div clazz="box">
 								<h3>技术服务</h3>
 								<p>电话：${COMPANY_TEL }
 									<br />邮箱：${COMPANY_EMAIL }
 								</p>
 							</div>
 						</div>
-						<div class="boxleft areaA">
+						<div clazz="boxleft areaA">
 							<img src="<%=path%>/statics/themes/default/images/contactus2.jpg" />
-							<div class="box">
+							<div clazz="box">
 								<h3>商户服务</h3>
 								<p>电话：${COMPANY_TEL }
 									<br />邮箱：${COMPANY_EMAIL }
 								</p>
 							</div>
 						</div>
-						<div class="clear"></div> -->
+						<div clazz="clear"></div> -->
 							</div>
 						</div>
 						<div class="clear"></div>

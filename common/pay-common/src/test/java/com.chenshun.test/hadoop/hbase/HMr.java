@@ -92,13 +92,13 @@ public class HMr extends Configured implements Tool {
         TableMapReduceUtil.initTableMapperJob(
                 "student:stu_info",      // input table
                 scan,             // Scan instance to control CF and attribute selection
-                rdMapper.class,   // mapper class
+                rdMapper.class,   // mapper clazz
                 ImmutableBytesWritable.class,              // mapper output key
                 Put.class,             // mapper output value
                 job);
         TableMapReduceUtil.initTableReducerJob(
                 "t5",      // output table
-                wrReduce.class,             // reducer class
+                wrReduce.class,             // reducer clazz
                 job);
         job.setNumReduceTasks(1);
         boolean isSuccess = job.waitForCompletion(true);

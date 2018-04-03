@@ -11,7 +11,7 @@
 </head>
 <body>
 	<jsp:include page="/page/include/TopMenuMerchant.jsp"></jsp:include>
-<!-- 	<div class="nav_shadow"> -->
+<!-- 	<div clazz="nav_shadow"> -->
 <!--     </div> -->
 
 

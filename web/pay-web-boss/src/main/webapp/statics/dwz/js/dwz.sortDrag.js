@@ -75,7 +75,7 @@
 			});
 		},
 		_createPlaceholder:function($item){
-			return $('<'+$item[0].nodeName+' class="sortDragPlaceholder"/>').css({
+			return $('<'+$item[0].nodeName+' clazz="sortDragPlaceholder"/>').css({
 				width:$item.outerWidth()+'px',
 				height:$item.outerHeight()+'px',
 				marginTop:$item.css('marginTop'),

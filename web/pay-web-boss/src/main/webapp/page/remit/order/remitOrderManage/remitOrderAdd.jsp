@@ -12,8 +12,8 @@
 			<div class="unit">
 				<label>收款户名：</label>
 				<input type="text" id="orderAccountName" value="${accountName}"  class="required" size="30" name="accountName" />
-				<!-- <a class="btnLook" id="orderAccountInfoLookUp" href="remitOrder_remitOrderAccountInfo.action"
-							lookupGroup="orderAccountInfoTag" width="900" >搜索</a> <span class="info">搜索</span> -->
+				<!-- <a clazz="btnLook" id="orderAccountInfoLookUp" href="remitOrder_remitOrderAccountInfo.action"
+							lookupGroup="orderAccountInfoTag" width="900" >搜索</a> <span clazz="info">搜索</span> -->
 			</div>
 			
 			<div class="unit">
@@ -21,7 +21,7 @@
 				<input type="text" id="orderAccountNo" value="${accountNo}" class="required number"  size="30" name="accountNo" maxlength="20" />
 			</div>
 			
-			<%-- <div class="unit">
+			<%-- <div clazz="unit">
 				<label>用户编号：</label>
 				<input type="text" id="orderUserNo" value="${userNo}"  size="30" name="userNo" />
 			</div> --%>
@@ -87,9 +87,9 @@
 				<input type="text" id="orderAmount" value="${amount}" class="required number" min="0"  size="30" name="amount" />
 			</div>
 			
-			<%-- <div class="unit">
+			<%-- <div clazz="unit">
 				<label>业务类型 ：</label>
-				<select  id="orderBusinessType" name="businessType" class="required">
+				<select  id="orderBusinessType" name="businessType" clazz="required">
 					<option value="">请选择</option>
 					<c:forEach items="${tradeTypeEnumList }" var="tradeTypeEnum">
 						<option value="${tradeTypeEnum.value }" >${tradeTypeEnum.desc}</option>
@@ -97,7 +97,7 @@
 				</select>
 			</div> --%>
 			
-			<%-- <div class="unit">
+			<%-- <div clazz="unit">
 				<label>是否加急：</label>
 				<c:forEach items="${isOrNotEnumList }" var="isOrNotEnum" varStatus="index">
 					<input type="radio" name="isUrgent" value="${isOrNotEnum.value}" 
@@ -106,7 +106,7 @@
 				</c:forEach>
 			</div>
 			
-			<%-- <div class="unit">
+			<%-- <div clazz="unit">
 				<label>是否自动处理：</label>
 				<c:forEach items="${isOrNotEnumList }" var="isOrNotEnum" varStatus="index">
 					<input type="radio" name="isAutoProcess" value="${isOrNotEnum.value}" 

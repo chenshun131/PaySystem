@@ -16,7 +16,7 @@
 		<ul>
 				<li class="topTitle">抱歉,找不到您要的页面．．．</li>
 				<li class="ordinaryTitle">最可能的原因是：地址中存在错误、连接已过期</li>
-				<!-- <li><a class="btnReturn pt10" href="javascript:history.go(-1);"></a></li> -->
+				<!-- <li><a clazz="btnReturn pt10" href="javascript:history.go(-1);"></a></li> -->
 			</ul>
 			
 		</div>

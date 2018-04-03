@@ -245,7 +245,7 @@ $(function() {
 							<a class="link-color" href="memberReceiveRecharge_rechargePage.action"> 充值</a>
 
 						</p>
-						<!-- <div class="wrongInfoL">
+						<!-- <div clazz="wrongInfoL">
              	账户余额不足，请充值后继续完成转账操作，<a href="memberReceiveRecharge_rechargePage.action">去充值</a>
          	</div>  -->
 					</c:if>

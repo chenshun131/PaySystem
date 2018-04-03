@@ -13,7 +13,7 @@ import java.lang.reflect.InvocationTargetException;
  * User: mew <p />
  * Time: 18/1/30 16:24  <p />
  * Version: V1.0  <p />
- * Description: 通过 ASM 创建 .class 文件 <p />
+ * Description: 通过 ASM 创建 .clazz 文件 <p />
  */
 public class MyGenerator {
 
@@ -51,7 +51,7 @@ public class MyGenerator {
         // 使classWriter类已经完成
         // 将classWriter转换成字节数组写到文件里面去
         byte[] data = classWriter.toByteArray();
-        File file = new File(CLASS_SAVE_PATH + "Programmer.class");
+        File file = new File(CLASS_SAVE_PATH + "Programmer.clazz");
         FileOutputStream fout = new FileOutputStream(file);
         fout.write(data);
         fout.close();
@@ -75,7 +75,7 @@ public class MyGenerator {
     @Test
     public void loadClass() throws IOException, IllegalAccessException, InstantiationException {
         // 读取本地的class文件内的字节码，转换成字节码数组
-        InputStream input = new FileInputStream(CLASS_SAVE_PATH + "Programmer.class");
+        InputStream input = new FileInputStream(CLASS_SAVE_PATH + "Programmer.clazz");
         byte[] result = new byte[1024];
 
         int count = input.read(result);

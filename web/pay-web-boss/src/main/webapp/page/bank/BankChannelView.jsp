@@ -32,7 +32,7 @@
 					<option value="100" <c:if test="${status eq 100 }">selected="selected"</c:if> >有效</option>
 				</select>
 			</div>
-			<%-- <div class="unit">
+			<%-- <div clazz="unit">
 				<label style="font-weight: bold;">银行协议ID：</label>
 				<s:textfield name="bankAgreementID" readonly="true" cssClass="required" minlength="1" maxlength="25" size="45" />
 			</div> --%>

@@ -142,7 +142,7 @@ public class JSONUtils {
                 return populateCollection((JSONArray) jsonObj, clz, getActualTypes(actualTypes, parentType,
                         propertyName));
             } else {
-                throw new RuntimeException("can't convert JSONArray to class : " + clz);
+                throw new RuntimeException("can't convert JSONArray to clazz : " + clz);
             }
         } else if (jsonObj instanceof JSONObject) {
             if (clz == null) {
@@ -171,7 +171,7 @@ public class JSONUtils {
         try {
             map = (Map) clz.newInstance();
         } catch (Exception e) {
-            throw new RuntimeException("can't get instance of class : " + clz.getName(), e);
+            throw new RuntimeException("can't get instance of clazz : " + clz.getName(), e);
         }
         Class keyType = null;
         Class valueType = null;
@@ -203,7 +203,7 @@ public class JSONUtils {
         try {
             object = clz.newInstance();
         } catch (Exception e) {
-            throw new RuntimeException("can't get instance of class : " + clz.getName(), e);
+            throw new RuntimeException("can't get instance of clazz : " + clz.getName(), e);
         }
         Iterator it = jsonObj.keys();
         while (it.hasNext()) {
@@ -258,7 +258,7 @@ public class JSONUtils {
         try {
             collection = (Collection) clz.newInstance();
         } catch (Exception e) {
-            throw new RuntimeException("can't get instance of class : " + clz.getName(), e);
+            throw new RuntimeException("can't get instance of clazz : " + clz.getName(), e);
         }
         Class objType = null;
         if (actualTypes != null && actualTypes.length == 1) {

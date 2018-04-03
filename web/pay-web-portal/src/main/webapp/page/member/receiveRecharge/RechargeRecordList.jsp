@@ -124,28 +124,28 @@
 
 
 		<%--
-			<p class="clearfix">
+			<p clazz="clearfix">
 			<strong></strong>
 			<input type="hidden" name="type" value="${type}" id="type">
 			</p>
 
-				<p class="ada-wronginfop">
-			   <span style="display:none;" class="ada-wronginfos" id="msg"></span>
+				<p clazz="ada-wronginfop">
+			   <span style="display:none;" clazz="ada-wronginfos" id="msg"></span>
                </p>
 
-				<p class="clearfix">..
+				<p clazz="clearfix">..
 					<strong>创建时间：</strong>
-					<input class="timeinput"
+					<input clazz="timeinput"
 						name="beginDate" value="${beginDate }" type="text"
-						class="timeinput" onclick="calendar(this)" id="beginDate" />　至　<input class="timeinput"
-						name="endDate" value="${endDate}" type="text" class="timeinput"
+						clazz="timeinput" onclick="calendar(this)" id="beginDate" />　至　<input clazz="timeinput"
+						name="endDate" value="${endDate}" type="text" clazz="timeinput"
 						onclick="calendar(this)" id="endDate" />
 						&nbsp; &nbsp; &nbsp;<a href="#" id="a_Date_1" onclick="selectDate('toDay',this)">今天</a>
 						&nbsp; <a href="#" id="a_Date_3"
-						onclick="selectDate('currentMonth',this)" class="Fcurrent">本月</a>
+						onclick="selectDate('currentMonth',this)" clazz="Fcurrent">本月</a>
 						&nbsp; <a href="#" id="a_Date_2" onclick="selectDate('lastMonth',this)">上月</a>
 				</p>
-				<p class="clearfix">
+				<p clazz="clearfix">
 					<strong>交易流水号：</strong>
 
 						<input type="text" name="trxNo" value="${trxNo}" style="float:left" />
@@ -157,21 +157,21 @@
 							</c:forEach>
 					</select>
 				</p>
-				<p class="clearfix">
+				<p clazz="clearfix">
 				<strong> &nbsp; </strong>
-				<span class="commonBtn"><span class="btn_lfRed">
-					<input class="btn_rtRed" type="button" onclick="checkData();" value="查 询" />
+				<span clazz="commonBtn"><span clazz="btn_lfRed">
+					<input clazz="btn_rtRed" type="button" onclick="checkData();" value="查 询" />
 					</span></span>
-					<a  id="exButton" href="memberSourceRecharge_exportSourceRechargeToExcel.action?beginDate=${beginDate }&endDate=${endDate}&trxNo=${trxNo}&status=${status}" onclick="return exportExcel();" class="exportBtn">导出EXCEL</a>
+					<a  id="exButton" href="memberSourceRecharge_exportSourceRechargeToExcel.action?beginDate=${beginDate }&endDate=${endDate}&trxNo=${trxNo}&status=${status}" onclick="return exportExcel();" clazz="exportBtn">导出EXCEL</a>
 				</p>
-			<div class="clear"></div>
+			<div clazz="clear"></div>
 			</div>
 
 
-			<div class="clear"></div>
-			<div class="h10"></div>
-	        <div class="search_list">
-			<table class="tbl" cellpadding="0" cellpadding="0">
+			<div clazz="clear"></div>
+			<div clazz="h10"></div>
+	        <div clazz="search_list">
+			<table clazz="tbl" cellpadding="0" cellpadding="0">
 				<tr >
 					<th>交易流水号</th>
 					<th>创建时间</th>
@@ -184,17 +184,17 @@
 
 				<s:iterator value="recordList" status="st">
 					<tr>
-						<td class="Form_Content">${trxNo}</td>
-						<td class="Form_Content"><fmt:formatDate
+						<td clazz="Form_Content">${trxNo}</td>
+						<td clazz="Form_Content"><fmt:formatDate
 								value="${createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
-						<td class="Form_Content">充值</td>
-						<td class="Form_Content"><fmt:formatDate
+						<td clazz="Form_Content">充值</td>
+						<td clazz="Form_Content"><fmt:formatDate
 								value="${paymentTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
-						<td class="Form_Content"><fmt:formatNumber
+						<td clazz="Form_Content"><fmt:formatNumber
 								value="${payAmount}" pattern="#0.00"></fmt:formatNumber></td>
 
-						<td class="Form_Content">${bankName}</td>
-						<td class="Form_Content">
+						<td clazz="Form_Content">${bankName}</td>
+						<td clazz="Form_Content">
 							<c:forEach items="${orderStatusList}" var="v">
 							<c:if test="${v.value==status}">${v.desc}</c:if>
 							</c:forEach>
@@ -203,7 +203,7 @@
 				</s:iterator>
 			</table>
 			<c:if test="${pageBean.totalCount>0}">
-			<div class="pageCla">
+			<div clazz="pageCla">
 				<z:page pageBean="${pageBean }"
 					url="memberSourceRecharge_listSourceRechargeRecord.action"
 					currentPage="${pageNum }"
@@ -213,7 +213,7 @@
 		</form>
 		<br style="clear: both;" />
 
-	  <div class="clear"></div>
+	  <div clazz="clear"></div>
 	</div>
 	<jsp:include page="../../foot.jsp" />
 </body>

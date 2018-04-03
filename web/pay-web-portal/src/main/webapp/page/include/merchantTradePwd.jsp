@@ -91,7 +91,7 @@
 
 			<%--<p id="p-hint">
 						<strong id="hint-title">温馨提示：</strong>
-						<font id="hint-content" class="font">
+						<font id="hint-content" clazz="font">
 						你没有安装数字证书！<a href='merchantca_listCA.action'><font>点击申请</font></a>
 						</font>
 					</p>

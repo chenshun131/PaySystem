@@ -123,7 +123,7 @@
 										style="float:left;"></li>
 									<li><span class="markRed flLt">您当前的账户余额不足，请登录门户后台充值后再支付
 											&nbsp&nbsp您还可以通过选择 <a href="javascript:history.go(-1);">网银支付</a>完成支付
-											，有卡就能付。</span> <!--class="REbtn  ml5"  --></li>
+											，有卡就能付。</span> <!--clazz="REbtn  ml5"  --></li>
 								</ul>
 							</c:if>
 							<c:if test="${balance>=sessionScope.PaymentOrderVo.orderAmount}">
@@ -172,7 +172,7 @@
 							</c:if>
 						</div>
 			</div>
-			<!-- <div id="payDivId2" class="caTips"></div> -->
+			<!-- <div id="payDivId2" clazz="caTips"></div> -->
 
 			</li>
 

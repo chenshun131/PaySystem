@@ -20,7 +20,7 @@
 				<input type="text" id="orderAccountNameEdit" value="${accountNo}" class="required number"   size="30" name="accountNo" maxlength="20"  />
 			</div>
 			
-			<%-- <div class="unit">
+			<%-- <div clazz="unit">
 				<label>用户编号：</label>
 				<input type="text" id="orderUserNoEdit" value="${userNo}"  size="30" name="userNo" />
 			</div> --%>
@@ -92,7 +92,7 @@
 				</c:forEach>
 			</div>
 			
-			<%-- <div class="unit">
+			<%-- <div clazz="unit">
 				<label>是否自动处理：</label>
 				<c:forEach items="${isOrNotEnumList }" var="isOrNotEnum" varStatus="index">
 					<input type="radio" name="isAutoProcess" value="${isOrNotEnum.value}" 

@@ -15,8 +15,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * Time: 18/1/31 17:04  <p />
  * Version: V1.0  <p />
  * Description: 序列化工具类 <p />
- * 序列化 byte[] data = SerializationUtil.serialize(user, User.class); <br/>
- * 反序列化 User user = SerializationUtil.deserialize(data, User.class); <br/>
+ * 序列化 byte[] data = SerializationUtil.serialize(user, User.clazz); <br/>
+ * 反序列化 User user = SerializationUtil.deserialize(data, User.clazz); <br/>
  */
 public class SerializationUtil {
 

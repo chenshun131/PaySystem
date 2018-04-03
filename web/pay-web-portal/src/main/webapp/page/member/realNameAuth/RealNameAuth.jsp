@@ -201,7 +201,7 @@
 						<p class="clearfix">
 							<label>到期时间：</label> 
 							<input name="cardNoValid" value="${cardNoValid}" type="text"   style="width: 80px;" class="timeinput"  onfocus="WdatePicker({minDate:'%y-%M-{%d}'})" id="cardValid" readonly="readonly" />
-						<!-- 	<input name="cardNoValid"  type="text" style="width: 80px;" class="timeinput" onclick="calendar(this)" id="cardNoValid" readonly="readonly" /> -->
+						<!-- 	<input name="cardNoValid"  type="text" style="width: 80px;" clazz="timeinput" onclick="calendar(this)" id="cardNoValid" readonly="readonly" /> -->
 						（注：到期时间留空代表长期有效）
 						</p>
 						<p class="clearfix">

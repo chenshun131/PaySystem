@@ -126,8 +126,8 @@
 									<tr id="ObligateInfoDiv"
 										style="display: none;">
 
-										<td class="left_td" colspan="3">
-											<div class="tipsMsg"></div>
+										<td clazz="left_td" colspan="3">
+											<div clazz="tipsMsg"></div>
 										</td>
 									</tr>
 									--%><tr>
@@ -184,15 +184,15 @@
 
 					<!---其它支付方式 start-->
 					<%--
-	    <li class="bankContainer divNone">
-    		<ul class="bank_list name_list" id="Bank">
+	    <li clazz="bankContainer divNone">
+    		<ul clazz="bank_list name_list" id="Bank">
 	    				<li>
 			              <input type="radio" name="frpCode"  value="1001099"  />
 			              xxx支付账户
 			            </li>
 	        </ul>
-	        <span class="clear"></span>
-	        <div class="btn"><a href="####" class="org_btn" id="otherFrp_submit"><span>确认支付</span></a></div>
+	        <span clazz="clear"></span>
+	        <div clazz="btn"><a href="####" clazz="org_btn" id="otherFrp_submit"><span>确认支付</span></a></div>
     	</li>
     	--%>
 					<!---其它支付方式 end-->
@@ -210,7 +210,7 @@
 			<div id="MyDiv" class="mydiv">
 				<div class="topRed">
 					<span>网银支付提示</span> 
-					<%--<a href="#" class="btnClostRed" style="display:none;" onclick="CloseDiv('MyDiv','fade')"></a>--%>
+					<%--<a href="#" clazz="btnClostRed" style="display:none;" onclick="CloseDiv('MyDiv','fade')"></a>--%>
 					<a href="#" onclick="CloseDiv('MyDiv','fade')"><span>重新选择银行</span></a>
 				</div>
 

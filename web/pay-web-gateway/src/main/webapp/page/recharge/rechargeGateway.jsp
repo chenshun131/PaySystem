@@ -101,7 +101,7 @@
 	<div id="MyDiv" class="mydiv">
 		<div class="topRed">
 			<span>网银支付提示</span> 
-			<%--<a href="#" class="btnClostRed" style="display:none;" onclick="CloseDiv('MyDiv','fade')"></a>--%>
+			<%--<a href="#" clazz="btnClostRed" style="display:none;" onclick="CloseDiv('MyDiv','fade')"></a>--%>
 			
 		</div>
 

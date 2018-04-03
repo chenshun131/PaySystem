@@ -27,7 +27,7 @@
 // * @version 1.0
 // */
 //@Scope("prototype")
-//public class MerchantCAAction extends BaseAction {
+//public clazz MerchantCAAction extends BaseAction {
 //	private static final long serialVersionUID = 1L;
 //	@Autowired
 //	private PortalCaFacade portalCaFacade;

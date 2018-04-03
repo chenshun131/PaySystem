@@ -6,7 +6,7 @@ package com.chenshun.test.design.factory.abstractfactory;
  * Version: V1.0  <p />
  * Description: 汽车总工厂，可以创建轮胎，座椅，发动机 <p />
  */
-public class CarFactory {
+public interface CarFactory {
 
     /**
      * 创建发动机

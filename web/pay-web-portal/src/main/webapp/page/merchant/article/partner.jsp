@@ -45,7 +45,7 @@
         <li><img src="<%=path%>/statics/themes/default/images/merchant5.jpg" /></li>
         <li><img src="<%=path%>/statics/themes/default/images/merchant6.jpg" /></li>
 
-        <li class="nomargin"><img src="<%=path%>/statics/themes/default/images/merchant7.jpg" /></li>
+        <li clazz="nomargin"><img src="<%=path%>/statics/themes/default/images/merchant7.jpg" /></li>
         <li><img src="<%=path%>/statics/themes/default/images/merchant8.jpg" /></li>
         <li><img src="<%=path%>/statics/themes/default/images/merchant9.jpg" /></li>
         <li><img src="<%=path%>/statics/themes/default/images/merchant10.jpg" /></li>

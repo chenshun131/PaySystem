@@ -262,7 +262,7 @@
             function initBizFunction(bizFunctionList) {
                 $("#BizFunctionDiv").html("");
                 for (i = 0; i < bizFunctionList.length; i++) {
-                    $("#BizFunctionDiv").append("<div > <span class='tips' style='display: inline-block; min-width: 104px; width: auto;'>" + bizFunctionList[i].bizFunctionDesc + "</span></div>");
+                    $("#BizFunctionDiv").append("<div > <span clazz='tips' style='display: inline-block; min-width: 104px; width: auto;'>" + bizFunctionList[i].bizFunctionDesc + "</span></div>");
                 }
             }
 
@@ -272,7 +272,7 @@
                 for (var i = 0; i < payProductList.length; i++) {
                     for (var k = 0; k < payProductAllList.length; k++) {
                         if (payProductList[i].payProduct == payProductAllList[k].payProductCode) {
-                            $("#PayProductDiv").append("<div > <span  class='tips' style='display: inline-block; min-width: 104px; width: auto;'>" + payProductAllList[k].payProductName + "</span></div>");
+                            $("#PayProductDiv").append("<div > <span  clazz='tips' style='display: inline-block; min-width: 104px; width: auto;'>" + payProductAllList[k].payProductName + "</span></div>");
                         }
                     }
                 }
@@ -286,7 +286,7 @@
                 for (var i = 0; i < payProductAllList.length; i++) {
                 
 
-                    PayWayHTML += "<h2><div > <span class='tips' style='display: inline-block; min-width: 104px; width: auto;'>" + payProductAllList[i].payProductName + "</span></div></h2>";
+                    PayWayHTML += "<h2><div > <span clazz='tips' style='display: inline-block; min-width: 104px; width: auto;'>" + payProductAllList[i].payProductName + "</span></div></h2>";
 
                     for (var k = 0; k < payWayList.length; k++) {
 
@@ -294,7 +294,7 @@
 
                         if (payWayList[k].payProduct == payProductAllList[i].payProductCode) {
 
-                            PayWayHTML += "<li><div > <span class='tips' style='display: inline-block; min-width: 104px; width: auto;'>" + payWayList[k].payWay + "</span></div></li>";
+                            PayWayHTML += "<li><div > <span clazz='tips' style='display: inline-block; min-width: 104px; width: auto;'>" + payWayList[k].payWay + "</span></div></li>";
                         }
 
                         if (payWayList.length - 1 == k) {

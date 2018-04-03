@@ -41,7 +41,7 @@ $.extend($.fn, {
 				if ( validator.settings.submitHandler ) {
 					validator.submitButton = event.target;
 				}
-				// allow suppressing validation by adding a cancel class to the submit button
+				// allow suppressing validation by adding a cancel clazz to the submit button
 				if ( $(event.target).hasClass("cancel") ) {
 					validator.cancelSubmit = true;
 				}
@@ -227,7 +227,7 @@ $.extend($.validator, {
 		onfocusin: function( element, event ) {
 			this.lastActive = element;
 
-			// hide error label and remove error class on focus if enabled
+			// hide error label and remove error clazz on focus if enabled
 			if ( this.settings.focusCleanup && !this.blockFocusCleanup ) {
 				if ( this.settings.unhighlight ) {
 					this.settings.unhighlight.call( this, element, this.settings.errorClass, this.settings.validClass );
@@ -678,7 +678,7 @@ $.extend($.validator, {
 		showLabel: function( element, message ) {
 			var label = this.errorsFor( element );
 			if ( label.length ) {
-				// refresh error/success class
+				// refresh error/success clazz
 				label.removeClass( this.settings.validClass ).addClass( this.settings.errorClass );
 				// replace message on existing label
 				label.html(message);

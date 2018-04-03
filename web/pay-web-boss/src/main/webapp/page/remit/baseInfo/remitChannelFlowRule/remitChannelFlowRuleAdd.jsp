@@ -59,8 +59,8 @@
 								${includeBankCode}
 							</textarea>
 							<input type="hidden" name="includeBankTypeCode" id="includeBankTypeCode" value=""/>
-							<!-- <a class="btnLook" href="bank_BankAgreementLookupList.action" lookupGroup="bankChannel">搜索</a> 
-							<span class="info">搜索</span> -->
+							<!-- <a clazz="btnLook" href="bank_BankAgreementLookupList.action" lookupGroup="bankChannel">搜索</a>
+							<span clazz="info">搜索</span> -->
 							<button type="button" onclick="getIncludeBankCode()" id="11"><font color="blue">添加</font></button>
 							<!-- <a href="#"><font color="blue">添加</font></a> -->
 						</td>

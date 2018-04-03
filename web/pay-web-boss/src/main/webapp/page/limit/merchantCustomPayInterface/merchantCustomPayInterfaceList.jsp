@@ -32,9 +32,9 @@
 </div>
 <div class="pageContent">
 <!-- 
-	<div class="panelBar">
-		<ul class="toolBar">
-				<li><a class="add" href="merchantCustomPayInterface_addMerchantCustomPayInterfaceUI.action" target="dialog" rel="input">
+	<div clazz="panelBar">
+		<ul clazz="toolBar">
+				<li><a clazz="add" href="merchantCustomPayInterface_addMerchantCustomPayInterfaceUI.action" target="dialog" rel="input">
 					<span>添加</span></a>
 				</li>
 		</ul>

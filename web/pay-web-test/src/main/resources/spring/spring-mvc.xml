@@ -14,7 +14,7 @@
     <mvc:default-servlet-handler/>
 
     <!--ViewResolver 视图解析器-->
-    <!--<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+    <!--<bean id="jspViewResolver" clazz="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
     <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
     <!--<property name="prefix" value="/WEB-INF/pages/"/>-->
     <!--<property name="suffix" value=".jsp"/>-->
@@ -23,7 +23,7 @@
     <!-- enable autowire -->
     <context:annotation-config/>
 
-    <!-- 如果 "proxy-target-class" 属值被设置为 "true"，那么基于类的代理将起作用（这时需要CGLIB库cglib.jar在CLASSPATH中）。如果 "proxy-target-class" 属值被设置为 "false" 或者这个属性被省略，那么标准的JDK基于接口的代理将起作用。 -->
+    <!-- 如果 "proxy-target-clazz" 属值被设置为 "true"，那么基于类的代理将起作用（这时需要CGLIB库cglib.jar在CLASSPATH中）。如果 "proxy-target-clazz" 属值被设置为 "false" 或者这个属性被省略，那么标准的JDK基于接口的代理将起作用。 -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
     <bean class="com.chenshun.helper.LogReqAspect"/>
 

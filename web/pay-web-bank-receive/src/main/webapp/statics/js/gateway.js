@@ -28,7 +28,7 @@ function getCurrentUserCA(snArray) {
 		if((i+1)==snArray.length && currCAisExit ==false){
 			//当前证书不存在，且用户是数字证书用户，则不能显示确认支付按钮
 			$("#paySpanId").remove();
-			$("#payDivId2").html('<span class="title"> 尊敬的用户：</span><div>尊敬的用户：你是数字证书用户，检测到本机并未安装数字证书! 如果你要继续支付操作，请在本机赋权安装数字证书!</div>');
+			$("#payDivId2").html('<span clazz="title"> 尊敬的用户：</span><div>尊敬的用户：你是数字证书用户，检测到本机并未安装数字证书! 如果你要继续支付操作，请在本机赋权安装数字证书!</div>');
 		}
 	}
 }

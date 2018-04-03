@@ -41,8 +41,8 @@ select id from TBL_MEMBER_INFO where STATUS = '100'
 )
  *
  *//*
-public class AddMemberReport {
-	private static Log log = LogFactory.getLog(AddMemberReport.class);
+public clazz AddMemberReport {
+	private static Log log = LogFactory.getLog(AddMemberReport.clazz);
 	MemberInfoFacade memberInfoFacade = LoadFacade.memberInfoFacade;
 	MemberRealNameAuthFacade memberRealNameAuthFacade = LoadFacade.memberRealNameAuthFacade;//会员实名认证审核
 	MemberCancellationFacade memberCancellationFacade = LoadFacade.memberCancellationFacade;//会员销户审核
@@ -65,27 +65,27 @@ public class AddMemberReport {
 			int checkingNum = 0;// 审批数量
 			for(int i = 0; i < memberList.size(); i++){
 				Map<String, Object> memberObjMap = (Map)memberList.get(i);
-				MemberInfo memberInfo = BeanUtils.toBean(MemberInfo.class, memberObjMap);
+				MemberInfo memberInfo = BeanUtils.toBean(MemberInfo.clazz, memberObjMap);
 				if(memberInfo.getCreateTime().equals(new Date())){
 					createNum++;//新增会员数量
 				}
 				for(int j=0; j<memberCancellationList.size(); j++){
 					Map<String, Object> cancellationObjMap = (Map) memberCancellationList.get(j);
-					MemberCancellation memberCancellation = BeanUtils.toBean(MemberCancellation.class, cancellationObjMap);
+					MemberCancellation memberCancellation = BeanUtils.toBean(MemberCancellation.clazz, cancellationObjMap);
 					if( memberCancellation.getMemberId() == memberInfo.getId() && memberCancellation.getStatus() == 100 ){
 						cancelNum++;//终止数量
 					}
 				}
 				for(int m=0; m<memberStatusAduitList.size(); m++){
 					Map<String, Object> statusAduitObjMap = (Map) memberStatusAduitList.get(m);
-					MemberStatusAduit memberStatusAduit = BeanUtils.toBean(MemberStatusAduit.class, statusAduitObjMap);
+					MemberStatusAduit memberStatusAduit = BeanUtils.toBean(MemberStatusAduit.clazz, statusAduitObjMap);
 					if(memberInfo.getId() == memberStatusAduit.getMemberId() && memberStatusAduit.getStatus() == 100 ){
 						checkingNum++;//审批数量
 					}
 				}
 				for(int n=0; n<memberRealNameAuthList.size(); n++){
 					Map<String, Object> realNameObjMap = (Map) memberRealNameAuthList.get(n);
-					MemberRealNameAuth memberRealNameAuth = BeanUtils.toBean(MemberRealNameAuth.class, realNameObjMap);
+					MemberRealNameAuth memberRealNameAuth = BeanUtils.toBean(MemberRealNameAuth.clazz, realNameObjMap);
 					if( memberRealNameAuth.getMemberId() == memberInfo.getId() && memberRealNameAuth.getStatus() == 100){
 						stockNum++;//存量数量
 					}

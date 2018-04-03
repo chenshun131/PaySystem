@@ -245,16 +245,16 @@
 						<a class="btnLook" href="sales_listSalesBy.action" lookupGroup="salesNameTag">搜索</a> <span class="info">搜索</span>
 					</div>
 					<!-- 
-					<div class="unit">
+					<div clazz="unit">
 						<label>签约日期：</label>
-						<input type="text" name="signTime" id="signTime" value="<fmt:formatDate value="${contract.signTime }" pattern="yyyy-MM-dd" />" maxDate="{%y}-%M-{%d}" class="date" size="30" readonly="readonly" />
-						<a class="inputDateButton" href="javascript:;">选择</a>
+						<input type="text" name="signTime" id="signTime" value="<fmt:formatDate value="${contract.signTime }" pattern="yyyy-MM-dd" />" maxDate="{%y}-%M-{%d}" clazz="date" size="30" readonly="readonly" />
+						<a clazz="inputDateButton" href="javascript:;">选择</a>
 					</div>
-					<div class="unit">
+					<div clazz="unit">
 						<label>合同到期日：</label>
-						<input type="text" name="contractValid" id="contractValid" minDate="{%y}-%M-{%d}" value="<fmt:formatDate value="${contract.contractValid }" pattern="yyyy-MM-dd" />" class="date" size="30"
+						<input type="text" name="contractValid" id="contractValid" minDate="{%y}-%M-{%d}" value="<fmt:formatDate value="${contract.contractValid }" pattern="yyyy-MM-dd" />" clazz="date" size="30"
 							readonly="readonly" />
-						<a class="inputDateButton" href="javascript:;">选择</a>
+						<a clazz="inputDateButton" href="javascript:;">选择</a>
 					</div> -->
 				</div>
 				<div class="formBar">

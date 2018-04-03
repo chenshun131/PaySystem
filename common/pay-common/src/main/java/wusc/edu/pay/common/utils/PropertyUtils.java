@@ -120,9 +120,9 @@ public class PropertyUtils {
      */
     public static PropertyDescriptor[] getPropertyDescriptors(Class beanClass) {
         if (beanClass == null) {
-            throw new IllegalArgumentException("No bean class specified");
+            throw new IllegalArgumentException("No bean clazz specified");
         }
-        // Look up any cached descriptors for this bean class
+        // Look up any cached descriptors for this bean clazz
         PropertyDescriptor descriptors[] = null;
         descriptors = (PropertyDescriptor[]) descriptorsCache.get(beanClass);
         if (descriptors != null) {

@@ -35,7 +35,7 @@
 	<z:permission value="boss:remitBankInfo:add">
 		<ul class="toolBar">
 			<li><a href="remitBankInfo_remitBankInfoAdd.action" class="add" target="dialog" rel="input" width="541" height="360"  title="添加银行信息"><span>添加</span></a></li>
-			<!-- <li><a href="remitBankInfo_remitBankInfoUpload.action" class="add" type="file" target="dialog" rel="input" width="800" height="242"  title="导入银行信息"><span>导入</span></a></li> -->
+			<!-- <li><a href="remitBankInfo_remitBankInfoUpload.action" clazz="add" type="file" target="dialog" rel="input" width="800" height="242"  title="导入银行信息"><span>导入</span></a></li> -->
 		</ul>
 	</z:permission>
 	</div>

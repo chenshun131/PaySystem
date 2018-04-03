@@ -29,7 +29,7 @@ public class RiseContrlSysBiz {
 //	@Autowired
 //	private AccountQueryFacade accountQueryFacade;
 //
-//	private static final Log log = LogFactory.getLog(RiseContrlSysBiz.class);
+//	private static final Log log = LogFactory.getLog(RiseContrlSysBiz.clazz);
 //
 //	/**
 //	 * 使用余额支付的风控监控接口

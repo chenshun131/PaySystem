@@ -277,8 +277,8 @@
 
 				var addButTxt = $table.attr('addButton') || "Add New";
 				if (addButTxt) {
-					var $addBut = $('<div class="button"><div class="buttonContent"><button type="button">'+addButTxt+'</button></div></div>').insertBefore($table).find("button");
-					var $rowNum = $('<input type="text" name="dwz_rowNum" class="textInput" style="margin:2px;" value="1" size="2"/>').insertBefore($table);
+					var $addBut = $('<div clazz="button"><div clazz="buttonContent"><button type="button">'+addButTxt+'</button></div></div>').insertBefore($table).find("button");
+					var $rowNum = $('<input type="text" name="dwz_rowNum" clazz="textInput" style="margin:2px;" value="1" size="2"/>').insertBefore($table);
 					
 					var trTm = "";
 					$addBut.click(function(){
@@ -337,7 +337,7 @@
 				}
 				switch(field.type){
 					case 'del':
-						html = '<a href="javascript:void(0)" class="btnDel '+ field.fieldClass + '">删除</a>';
+						html = '<a href="javascript:void(0)" clazz="btnDel '+ field.fieldClass + '">删除</a>';
 						break;
 					case 'lookup':
 						var suggestFrag = '';
@@ -346,13 +346,13 @@
 						}
 
 						html = '<input type="hidden" name="'+field.lookupGroup+'.'+field.lookupPk+suffix+'"/>'
-							+ '<input type="text" name="'+field.name+'"'+suggestFrag+' lookupPk="'+field.lookupPk+'" size="'+field.size+'" class="'+field.fieldClass+'"/>'
-							+ '<a class="btnLook" href="'+field.lookupUrl+'" lookupGroup="'+field.lookupGroup+'" '+suggestFrag+' lookupPk="'+field.lookupPk+'" title="查找带回">查找带回</a>';
+							+ '<input type="text" name="'+field.name+'"'+suggestFrag+' lookupPk="'+field.lookupPk+'" size="'+field.size+'" clazz="'+field.fieldClass+'"/>'
+							+ '<a clazz="btnLook" href="'+field.lookupUrl+'" lookupGroup="'+field.lookupGroup+'" '+suggestFrag+' lookupPk="'+field.lookupPk+'" title="查找带回">查找带回</a>';
 						break;
 					case 'attach':
 						html = '<input type="hidden" name="'+field.lookupGroup+'.'+field.lookupPk+suffix+'"/>'
-							+ '<input type="text" name="'+field.name+'" size="'+field.size+'" readonly="readonly" class="'+field.fieldClass+'"/>'
-							+ '<a class="btnAttach" href="'+field.lookupUrl+'" lookupGroup="'+field.lookupGroup+'" '+suggestFrag+' lookupPk="'+field.lookupPk+'" width="560" height="300" title="查找带回">查找带回</a>';
+							+ '<input type="text" name="'+field.name+'" size="'+field.size+'" readonly="readonly" clazz="'+field.fieldClass+'"/>'
+							+ '<a clazz="btnAttach" href="'+field.lookupUrl+'" lookupGroup="'+field.lookupGroup+'" '+suggestFrag+' lookupPk="'+field.lookupPk+'" width="560" height="300" title="查找带回">查找带回</a>';
 						break;
 					case 'enum':
 						$.ajax({
@@ -365,11 +365,11 @@
 						});
 						break;
 					case 'date':
-						html = '<input type="text" name="'+field.name+'" value="'+field.defaultVal+'" class="date '+field.fieldClass+'" dateFmt="'+field.patternDate+'" size="'+field.size+'"/>'
-							+'<a class="inputDateButton" href="javascript:void(0)">选择</a>';
+						html = '<input type="text" name="'+field.name+'" value="'+field.defaultVal+'" clazz="date '+field.fieldClass+'" dateFmt="'+field.patternDate+'" size="'+field.size+'"/>'
+							+'<a clazz="inputDateButton" href="javascript:void(0)">选择</a>';
 						break;
 					default:
-						html = '<input type="text" name="'+field.name+'" value="'+field.defaultVal+'" size="'+field.size+'" class="'+field.fieldClass+'" '+attrFrag+'/>';
+						html = '<input type="text" name="'+field.name+'" value="'+field.defaultVal+'" size="'+field.size+'" clazz="'+field.fieldClass+'" '+attrFrag+'/>';
 						break;
 				}
 				return '<td>'+html+'</td>';
@@ -379,7 +379,7 @@
 				$(fields).each(function(){
 					html += tdHtml(this);
 				});
-				return '<tr class="unitBox">'+html+'</tr>';
+				return '<tr clazz="unitBox">'+html+'</tr>';
 			}
 		},
 		

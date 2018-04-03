@@ -75,13 +75,13 @@ public class PageTag extends TagSupport {
         for (int j = 1; j <= 9 && k <= pageBean.getPageCount(); k++, j++) {
             if (pageBean.getCurrentPage() == k) {
                 // str.append
-                // ("<a class=\"on\" href=\"javascript:void(0);\" onclick=\"fenye('" + k + "','" + pageInfo.getRowsOfPage() + "');\" >" + k + "</a>");
-                str.append("<a class=\"selectPnum\" href='").append(url).append("?pageNum=").append(k)
+                // ("<a clazz=\"on\" href=\"javascript:void(0);\" onclick=\"fenye('" + k + "','" + pageInfo.getRowsOfPage() + "');\" >" + k + "</a>");
+                str.append("<a clazz=\"selectPnum\" href='").append(url).append("?pageNum=").append(k)
                         .append(parameter).append("'>").append(k).append("</a>  ");
             } else {
                 // str.append
                 // ("<a href=\"javascript:void(0);\" onclick=\"fenye('" + k + "','" + pageInfo.getRowsOfPage() + "');\">" + k + "</a>");
-                str.append("<a class=\"onPnum\" href='").append(url).append("?pageNum=").append(k).append(parameter)
+                str.append("<a clazz=\"onPnum\" href='").append(url).append("?pageNum=").append(k).append(parameter)
                         .append("'>").append(k).append("</a>  ");
             }
         }

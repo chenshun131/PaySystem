@@ -7,7 +7,7 @@
    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
 	<!-- scan for mappers and let them be autowired -->
-	<!-- <bean class="org.mybatis.spring1.mapper.MapperScannerConfigurer"> <property name="basePackage" value="mybatis.mapper" /> </bean> -->
+	<!-- <bean clazz="org.mybatis.spring1.mapper.MapperScannerConfigurer"> <property name="basePackage" value="mybatis.mapper" /> </bean> -->
 	<!-- 基于Druid数据库链接池的数据源配置 -->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="clone">
 		<!-- 基本属性driverClassName、 url、user、password -->

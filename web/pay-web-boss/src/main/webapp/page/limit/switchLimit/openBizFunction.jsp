@@ -32,7 +32,7 @@
         
       <%--   <fieldset>
          <legend>POS业务功能</legend>
-            <div class="unit">
+            <div clazz="unit">
                 <div style="float: left; width: 10%;">
                     <label style="width: 90px;"></label>
                 </div>

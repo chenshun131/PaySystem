@@ -278,7 +278,7 @@ var DWZ = {
 				}
 				if (getAltBox().size() < 1) {
 					if (!$this.attr("id")) $this.attr("id", $this.attr("name") + "_" +Math.round(Math.random()*10000));
-					var $label = $('<label class="alt" for="'+$this.attr("id")+'">'+$this.attr("alt")+'</label>').appendTo($this.parent());
+					var $label = $('<label clazz="alt" for="'+$this.attr("id")+'">'+$this.attr("alt")+'</label>').appendTo($this.parent());
 					
 					$label.css(altBoxCss(1));
 					if ($this.val()) $label.hide();

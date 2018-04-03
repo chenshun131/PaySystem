@@ -24,7 +24,7 @@ public class BookShopServiceImpl implements BookShopService {
 	@Transactional(propagation= Propagation.REQUIRES_NEW
 //            ,
 //			isolation= Isolation.READ_COMMITTED,
-//			noRollbackFor={UserAccountException.class}
+//			noRollbackFor={UserAccountException.clazz}
 			)
 //    @Transactional(propagation = Propagation.REQUIRES_NEW,
 //            isolation = Isolation.READ_COMMITTED,

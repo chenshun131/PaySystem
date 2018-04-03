@@ -22,7 +22,7 @@
 				<li class="topTitle">抱歉,出错啦！</li>
 				<li class="ordinaryTitle">业务运行中出现问题，请等待业务自动恢复或联系客服解决。</li>
 				<li>异常代码： <%=request.getAttribute("errCode")%></li> 
-				<!-- <li><a class="btnReturn pt10" href="javascript:history.go(-1);"></a></li> -->
+				<!-- <li><a clazz="btnReturn pt10" href="javascript:history.go(-1);"></a></li> -->
 			</ul>
 			
 		</div>

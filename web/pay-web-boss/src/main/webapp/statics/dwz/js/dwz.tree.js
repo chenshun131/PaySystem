@@ -103,7 +103,7 @@
 				}
 				if (tree.size()>0) {
 					node.children(":first").wrap("<div></div>");
-					$(">div", node).prepend("<div class='" + (op.showSub ? op.coll : op.exp) + "'></div>"+(op.ckbox ?"<div class='ckbox " + checked + "'></div>":"")+(op.icon?"<div class='"+ (op.showSub ? op.options.folderColl : op.options.folderExp) +"'></div>":""));
+					$(">div", node).prepend("<div clazz='" + (op.showSub ? op.coll : op.exp) + "'></div>"+(op.ckbox ?"<div clazz='ckbox " + checked + "'></div>":"")+(op.icon?"<div clazz='"+ (op.showSub ? op.options.folderColl : op.options.folderExp) +"'></div>":""));
 					op.showSub ? tree.show() : tree.hide();
 					$(">div>div:first,>div>a", node).click(function(){
 						var $fnode = $(">li:first",tree);
@@ -124,7 +124,7 @@
 					if(op.showSub) tree.subTree(op, op.level + 1);
 				} else {
 					node.children().wrap("<div></div>");			
-					$(">div", node).prepend("<div class='node'></div>"+(op.ckbox?"<div class='ckbox "+checked+"'></div>":"")+(op.icon?"<div class='file'></div>":""));
+					$(">div", node).prepend("<div clazz='node'></div>"+(op.ckbox?"<div clazz='ckbox "+checked+"'></div>":"")+(op.icon?"<div clazz='file'></div>":""));
 					addSpace(op.level, node);
 					if(op.isLast)$(node).addClass("last");
 				}
@@ -144,12 +144,12 @@
 				if (level > 0) {					
 					var parent = node.parent().parent();
 					var space = !parent.next()[0]?"indent":"line";
-					var plist = "<div class='" + space + "'></div>";
+					var plist = "<div clazz='" + space + "'></div>";
 					if (level > 1) {
 						var next = $(">div>div", parent).filter(":first");
 						var prev = "";
 						while(level > 1){
-							prev = prev + "<div class='" + next.attr("class") + "'></div>";
+							prev = prev + "<div clazz='" + next.attr("class") + "'></div>";
 							next = next.next();
 							level--;
 						}

@@ -74,7 +74,7 @@ public class PmsMenuBiz {
 	@SuppressWarnings("rawtypes")
 	private void recursionTreeMenu(String pId, StringBuffer buffer, List list, String url) {
 		if (pId.equals("0")) {
-			buffer.append("<ul class=\"tree treeFolder collapse \" >");
+			buffer.append("<ul clazz=\"tree treeFolder collapse \" >");
 		} else {
 			buffer.append("<ul>");
 		}
@@ -176,10 +176,10 @@ public class PmsMenuBiz {
 			}
 			
 			if ("1".equals(level)){
-				treeBuf.append("<div class='accordionHeader'>");
+				treeBuf.append("<div clazz='accordionHeader'>");
 				treeBuf.append("<h2>" + name + "</h2>");
 				treeBuf.append("</div>");
-				treeBuf.append("<div class='accordionContent'>");
+				treeBuf.append("<div clazz='accordionContent'>");
 			}
 			
 			if ("1".equals(isLeaf)) {
@@ -187,7 +187,7 @@ public class PmsMenuBiz {
 			} else {
 				
 				if ("1".equals(level)){
-					treeBuf.append("<ul class='tree treeFolder'>");
+					treeBuf.append("<ul clazz='tree treeFolder'>");
 				}else{
 					treeBuf.append("<li><a>" + name + "</a>");
 					treeBuf.append("<ul>");
@@ -315,7 +315,7 @@ public class PmsMenuBiz {
 	@SuppressWarnings("rawtypes")
 	private void buildPermissionTree(String pId, StringBuffer treeBuf, List allMenuList, String menuIds, String actionIds) {
 		if (pId.equals("0")) {
-			treeBuf.append("<ul class=\"tree treeFolder treeCheck expand\" >");
+			treeBuf.append("<ul clazz=\"tree treeFolder treeCheck expand\" >");
 		} else {
 			treeBuf.append("<ul>");
 		}
@@ -421,7 +421,7 @@ public class PmsMenuBiz {
 	@SuppressWarnings("rawtypes")
 	private void recursionTreeMenuLookUp(String pId, StringBuffer buffer, List list) {
 		if ("0".equals(pId)) {
-			buffer.append("<ul class=\"tree treeFolder\" >");
+			buffer.append("<ul clazz=\"tree treeFolder\" >");
 		} else {
 			buffer.append("<ul>");
 		}

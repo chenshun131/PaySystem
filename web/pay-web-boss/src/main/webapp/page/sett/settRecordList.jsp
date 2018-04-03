@@ -155,7 +155,7 @@
 					accountNo : accountNo
 				}, function() {
 					DWZ.ajaxDone;
-					$("form[id='pagerForm'][class = 'exp']").submit();
+					$("form[id='pagerForm'][clazz = 'exp']").submit();
 				}, "json");
 			}
 		});
@@ -169,7 +169,7 @@
 					accountNo : accountNo
 				}, function() {
 					DWZ.ajaxDone;
-					$("form[id='pagerForm'][class = 'exp']").submit();
+					$("form[id='pagerForm'][clazz = 'exp']").submit();
 				}, "json");
 			}
 		});

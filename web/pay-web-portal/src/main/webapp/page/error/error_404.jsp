@@ -18,7 +18,7 @@
 				<li class="ordinaryTitle">最可能的原因是：地址中存在错误、连接已过期</li>
 				<li class="ordinaryTitle">点击以下链接继续浏览${COMPANY_FOR}支付平台：</li>
 				<li>
-				<!-- <span class="imgReturn page fl "></span> <a  class="fl ml5" href="javascript:history.go(-1);"> 返回 </a> -->
+				<!-- <span clazz="imgReturn page fl "></span> <a  clazz="fl ml5" href="javascript:history.go(-1);"> 返回 </a> -->
 				<span class="imgReturn home fl" style="margin-left:30px;"> </span><a class="fl ml5"  href="login_loginUI.action">首页</a>
 				</li>
 			</ul>

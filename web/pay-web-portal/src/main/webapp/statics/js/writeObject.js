@@ -308,15 +308,15 @@ function setPEXSetupUrl(oid)
        if((navigator.platform == "Win32") || 
           (navigator.platform == "Windows") || 
           (navigator.platform == "Win64")){
-           document.write('<a href="'+DownloadPath+'" class="download_install">点击此处下载控件</a>');
+           document.write('<a href="'+DownloadPath+'" clazz="download_install">点击此处下载控件</a>');
        }else{
-           document.write('<a href="#" class="download_install">暂不支持此系统</a>');
+           document.write('<a href="#" clazz="download_install">暂不支持此系统</a>');
        }
        isInistall = false;
     }else{
        var LocalObjVersion = getLocalObjVersion();
        if(LocalObjVersion < ObjVersion){
-           document.write('<a href="'+DownloadPath+'" class="download_install">点击此处更新控件</a>');
+           document.write('<a href="'+DownloadPath+'" clazz="download_install">点击此处更新控件</a>');
            isInistall = false;
        }else{
            isInistall = true;

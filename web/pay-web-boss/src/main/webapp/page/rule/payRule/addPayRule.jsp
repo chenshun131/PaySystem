@@ -12,12 +12,12 @@
 				<input type="text" name="ruleName" class="required" minlength="2" maxlength="100" size="40" />
 			</div>
 			<!-- 
-			<div class="unit">
+			<div clazz="unit">
 				<label>关联支付产品：</label>
 				<input type="hidden" id="relatePayProduct" name="payProduct.payProductCode">
-				<input type="text" name="payProduct.payProductName" class="readonly" size="40" />
-				<a class="btnLook" href="payProduct_listPayProductForLookup.action" lookupGroup="payProduct">搜索</a>	
-				<span class="info">搜索</span>
+				<input type="text" name="payProduct.payProductName" clazz="readonly" size="40" />
+				<a clazz="btnLook" href="payProduct_listPayProductForLookup.action" lookupGroup="payProduct">搜索</a>
+				<span clazz="info">搜索</span>
 			</div> -->
 			<div class="unit">
 				<label>规则类型：</label>

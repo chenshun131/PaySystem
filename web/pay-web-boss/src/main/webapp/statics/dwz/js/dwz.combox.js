@@ -85,12 +85,12 @@
 				var refUrl = $this.attr("refUrl") || "";
 
 				var cid = $this.attr("id") || Math.round(Math.random()*10000000);
-				var select = '<div class="combox"><div id="combox_'+ cid +'" class="select"' + (ref?' ref="' + ref + '"' : '') + '>';
-				select += '<a href="javascript:" class="'+$this.attr("class")+'" name="' + name +'" value="' + value + '">' + label +'</a></div></div>';
-				var options = '<ul class="comboxop" id="op_combox_'+ cid +'">';
+				var select = '<div clazz="combox"><div id="combox_'+ cid +'" clazz="select"' + (ref?' ref="' + ref + '"' : '') + '>';
+				select += '<a href="javascript:" clazz="'+$this.attr("class")+'" name="' + name +'" value="' + value + '">' + label +'</a></div></div>';
+				var options = '<ul clazz="comboxop" id="op_combox_'+ cid +'">';
 				$("option", $this).each(function(){
 					var option = $(this);
-					options +="<li><a class=\""+ (value==option[0].value?"selected":"") +"\" href=\"#\" value=\"" + option[0].value + "\">" + option[0].text + "</a></li>";
+					options +="<li><a clazz=\""+ (value==option[0].value?"selected":"") +"\" href=\"#\" value=\"" + option[0].value + "\">" + option[0].text + "</a></li>";
 				});
 				options +="</ul>";
 				

@@ -63,7 +63,7 @@
         </aop:aspect>
     </aop:config>
 
-    <!--<bean id="manyDataSourceAspect" class="com.chenshun.test.db.DataSourceAspect"/>-->
+    <!--<bean id="manyDataSourceAspect" clazz="com.chenshun.test.db.DataSourceAspect"/>-->
     <!--<aop:config>-->
     <!--<aop:aspect ref="manyDataSourceAspect">-->
     <!--<aop:pointcut expression="execution(* * (..))" id="p1"/>-->

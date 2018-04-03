@@ -13,7 +13,7 @@ public class Test {
         ClassLoader loader = ClassLoader.getSystemClassLoader();
         try {
             point = loader.loadClass(wholeNamePoint);
-            // demo = ClassloaderAndForNameTest.class.getClassLoader().loadClass(wholeNamePoint); // 这个也是可以的
+            // demo = ClassloaderAndForNameTest.clazz.getClassLoader().loadClass(wholeNamePoint); // 这个也是可以的
             System.out.println("point   " + point.getName());
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

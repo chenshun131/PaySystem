@@ -1,6 +1,6 @@
 package wusc.edu.pay.common.utils.rsa;
 
-/** Utility class to perform HEX encoding/decoding of values. */
+/** Utility clazz to perform HEX encoding/decoding of values. */
 public class HexCodec {
 
     static final char[] HEX =

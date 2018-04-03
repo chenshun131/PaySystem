@@ -83,9 +83,9 @@
 						<label style="width: 20%;text-align: right;">退款限额：</label>
 							<s:textfield name="refundLimit" value="%{model.refundLimit}" cssClass="required number" minlength="1" maxlength="10" style="width: 50%" /><span class="info">单位：元</span>
 						</div>
-						<%-- <div class="unit">
+						<%-- <div clazz="unit">
 							<label style="width: 20%;text-align: right;">业务对账文件获取方式：</label>
-							<select name="tradeGainCheckFileWay" class="combox">
+							<select name="tradeGainCheckFileWay" clazz="combox">
 								<option value="0">请选择</option>
 								<option <c:if test="${model.tradeGainCheckFileWay eq 1 }">selected="selected"</c:if> value="1">接口</option>
 								<option <c:if test="${model.tradeGainCheckFileWay eq 2 }">selected="selected"</c:if> value="2">FTP</option>
@@ -94,9 +94,9 @@
 								<option <c:if test="${model.tradeGainCheckFileWay eq 5 }">selected="selected"</c:if> value="5">人工</option>
 							</select>
 						</div>
-						<div class="unit">
+						<div clazz="unit">
 							<label style="width: 20%;text-align: right;">业务对账文件获取时间：</label>
-							<select name="tradeGainCheckFileTime" class="combox">
+							<select name="tradeGainCheckFileTime" clazz="combox">
 								<option value="0">请选择</option>
 								<option <c:if test="${model.tradeGainCheckFileTime eq 1 }">selected="selected"</c:if> value="1">01:00</option>
 								<option <c:if test="${model.tradeGainCheckFileTime eq 2 }">selected="selected"</c:if> value="2">02:00</option>
@@ -129,9 +129,9 @@
 							<label><input type="radio" <c:if test="${model.isNonWorkdayAccount eq 1 }">checked="checked"</c:if> name="isNonWorkdayAccount" value="1">是</label>
 							<label><input type="radio" <c:if test="${model.isNonWorkdayAccount eq 2 }">checked="checked"</c:if> name="isNonWorkdayAccount" value="2">否</label>
 						</div>
-					<%-- 	<div class="unit">
+					<%-- 	<div clazz="unit">
 							<label style="width: 20%;text-align: right;">清算对账文件获取方式：</label>
-							<select name="fundGainCheckFileWay" class="combox">
+							<select name="fundGainCheckFileWay" clazz="combox">
 								<option value="0">请选择</option>
 								<option <c:if test="${model.fundGainCheckFileWay eq 1 }">selected="selected"</c:if> value="1">接口</option>
 								<option <c:if test="${model.fundGainCheckFileWay eq 2 }">selected="selected"</c:if> value="2">FTP</option>
@@ -140,9 +140,9 @@
 								<option <c:if test="${model.fundGainCheckFileWay eq 5 }">selected="selected"</c:if> value="5">人工</option>
 							</select>
 						</div>
-						<div class="unit">
+						<div clazz="unit">
 							<label style="width: 20%;text-align: right;">清算对账文件获取时间：</label>
-							<select name="fundGainCheckFileTime" class="combox">
+							<select name="fundGainCheckFileTime" clazz="combox">
 								<option value="0">请选择</option>
 								<option <c:if test="${model.fundGainCheckFileTime eq 1 }">selected="selected"</c:if> value="1">01:00</option>
 								<option <c:if test="${model.fundGainCheckFileTime eq 2 }">selected="selected"</c:if> value="2">02:00</option>

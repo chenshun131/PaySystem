@@ -61,8 +61,8 @@ public class AvgUDAF extends AbstractGenericUDAFResolver {
         }
 
         /**
-         * This function should be overriden in every sub class
-         * And the sub class should call super.init(m, parameters) to get mode set.
+         * This function should be overriden in every sub clazz
+         * And the sub clazz should call super.init(m, parameters) to get mode set.
          */
         @Override
         public ObjectInspector init(Mode m, ObjectInspector[] parameters) throws HiveException {

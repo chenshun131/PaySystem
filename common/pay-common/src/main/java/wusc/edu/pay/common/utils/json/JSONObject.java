@@ -955,7 +955,7 @@ public class JSONObject {
 
     private void populateMap(Object bean) {
         Class klass = bean.getClass();
-        // If klass is a System class then set includeSuperClass to false.
+        // If klass is a System clazz then set includeSuperClass to false.
         boolean includeSuperClass = klass.getClassLoader() != null;
         Method[] methods = (includeSuperClass) ? klass.getMethods() : klass.getDeclaredMethods();
         for (Method method : methods) {

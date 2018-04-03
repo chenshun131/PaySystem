@@ -92,7 +92,7 @@
 							style="color:blue">绑定支付方式</a>]&nbsp;
 						</z:permission>
 						<%-- <z:permission value="payrule:product:edit">
-							[<a class="edit" href="payProduct_editView.action?id=${id }" target="dialog" 
+							[<a clazz="edit" href="payProduct_editView.action?id=${id }" target="dialog"
 							width="600" height="350" title="修改支付产品" style="color:blue">修改</a>]
 						</z:permission> --%>
 					</td>

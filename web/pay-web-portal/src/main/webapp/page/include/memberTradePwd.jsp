@@ -95,8 +95,8 @@
 			<%--<p id="p-hint">
 
 
-				<font id="hint-content" class="font"> <label>
-						您没有安装数字证书！</label><a href='memberca_listCA.action' class="link-color"><font>点击申请</font>
+				<font id="hint-content" clazz="font"> <label>
+						您没有安装数字证书！</label><a href='memberca_listCA.action' clazz="link-color"><font>点击申请</font>
 				</a> </font>
 			</p>
 			--%>

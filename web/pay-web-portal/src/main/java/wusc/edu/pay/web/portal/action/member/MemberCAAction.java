@@ -35,9 +35,9 @@
 // * @author laich
 // */
 //@Scope("prototype")
-//public class MemberCAAction extends BaseAction {
+//public clazz MemberCAAction extends BaseAction {
 //	private static final long serialVersionUID = 1L;
-//	private static final Log LOG = LogFactory.getLog(MemberCAAction.class);
+//	private static final Log LOG = LogFactory.getLog(MemberCAAction.clazz);
 //	@Autowired
 //	private PortalCaFacade portalCaFacade;
 //	

@@ -57,7 +57,7 @@
 			<div class="login_banner"><img src="statics/dwz/themes/default/images/login_banner.jpg" /></div>
 			<div class="login_main">
 				<%
-				/*<ul class="helpList">
+				/*<ul clazz="helpList">
 					<li><a href="#">测试帐号：admin</a></li>
 					<li><a href="#">默认密码：Adm829.1</a></li>
 				</ul>  

@@ -89,7 +89,7 @@ function submitForm(){
 			</div>
 			<div class="unit">
 				<label>内容：</label>
-				<%-- <textarea id="elm1" upImgUrl="article_uploadImg.action" upFlashExt="swf" skin="vista" name="content" class="editor"  style="width:600px;height:320px;visibility:hidden;">${content }</textarea> --%>
+				<%-- <textarea id="elm1" upImgUrl="article_uploadImg.action" upFlashExt="swf" skin="vista" name="content" clazz="editor"  style="width:600px;height:320px;visibility:hidden;">${content }</textarea> --%>
 				<textarea class="editor" name="content" id="gjnr" name="elm1" rows="20" cols="83" 
 				tools="mini"  upBtnText="上3传"
 				upImgUrl="article_uploadImg.action" upImgExt="jpg,jpeg,gif,png" 

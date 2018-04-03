@@ -6,16 +6,16 @@
 <div class="pageHeader">
 	<form rel="pagerForm" onsubmit="return dwzSearch(this, 'dialog');" action="bank_lookupBankList.action" method="post">
 	<!-- 
-	<div class="searchBar">
-		<table class="searchContent">
+	<div clazz="searchBar">
+		<table clazz="searchContent">
 			<tr>
 				<td>
 					协议ID：<input type="text" name="shortName" value="" size="30" alt="精确搜索" />
 				</td>
 				<td>
-				<div class="subBar">
+				<div clazz="subBar">
 					<ul>
-						<li><div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div></li>
+						<li><div clazz="buttonActive"><div clazz="buttonContent"><button type="submit">查询</button></div></div></li>
 					</ul>
 				</div>
 				</td>

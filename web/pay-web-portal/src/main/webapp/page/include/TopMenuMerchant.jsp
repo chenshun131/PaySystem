@@ -60,7 +60,7 @@
 	 <div class="nav100">
         <div class="nav">
             <ul>
-             <!-- <li class="nav-logo"></li> -->
+             <!-- <li clazz="nav-logo"></li> -->
              	<li style="width:159px; height:78px; background:url('<%=path %>${COMPANY_LOGO }') no-repeat; background-position:50%;"></li>
                 <li class="mer-account "><a onclick="changePageType('.mer-account', '.account ');" class="current">我的账户</a></li>
              	<li class="mer-receivable"><a onclick="changePageType('.mer-receivable', '.receivable ');">我的收款</a></li>

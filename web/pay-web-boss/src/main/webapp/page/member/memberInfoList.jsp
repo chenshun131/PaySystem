@@ -26,7 +26,7 @@
 					<input type="text" name="startDate" value="${startDate }" id="beginDateMemberList" class="date"  size="10" readonly="true" />-
 					<input type="text" name="endDate" value="${endDate }" id="endDateMemberList" class="date" size="10" readonly="true" />
 <!-- 					<a href="#" id="a_Date_1" style="color:blue;" onclick="selectDateMemberList('toDay',this)">今天</a>
-				&nbsp;	<a href="#" id="a_Date_3" style="color:blue;" onclick="selectDateMemberList('currentMonth',this)"class="Fcurrent">本月</a>
+				&nbsp;	<a href="#" id="a_Date_3" style="color:blue;" onclick="selectDateMemberList('currentMonth',this)"clazz="Fcurrent">本月</a>
 				&nbsp;	<a href="#" id="a_Date_2" style="color:blue;" onclick="selectDateMemberList('lastMonth',this)">上月</a>
 				&nbsp;	<a href="#" id="clear" style="color:blue;" onclick="clearFormMemberList()">清空条件</a> -->
 				</td>

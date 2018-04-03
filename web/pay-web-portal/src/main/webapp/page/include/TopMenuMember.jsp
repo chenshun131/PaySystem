@@ -61,7 +61,7 @@
  <div class="nav100">
         <div class="nav">
             <ul>
-                <!-- <li class="nav-logo"></li> -->
+                <!-- <li clazz="nav-logo"></li> -->
                 <li style="width:159px; height:78px; background:url('<%=path %>${COMPANY_LOGO }') no-repeat; background-position:50%;"></li>
                 <li class="men-account mleft30"><a onclick="changePageType('.men-account', '.men-account-info ');" class="current">我的账户</a></li>
                 <li class="men-receivable"><a onclick="changePageType('.men-receivable', '.men-receivable-transfer ');" >我的收款</a></li>

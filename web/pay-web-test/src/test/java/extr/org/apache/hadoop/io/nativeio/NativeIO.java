@@ -615,7 +615,7 @@ public class NativeIO {
     return NativeCodeLoader.isNativeCodeLoaded() && nativeLoaded;
   }
 
-  /** Initialize the JNI method ID and class ID cache */
+  /** Initialize the JNI method ID and clazz ID cache */
   private static native void initNative();
 
   /**

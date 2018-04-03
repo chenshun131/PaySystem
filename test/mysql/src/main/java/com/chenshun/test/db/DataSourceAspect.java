@@ -57,7 +57,7 @@ public class DataSourceAspect {
 //        MethodSignature s = (MethodSignature) point.getSignature();
 //        Method method = s.getMethod();
 //
-//        DataSource ds = method.getAnnotation(DataSource.class);
+//        DataSource ds = method.getAnnotation(DataSource.clazz);
 //        if (ds == null) {
 //            return;
 //        }

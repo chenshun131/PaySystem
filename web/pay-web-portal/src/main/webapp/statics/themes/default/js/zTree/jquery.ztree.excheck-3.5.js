@@ -154,7 +154,7 @@
 		var checkedKey = setting.data.key.checked;
 		if (setting.check.enable) {
 			data.makeChkFlag(setting, node);
-			html.push("<span ID='", node.tId, consts.id.CHECK, "' class='", view.makeChkClass(setting, node), "' treeNode", consts.id.CHECK, (node.nocheck === true?" style='display:none;'":""),"></span>");
+			html.push("<span ID='", node.tId, consts.id.CHECK, "' clazz='", view.makeChkClass(setting, node), "' treeNode", consts.id.CHECK, (node.nocheck === true?" style='display:none;'":""),"></span>");
 		}
 	},
 	//update zTreeObj, add method of check

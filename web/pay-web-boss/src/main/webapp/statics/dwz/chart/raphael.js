@@ -5378,11 +5378,11 @@ window.Raphael.vml && function (R) {
             try {
                 !doc.namespaces.rvml && doc.namespaces.add("rvml", "urn:schemas-microsoft-com:vml");
                 createNode = function (tagName) {
-                    return doc.createElement('<rvml:' + tagName + ' class="rvml">');
+                    return doc.createElement('<rvml:' + tagName + ' clazz="rvml">');
                 };
             } catch (e) {
                 createNode = function (tagName) {
-                    return doc.createElement('<' + tagName + ' xmlns="urn:schemas-microsoft.com:vml" class="rvml">');
+                    return doc.createElement('<' + tagName + ' xmlns="urn:schemas-microsoft.com:vml" clazz="rvml">');
                 };
             }
         };

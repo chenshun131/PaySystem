@@ -17,8 +17,8 @@ package wusc.edu.pay.web.boss.action;
 // */
 //@SuppressWarnings("serial")
 //@Scope("prototype")
-//public class NotifyRecordLogAction extends BossBaseAction{
-//	private static Log log = LogFactory.getLog(NotifyRecordLogAction.class);
+//public clazz NotifyRecordLogAction extends BossBaseAction{
+//	private static Log log = LogFactory.getLog(NotifyRecordLogAction.clazz);
 //	/**
 //	 * 可按条件查询并分页列出通知记录信息.
 //	 * @return listNotifyRecordLog .

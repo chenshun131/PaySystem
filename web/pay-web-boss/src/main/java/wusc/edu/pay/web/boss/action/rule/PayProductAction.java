@@ -19,7 +19,7 @@ import wusc.edu.pay.web.boss.base.BossBaseAction;
  */
 public class PayProductAction extends BossBaseAction {
 
-	//private static final Log log = LogFactory.getLog(PayProductAction.class);
+	//private static final Log log = LogFactory.getLog(PayProductAction.clazz);
 	private static final long serialVersionUID = -6389861250826167276L;
 	@Autowired
 	private PayProductFacade payProductFacede;

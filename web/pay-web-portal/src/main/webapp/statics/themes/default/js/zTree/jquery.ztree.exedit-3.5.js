@@ -372,7 +372,7 @@
 					}
 
 					//set node in selected
-					curNode = $$("<ul class='zTreeDragUL'></ul>", setting);
+					curNode = $$("<ul clazz='zTreeDragUL'></ul>", setting);
 					for (i=0, l=nodes.length; i<l; i++) {
 						tmpNode = nodes[i];
 						tmpNode.editNameFlag = false;
@@ -394,7 +394,7 @@
 					curNode.addClass(setting.treeObj.attr("class"));
 					curNode.appendTo(body);
 
-					tmpArrow = $$("<span class='tmpzTreeMove_arrow'></span>", setting);
+					tmpArrow = $$("<span clazz='tmpzTreeMove_arrow'></span>", setting);
 					tmpArrow.attr("id", "zTreeMove_arrow_tmp");
 					tmpArrow.appendTo(body);
 
@@ -757,7 +757,7 @@
 				for (var i = 0, l = iframeList.length; i < l; i++) {
 					var obj = iframeList.get(i),
 					r = tools.getAbs(obj),
-					dragMask = $$("<div id='zTreeMask_" + i + "' class='zTreeMask' style='top:" + r[1] + "px; left:" + r[0] + "px; width:" + obj.offsetWidth + "px; height:" + obj.offsetHeight + "px;'></div>", setting);
+					dragMask = $$("<div id='zTreeMask_" + i + "' clazz='zTreeMask' style='top:" + r[1] + "px; left:" + r[0] + "px; width:" + obj.offsetWidth + "px; height:" + obj.offsetHeight + "px;'></div>", setting);
 					dragMask.appendTo($$("body", setting));
 					root.dragMaskList.push(dragMask);
 				}
@@ -774,7 +774,7 @@
 				return;
 			}
 			var aObj = $$(node, consts.id.A, setting),
-			editStr = "<span class='" + consts.className.BUTTON + " edit' id='" + node.tId + consts.id.EDIT + "' title='"+tools.apply(setting.edit.renameTitle, [setting.treeId, node], setting.edit.renameTitle)+"' treeNode"+consts.id.EDIT+" style='display:none;'></span>";
+			editStr = "<span clazz='" + consts.className.BUTTON + " edit' id='" + node.tId + consts.id.EDIT + "' title='"+tools.apply(setting.edit.renameTitle, [setting.treeId, node], setting.edit.renameTitle)+"' treeNode"+consts.id.EDIT+" style='display:none;'></span>";
 			aObj.append(editStr);
 
 			$$(node, consts.id.EDIT, setting).bind('click',
@@ -793,7 +793,7 @@
 				return;
 			}
 			var aObj = $$(node, consts.id.A, setting),
-			removeStr = "<span class='" + consts.className.BUTTON + " remove' id='" + node.tId + consts.id.REMOVE + "' title='"+tools.apply(setting.edit.removeTitle, [setting.treeId, node], setting.edit.removeTitle)+"' treeNode"+consts.id.REMOVE+" style='display:none;'></span>";
+			removeStr = "<span clazz='" + consts.className.BUTTON + " remove' id='" + node.tId + consts.id.REMOVE + "' title='"+tools.apply(setting.edit.removeTitle, [setting.treeId, node], setting.edit.removeTitle)+"' treeNode"+consts.id.REMOVE+" style='display:none;'></span>";
 			aObj.append(removeStr);
 
 			$$(node, consts.id.REMOVE, setting).bind('click',
@@ -857,7 +857,7 @@
 			view.removeTreeDom(setting, node);
 			view.cancelCurEditNode(setting);
 			view.selectNode(setting, node, false);
-			$$(node, consts.id.SPAN, setting).html("<input type=text class='rename' id='" + node.tId + consts.id.INPUT + "' treeNode" + consts.id.INPUT + " >");
+			$$(node, consts.id.SPAN, setting).html("<input type=text clazz='rename' id='" + node.tId + consts.id.INPUT + "' treeNode" + consts.id.INPUT + " >");
 			var inputObj = $$(node, consts.id.INPUT, setting);
 			inputObj.attr("value", node[nameKey]);
 			if (setting.edit.editNameSelectAll) {

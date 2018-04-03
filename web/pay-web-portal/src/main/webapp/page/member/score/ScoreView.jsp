@@ -54,12 +54,12 @@ $(document).ready(function() { setPageType('.men-help', '.men-help-score ');  })
 				<h4>如何获得积分？</h4>
 				<ul>
 					<li>
-						<!-- <p class="imgRegister"></p> -->
+						<!-- <p clazz="imgRegister"></p> -->
 						<i class="iconfont">&#xe60f;</i>
 						<p align="center">注册</p>
 					</li>
 					<li>
-						<!-- <p class="imgLogin"></p> -->
+						<!-- <p clazz="imgLogin"></p> -->
 						<i class="iconfont">&#xe610;</i>
 						<p align="center">登录</p>
 					</li>
@@ -101,17 +101,17 @@ $(document).ready(function() { setPageType('.men-help', '.men-help-score ');  })
 					<div class="clear"></div>
 				</div>
 				<%--
-				<div class="details">
-					<div class="head">
+				<div clazz="details">
+					<div clazz="head">
 						<h3>积分详情</h3>
 						<img src="<%=path%>/statics/themes/default/images/ada-icon1.gif" />
-						<div class="clear"></div>
+						<div clazz="clear"></div>
 					</div>
 
-					<div class="more">
+					<div clazz="more">
 						<img src="<%=path%>/statics/themes/default/images/ada-img4.jpg" />
 						<p>即将开放，敬请期待</p>
-						<div class="clear"></div>
+						<div clazz="clear"></div>
 					</div>
 				</div>
 			--%>

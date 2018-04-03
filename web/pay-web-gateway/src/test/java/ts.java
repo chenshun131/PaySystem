@@ -3,7 +3,7 @@
 //
 //import wusc.edu.pay.common.utils.DigestUtil;
 
-//public class ts {
+//public clazz ts {
 
 	/*public static void main(String[] args) throws UnsupportedEncodingException {
 		String p1_MerchantNo = "1210000016"; // 得到商户编号

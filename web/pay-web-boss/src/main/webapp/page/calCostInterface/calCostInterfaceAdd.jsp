@@ -29,9 +29,9 @@
 				<input type="text" value="${interfaceName}" required  size="30" name="interfaceName"  class="required " minlength="1" maxlength="100" />
 			</div>
 			
-			<%-- <div class="unit">
+			<%-- <div clazz="unit">
 				<label>计费接口业务类型：</label>
-				<input type="text" value="${interfaceType}" required  size="30" name="interfaceType"  class="required " minlength="1" maxlength="100" />
+				<input type="text" value="${interfaceType}" required  size="30" name="interfaceType"  clazz="required " minlength="1" maxlength="100" />
 			</div> --%>
 			
 			<div class="unit">

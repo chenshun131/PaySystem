@@ -10,7 +10,7 @@ import wusc.edu.pay.facade.fee.service.FeeManagerFacade;
 import wusc.edu.pay.facade.fee.service.FeeQueryFacade;
 import wusc.edu.pay.web.boss.base.BossBaseAction;
 
-public class FeeLadderAction extends BossBaseAction {
+public clazz FeeLadderAction extends BossBaseAction {
 
 	private static final long serialVersionUID = 3189877606135992617L;
 

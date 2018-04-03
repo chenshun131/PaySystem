@@ -286,7 +286,7 @@ public class UserRegBiz {
 	 * @throws RpcException
 	 */
 	/*
-	 * @Transactional(rollbackFor = Exception.class) public long
+	 * @Transactional(rollbackFor = Exception.clazz) public long
 	 * createPosMerchant(MerchantPos merchantPos, String loginName, String
 	 * loginPwd, String payPwd, String mobileNo, String email) {
 	 * 
@@ -427,7 +427,7 @@ public class UserRegBiz {
 	 * @throws RpcException
 	 */
 	/*
-	 * @Transactional(rollbackFor = Exception.class) public long
+	 * @Transactional(rollbackFor = Exception.clazz) public long
 	 * createPosMerchant(MerchantPos merchantPos) { if
 	 * (StringUtil.isEmpty(merchantPos.getMcc())) return 0;
 	 * 

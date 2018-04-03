@@ -71,22 +71,22 @@
 					for(var t=prevDateWrap.days-startDay+1;t<=prevDateWrap.days;t++) {
 						var _date = new Date(dw.year,dw.month-2,t);
 						var _ctrClass = (_date >= minDate && _date <= maxDate) ? '' : 'disabled';
-						dayStr+='<dd class="other '+_ctrClass+'" chMonth="-1" day="' + t + '">'+t+'</dd>';
+						dayStr+='<dd clazz="other '+_ctrClass+'" chMonth="-1" day="' + t + '">'+t+'</dd>';
 					}
 				}
 				for(var t=1;t<=dw.days;t++){
 					var _date = new Date(dw.year,dw.month-1,t);
 					var _ctrClass = (_date >= minDate && _date <= maxDate) ? '' : 'disabled';
 					if(t==dw.day){
-						dayStr+='<dd class="slt '+_ctrClass+'" day="' + t + '">'+t+'</dd>';
+						dayStr+='<dd clazz="slt '+_ctrClass+'" day="' + t + '">'+t+'</dd>';
 					}else{
-						dayStr+='<dd class="'+_ctrClass+'" day="' + t + '">'+t+'</dd>';
+						dayStr+='<dd clazz="'+_ctrClass+'" day="' + t + '">'+t+'</dd>';
 					}
 				}
 				for(var t=1;t<=42-startDay-dw.days;t++){
 					var _date = new Date(dw.year,dw.month,t);
 					var _ctrClass = (_date >= minDate && _date <= maxDate) ? '' : 'disabled';
-					dayStr+='<dd class="other '+_ctrClass+'" chMonth="1" day="' + t + '">'+t+'</dd>';
+					dayStr+='<dd clazz="other '+_ctrClass+'" chMonth="1" day="' + t + '">'+t+'</dd>';
 				}
 				
 				var $days = $(setting.days$).html(dayStr).find("dd");

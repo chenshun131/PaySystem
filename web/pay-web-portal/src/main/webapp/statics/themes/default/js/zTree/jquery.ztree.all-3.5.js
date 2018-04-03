@@ -1119,18 +1119,18 @@
 			var nameStr = data.getNodeName(setting, node),
 			name = setting.view.nameIsHTML ? nameStr : nameStr.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 			html.push("<span id='", node.tId, consts.id.ICON,
-				"' title='' treeNode", consts.id.ICON," class='", view.makeNodeIcoClass(setting, node),
+				"' title='' treeNode", consts.id.ICON," clazz='", view.makeNodeIcoClass(setting, node),
 				"' style='", view.makeNodeIcoStyle(setting, node), "'></span><span id='", node.tId, consts.id.SPAN,
 				"'>",name,"</span>");
 		},
 		makeDOMNodeLine: function(html, setting, node) {
-			html.push("<span id='", node.tId, consts.id.SWITCH,	"' title='' class='", view.makeNodeLineClass(setting, node), "' treeNode", consts.id.SWITCH,"></span>");
+			html.push("<span id='", node.tId, consts.id.SWITCH,	"' title='' clazz='", view.makeNodeLineClass(setting, node), "' treeNode", consts.id.SWITCH,"></span>");
 		},
 		makeDOMNodeMainAfter: function(html, setting, node) {
 			html.push("</li>");
 		},
 		makeDOMNodeMainBefore: function(html, setting, node) {
-			html.push("<li id='", node.tId, "' class='", consts.className.LEVEL, node.level,"' tabindex='0' hidefocus='true' treenode>");
+			html.push("<li id='", node.tId, "' clazz='", consts.className.LEVEL, node.level,"' tabindex='0' hidefocus='true' treenode>");
 		},
 		makeDOMNodeNameAfter: function(html, setting, node) {
 			html.push("</a>");
@@ -1143,7 +1143,7 @@
 			for (var f in fontcss) {
 				fontStyle.push(f, ":", fontcss[f], ";");
 			}
-			html.push("<a id='", node.tId, consts.id.A, "' class='", consts.className.LEVEL, node.level,"' treeNode", consts.id.A," onclick=\"", (node.click || ''),
+			html.push("<a id='", node.tId, consts.id.A, "' clazz='", consts.className.LEVEL, node.level,"' treeNode", consts.id.A," onclick=\"", (node.click || ''),
 				"\" ", ((url != null && url.length > 0) ? "href='" + url + "'" : ""), " target='",view.makeNodeTarget(node),"' style='", fontStyle.join(''),
 				"'");
 			if (tools.apply(setting.view.showTitle, [setting.treeId, node], setting.view.showTitle) && title) {html.push("title='", title.replace(/'/g,"&#39;").replace(/</g,'&lt;').replace(/>/g,'&gt;'),"'");}
@@ -1209,7 +1209,7 @@
 			return node[urlKey] ? node[urlKey] : null;
 		},
 		makeUlHtml: function(setting, node, html, content) {
-			html.push("<ul id='", node.tId, consts.id.UL, "' class='", consts.className.LEVEL, node.level, " ", view.makeUlLineClass(setting, node), "' style='display:", (node.open ? "block": "none"),"'>");
+			html.push("<ul id='", node.tId, consts.id.UL, "' clazz='", consts.className.LEVEL, node.level, " ", view.makeUlLineClass(setting, node), "' style='display:", (node.open ? "block": "none"),"'>");
 			html.push(content);
 			html.push("</ul>");
 		},
@@ -1832,7 +1832,7 @@
 		var checkedKey = setting.data.key.checked;
 		if (setting.check.enable) {
 			data.makeChkFlag(setting, node);
-			html.push("<span ID='", node.tId, consts.id.CHECK, "' class='", view.makeChkClass(setting, node), "' treeNode", consts.id.CHECK, (node.nocheck === true?" style='display:none;'":""),"></span>");
+			html.push("<span ID='", node.tId, consts.id.CHECK, "' clazz='", view.makeChkClass(setting, node), "' treeNode", consts.id.CHECK, (node.nocheck === true?" style='display:none;'":""),"></span>");
 		}
 	},
 	//update zTreeObj, add method of check
@@ -2676,7 +2676,7 @@
 					}
 
 					//set node in selected
-					curNode = $$("<ul class='zTreeDragUL'></ul>", setting);
+					curNode = $$("<ul clazz='zTreeDragUL'></ul>", setting);
 					for (i=0, l=nodes.length; i<l; i++) {
 						tmpNode = nodes[i];
 						tmpNode.editNameFlag = false;
@@ -2698,7 +2698,7 @@
 					curNode.addClass(setting.treeObj.attr("class"));
 					curNode.appendTo(body);
 
-					tmpArrow = $$("<span class='tmpzTreeMove_arrow'></span>", setting);
+					tmpArrow = $$("<span clazz='tmpzTreeMove_arrow'></span>", setting);
 					tmpArrow.attr("id", "zTreeMove_arrow_tmp");
 					tmpArrow.appendTo(body);
 
@@ -3061,7 +3061,7 @@
 				for (var i = 0, l = iframeList.length; i < l; i++) {
 					var obj = iframeList.get(i),
 					r = tools.getAbs(obj),
-					dragMask = $$("<div id='zTreeMask_" + i + "' class='zTreeMask' style='top:" + r[1] + "px; left:" + r[0] + "px; width:" + obj.offsetWidth + "px; height:" + obj.offsetHeight + "px;'></div>", setting);
+					dragMask = $$("<div id='zTreeMask_" + i + "' clazz='zTreeMask' style='top:" + r[1] + "px; left:" + r[0] + "px; width:" + obj.offsetWidth + "px; height:" + obj.offsetHeight + "px;'></div>", setting);
 					dragMask.appendTo($$("body", setting));
 					root.dragMaskList.push(dragMask);
 				}
@@ -3078,7 +3078,7 @@
 				return;
 			}
 			var aObj = $$(node, consts.id.A, setting),
-			editStr = "<span class='" + consts.className.BUTTON + " edit' id='" + node.tId + consts.id.EDIT + "' title='"+tools.apply(setting.edit.renameTitle, [setting.treeId, node], setting.edit.renameTitle)+"' treeNode"+consts.id.EDIT+" style='display:none;'></span>";
+			editStr = "<span clazz='" + consts.className.BUTTON + " edit' id='" + node.tId + consts.id.EDIT + "' title='"+tools.apply(setting.edit.renameTitle, [setting.treeId, node], setting.edit.renameTitle)+"' treeNode"+consts.id.EDIT+" style='display:none;'></span>";
 			aObj.append(editStr);
 
 			$$(node, consts.id.EDIT, setting).bind('click',
@@ -3097,7 +3097,7 @@
 				return;
 			}
 			var aObj = $$(node, consts.id.A, setting),
-			removeStr = "<span class='" + consts.className.BUTTON + " remove' id='" + node.tId + consts.id.REMOVE + "' title='"+tools.apply(setting.edit.removeTitle, [setting.treeId, node], setting.edit.removeTitle)+"' treeNode"+consts.id.REMOVE+" style='display:none;'></span>";
+			removeStr = "<span clazz='" + consts.className.BUTTON + " remove' id='" + node.tId + consts.id.REMOVE + "' title='"+tools.apply(setting.edit.removeTitle, [setting.treeId, node], setting.edit.removeTitle)+"' treeNode"+consts.id.REMOVE+" style='display:none;'></span>";
 			aObj.append(removeStr);
 
 			$$(node, consts.id.REMOVE, setting).bind('click',
@@ -3161,7 +3161,7 @@
 			view.removeTreeDom(setting, node);
 			view.cancelCurEditNode(setting);
 			view.selectNode(setting, node, false);
-			$$(node, consts.id.SPAN, setting).html("<input type=text class='rename' id='" + node.tId + consts.id.INPUT + "' treeNode" + consts.id.INPUT + " >");
+			$$(node, consts.id.SPAN, setting).html("<input type=text clazz='rename' id='" + node.tId + consts.id.INPUT + "' treeNode" + consts.id.INPUT + " >");
 			var inputObj = $$(node, consts.id.INPUT, setting);
 			inputObj.attr("value", node[nameKey]);
 			if (setting.edit.editNameSelectAll) {

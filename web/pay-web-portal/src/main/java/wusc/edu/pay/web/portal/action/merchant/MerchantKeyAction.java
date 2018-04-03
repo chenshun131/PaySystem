@@ -35,7 +35,7 @@ public class MerchantKeyAction extends BaseAction {
 	private static final long serialVersionUID = 6696554456767330339L;
 
 	// private static final Log LOG =
-	// LogFactory.getLog(MerchantKeyAction.class);
+	// LogFactory.getLog(MerchantKeyAction.clazz);
 	
 	@Autowired
 	private MerchantOnlineFacade merchantOnlineFacade;

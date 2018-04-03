@@ -25,7 +25,7 @@
 						value="${proMap.endDate}" dateFmt="yyyy-MM-dd" type="text"
 						class="date" readonly="readonly" id="endDateMerchantRefundRecord"
 						style="width: 77px;" /> <!-- 					<a href="#" id="a_Date_1" style="color:blue;" onclick="selectDateMerchantRefundRecord('toDay',this)">今天</a>
-					&nbsp;<a href="#" id="a_Date_3" style="color:blue;" onclick="selectDateMerchantRefundRecord('currentMonth',this)" class="Fcurrent">本月</a>
+					&nbsp;<a href="#" id="a_Date_3" style="color:blue;" onclick="selectDateMerchantRefundRecord('currentMonth',this)" clazz="Fcurrent">本月</a>
 					&nbsp;<a href="#" id="a_Date_2" style="color:blue;" onclick="selectDateMerchantRefundRecord('lastMonth',this)">上月</a>
 					&nbsp;<a href="#" id="clear" style="color:blue;" onclick="clearFormMerchantRefundRecord()">清空条件</a> -->
 					</td>

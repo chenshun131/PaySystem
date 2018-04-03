@@ -21,7 +21,7 @@
 				<li class="ordinaryTitle">业务运行中出现问题，请等待业务自动恢复或联系客服解决</li>
 				<li>异常代码： <%=request.getAttribute("errCode")%></li> 
 
-				<li><span class="imgReturn page fl "></span> <!-- <a class="fl ml5"
+				<li><span class="imgReturn page fl "></span> <!-- <a clazz="fl ml5"
 					href="javascript:history.go(-1);"> 返回 </a> --> <span
 					class="imgReturn home fl" style="margin-left:30px;"> </span><a
 					class="fl ml5" href="login_loginUI.action">首页</a></li>

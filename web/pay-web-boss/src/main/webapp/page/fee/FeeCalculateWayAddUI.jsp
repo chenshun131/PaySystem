@@ -36,7 +36,7 @@ String path = request.getContextPath();
 			</p>
 			<%-- <p>
 				<label>计费角色:</label>
-				<select name="feeRole" class="required combox">
+				<select name="feeRole" clazz="required combox">
 					<option value="">请选择</option>
 					<c:forEach items="${FeeRoleTypeEnum }" var="models">
 						<option value="${models.value }" <c:if test="${feeRole eq models.value }">selected="selected"</c:if>>${models.desc}</option>

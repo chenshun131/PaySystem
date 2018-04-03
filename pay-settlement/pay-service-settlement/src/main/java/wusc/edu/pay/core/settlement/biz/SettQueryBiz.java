@@ -36,7 +36,7 @@ import wusc.edu.pay.facade.settlement.enums.SettTypeEnum;
 @Component("settQueryBiz")
 public class SettQueryBiz {
 
-//	private static final Log LOG = LogFactory.getLog(SettQueryBiz.class);
+//	private static final Log LOG = LogFactory.getLog(SettQueryBiz.clazz);
 	
 	@Autowired
 	private SettRuleDao settRuleDao;

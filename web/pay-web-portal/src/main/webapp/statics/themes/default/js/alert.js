@@ -1,13 +1,13 @@
 function myAlert(str,w,h,cancelcall,confirmcall,cancelparam,confirmparam){
-	var mask=$("<div class='ada-mask'></div>").appendTo("body");
-	var box=$("<div class='ada-box'></div>").appendTo('body');
+	var mask=$("<div clazz='ada-mask'></div>").appendTo("body");
+	var box=$("<div clazz='ada-box'></div>").appendTo('body');
 	$('.ada-box').css('width',w+'px');
 	$('.ada-box').css('height',h+'px');
-	var adaimg=$("<img class='adaimg' src='statics/themes/default/images/ada-icon_03.gif'/>").appendTo(box);
-	var p=$("<p class='ada-text'>"+str+"</p>").appendTo(box);
-	var butwrap=$("<div class='butwrap'></div>").appendTo(box);
-	var but1=$("<input class='ada-but1' type='button' value='确定'/>").appendTo(butwrap);
-	var but2=$("<input class='ada-but2' type='button' value='取消'/>").appendTo(butwrap);
+	var adaimg=$("<img clazz='adaimg' src='statics/themes/default/images/ada-icon_03.gif'/>").appendTo(box);
+	var p=$("<p clazz='ada-text'>"+str+"</p>").appendTo(box);
+	var butwrap=$("<div clazz='butwrap'></div>").appendTo(box);
+	var but1=$("<input clazz='ada-but1' type='button' value='确定'/>").appendTo(butwrap);
+	var but2=$("<input clazz='ada-but2' type='button' value='取消'/>").appendTo(butwrap);
 	var l=($(window).width()-w)/2;
 	var t=($(window).height()-h)/2;
 	$('.ada-box').css('top',t+'px');

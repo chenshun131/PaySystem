@@ -10,8 +10,8 @@ _self.data("province",["请选择", ""]);
 _self.data("city1",["请选择", ""]);
 //_self.data("city2",["请选择", ""]);
 //插入3个空的下拉框
-_self.append("<select id='province' name='province' class='span0'></select>");
-_self.append("<select id='city' name='city' class='span2'></select>");
+_self.append("<select id='province' name='province' clazz='span0'></select>");
+_self.append("<select id='city' name='city' clazz='span2'></select>");
 //_self.append("<select></select>");
 //分别获取3个下拉框
 var $sel1 = _self.find("select").eq(0);

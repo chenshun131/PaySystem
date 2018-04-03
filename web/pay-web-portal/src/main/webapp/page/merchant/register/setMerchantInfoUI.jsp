@@ -262,22 +262,22 @@ function formValidator(){
 				<label for="radio3" class="lblradio">企业</label>
 			</p>
 
-			<!-- <p class="clearfix">
+			<!-- <p clazz="clearfix">
 				<label>签约属性：</label>
 				<input id="radio1" type="radio"   checked="checked"
-					class="radio" name="merchantType" value="${MerchantTypeEnum.MEMBER.value}"
+					clazz="radio" name="merchantType" value="${MerchantTypeEnum.MEMBER.value}"
 					<c:if test="${merchantType==MerchantTypeEnum.MEMBER.value}"> checked="checked"</c:if>
 					onclick="dynamicShow(this.value);" />
-					<label for="radio1" class="lblradio">个人</label>
+					<label for="radio1" clazz="lblradio">个人</label>
 					<input id="radio2" type="radio"
-					name="merchantType" value="${MerchantTypeEnum.INDIVIDUAL.value }" class="radio"
+					name="merchantType" value="${MerchantTypeEnum.INDIVIDUAL.value }" clazz="radio"
 					<c:if test="${merchantType==MerchantTypeEnum.INDIVIDUAL.value}">checked="checked"</c:if>
 					onclick="dynamicShow(this.value);" /> <label for="radio2"
-					class="lblradio">个体工商户</label> <input id="radio3" type="radio"
-					name="merchantType" value="${MerchantTypeEnum.ENTERPRISE.value }" class="radio"
+					clazz="lblradio">个体工商户</label> <input id="radio3" type="radio"
+					name="merchantType" value="${MerchantTypeEnum.ENTERPRISE.value }" clazz="radio"
 					<c:if test="${merchantType==MerchantTypeEnum.ENTERPRISE.value}">checked="checked"</c:if>
 					onclick="dynamicShow(this.value);" /><label for="radio3"
-					class="lblradio">企业</label>
+					clazz="lblradio">企业</label>
 			</p> -->
 			<p class="clearfix">
 				<label>公司全称：</label>
@@ -295,7 +295,7 @@ function formValidator(){
 			<p class="clearfix j-enterprise">
 				<label>营业执照有效期：</label>
 					<input name="licenseValid" value="${licenseValid}" readonly="readonly" type="text" class="timeinput"  onfocus="WdatePicker({minDate:'%y-%M-{%d}'})" id="licenseValid" readonly="readonly" />
-<%-- 				<input name="licenseValid" value="${licenseValid}" type="text" class="timeinput" onclick="calendar(this)" id="licenseValid" readonly="readonly" />  --%>
+<%-- 				<input name="licenseValid" value="${licenseValid}" type="text" clazz="timeinput" onclick="calendar(this)" id="licenseValid" readonly="readonly" />  --%>
 			</p>
 			<div id="dynamicShow"></div>
 			<p class="clearfix">
@@ -329,7 +329,7 @@ function formValidator(){
 				<label>身份证有效期：</label>
 				<input name="cardValid" value="${cardValid}" type="text" class="timeinput"  onfocus="WdatePicker({minDate:'%y-%M-{%d}'})" id="cardValid" readonly="readonly" />
 				<%--
-				<input name="cardValid" value="${cardValid}" type="text" class="timeinput" onclick="calendar(this)" id="cardValid" readonly="readonly" />
+				<input name="cardValid" value="${cardValid}" type="text" clazz="timeinput" onclick="calendar(this)" id="cardValid" readonly="readonly" />
 				 --%>
 			</p>
 			<p class="clearfix">

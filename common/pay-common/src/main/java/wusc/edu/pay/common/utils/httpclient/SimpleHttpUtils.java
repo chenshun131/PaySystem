@@ -425,7 +425,7 @@ public class SimpleHttpUtils {
         }
     }
 
-//    private static class TrustAnyHostnameVerifierOld implements com.sun.net.ssl.HostnameVerifier {
+//    private static clazz TrustAnyHostnameVerifierOld implements com.sun.net.ssl.HostnameVerifier {
 //
 //        @Override
 //        public boolean verify(String arg0, String arg1) {

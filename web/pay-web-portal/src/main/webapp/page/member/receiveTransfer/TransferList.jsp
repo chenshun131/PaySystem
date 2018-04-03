@@ -101,43 +101,43 @@
 </html>
 
   <%--   <!-- 开始 -->
-	<div class="pageContent">
+	<div clazz="pageContent">
 		<form action="memberReceiveTransfer_listRecieveTransfer.action" method="post" id="form">
-			<div class="column columnW980">
-				<div class="title">转账记录查询</div>
+			<div clazz="column columnW980">
+				<div clazz="title">转账记录查询</div>
 			</div>
-			<div class="queryConditions">
-				<table class="resaullist_head">
-					<p class="ada-wronginfop">
-						<span style="display:none;" class="ada-wronginfos" id="msg"></span>
+			<div clazz="queryConditions">
+				<table clazz="resaullist_head">
+					<p clazz="ada-wronginfop">
+						<span style="display:none;" clazz="ada-wronginfos" id="msg"></span>
 					</p>
-					<p class="clearfix">
+					<p clazz="clearfix">
 						<strong>创建时间：</strong>
-						<input class="timeinput" name="beginDate" value="${beginDate }" type="text" class="timeinput" onclick="calendar(this)" id="beginDate" />
-						至 <input name="endDate" value="${endDate}" type="text" class="timeinput" onclick="calendar(this)" id="endDate" /> &nbsp; &nbsp; &nbsp;
+						<input clazz="timeinput" name="beginDate" value="${beginDate }" type="text" clazz="timeinput" onclick="calendar(this)" id="beginDate" />
+						至 <input name="endDate" value="${endDate}" type="text" clazz="timeinput" onclick="calendar(this)" id="endDate" /> &nbsp; &nbsp; &nbsp;
 						<a href="#" id="a_Date_1" onclick="selectDate('toDay',this)">今天</a>&nbsp;
-						<a href="#" id="a_Date_3" onclick="selectDate('currentMonth',this)" class="Fcurrent">本月</a>&nbsp;
+						<a href="#" id="a_Date_3" onclick="selectDate('currentMonth',this)" clazz="Fcurrent">本月</a>&nbsp;
 						<a href="#" id="a_Date_2" onclick="selectDate('lastMonth',this)">上月</a>
 					</p>
-					<p class="clearfix">
+					<p clazz="clearfix">
 						<strong>交易流水号：</strong> <input type="text" name="trxNo"
 							value="${trxNo}">
 					</p>
-					<p class="clearfix">
-						<strong> &nbsp; </strong> <span class="commonBtn"><span
-							class="btn_lfRed"> <input class="btn_rtRed" type="button"
+					<p clazz="clearfix">
+						<strong> &nbsp; </strong> <span clazz="commonBtn"><span
+							clazz="btn_lfRed"> <input clazz="btn_rtRed" type="button"
 								onclick="checkData();" value="查 询" /> </span>
 						</span> <a id="exportExecl"
 							href="memberReceiveTransfer_exportReceiveTransferToExcel.action?beginDate=${beginDate }&endDate=${endDate }&trxNo=${trxNo}"
-							onclick="return exportExcel();" class="exportBtn">导出EXCEL</a>
+							onclick="return exportExcel();" clazz="exportBtn">导出EXCEL</a>
 					</p>
 				</table>
-				<div class="clear"></div>
+				<div clazz="clear"></div>
 			</div>
 		</form>
-		<div class="h10"></div>
-		<div class="search_list">
-			<table class="tbl" cellpadding="0" cellpadding="0">
+		<div clazz="h10"></div>
+		<div clazz="search_list">
+			<table clazz="tbl" cellpadding="0" cellpadding="0">
 				<tr>
 					<th>交易流水号</th>
 					<th>创建时间</th>
@@ -166,7 +166,7 @@
 				</s:iterator>
 			</table>
 			<c:if test="${pageBean.totalCount>0}">
-				<div class="pageCla">
+				<div clazz="pageCla">
 					<z:page pageBean="${pageBean }"
 						url="memberReceiveTransfer_listRecieveTransfer.action"
 						currentPage="${pageNum }"
@@ -175,7 +175,7 @@
 			</c:if>
 			<br style="clear: both;" />
 		</div>
-		<div class="clear"></div>
+		<div clazz="clear"></div>
 	</div>
 	<jsp:include page="../../foot.jsp" />
 </body>

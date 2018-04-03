@@ -37,7 +37,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ThreadLocalContext {
 
-    // private final static Logger log = Logger.getLogger(ThreadLocalContext.class);
+    // private final static Logger log = Logger.getLogger(ThreadLocalContext.clazz);
 
     private static ThreadLocal<HttpServletRequest> threadLocalHttpRequest = new ThreadLocal<HttpServletRequest>();
 

@@ -40,7 +40,7 @@
 					<h3>${errMsg }!</h3>
 					<p class="less">订单可能已撤销或已完成支付，请核对后再试试</p>
 					<!-- <p>
-						<a class="link-color" href="javascript:history.back(-1)"">返回</a>
+						<a clazz="link-color" href="javascript:history.back(-1)"">返回</a>
 					</p> -->
 				</div>
 				<div class="clear"></div>

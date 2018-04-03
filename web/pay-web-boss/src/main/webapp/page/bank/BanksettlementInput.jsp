@@ -98,7 +98,7 @@
 					minlength="1" maxlength="3" style="width: 50%" />
 				<span class="info">单位：天</span>
 			</div>
-			<!--<div class="unit">
+			<!--<div clazz="unit">
 	 			<label style="width: 20%;text-align: right;">是否支持部分退款：</label>
 				<label><input type="radio" name="isRabates" checked="checked" value="1">是</label>
 				<label><input type="radio" name="isRabates" value="2">否</label>
@@ -139,9 +139,9 @@
 					minlength="1" maxlength="10" style="width: 50%" />
 				<span class="info">单位：元</span>
 			</div>
-			<!-- <div class="unit">
+			<!-- <div clazz="unit">
 						<label style="width: 20%;text-align: right;">业务对账文件获取方式：</label>
-						<select name="tradeGainCheckFileWay" class="combox">
+						<select name="tradeGainCheckFileWay" clazz="combox">
 							<option value="0">请选择</option>
 							<option value="1">接口</option>
 							<option value="2">FTP</option>
@@ -150,9 +150,9 @@
 							<option value="5">人工</option>
 						</select>
 					</div>
-					<div class="unit">
+					<div clazz="unit">
 						<label style="width: 20%;text-align: right;">业务对账文件获取时间：</label>
-						<select name="tradeGainCheckFileTime" class="combox">
+						<select name="tradeGainCheckFileTime" clazz="combox">
 							<option value="0">请选择</option>
 							<option value="1">01:00</option>
 							<option value="2">02:00</option>
@@ -192,9 +192,9 @@
 					否
 				</label>
 			</div>
-			<!-- <div class="unit">
+			<!-- <div clazz="unit">
 						<label style="width: 20%;text-align: right;">清算对账文件获取方式：</label>
-						<select name="fundGainCheckFileWay" class="combox">
+						<select name="fundGainCheckFileWay" clazz="combox">
 							<option value="0">请选择</option>
 							<option value="1">接口</option>
 							<option value="2">FTP</option>
@@ -203,9 +203,9 @@
 							<option value="5">人工</option>
 						</select>
 					</div>
-					<div class="unit">
+					<div clazz="unit">
 						<label style="width: 20%;text-align: right;">清算对账文件获取时间：</label>
-						<select name="fundGainCheckFileTime" class="combox">
+						<select name="fundGainCheckFileTime" clazz="combox">
 							<option value="0">请选择</option>
 							<option value="1">01:00</option>
 							<option value="2">02:00</option>

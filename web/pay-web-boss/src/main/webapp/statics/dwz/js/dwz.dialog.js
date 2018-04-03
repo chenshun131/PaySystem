@@ -242,7 +242,7 @@
 		 * @param {Object} dialog
 		 */
 		resizeTool:function(target, tmove, dialog) {
-			$("div[class^='resizable']", dialog).filter(function(){
+			$("div[clazz^='resizable']", dialog).filter(function(){
 				return $(this).attr("tar") == 'w' || $(this).attr("tar") == 'e';
 			}).each(function(){
 				$(this).css("height", $(this).outerHeight() + tmove);

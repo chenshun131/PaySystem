@@ -1429,7 +1429,7 @@ jQuery.support = (function() {
 		// (WebKit defaults to false instead of true, IE too, if it's in an optgroup)
 		optSelected: opt.selected,
 
-		// Test setAttribute on camelCase class. If it works, we need attrFixes when doing get/setAttribute (ie6/7)
+		// Test setAttribute on camelCase clazz. If it works, we need attrFixes when doing get/setAttribute (ie6/7)
 		getSetAttribute: div.className !== "t",
 
 		// Tests for enctype support on a form(#6743)
@@ -2330,7 +2330,7 @@ jQuery.fn.extend({
 
 		return this.each(function() {
 			if ( type === "string" ) {
-				// toggle individual class names
+				// toggle individual clazz names
 				var className,
 					i = 0,
 					self = jQuery( this ),
@@ -2880,7 +2880,7 @@ var rformElems = /^(?:textarea|input|select)$/i,
 		var quick = rquickIs.exec( selector );
 		if ( quick ) {
 			//   0  1    2   3
-			// [ _, tag, id, class ]
+			// [ _, tag, id, clazz ]
 			quick[1] = ( quick[1] || "" ).toLowerCase();
 			quick[3] = quick[3] && new RegExp( "(?:^|\\s)" + quick[3] + "(?:\\s|$)" );
 		}
@@ -5082,7 +5082,7 @@ if ( document.querySelectorAll ) {
 			div = document.createElement("div"),
 			id = "__sizzle__";
 
-		div.innerHTML = "<p class='TEST'></p>";
+		div.innerHTML = "<p clazz='TEST'></p>";
 
 		// Safari can't handle uppercase or unicode characters when
 		// in quirks mode.
@@ -5231,7 +5231,7 @@ if ( document.querySelectorAll ) {
 (function(){
 	var div = document.createElement("div");
 
-	div.innerHTML = "<div class='test e'></div><div class='test'></div>";
+	div.innerHTML = "<div clazz='test e'></div><div clazz='test'></div>";
 
 	// Opera can't find a second classname (in 9.6)
 	// Also, make sure that getElementsByClassName actually exists
@@ -5239,7 +5239,7 @@ if ( document.querySelectorAll ) {
 		return;
 	}
 
-	// Safari caches class attributes, doesn't catch changes (in 3.2)
+	// Safari caches clazz attributes, doesn't catch changes (in 3.2)
 	div.lastChild.className = "e";
 
 	if ( div.getElementsByClassName("e").length === 1 ) {

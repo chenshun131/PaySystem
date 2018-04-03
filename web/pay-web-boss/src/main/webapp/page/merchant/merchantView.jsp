@@ -206,17 +206,17 @@
 					请到【系统设置-合同管理】上传商户相关合同扫描件。
 					</div>
 					<!-- 
-					<div class="unit">
+					<div clazz="unit">
 						<label>签约日期：</label>
 						<input type="text" name="signTime" id="signTime" value="<fmt:formatDate value="${contract.signTime }" pattern="yyyy-MM-dd" />" readonly="readonly" />
 					</div>
-					<div class="unit">
+					<div clazz="unit">
 						<label>合同到期日：</label>
 						<input type="text" name="contractValid" 
 						<c:if test="${not empty contractValidTimeOut }">style="color:red;"</c:if> 
 						id="contractValid" value="<fmt:formatDate value="${contract.contractValid }" pattern="yyyy-MM-dd" />" readonly="readonly" />
-						<c:if test="${contractValidTimeOut >= 0 }"><a href="javascript:void(0);" title="合同即将到期，请联系该商户!" class="worm"></a></c:if>
-						<c:if test="${contractValidTimeOut < 0 }"><a href="javascript:void(0);" title="合同已经到期，请联系该商户!" class="worm"></a></c:if>
+						<c:if test="${contractValidTimeOut >= 0 }"><a href="javascript:void(0);" title="合同即将到期，请联系该商户!" clazz="worm"></a></c:if>
+						<c:if test="${contractValidTimeOut < 0 }"><a href="javascript:void(0);" title="合同已经到期，请联系该商户!" clazz="worm"></a></c:if>
 					</div>
 					 -->
 				</div>

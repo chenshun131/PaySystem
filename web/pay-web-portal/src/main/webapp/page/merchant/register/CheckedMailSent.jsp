@@ -43,18 +43,18 @@ $(function(){
 		<div class="clear"></div>
 </div>
 
-		<%--<div class="subcont subcontH">
+		<%--<div clazz="subcont subcontH">
 			<table>
 				<tr>
-					<td class="rt_td">
-						<div class="tips">
+					<td clazz="rt_td">
+						<div clazz="tips">
 						&nbsp;	登录邮箱激活 <br />
 						</div> &nbsp;  &nbsp; &nbsp;马上登录邮箱激活账号，完成注册！<br />
 				     &nbsp;  &nbsp; &nbsp;	 激活邮件已经发送到您的邮箱<strong>${loginName} </strong>,请注意查收.<br/>
 				     &nbsp;  &nbsp; &nbsp;  如果未收到邮件, <a href="#" id="resendEmailId">重新发送</a> 
 				     </td>
 				</tr>
-				<Tr class="rt_td">
+				<Tr clazz="rt_td">
 				<td><input type="hidden" value="${url}"/></td>
 				</Tr>
 			</table>

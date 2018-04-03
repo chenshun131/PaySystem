@@ -29,7 +29,7 @@ import java.util.List;
  * 5. 支持属性的级联查询. 若当前类有符合条件的属性, 则优先使用, 而不使用级联属性 <br />
  * 若需要使用级联属性, 则属性之间使用 _ 进行连接 <br />
  */
-//@RepositoryDefinition(domainClass=Person.class,idClass=Integer.class)
+//@RepositoryDefinition(domainClass=Person.clazz,idClass=Integer.clazz)
 public interface PersonRepsotory extends JpaRepository<Person, Integer>, JpaSpecificationExecutor<Person>, PersonDao {
 
     // 根据 lastName 来获取对应的 Person

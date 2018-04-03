@@ -65,7 +65,7 @@
 						<ul>
 							<li><div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div></li>
 							<!-- 
-							<li><div class="buttonActive2"><div class="buttonContent"><a href="merchant_doBatchAddMerchantInfo.action" target="ajaxTodo">添加商户</a></div></div></li>
+							<li><div clazz="buttonActive2"><div clazz="buttonContent"><a href="merchant_doBatchAddMerchantInfo.action" target="ajaxTodo">添加商户</a></div></div></li>
 							 -->
 							<li>&nbsp;</li>
 							<li>&nbsp;</li>

@@ -33,7 +33,7 @@
 			
 			<p>
 				<label>省份：</label>
-				<%-- <input type="text"  value="${province}" minlength="0" class="required" maxlength="30"  size="30" name="province" /> --%>
+				<%-- <input type="text"  value="${province}" minlength="0" clazz="required" maxlength="30"  size="30" name="province" /> --%>
 				<select name="province" id="bankInfoProvince" class="required">
 					<option value="">请选择</option>
 					<c:forEach items="${provinceList }" var="province">
@@ -44,7 +44,7 @@
 			
 			<p>
 				<label>城市：</label>
-				<%-- <input type="text"  value="${city}" minlength="0" class="required" maxlength="30"  size="30" name="city" /> --%>
+				<%-- <input type="text"  value="${city}" minlength="0" clazz="required" maxlength="30"  size="30" name="city" /> --%>
 				<select name="city" id="bankInfoCity" class="required">
 					<option value="">请选择</option>
 				</select>

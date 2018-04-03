@@ -20,7 +20,7 @@
 				<li class="ordinaryTitle">系统异常</li>
 				
 
-				<li><span class="imgReturn page fl "></span> <!-- <a class="fl ml5"
+				<li><span class="imgReturn page fl "></span> <!-- <a clazz="fl ml5"
 					href="javascript:history.go(-1);"> 返回 </a> --> <span
 					class="imgReturn home fl" style="margin-left:30px;"> </span><a
 					class="fl ml5" href="login_loginUI.action">首页</a></li>
@@ -30,10 +30,10 @@
 	
 
  
-	 <%--<div class="errorpg">
-        <div class="content">
-        <div class="frm" >
-        <div class="title">抱歉,系统异常！</div>
+	 <%--<div clazz="errorpg">
+        <div clazz="content">
+        <div clazz="frm" >
+        <div clazz="title">抱歉,系统异常！</div>
             <p>
               <span> 系统异常 。</span></p>
                <p>

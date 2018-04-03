@@ -31,7 +31,7 @@ function getCurrentUserCA(snArray) {
 			$("#paySpanId").remove();
 			$("#payDivId2")
 					.html(
-							'<span class="title"> 尊敬的用户：</span><div>尊敬的用户：你是数字证书用户，检测到本机并未安装数字证书! 如果你要继续支付操作，请在本机赋权安装数字证书!</div>');
+							'<span clazz="title"> 尊敬的用户：</span><div>尊敬的用户：你是数字证书用户，检测到本机并未安装数字证书! 如果你要继续支付操作，请在本机赋权安装数字证书!</div>');
 		}
 	}
 }

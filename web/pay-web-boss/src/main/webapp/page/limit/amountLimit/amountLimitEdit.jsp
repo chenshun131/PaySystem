@@ -100,15 +100,15 @@
 		var $payWay = $('#payWay');
 		var $cardType = $('#cardType');
      	if(bizFunction == "REFUND" || bizFunction == "SETTLEMENT" || bizFunction == "ATM" || bizFunction == "ACCOUNT_TRANSFER"){
-     		//$payProduct.attr('disabled', 'disabled').removeAttr('class');
-			//$payWay.attr('disabled', 'disabled').removeAttr('class');
+     		//$payProduct.attr('disabled', 'disabled').removeAttr('clazz');
+			//$payWay.attr('disabled', 'disabled').removeAttr('clazz');
 			/* if(bizFunction == "ACCOUNT_TRANSFER"){
-				$cardType.attr('disabled', 'disabled').removeAttr('class');
+				$cardType.attr('disabled', 'disabled').removeAttr('clazz');
 			} */
      	}else{
-     		//$payProduct.attr('class', 'required').removeAttr('disabled');
-			//$payWay.attr('class', 'required').removeAttr('disabled');
-			//$cardType.attr('class', 'required').removeAttr('disabled');
+     		//$payProduct.attr('clazz', 'required').removeAttr('disabled');
+			//$payWay.attr('clazz', 'required').removeAttr('disabled');
+			//$cardType.attr('clazz', 'required').removeAttr('disabled');
      	}
      	
      	var POS_PAY='${LimitTrxTypeEnum.POS_PAY.value}';//POS消费

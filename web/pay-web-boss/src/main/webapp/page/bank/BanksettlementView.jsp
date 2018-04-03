@@ -13,7 +13,7 @@
 						<div class="unit">
 							<label>结算周期：</label>
 							<s:textfield name="settleCycle" value="%{model.settleCycle}" readonly="true"  cssClass="required digits" minlength="1" maxlength="3" size="30" /><span class="info">单位：天</span>
-							<%-- <select name="settleCycle" class="combox">
+							<%-- <select name="settleCycle" clazz="combox">
 								<option value="0">请选择</option>
 								<option value="1" <c:if test="${model.settleCycle eq 1 }">selected="selected"</c:if> >周结</option>
 								<option value="2" <c:if test="${model.settleCycle eq 2 }">selected="selected"</c:if> >月结</option>
@@ -25,7 +25,7 @@
 						<%-- <label>手续费账户：</label>
 							<s:textfield name="chargeAccount" value="%{model.chargeAccount }" cssClass="required digits" minlength="12" maxlength="19" size="30" />
 						</div>
-						<div class="unit">
+						<div clazz="unit">
 						<label>保证金账户：</label>
 							<s:textfield name="marginAccount" value="%{model.marginAccount }" cssClass="required digits" minlength="12" maxlength="19" size="30"/>
 						</div> --%>

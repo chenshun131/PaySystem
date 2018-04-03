@@ -12,16 +12,16 @@
 </script>
 
 <%--
-<div class="pageContent">
-	<div class="pageFormContent" layoutH="58" align="center">
+<div clazz="pageContent">
+	<div clazz="pageFormContent" layoutH="58" align="center">
 		<br /> <br /> <br />
 		<br /> <br /> <br />
 		<h1 style="color:red;">登录超时，请重新登录！</h1>
 	</div>
-	<div class="formBar">
+	<div clazz="formBar">
 		<ul>
-			<li><div class="buttonActive">
-					<div class="buttonContent">
+			<li><div clazz="buttonActive">
+					<div clazz="buttonContent">
 						<button type="button" onclick="logout();">确认</button>
 					</div>
 				</div>

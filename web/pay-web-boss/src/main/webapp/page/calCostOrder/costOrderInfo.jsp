@@ -104,8 +104,8 @@
 	
 </div>
 <%-- <h4>计费公式</h4><br/>
-<div class="pageContent" >
-	<table class="table"  asc="asc" desc="desc" width="100%" >
+<div clazz="pageContent" >
+	<table clazz="table"  asc="asc" desc="desc" width="100%" >
 		<thead>
 			<tr>
 				<th >计费约束</th>

@@ -18,7 +18,7 @@
 				<li class="ordinaryTitle">系统异常</li>
 <!-- 				<li>异常代码： <%=request.getAttribute("errCode")%></li> -->
 				<li style="display: none"><%=request.getAttribute("errMsg")%></li>
-				<!-- <li><a class="btnReturn pt10" href="javascript:history.go(-1);"></a>
+				<!-- <li><a clazz="btnReturn pt10" href="javascript:history.go(-1);"></a>
 				</li> -->
 			</ul>
 		</div>

@@ -157,7 +157,7 @@
 
 		<p style=" margin-top:10px;">
 		<strong> &nbsp; </strong>
-		<span class="font">解绑银行卡,为了确认您的身份，请输入支付密码：</span>
+		<span clazz="font">解绑银行卡,为了确认您的身份，请输入支付密码：</span>
 		</p>
 		--%>
 					<p class="clearfix" style="text-align: left;">

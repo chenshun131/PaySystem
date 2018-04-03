@@ -31,25 +31,25 @@ $(function(){
 				<div class="ZPTile">招聘简历投递：</div>
 				<p>邮件地址：${COMPANY_HR_EMAIL }</p>
 				<p>邮件标题：姓名+应聘职位</p>
-		<!-- 		<div class="btn">
-		<span class="commonBtn"><span class="btn_lfRed">
-			<input id="Button1" type="button" class="btn_rtRed" value="发送邮件" />
+		<!-- 		<div clazz="btn">
+		<span clazz="commonBtn"><span clazz="btn_lfRed">
+			<input id="Button1" type="button" clazz="btn_rtRed" value="发送邮件" />
 			</span></span>
 		</div> -->
 			</div>
 				<br style="clear: both;" />
 			</div>
 			<div class="ht"></div>
-	<!-- 		<div class="conection1">
-		<div class="NewsTile">客服热线</div>
-		<div class="conIMG"></div>
-		<div class="cont">
+	<!-- 		<div clazz="conection1">
+		<div clazz="NewsTile">客服热线</div>
+		<div clazz="conIMG"></div>
+		<div clazz="cont">
 			<p>客服电话：${COMPANY_TEL }</p>
-			<p class="word-break">客服邮箱：${COMPANY_EMAIL }</p>
+			<p clazz="word-break">客服邮箱：${COMPANY_EMAIL }</p>
 		</div>
 		<br style="clear:both;" />
 	</div>
-	<div class="ht"></div> -->
+	<div clazz="ht"></div> -->
 			<div class="conection1">
 				<div class="NewsTile">联系地址</div>
 				<div class="conIMG2"></div>

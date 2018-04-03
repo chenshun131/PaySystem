@@ -18,7 +18,7 @@ $(document).ready(function() {
 	//如果银行数量少于12个，则隐藏按钮
 	var lis=$(".bank>li").size();
 	if(lis<=12){
-		$("div[class='moreBank']").hide();
+		$("div[clazz='moreBank']").hide();
 	}
 	
 	
@@ -69,7 +69,7 @@ $(document).ready(function() {
 			$(this).removeClass("hover");
 		}
 	);
-	$("div[class='moreBank']").click(function(){//更多银行
+	$("div[clazz='moreBank']").click(function(){//更多银行
 		num++;
 		if(num%2!==0){
 		  var liHeight=$(".bank>li").outerHeight(true);

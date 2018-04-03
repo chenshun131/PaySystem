@@ -20,16 +20,16 @@
 				style[1] = $th.attr("align");
 				aStyles[aStyles.length] = style;
 			}
-			$(this).wrap("<div class='grid'></div>");
+			$(this).wrap("<div clazz='grid'></div>");
 			var $grid = $table.parent().html($table.html());
 			var thead = $grid.find("thead");
-			thead.wrap("<div class='gridHeader'><div class='gridThead'><table style='width:" + (tlength - 20) + "px;'></table></div></div>");
+			thead.wrap("<div clazz='gridHeader'><div clazz='gridThead'><table style='width:" + (tlength - 20) + "px;'></table></div></div>");
 
 			var lastH = $(">tr:last-child", thead);
 			var ths = $(">th", lastH);
 			$("th",thead).each(function(){
 				var $th = $(this);
-				$th.html("<div class='gridCol' title='"+$th.text()+"'>"+ $th.html() +"</div>");	
+				$th.html("<div clazz='gridCol' title='"+$th.text()+"'>"+ $th.html() +"</div>");
 			});
 			
 			ths.each(function(i){
@@ -45,7 +45,7 @@
 			var tbody = $grid.find(">tbody");
 			var layoutStr = layoutH ? " layoutH='" + layoutH + "'" : "";
 			
-			tbody.wrap("<div class='gridScroller'" + layoutStr + " style='width:" + $tc.width() + "px;'><div class='gridTbody'><table style='width:" + (tlength - 20) + "px;'></table></div></div>");
+			tbody.wrap("<div clazz='gridScroller'" + layoutStr + " style='width:" + $tc.width() + "px;'><div clazz='gridTbody'><table style='width:" + (tlength - 20) + "px;'></table></div></div>");
 			var ftr = $(">tr:first-child", tbody);
 			var $trs = tbody.find('>tr');
 			
@@ -74,7 +74,7 @@
 			$(">td",ftr).each(function(i){
 				if (i < aStyles.length) $(this).width(aStyles[i][0]);
 			});			
-			$grid.append("<div class='resizeMarker' style='height:300px; left:57px;display:none;'></div><div class='resizeProxy' style='height:300px; left:377px;display:none;'></div>");
+			$grid.append("<div clazz='resizeMarker' style='height:300px; left:57px;display:none;'></div><div clazz='resizeProxy' style='height:300px; left:377px;display:none;'></div>");
 	
 			var scroller = $(".gridScroller", $grid);
 			scroller.scroll(function(event){

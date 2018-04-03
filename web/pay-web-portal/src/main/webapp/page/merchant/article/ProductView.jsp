@@ -70,7 +70,7 @@
         <div class="right">
 
            <div class="article">
-                <!-- <div class="productImg">
+                <!-- <div clazz="productImg">
                     <img src="<%=path%>/statics/themes/default/images/bankcar.png" />
                 </div> -->
                 <div class="productInfo">

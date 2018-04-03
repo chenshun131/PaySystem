@@ -32,14 +32,14 @@ public class ExceptionInterceptorLog implements ThrowsAdvice {
 
     public void afterThrowing(Method method, Object[] args, Object target, Exception ex) {
         logger.error("==>ExceptionInterceptorLog.Exception");
-        logger.error("==>Error class: " + target.getClass().getName());
+        logger.error("==>Error clazz: " + target.getClass().getName());
         logger.error("==>Error method: " + method.getName());
 
         for (int i = 0; i < args.length; i++) {
             logger.error("==>args[" + i + "]: " + args[i]);
         }
 
-        logger.error("==>Exception class: " + ex.getClass().getName());
+        logger.error("==>Exception clazz: " + ex.getClass().getName());
         logger.error("==>" + ex.fillInStackTrace());
         ex.printStackTrace();
     }

@@ -55,7 +55,7 @@
 				</div>
 			</div>
 			<div id="sidebar">
-				<!-- <div class="toggleCollapse"><h2>主菜单</h2><div>收缩</div></div>-->
+				<!-- <div clazz="toggleCollapse"><h2>主菜单</h2><div>收缩</div></div>-->
 				<div class="accordion" fillSpace="sidebar">${tree }</div>
 			</div>
 		</div>
@@ -63,7 +63,7 @@
 			<div id="navTab" class="tabsPage">
 				<div class="tabsPageHeader">
 					<div class="tabsPageHeaderContent">
-						<!-- 显示左右控制时添加 class="tabsPageHeaderMargin" -->
+						<!-- 显示左右控制时添加 clazz="tabsPageHeaderMargin" -->
 						<ul class="navTab-tab">
 							<li tabid="main" class="main"><a href="javascript:;"><span><span class="home_icon">主页</span>
 								</span>
@@ -72,9 +72,9 @@
 						</ul>
 					</div>
 					<div class="tabsLeft">left</div>
-					<!-- 禁用只需要添加一个样式 class="tabsLeft tabsLeftDisabled" -->
+					<!-- 禁用只需要添加一个样式 clazz="tabsLeft tabsLeftDisabled" -->
 					<div class="tabsRight">right</div>
-					<!-- 禁用只需要添加一个样式 class="tabsRight tabsRightDisabled" -->
+					<!-- 禁用只需要添加一个样式 clazz="tabsRight tabsRightDisabled" -->
 					<div class="tabsMore">more</div>
 				</div>
 				<ul class="tabsMoreList">
