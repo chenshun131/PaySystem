@@ -70,4 +70,17 @@ public class Test01 {
         }
     }
 
+    @Test
+    public void test7() {
+        // s1、s2 指向的 "abc" 会在编译期存放在 运行时常量池中，在类加载后存放到，常量池中，而常量池中的数据
+        // 是无序不重复的因此 "abc" 只有一份这就导致 s1 s2 指向同一个字符串那么 s1 s2 相等
+        // 而 s3 使用 new 创建的字符串不会在字符串常量池中查找而会直接开辟新空间存放数据因此 s3 不等于 是 s1
+        String s1 = "abc";
+        String s2 = "abc";
+        System.out.println(s1 == s2); // true  由于 String 对象都会存放到常量池中
+        String s3 = new String("abc");
+        System.out.println(s1 == s3); // false
+        System.out.println(s1 == s3.intern()); // String 的 intern()方法会查找在常量池中是否存在一份equal相等的字符串,如果有则返回该字符串的引用,如果没有则添加自己的字符串进入常量池
+    }
+
 }

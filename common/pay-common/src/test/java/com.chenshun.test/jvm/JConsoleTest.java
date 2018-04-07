@@ -11,9 +11,11 @@ import java.util.List;
  */
 public class JConsoleTest {
 
+    public byte[] b1 = new byte[128 * 1024];
+
     public static void main(String[] args) throws InterruptedException {
         List<JConsoleTest> list = new ArrayList<>();
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10000; i++) {
             Thread.sleep(100);
             list.add(new JConsoleTest());
         }
