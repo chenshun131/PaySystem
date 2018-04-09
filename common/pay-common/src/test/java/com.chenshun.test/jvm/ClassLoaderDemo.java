@@ -35,7 +35,7 @@ public class ClassLoaderDemo {
         // 此处 com.chenshun.test.jvm.ClassLoaderDemo 会被加载两边，System ClassLoader 和 User Define ClassLoade
         Object c = classLoader.loadClass("com.chenshun.test.jvm.ClassLoaderDemo").newInstance();
         System.out.println(c.getClass()); // 输出 class com.chenshun.test.jvm.ClassLoaderDemo
-        System.out.println(c instanceof ClassLoaderDemo);
+        System.out.println(c instanceof ClassLoaderDemo); // false 使用的类加载器不同，因此是不同类
     }
 
 }
