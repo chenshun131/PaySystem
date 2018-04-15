@@ -1,16 +1,10 @@
 package com.chenshun.test.multipthread;
 
-<<<<<<< HEAD
 import java.util.concurrent.TimeUnit;
 
 /**
- * User: mew <p />
- * Time: 18/4/10 09:15  <p />
-=======
-/**
  * User: chenshun131 <p />
  * Time: 18/4/8 21:06  <p />
->>>>>>> commit some test class
  * Version: V1.0  <p />
  * Description:  <p />
  */
@@ -22,7 +16,6 @@ public class Demo1 extends Thread {
 
     @Override
     public void run() {
-<<<<<<< HEAD
         while (!interrupted()) {
             System.out.println(getName() + "正在执行线程...");
             try {
@@ -44,17 +37,8 @@ public class Demo1 extends Thread {
 
 //        demo1.stop();
         demo1.interrupt();
-=======
-        System.out.println(getName() + "线程执行了....");
+//        System.out.println(getName() + "线程执行了....");
     }
 
-    public static void main(String[] args) {
-        Demo1 demo1 = new Demo1("demo1-Thread");
-        Demo1 demo2 = new Demo1("demo2-Thread");
-
-        demo1.start();
-        demo2.start();
->>>>>>> commit some test class
-    }
 
 }
