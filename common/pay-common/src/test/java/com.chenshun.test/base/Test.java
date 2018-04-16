@@ -55,4 +55,9 @@ public class Test {
         System.out.println((a == c)); // false
     }
 
+    @org.junit.Test
+    public void test4() {
+        TestOverwrite.evaluate("My Test Argument passed to param1");
+    }
+
 }

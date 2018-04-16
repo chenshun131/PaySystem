@@ -3,8 +3,8 @@ package com.chenshun.test.multipthread;
 import java.util.concurrent.TimeUnit;
 
 /**
- * User: mew <p />
- * Time: 18/4/10 09:15  <p />
+ * User: chenshun131 <p />
+ * Time: 18/4/8 21:06  <p />
  * Version: V1.0  <p />
  * Description:  <p />
  */
@@ -37,6 +37,8 @@ public class Demo1 extends Thread {
 
 //        demo1.stop();
         demo1.interrupt();
+//        System.out.println(getName() + "线程执行了....");
     }
+
 
 }

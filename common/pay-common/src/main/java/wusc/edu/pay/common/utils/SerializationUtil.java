@@ -37,6 +37,14 @@ public class SerializationUtil {
         return schema;
     }
 
+    /**
+     * 对象序列化
+     *
+     * @param obj
+     * @param <T>
+     * @return
+     */
+    @SuppressWarnings("unchecked")
     public static <T> byte[] serialize(T obj) {
         Class<T> cls = (Class<T>) obj.getClass();
         LinkedBuffer buffer = LinkedBuffer.allocate(LinkedBuffer.DEFAULT_BUFFER_SIZE);
@@ -50,6 +58,14 @@ public class SerializationUtil {
         }
     }
 
+    /**
+     * 对字节码进行反序列化
+     *
+     * @param data
+     * @param cls
+     * @param <T>
+     * @return
+     */
     public static <T> T deserialize(byte[] data, Class<T> cls) {
         try {
             T message = objenesis.newInstance(cls);
