@@ -71,7 +71,7 @@ public enum AccountFrozenHistoryTypeEnum {
 
     public static List toList() {
         AccountFrozenHistoryTypeEnum[] ary = AccountFrozenHistoryTypeEnum.values();
-        List list = new ArrayList();
+        List<Map<String, String>> list = new ArrayList<>();
         for (AccountFrozenHistoryTypeEnum anAry : ary) {
             Map<String, String> map = new HashMap<>();
             map.put("value", anAry.toString());
