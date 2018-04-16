@@ -432,5 +432,12 @@
             <groupId>com.alibaba.otter</groupId>
             <artifactId>canal.client</artifactId>
         </dependency>
+
+        <!-- disruptor Begin -->
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+        </dependency>
+        <!-- disruptor End -->
     </dependencies>
 </project>

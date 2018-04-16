@@ -21,7 +21,7 @@ public class Demo5 {
                 System.out.println("Timer task is run");
             }
         }, 0, 1000);
-        Thread.sleep(TimeUnit.SECONDS.toMillis(5));
+        TimeUnit.SECONDS.sleep(5);
         timer.cancel();
     }
 

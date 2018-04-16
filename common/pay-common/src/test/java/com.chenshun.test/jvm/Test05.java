@@ -22,7 +22,7 @@ public class Test05 {
 
         new Thread(() -> {
             try {
-                Thread.sleep(TimeUnit.SECONDS.toMillis(10000));
+                TimeUnit.SECONDS.sleep(10000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

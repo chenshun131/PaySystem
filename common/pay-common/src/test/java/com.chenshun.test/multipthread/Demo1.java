@@ -33,7 +33,7 @@ public class Demo1 extends Thread {
         demo1.start();
         demo2.start();
 
-        Thread.sleep(TimeUnit.SECONDS.toMillis(10));
+        TimeUnit.SECONDS.sleep(10);
 
 //        demo1.stop();
         demo1.interrupt();
