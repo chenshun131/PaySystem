@@ -3,6 +3,12 @@ package com.chenshun.test;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
 /**
  * User: chenshun131 <p />
  * Time: 17/12/18 20:36  <p />
@@ -59,6 +65,33 @@ public class ThreadTest {
         Long l3 = 128L;
         Long l4 = 128L;
         Assert.assertFalse(l3 == l4); // 输出false
+    }
+
+    @Test
+    public void test7() throws InterruptedException {
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
+        for (int i = 0; i < 5; i++) {
+            executorService.submit(() -> {
+                List<Byte[]> list = new ArrayList<>();
+                for (int j = 0; j < 100; j++) {
+                    System.out.println(Thread.currentThread().getName() + " j=" + j);
+                    try {
+                        TimeUnit.SECONDS.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                        System.out.println("发生错误");
+                    }
+                    list.add(new Byte[1024]);
+                }
+            });
+        }
+//        executorService.shutdown();
+
+//        List<Byte[]> list = new ArrayList<>();
+//        for (int i = 0; i < 100; i++) {
+//            TimeUnit.SECONDS.sleep(10);
+//            list.add(new Byte[1024]);
+//        }
     }
 
     public static void main(String[] args) {
