@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 /**
  * User: mew <p />
@@ -20,6 +21,11 @@ public class T1 {
         final HashMap<String, String> map = new HashMap<>(COUNT);
         Thread t = new Thread(() -> {
             for (int i = 0; i < COUNT; i++) {
+                try {
+                    TimeUnit.SECONDS.sleep(3);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 new Thread(() -> map.put(UUID.randomUUID().toString(), ""), "ftf" + i).start();
             }
         }, "ftf");
