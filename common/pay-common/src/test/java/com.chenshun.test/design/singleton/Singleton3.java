@@ -11,7 +11,7 @@ public class Singleton3 {
     /**
      * 1、提供未实例化的静态实例
      */
-    private static Singleton3 instance = null;
+    private static volatile Singleton3 instance = null;
 
     /**
      * 2、私有化构造器
