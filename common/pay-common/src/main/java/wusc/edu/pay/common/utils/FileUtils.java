@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 /**
  * 文件工具类
@@ -185,6 +187,25 @@ public class FileUtils {
             }
         }
         file.delete();
+    }
+
+    /**
+     * 从图片文件中读取内容
+     *
+     * @param path
+     *         图片文件的路径
+     * @return 二进制图片内容的byte数组
+     */
+    public static byte[] readFile(Path path) {
+        byte[] imageContents = null;
+
+        try {
+            imageContents = Files.readAllBytes(path);
+        } catch (IOException e) {
+            // 读取文件出错了...~zZ
+            e.printStackTrace();
+        }
+        return imageContents;
     }
 
 }
