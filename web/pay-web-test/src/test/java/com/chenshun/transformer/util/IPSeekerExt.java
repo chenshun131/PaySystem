@@ -3,14 +3,13 @@ package com.chenshun.transformer.util;
 import java.io.File;
 import java.io.IOException;
 
+import com.chenshun.transformer.common.GlobalConstants;
+import com.chenshun.transformer.util.ip.IPSeeker;
 import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.log4j.Logger;
-
-import com.ibeifeng.transformer.common.GlobalConstants;
-import com.ibeifeng.transformer.util.ip.IPSeeker;
 
 /**
  * Ip解析工具类

@@ -1,28 +1,24 @@
 package com.chenshun.transformer.dimension.value;
 
+import com.chenshun.transformer.common.KpiType;
+import org.apache.hadoop.io.MapWritable;
+import org.apache.hadoop.io.WritableUtils;
+
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-import org.apache.hadoop.io.MapWritable;
-import org.apache.hadoop.io.WritableUtils;
-
-import com.ibeifeng.transformer.common.KpiType;
-
 /**
  * 填充Map对象的输出对象
- * 
- * @author ibf
  *
+ * @author ibf
  */
 public class MapWritableValue extends BaseStatsValueWritable {
-    /**
-     * Map Writable对象
-     */
+
+    /** Map Writable对象 */
     private MapWritable value = new MapWritable();
-    /**
-     * kpi 类型
-     */
+
+    /** kpi 类型 */
     private KpiType kpi;
 
     /**
@@ -34,7 +30,7 @@ public class MapWritableValue extends BaseStatsValueWritable {
 
     /**
      * 给定全部参数的构造方法
-     * 
+     *
      * @param value
      * @param kpi
      */
@@ -75,9 +71,9 @@ public class MapWritableValue extends BaseStatsValueWritable {
         return this.kpi;
     }
 
-	@Override
-	public String toString() {
-		return "MapWritableValue [value=" + value + ", kpi=" + kpi + "]";
-	}
+    @Override
+    public String toString() {
+        return "MapWritableValue [value=" + value + ", kpi=" + kpi + "]";
+    }
 
 }

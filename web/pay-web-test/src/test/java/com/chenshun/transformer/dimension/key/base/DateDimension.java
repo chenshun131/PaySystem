@@ -1,66 +1,56 @@
 package com.chenshun.transformer.dimension.key.base;
 
+import com.chenshun.transformer.common.DateEnum;
+import com.chenshun.transformer.dimension.key.BaseDimension;
+import com.chenshun.transformer.util.TimeUtil;
+
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 
-import com.ibeifeng.transformer.common.DateEnum;
-import com.chenshun.transformer.dimension.key.BaseDimension;
-import com.ibeifeng.transformer.util.TimeUtil;
-
 /**
  * 日期维度类
- * 
- * @author ibeifeng
  *
+ * @author ibeifeng
  */
 public class DateDimension extends BrowserDimension {
 
-    /**
-     * 数据库主键
-     */
+    /** 数据库主键 */
     private int id;
-    /**
-     * 年份
-     */
+
+    /** 年份 */
     private int year;
-    /**
-     * 季度
-     */
+
+    /** 季度 */
     private int season;
-    /**
-     * 月份
-     */
+
+    /** 月份 */
     private int month;
-    /**
-     * 周
-     */
+
+    /** 周 */
     private int week;
-    /**
-     * 天
-     */
+
+    /** 天 */
     private int day;
-    /**
-     * 时间维度类型：year、season、month、week、day
-     */
+
+    /** 时间维度类型：year、season、month、week、day */
     private String type;
-    /**
-     * 具体日期
-     */
+
+    /** 具体日期 */
     private Date calendar = new Date();
 
     /**
      * 根据给定的毫米级时间戳和需要创建的日期维度类型创建一个日期维度对象
-     * 
+     *
      * @param time
-     *            毫秒级时间戳
+     *         毫秒级时间戳
      * @param type
-     *            需要创建的日期维度类型
-     * @throws RuntimeException
-     *             如果给定的type没法创建，那么直接抛出此异常
+     *         需要创建的日期维度类型
      * @return 返回一个对应的时间维度对象
+     * @throws RuntimeException
+     *         如果给定的type没法创建，那么直接抛出此异常
      */
     public static DateDimension buildDate(long time, DateEnum type) {
         // 创建一个日历对象
@@ -148,50 +138,50 @@ public class DateDimension extends BrowserDimension {
 
     /**
      * 给定全部参数的构造函数
-     * 
+     *
      * @param id
-     *            数据库主键id
+     *         数据库主键id
      * @param year
-     *            年份
+     *         年份
      * @param season
-     *            季度
+     *         季度
      * @param month
-     *            月
+     *         月
      * @param week
-     *            周
+     *         周
      * @param day
-     *            天
+     *         天
      * @param type
-     *            日期维度类型
+     *         日期维度类型
      * @param calendar
-     *            具体对于的日期
+     *         具体对于的日期
      */
     public DateDimension(int id, int year, int season, int month, int week, int day, String type,
-            Date calendar) {
+                         Date calendar) {
         this(year, season, month, week, day, type, calendar);
         this.id = id;
     }
 
     /**
      * 有参构造方法， 主要用于构造具体的时间维度对象
-     * 
+     *
      * @param year
-     *            年份
+     *         年份
      * @param season
-     *            季度
+     *         季度
      * @param month
-     *            月
+     *         月
      * @param week
-     *            周
+     *         周
      * @param day
-     *            天
+     *         天
      * @param type
-     *            日期维度类型
+     *         日期维度类型
      * @param calendar
-     *            具体对于的日期
+     *         具体对于的日期
      */
     public DateDimension(int year, int season, int month, int week, int day, String type,
-            Date calendar) {
+                         Date calendar) {
         this.year = year;
         this.season = season;
         this.month = month;
@@ -284,35 +274,48 @@ public class DateDimension extends BrowserDimension {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         DateDimension other = (DateDimension) obj;
         if (calendar == null) {
-            if (other.calendar != null)
+            if (other.calendar != null) {
                 return false;
-        } else if (!calendar.equals(other.calendar))
+            }
+        } else if (!calendar.equals(other.calendar)) {
             return false;
-        if (day != other.day)
+        }
+        if (day != other.day) {
             return false;
-        if (id != other.id)
+        }
+        if (id != other.id) {
             return false;
-        if (month != other.month)
+        }
+        if (month != other.month) {
             return false;
-        if (season != other.season)
+        }
+        if (season != other.season) {
             return false;
+        }
         if (type == null) {
-            if (other.type != null)
+            if (other.type != null) {
                 return false;
-        } else if (!type.equals(other.type))
+            }
+        } else if (!type.equals(other.type)) {
             return false;
-        if (week != other.week)
+        }
+        if (week != other.week) {
             return false;
-        if (year != other.year)
+        }
+        if (year != other.year) {
             return false;
+        }
         return true;
     }
 
@@ -342,40 +345,47 @@ public class DateDimension extends BrowserDimension {
 
     @Override
     public int compareTo(BaseDimension o) {
-        if (o == this)
+        if (o == this) {
             return 0;
+        }
 
         DateDimension dd = (DateDimension) o;
         int tmp = Integer.compare(this.id, dd.getId());
-        if (tmp != 0)
+        if (tmp != 0) {
             return tmp;
+        }
 
         tmp = Integer.compare(this.year, dd.getYear());
-        if (tmp != 0)
+        if (tmp != 0) {
             return tmp;
+        }
 
         tmp = Integer.compare(this.season, dd.getSeason());
-        if (tmp != 0)
+        if (tmp != 0) {
             return tmp;
+        }
 
         tmp = Integer.compare(this.month, dd.getMonth());
-        if (tmp != 0)
+        if (tmp != 0) {
             return tmp;
+        }
 
         tmp = Integer.compare(this.week, dd.getWeek());
-        if (tmp != 0)
+        if (tmp != 0) {
             return tmp;
+        }
 
         tmp = Integer.compare(this.day, dd.getDay());
-        if (tmp != 0)
+        if (tmp != 0) {
             return tmp;
+        }
 
         return this.type.compareTo(dd.getType());
     }
 
-	@Override
-	public String toString() {
-		return "DateDimension [id=" + id + ", year=" + year + ", season=" + season + ", month=" + month + ", week="
-				+ week + ", day=" + day + ", type=" + type + ", calendar=" + calendar + "]";
-	}
+    @Override
+    public String toString() {
+        return "DateDimension [id=" + id + ", year=" + year + ", season=" + season + ", month=" + month + ", week="
+                + week + ", day=" + day + ", type=" + type + ", calendar=" + calendar + "]";
+    }
 }

@@ -1,23 +1,24 @@
 package com.chenshun.transformer.dimension.key.stats;
 
+import com.chenshun.transformer.dimension.key.BaseDimension;
+import com.chenshun.transformer.dimension.key.base.BrowserDimension;
+
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-import com.chenshun.transformer.dimension.key.BaseDimension;
-import com.ibeifeng.transformer.dimension.key.base.BrowserDimension;
-
 /**
  * 进行用户分析(用户基本分析和浏览器分析)定义的组合维度
- * 
- * @author ibeifeng
  *
+ * @author ibeifeng
  */
 public class StatsUserDimension extends StatsDimension {
+
     /**
      * 公用维度对象
      */
     private StatsCommonDimension statsCommon = new StatsCommonDimension();
+
     /**
      * 浏览器维度对象
      */
@@ -25,7 +26,7 @@ public class StatsUserDimension extends StatsDimension {
 
     /**
      * 依照一个已有对象克隆出一个新的组合维度对象
-     * 
+     *
      * @param dimension
      * @return
      */
@@ -54,11 +55,11 @@ public class StatsUserDimension extends StatsDimension {
 
     /**
      * 给定全部参数的构造方法
-     * 
+     *
      * @param statsCommon
-     *            stats基本组合维度
+     *         stats基本组合维度
      * @param browser
-     *            浏览器维度
+     *         浏览器维度
      */
     public StatsUserDimension(StatsCommonDimension statsCommon, BrowserDimension browser) {
         super();
@@ -120,29 +121,33 @@ public class StatsUserDimension extends StatsDimension {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         StatsUserDimension other = (StatsUserDimension) obj;
         if (browser == null) {
-            if (other.browser != null)
+            if (other.browser != null) {
                 return false;
-        } else if (!browser.equals(other.browser))
+            }
+        } else if (!browser.equals(other.browser)) {
             return false;
+        }
         if (statsCommon == null) {
-            if (other.statsCommon != null)
-                return false;
-        } else if (!statsCommon.equals(other.statsCommon))
-            return false;
-        return true;
+            return other.statsCommon == null;
+        } else {
+            return statsCommon.equals(other.statsCommon);
+        }
     }
 
-	@Override
-	public String toString() {
-		return "StatsUserDimension [statsCommon=" + statsCommon + ", browser=" + browser + "]";
-	}
-    
+    @Override
+    public String toString() {
+        return "StatsUserDimension [statsCommon=" + statsCommon + ", browser=" + browser + "]";
+    }
+
 }

@@ -1,33 +1,29 @@
 package com.chenshun.transformer.util;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
+import com.chenshun.transformer.common.GlobalConstants;
 import org.apache.hadoop.conf.Configuration;
 
-import com.ibeifeng.transformer.common.GlobalConstants;
+import java.sql.*;
 
 /**
  * jdbc管理
- * 
- * @author ibeifeng
  *
+ * @author ibeifeng
  */
 public class JdbcManager {
+
     /**
      * 根据配置获取获取关系型数据库的jdbc连接
-     * 
+     *
      * @param conf
-     *            hadoop配置信息
+     *         hadoop配置信息
      * @param flag
-     *            区分不同数据源的标志位
+     *         区分不同数据源的标志位
      * @return
      * @throws SQLException
      */
     public static Connection getConnection(Configuration conf, String flag) throws SQLException {
-    	// 转换成为正常的字符串，比如mysql.report.driver之类的，当flag的值为"report"的时候
+        // 转换成为正常的字符串，比如mysql.report.driver之类的，当flag的值为"report"的时候
         String driverStr = String.format(GlobalConstants.JDBC_DRIVER, flag);
         String urlStr = String.format(GlobalConstants.JDBC_URL, flag);
         String usernameStr = String.format(GlobalConstants.JDBC_USERNAME, flag);
@@ -49,7 +45,7 @@ public class JdbcManager {
 
     /**
      * 关闭数据库连接
-     * 
+     *
      * @param conn
      * @param stmt
      * @param rs
@@ -62,7 +58,6 @@ public class JdbcManager {
                 // nothigns
             }
         }
-
         if (stmt != null) {
             try {
                 stmt.close();
@@ -70,7 +65,6 @@ public class JdbcManager {
                 // nothings
             }
         }
-
         if (conn != null) {
             try {
                 conn.close();
@@ -79,4 +73,5 @@ public class JdbcManager {
             }
         }
     }
+
 }

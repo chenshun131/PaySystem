@@ -1,28 +1,29 @@
 package com.chenshun.transformer.dimension.key.base;
 
+import com.chenshun.transformer.common.GlobalConstants;
+import com.chenshun.transformer.dimension.key.BaseDimension;
+import org.apache.commons.lang.StringUtils;
+
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
-
-import com.ibeifeng.transformer.common.GlobalConstants;
-import com.chenshun.transformer.dimension.key.BaseDimension;
-
 /**
  * 浏览器维度（浏览器名称和浏览器版本号）
- * 
- * @author ibeifeng
  *
+ * @author ibeifeng
  */
 public class BrowserDimension extends BaseDimension {
-	// 数据库主键id
+
+    /** 数据库主键id */
     private int id;
-    // 浏览器名称
+
+    /** 浏览器名称 */
     private String browser;
-    // 浏览器版本号
+
+    /** 浏览器版本号 */
     private String browserVersion;
 
     /**
@@ -34,11 +35,11 @@ public class BrowserDimension extends BaseDimension {
 
     /**
      * 给定浏览器信息的构造函数
-     * 
+     *
      * @param browser
-     *            浏览器名称
+     *         浏览器名称
      * @param browserVersion
-     *            浏览器版本
+     *         浏览器版本
      */
     public BrowserDimension(String browser, String browserVersion) {
         super();
@@ -48,11 +49,11 @@ public class BrowserDimension extends BaseDimension {
 
     /**
      * 静态方法，根据给定的浏览器信息创建一个dim对象
-     * 
+     *
      * @param browser
-     *            浏览器版本名称
+     *         浏览器版本名称
      * @param browserVersion
-     *            浏览器版本号
+     *         浏览器版本号
      * @return
      */
     public static BrowserDimension newInstance(String browser, String browserVersion) {
@@ -64,12 +65,11 @@ public class BrowserDimension extends BaseDimension {
 
     /**
      * 根据给定的浏览器信息构造多个浏览器维度的对象集合<br/>
-     * 
-     * 
+     *
      * @param browser
-     *            给定的浏览器名称
+     *         给定的浏览器名称
      * @param browserVersion
-     *            给定的浏览器版本号
+     *         给定的浏览器版本号
      * @return 返回一个不同维度的浏览器对象集合
      */
     public static List<BrowserDimension> buildList(String browser, String browserVersion) {
@@ -113,8 +113,9 @@ public class BrowserDimension extends BaseDimension {
 
     @Override
     public int compareTo(BaseDimension o) {
-        if (o == this)
+        if (o == this) {
             return 0;
+        }
         BrowserDimension bd = (BrowserDimension) o;
         int result = Integer.compare(this.id, bd.getId());
         if (result == 0) {
@@ -163,30 +164,38 @@ public class BrowserDimension extends BaseDimension {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         BrowserDimension other = (BrowserDimension) obj;
         if (browser == null) {
-            if (other.browser != null)
+            if (other.browser != null) {
                 return false;
-        } else if (!browser.equals(other.browser))
+            }
+        } else if (!browser.equals(other.browser)) {
             return false;
+        }
         if (browserVersion == null) {
-            if (other.browserVersion != null)
+            if (other.browserVersion != null) {
                 return false;
-        } else if (!browserVersion.equals(other.browserVersion))
+            }
+        } else if (!browserVersion.equals(other.browserVersion)) {
             return false;
-        if (id != other.id)
+        }
+        if (id != other.id) {
             return false;
+        }
         return true;
     }
-    
+
     @Override
-	public String toString() {
-		return "BrowserDimension [id=" + id + ", browser=" + browser + ", browserVersion=" + browserVersion + "]";
-	}
+    public String toString() {
+        return "BrowserDimension [id=" + id + ", browser=" + browser + ", browserVersion=" + browserVersion + "]";
+    }
 }

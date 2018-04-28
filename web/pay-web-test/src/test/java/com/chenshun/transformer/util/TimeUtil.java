@@ -1,4 +1,8 @@
 package com.chenshun.transformer.util;
+
+import com.chenshun.transformer.common.DateEnum;
+import org.apache.commons.lang.StringUtils;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -6,23 +10,20 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.lang.StringUtils;
-
-import com.ibeifeng.transformer.common.DateEnum;
-
 /**
  * 时间控制工具类
- * 
- * @author ibeifeng
  *
+ * @author ibeifeng
  */
 public class TimeUtil {
+
     public static final String DATE_FORMAT = "yyyy-MM-dd";
+
     public static final String HBASE_TABLE_NAME_SUFFIX_FORMAT = "yyyyMMdd";
 
     /**
      * 获取昨日的日期格式字符串数据
-     * 
+     *
      * @return
      */
     public static String getYesterday() {
@@ -31,7 +32,7 @@ public class TimeUtil {
 
     /**
      * 获取对应格式的时间字符串
-     * 
+     *
      * @param pattern
      * @return
      */
@@ -44,7 +45,7 @@ public class TimeUtil {
 
     /**
      * 判断输入的参数是否是一个有效的时间格式数据
-     * 
+     *
      * @param input
      * @return
      */
@@ -64,7 +65,7 @@ public class TimeUtil {
 
     /**
      * 将yyyy-MM-dd格式的时间字符串转换为时间戳
-     * 
+     *
      * @param input
      * @return
      */
@@ -74,7 +75,7 @@ public class TimeUtil {
 
     /**
      * 将指定格式的时间字符串转换为时间戳
-     * 
+     *
      * @param input
      * @param pattern
      * @return
@@ -91,7 +92,7 @@ public class TimeUtil {
 
     /**
      * 将时间戳转换为yyyy-MM-dd格式的时间字符串
-     * 
+     *
      * @param input
      * @return
      */
@@ -101,7 +102,7 @@ public class TimeUtil {
 
     /**
      * 将时间戳转换为指定格式的字符串
-     * 
+     *
      * @param input
      * @param pattern
      * @return
@@ -114,7 +115,7 @@ public class TimeUtil {
 
     /**
      * 将nginx服务器时间转换为时间戳，如果说解析失败，返回-1
-     * 
+     *
      * @param input
      * @return
      */
@@ -125,9 +126,9 @@ public class TimeUtil {
 
     /**
      * 将nginx服务器时间转换为date对象。如果解析失败，返回null
-     * 
+     *
      * @param input
-     *            格式: 1449410796.976
+     *         格式: 1449410796.976
      * @return
      */
     public static Date parseNginxServerTime2Date(String input) {
@@ -146,9 +147,9 @@ public class TimeUtil {
 
     /**
      * 从时间戳中获取需要的时间信息
-     * 
+     *
      * @param time
-     *            时间戳
+     *         时间戳
      * @param type
      * @return 如果没有匹配的type，抛出异常信息
      */
@@ -181,7 +182,7 @@ public class TimeUtil {
 
     /**
      * 获取time指定周的第一天的时间戳值
-     * 
+     *
      * @param time
      * @return
      */
@@ -198,7 +199,7 @@ public class TimeUtil {
 
     /**
      * @param date
-     *            : long date like "1360252800000L"
+     *         : long date like "1360252800000L"
      * @return : long of first day of this month
      */
     public static long getFirstDayOfThisMonth(long date) {
@@ -216,7 +217,7 @@ public class TimeUtil {
 
     /**
      * 获取给定时间上一个月的第一天
-     * 
+     *
      * @param date
      * @return
      */
@@ -233,7 +234,7 @@ public class TimeUtil {
 
     /**
      * 获取下个月的第一天
-     * 
+     *
      * @param date
      * @return
      */
@@ -250,7 +251,7 @@ public class TimeUtil {
 
     /**
      * 获取上一周的第一天
-     * 
+     *
      * @param date
      * @return
      */
@@ -267,7 +268,7 @@ public class TimeUtil {
 
     /**
      * 获取下一周的第一天
-     * 
+     *
      * @param date
      * @return
      */
@@ -284,7 +285,7 @@ public class TimeUtil {
 
     /**
      * 获取当天的毫米及
-     * 
+     *
      * @return
      */
     public static long getTodayInMillis() {
@@ -298,13 +299,13 @@ public class TimeUtil {
 
     /**
      * @param amount
-     *            : amount day before or after.
+     *         : amount day before or after.
      * @param today
-     *            : long date like 1360252800000L
+     *         : long date like 1360252800000L
      * @return : string of long date like 1360252800000 <br />
-     *         example : getSpecifiedDate (today, 2) : get the date of the day
-     *         after tomorrow<br />
-     *         getSpecifiedDate (today, -1) : get the date of yesterday
+     * example : getSpecifiedDate (today, 2) : get the date of the day
+     * after tomorrow<br />
+     * getSpecifiedDate (today, -1) : get the date of yesterday
      */
     public static long getSpecifiedDate(long today, int amount) {
         Date d = new Date();

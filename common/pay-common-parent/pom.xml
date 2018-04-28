@@ -1182,7 +1182,12 @@
             <dependency>
                 <groupId>org.apache.hadoop</groupId>
                 <artifactId>hadoop-client</artifactId>
-                <version>2.5.0</version>
+                <version>3.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-hdfs</artifactId>
+                <version>3.1.0</version>
             </dependency>
             <!-- hadoop client End -->
 
@@ -1302,6 +1307,11 @@
                 <groupId>com.alibaba.otter</groupId>
                 <artifactId>canal.client</artifactId>
                 <version>1.0.25</version>
+            </dependency>
+            <dependency>
+                <groupId>cz.mallat.uasparser</groupId>
+                <artifactId>uasparser</artifactId>
+                <version>0.6.2</version>
             </dependency>
 
             <!-- disruptor Begin -->

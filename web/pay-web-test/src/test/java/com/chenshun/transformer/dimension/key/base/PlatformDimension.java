@@ -1,34 +1,29 @@
 package com.chenshun.transformer.dimension.key.base;
 
+import com.chenshun.transformer.common.GlobalConstants;
+import com.chenshun.transformer.dimension.key.BaseDimension;
+import org.apache.commons.lang.StringUtils;
+
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
-
-import com.ibeifeng.transformer.common.GlobalConstants;
-import com.chenshun.transformer.dimension.key.BaseDimension;
-
 /**
  * 平台维度（平台名称，平台版本）
- * 
- * @author ibf
  *
+ * @author ibf
  */
 public class PlatformDimension extends BaseDimension {
-    /**
-     * 数据库主键
-     */
+
+    /** 数据库主键 */
     private int id;
-    /**
-     * 平台名称
-     */
+
+    /** 平台名称 */
     private String platformName;
-    /**
-     * 平台版本号
-     */
+
+    /** 平台版本号 */
     private String platformVersion;
 
     /**
@@ -40,11 +35,11 @@ public class PlatformDimension extends BaseDimension {
 
     /**
      * 给定平台信息的构造函数
-     * 
+     *
      * @param platformName
-     *            名称
+     *         名称
      * @param platformVersion
-     *            版本号
+     *         版本号
      */
     public PlatformDimension(String platformName, String platformVersion) {
         super();
@@ -54,13 +49,13 @@ public class PlatformDimension extends BaseDimension {
 
     /**
      * 给定全部参数的构造函数
-     * 
+     *
      * @param id
-     *            主键id
+     *         主键id
      * @param platformName
-     *            平台名称
+     *         平台名称
      * @param platformVersion
-     *            平台版本号
+     *         平台版本号
      */
     public PlatformDimension(int id, String platformName, String platformVersion) {
         super();
@@ -71,11 +66,11 @@ public class PlatformDimension extends BaseDimension {
 
     /**
      * 根据给定的参数值，构建多个不同维度的平台维度对象
-     * 
+     *
      * @param platformName
-     *            平台名称
+     *         平台名称
      * @param platformVersion
-     *            平台版本(其实就是sdk版本号)
+     *         平台版本(其实就是sdk版本号)
      * @return
      */
     public static List<PlatformDimension> buildList(String platformName, String platformVersion) {
@@ -145,8 +140,9 @@ public class PlatformDimension extends BaseDimension {
 
     @Override
     public int compareTo(BaseDimension o) {
-        if (this == o)
+        if (this == o) {
             return 0;
+        }
         PlatformDimension pfd = (PlatformDimension) o;
         int result = Integer.compare(id, pfd.getId());
         if (0 != result) {
@@ -171,32 +167,37 @@ public class PlatformDimension extends BaseDimension {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         PlatformDimension other = (PlatformDimension) obj;
-        if (id != other.id)
+        if (id != other.id) {
             return false;
+        }
         if (platformName == null) {
-            if (other.platformName != null)
+            if (other.platformName != null) {
                 return false;
-        } else if (!platformName.equals(other.platformName))
+            }
+        } else if (!platformName.equals(other.platformName)) {
             return false;
+        }
         if (platformVersion == null) {
-            if (other.platformVersion != null)
-                return false;
-        } else if (!platformVersion.equals(other.platformVersion))
-            return false;
-        return true;
+            return other.platformVersion == null;
+        } else {
+            return platformVersion.equals(other.platformVersion);
+        }
     }
 
-	@Override
-	public String toString() {
-		return "PlatformDimension [id=" + id + ", platformName=" + platformName + ", platformVersion=" + platformVersion
-				+ "]";
-	}
-    
+    @Override
+    public String toString() {
+        return "PlatformDimension [id=" + id + ", platformName=" + platformName + ", platformVersion=" + platformVersion
+                + "]";
+    }
+
 }

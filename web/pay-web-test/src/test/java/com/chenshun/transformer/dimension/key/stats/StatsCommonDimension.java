@@ -5,9 +5,9 @@ import java.io.DataOutput;
 import java.io.IOException;
 
 import com.chenshun.transformer.dimension.key.BaseDimension;
-import com.ibeifeng.transformer.dimension.key.base.DateDimension;
-import com.ibeifeng.transformer.dimension.key.base.KpiDimension;
-import com.ibeifeng.transformer.dimension.key.base.PlatformDimension;
+import com.chenshun.transformer.dimension.key.base.DateDimension;
+import com.chenshun.transformer.dimension.key.base.KpiDimension;
+import com.chenshun.transformer.dimension.key.base.PlatformDimension;
 
 /**
  * 公用的dimension信息组合
