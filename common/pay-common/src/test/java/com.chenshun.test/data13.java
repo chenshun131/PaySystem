@@ -72,4 +72,12 @@ public class data13 {
         list.stream().skip(5).limit(3).forEach(System.out::println);
     }
 
+    @Test
+    public void t8() {
+        String jsonString = "{\"name\":\"aaa\",\"age\":1}";
+        if (jsonString != null) {
+
+        }
+    }
+
 }
