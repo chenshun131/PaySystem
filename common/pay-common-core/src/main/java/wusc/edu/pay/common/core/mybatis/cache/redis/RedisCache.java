@@ -4,13 +4,11 @@ import org.apache.ibatis.cache.Cache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisSentinelPool;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import wusc.edu.pay.common.utils.cache.redis.SerializeUtils;
 
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-
 
 /**
  * ClassName: RedisCache <br/>
@@ -103,12 +101,10 @@ public class RedisCache implements Cache {
     @Override
     public Object getObject(Object key) {
         Jedis jedis = null;
-        JedisSentinelPool jedisPool = null;
         Object value = null;
         boolean borrowOrOprSuccess = true;
         try {
             jedis = CachePool.getInstance().getJedis();
-            jedisPool = CachePool.getInstance().getJedisPool();
             System.out.println(key.hashCode());
             System.out.println(SerializeUtils.serialize(key.hashCode()));
             System.out.println(jedis.get(SerializeUtils.serialize(key.hashCode())));
@@ -116,13 +112,13 @@ public class RedisCache implements Cache {
         } catch (JedisConnectionException e) {
             borrowOrOprSuccess = false;
             if (jedis != null) {
-                jedisPool.returnBrokenResource(jedis);
+                jedis.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if (borrowOrOprSuccess) {
-                jedisPool.returnResource(jedis);
+            if (borrowOrOprSuccess && jedis != null) {
+                jedis.close();
             }
         }
         if (log.isDebugEnabled()) {
@@ -160,7 +156,6 @@ public class RedisCache implements Cache {
     @Override
     public void clear() {
         Jedis jedis = null;
-        JedisSentinelPool jedisPool = null;
         boolean borrowOrOprSuccess = true;
         try {
             jedis = CachePool.getInstance().getJedis();
