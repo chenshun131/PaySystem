@@ -86,7 +86,7 @@
         <!-- frameworks -->
         <org.springframework.version>5.0.2.RELEASE</org.springframework.version>
         <spring-security.version>4.2.3.RELEASE</spring-security.version>
-        <org.apache.struts.version>2.5.14.1</org.apache.struts.version>
+        <org.apache.struts.version>2.5.30</org.apache.struts.version>
         <!-- shiro -->
         <shiro.version>1.4.0</shiro.version>
         <!-- poi -->
