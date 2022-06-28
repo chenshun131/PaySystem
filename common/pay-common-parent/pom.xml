@@ -90,7 +90,7 @@
         <!-- shiro -->
         <shiro.version>1.4.0</shiro.version>
         <!-- poi -->
-        <poi.version>3.17</poi.version>
+        <poi.version>4.1.1</poi.version>
     </properties>
 
     <!-- 全局属性配置 -->
