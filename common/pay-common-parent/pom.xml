@@ -88,7 +88,7 @@
         <spring-security.version>4.2.3.RELEASE</spring-security.version>
         <org.apache.struts.version>2.5.14.1</org.apache.struts.version>
         <!-- shiro -->
-        <shiro.version>1.4.0</shiro.version>
+        <shiro.version>1.10.0</shiro.version>
         <!-- poi -->
         <poi.version>3.17</poi.version>
     </properties>
